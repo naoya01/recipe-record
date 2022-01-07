@@ -1,0 +1,5 @@
+<tr class="cooking-new_table_ingredients">
+  <td class="cooking-new_table_ingredients_name"><%= f.text_field :flavor_name %></td>
+  <td><%= f.text_field :flavor_quantity ,class: "cooking-new_table_ingredients_quantity" %></td>
+  <td><%= link_to_remove_association "削除" , f,class: "cooking-new_table_ingredients_delete_btn" %></td>
+</tr>

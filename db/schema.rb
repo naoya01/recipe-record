@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 2022_01_07_041320) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "customer_id"
+    t.integer "user_id"
     t.string "post_name", null: false
     t.string "post_description"
     t.string "post_image_id", null: false
-    t.string "quantity", null: false
+    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_posts_on_customer_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "recipes", force: :cascade do |t|

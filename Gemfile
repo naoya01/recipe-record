@@ -71,3 +71,4 @@ gem "byebug"
 gem 'pry-byebug'
 gem 'hirb'
 gem 'hirb-unicode'
+gem 'cocoon'

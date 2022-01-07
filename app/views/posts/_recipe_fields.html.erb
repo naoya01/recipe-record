@@ -1,0 +1,9 @@
+<tr class="cooking-new_table_process">
+  <td class="cooking-new_table_process_add_contents">
+    <%= f.text_area :recipe_description %>
+  </td>
+  <td class="cooking-new_table_process_add_image">
+    <%= f.attachment_field :recipe_image %>
+  </td>
+  <td><%= link_to_remove_association "削除" , f,class: "cooking-new_table_ingredients_delete_btn" %></td>
+</tr>

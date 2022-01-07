@@ -23,17 +23,6 @@ $(function () {
     return false;
   });
 
-  $(".cooking-new_table_ingredients_add_btn").on("click", function () {
-    $(".cooking-new_table_ingredients").after(
-      '<tr class="cooking-new_table_ingredients_inpput"><th class="u-pc">　</th><td class="cooking-new_table_ingredients_contents">名<input type="text">量<input class="cooking-new_table_ingredients_quantity" type="text"></td>'
-    );
-  });
-
-  $(".cooking-new_table_add_btn").on("click", function () {
-    $(".cooking-new_table_process_add_contents").append(
-      '<td class="cooking-new_table_process_add_input"><input type="text"></td>'
-    );
-  });
 
   //一覧の並び方
   let $grid = $(".cooking_list"),

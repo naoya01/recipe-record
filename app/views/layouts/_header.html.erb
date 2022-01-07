@@ -12,11 +12,11 @@
         <li class="l-nav_item">
           <%= link_to 'マイページ', user_path(current_user.id), class: "l-nav_item_anchor"%>
         </li>
-        <li class="l-nav_item">
-          <%= link_to 'ログイン', new_user_session_path, class: "l-nav_item_anchor"%>
+       <li class="l-nav_item">
+          <%= link_to 'レシピ作成',new_post_path, class: "l-nav_item_anchor"%>
         </li>
         <li class="l-nav_item">
-          <%= link_to '新規登録', new_user_registration_path, class: "l-nav_item_anchor"%>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class: "l-nav_item_anchor"%>
         </li>
         <% else %>
         <li class="l-nav_item">
