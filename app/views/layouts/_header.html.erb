@@ -1,0 +1,32 @@
+<header class="l-header">
+  <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
+  <nav>
+    <span class="l-nav_btn">
+      <span class="l-nav_btn_bar"></span>
+      <span class="l-nav_btn_bar"></span>
+      <span class="l-nav_btn_bar"></span>
+    </span>
+    <div class="l-nav">
+      <ul class="l-navbarnav_list">
+        <% if user_signed_in? %>
+        <li class="l-nav_item">
+          <%= link_to 'マイページ', user_path(current_user.id), class: "l-nav_item_anchor"%>
+        </li>
+        <li class="l-nav_item">
+          <%= link_to 'ログイン', new_user_session_path, class: "l-nav_item_anchor"%>
+        </li>
+        <li class="l-nav_item">
+          <%= link_to '新規登録', new_user_registration_path, class: "l-nav_item_anchor"%>
+        </li>
+        <% else %>
+        <li class="l-nav_item">
+          <%= link_to 'ログイン', new_user_session_path, class: "l-nav_item_anchor"%>
+        </li>
+        <li class="l-nav_item">
+          <%= link_to '新規登録', new_user_registration_path, class: "l-nav_item_anchor"%>
+        </li>
+        <% end%>
+      </ul>
+    </div>
+  </nav>
+</header>

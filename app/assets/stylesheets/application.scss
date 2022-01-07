@@ -1,0 +1,2312 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+font-family: 'Roboto','Noto Sans JP', sans-serif;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+font-family: 'Noto Sans JP';
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+a{
+text-decoration: none;
+}
+body{
+margin: 0px;
+}
+*{box-sizing: border-box;}
+img{
+max-width: 100%;
+height: auto;
+}
+
+
+$sp-size: 770;
+// $tb-size: 1400;
+
+$header-height_pc: 80px;
+$header-height_sp: 120;
+
+$footer-height_pc: 80px;
+$footer-height_sp: 100;
+
+@mixin media($device) {
+  @if $device== "pc" {
+    @media print, screen and (min-width: 771px) {
+      @content;
+    }
+    // } @else if $device== "tb" {
+    //   @media print, screen and (max-width: 1440px) and (min-width: 771px) {
+    //     @content;
+    //   }
+  } @else if $device== "sp" {
+    @media screen and (max-width: 770px) {
+      @content;
+    }
+  }
+}
+@mixin main-color {
+  background-color: rgb(120, 0, 0);
+}
+
+@mixin destroy-color {
+  background-color: darkred;
+}
+
+@mixin edit-color {
+  background-color: #3654b8;
+}
+
+@mixin next-color {
+  background-color: rgb(42, 36, 124);
+}
+
+@mixin btn-small {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transition: 0.3s;
+    opacity: 0.7;
+  }
+  @include media(pc) {
+    height: 40px !important;
+    width: 100px !important;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border-radius: calc(10 / #{$sp-size} * 100vw);
+    @include font-size(30);
+    width: calc(150 / #{$sp-size} * 100vw) !important;
+    height: calc(60 / #{$sp-size} * 100vw);
+    // @include padding_vw(30, 10, 30, 10);
+    text-align: center;
+  }
+}
+
+@mixin btn-login {
+  @include main-color;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transition: 0.3s;
+    opacity: 0.7;
+  }
+  @include media(pc) {
+    margin-top: 100px;
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border-radius: calc(10 / #{$sp-size} * 100vw);
+    display: block;
+    @include font-size(40);
+    @include width(300);
+    @include height(100);
+    // @include padding_vw(30, 10, 30, 10);
+    @include margin_top(100);
+    text-align: center;
+  }
+}
+
+@mixin btn-genre {
+  @include main-color;
+  margin-right: auto;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transition: 0.3s;
+    opacity: 0.7;
+  }
+  @include media(pc) {
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border-radius: calc(10 / #{$sp-size} * 100vw);
+    display: block;
+    @include font-size(30);
+    @include width(200);
+    @include height(100);
+    // @include padding_vw(30, 10, 30, 10);
+    text-align: center;
+  }
+}
+
+@mixin width($value) {
+  width: calc(#{$value} / #{$sp-size} * 100vw);
+}
+
+@mixin height($value) {
+  height: calc(#{$value} / #{$sp-size} * 100vw);
+}
+
+@mixin font-size($value) {
+  font-size: calc(#{$value} / #{$sp-size} * 100vw);
+}
+
+@mixin line-heght($value) {
+  line-height: calc(#{$value} / #{$sp-size} * 100vw);
+}
+
+@mixin padding_vw($top, $right, $bottom, $left) {
+  @if $top == auto {
+    padding-top: auto;
+  } @else {
+    padding-top: calc(#{$top} / #{$sp-size} * 100vw);
+  }
+  @if $right == auto {
+    padding-right: auto;
+  } @else {
+    padding-right: calc(#{$right} / #{$sp-size} * 100vw);
+  }
+  @if $bottom == auto {
+    padding-bottom: auto;
+  } @else {
+    padding-bottom: calc(#{$bottom} / #{$sp-size} * 100vw);
+  }
+  @if $left == auto {
+    padding-left: auto;
+  } @else {
+    padding-left: calc(#{$left} / #{$sp-size} * 100vw);
+  }
+}
+
+@mixin padding_top($value) {
+  padding-top: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+@mixin padding_right($value) {
+  padding-right: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+@mixin padding_bottom($value) {
+  padding-bottom: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+@mixin padding_left($value) {
+  padding-left: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+
+@mixin margin_vw($top, $right, $bottom, $left) {
+  @if $top == auto {
+    margin-top: auto;
+  } @else {
+    margin-top: calc(#{$top} / #{$sp-size} * 100vw);
+  }
+  @if $right == auto {
+    margin-right: auto;
+  } @else {
+    margin-right: calc(#{$right} / #{$sp-size} * 100vw);
+  }
+  @if $bottom == auto {
+    margin-bottom: auto;
+  } @else {
+    margin-bottom: calc(#{$bottom} / #{$sp-size} * 100vw);
+  }
+  @if $left == auto {
+    margin-left: auto;
+  } @else {
+    margin-left: calc(#{$left} / #{$sp-size} * 100vw);
+  }
+}
+
+@mixin margin_top($value) {
+  margin-top: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+@mixin margin_right($value) {
+  margin-right: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+@mixin margin_bottom($value) {
+  margin-bottom: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+@mixin margin_left($value) {
+  margin-left: calc(#{($value)} / #{$sp-size} * 100vw);
+}
+
+a:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+  color: rgb(182, 116, 29);
+}
+
+.u-pc {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+    display: none;
+  }
+
+  @include media(sp) {
+    display: none !important;
+  }
+}
+
+.u-tb {
+  @include media(pc) {
+    display: none !important;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    display: none;
+  }
+}
+
+.u-sp {
+  @include media(pc) {
+    display: none !important;
+  }
+
+  @include media(tb) {
+    display: none;
+  }
+
+  @include media(sp) {
+  }
+}
+
+button {
+  border: none;
+}
+.notice {
+  color: rgb(223, 128, 74);
+  @include media(pc) {
+    margin-bottom: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_vw(0, 0, 20, 0);
+  }
+}
+
+.search-count {
+  display: inline-block;
+  @include media(pc) {
+    font-size: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(30);
+  }
+}
+
+/* ----------------------top-page(トップページ)--------------------*/
+.new-blink {
+  animation: blinkAnimeS2 2s infinite alternate;
+  @include media(pc) {
+    font-size: 20px;
+    margin-right: 15px;
+  }
+  @include media(sp) {
+    @include font-size(30);
+    @include margin_right(20);
+  }
+}
+@keyframes blinkAnimeS2 {
+  0% {
+    color: red;
+    background: white;
+  }
+  100% {
+    color: white;
+    background: red;
+  }
+}
+
+.slick-next {
+  display: none !important ;
+}
+
+.slick-track {
+  height: 100vh;
+}
+
+// ----------------------------------------------------------
+.l-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  transition: 0.3s;
+
+  @include media(pc) {
+    width: 100%;
+    height: $header-height_pc;
+    position: fixed;
+    transition: 0.4s;
+    @include main-color;
+  }
+
+  @include media(tb) {
+    width: 100%;
+    height: 110px;
+    padding-right: 30px;
+    position: fixed;
+    transition: 0.4s;
+  }
+
+  @include media(sp) {
+    @include height($header_height_sp);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.l-header_title {
+  display: flex;
+
+  @include media(pc) {
+    height: $header-height_pc;
+    width: 110px;
+    align-items: center;
+  }
+
+  @include media(tb) {
+    height: 110px;
+    align-items: center;
+  }
+
+  @include media(sp) {
+    background-color: #ffffffaa;
+  }
+  img {
+    @include media(pc) {
+      height: $header-height_pc;
+      width: 110px;
+    }
+
+    @include media(tb) {
+    }
+
+    @include media(sp) {
+      @include height($header-height_sp);
+      width: auto;
+    }
+  }
+}
+
+/* ------------------------------------- スクロール時 -------------------------------------------------*/
+.UpMove {
+  animation: UpAnime 0.5s forwards;
+  // position: fixed;
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+/*　上に上がる動き　*/
+.t {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.l-header.UpMove {
+  animation: UpAnime 0.5s forwards;
+  background-color: rgba(0, 0, 0, 0);
+  // position: fixed;
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+/*　下に下がる動き　*/
+
+.l-header.DownMove {
+  animation: DownAnime 0.5s forwards;
+  // background-color: #fff;
+  transition: 0.2s;
+}
+
+@keyframes DownAnime {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*-----------------------------------ヘッダーボタン-------------------------------------------*/
+.l-nav_btn {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0);
+    @include width($header-height_sp);
+    @include height($header-height_sp);
+    @include padding_vw(45, 35, 45, 35);
+    &:hover {
+      transition: 0.3s;
+      opacity: 0.7;
+    }
+  }
+}
+
+.show_btn {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    background-color: #ddd;
+  }
+}
+
+.l-nav_btn_bar {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(50);
+    @include height(4);
+    background-color: darkred;
+    display: block;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+    position: absolute;
+
+    &:nth-child(1) {
+      top: calc(46 / #{$sp-size} * 100vw);
+    }
+
+    &:nth-child(2) {
+      top: calc(58 / #{$sp-size} * 100vw);
+    }
+
+    &:nth-child(3) {
+      top: calc(70 / #{$sp-size} * 100vw);
+    }
+  }
+}
+
+.open {
+  position: absolute;
+  @include main-color;
+  &:nth-child(1) {
+    top: calc(56 / #{$sp-size} * 100vw);
+    transition: 0.3s;
+    transform: rotate(135deg);
+  }
+
+  &:nth-child(2) {
+    transition: 0.3s;
+    display: none;
+  }
+
+  &:nth-child(3) {
+    top: calc(55 / #{$sp-size} * 100vw);
+    transition: 0.3s;
+    transform: rotate(-135deg);
+  }
+}
+
+/*----------------------------------------------ナビ---------------------------------------------------------------*/
+
+.l-nav {
+  @include media(pc) {
+    padding-left: 10px;
+    display: flex;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include main-color;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    // margin-top: calc(120 / #{$sp-size} * 100vw);
+    left: 100%;
+    height: 100vh;
+    width: 100vw;
+    transition: 0.4s;
+  }
+}
+
+.show {
+  position: absolute;
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  left: 0%;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  transition: 0.4s;
+  opacity: 1;
+}
+
+.l-navbar {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.l-navbarnav_list {
+  display: flex;
+
+  @include media(pc) {
+    justify-content: flex-end;
+    margin-bottom: 0;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    height: 100%;
+  }
+}
+
+.l-nav_item {
+  @include media(pc) {
+    height: 40px;
+    justify-content: flex-end;
+    width: 110px;
+    line-height: 1.7;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 30px;
+    &:last-child {
+      a {
+        background-color: rgb(200, 130, 60);
+        &:hover {
+          transform: scale(1.2);
+          transition-duration: 0.3s;
+          color: #6b0202;
+          background-color: rgb(255, 255, 255);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.l-nav_item + .l-nav_item {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.l-nav_item_anchor {
+  display: inline-block;
+  transition-duration: 0.3s;
+  @include media(pc) {
+    color: #eee;
+    // background-color: darkred;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    font-size: 16px;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+    font-family: "Sacramento", cursive;
+    justify-content: center;
+    &:hover {
+      transform: scale(1.2);
+
+      transition-duration: 0.3s;
+      color: #6b0202;
+      background-color: rgb(255, 255, 255);
+      opacity: 1;
+    }
+  }
+
+  @include media(tb) {
+    margin-left: 10px;
+  }
+
+  @include media(sp) {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    @include font-size(40);
+    @include margin_left(28);
+    @include padding_vw(10, 10, 10, 10);
+    border-radius: calc(10 / #{$sp-size} * 100vw);
+    &:hover {
+      transform: scale(1.2);
+      transition-duration: 0.3s;
+      color: #6b0202;
+      background-color: rgb(255, 255, 255);
+      opacity: 1;
+    }
+  }
+}
+
+.l-nav_item_other {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.l-nav_item_other_name {
+  @include media(pc) {
+    margin-right: 15px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.l-search {
+  @include media(pc) {
+    height: 30px;
+    margin: auto;
+    width: 170px;
+    margin-bottom: 60px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    display: none;
+  }
+}
+/*-----------------------------------footer--------------------------------------------*/
+.l-footer {
+  color: rgb(255, 255, 255);
+  @include main-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: 0.3s;
+
+  @include media(pc) {
+    height: $footer-height_pc;
+    margin-top: -$footer-height_pc;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include height($footer-height_sp);
+    @include margin_top(-$footer-height_sp);
+  }
+}
+
+.l-footer_copy {
+  font-family: "Sacramento", cursive;
+  @include media(pc) {
+    font-size: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(50);
+  }
+}
+.top-btn {
+  background-color: #c89650;
+  color: beige;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  bottom: 0px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #888;
+    background-color: rgb(255, 194, 153);
+    transform: scale(1.2);
+    color: rgb(168, 99, 99);
+  }
+  @include media(pc) {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    bottom: -80px;
+    right: -80px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(100);
+    @include height(101);
+  }
+}
+
+.top-btn_text {
+  @include media(pc) {
+    font-size: 20px;
+    transform: translate(-25px, -35px);
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(22);
+  }
+}
+
+/*-----------------------------------main--------------------------------------------*/
+.l-main {
+  background-color: rgb(255, 247, 240);
+  @include media(pc) {
+    padding-top: $header-height_pc; /**ヘッダーの高さ*/
+    padding-bottom: $footer-height_pc; /*フッターの高さ*/
+    min-height: 100vh;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include padding_top($header-height_sp);
+    @include padding_bottom($footer-height_sp);
+    min-height: 100vh;
+  }
+}
+
+.l-main_container {
+  @include media(pc) {
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 70px;
+    padding-bottom: 120px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include padding_vw(100, 45, 100, 45);
+  }
+}
+
+.flex {
+  display: flex;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    flex-direction: column-reverse;
+  }
+}
+
+/* -----------------------------------------l-main------------------------------------------------------*/
+.m-side {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.m-side_list {
+  @include media(pc) {
+    border-radius: 10px;
+    max-width: calc(280 / 1440 * 100%);
+    min-width: 175px;
+    margin-right: 80px;
+    border: 1px solid black;
+    height: fit-content;
+    margin-bottom: 50px;
+    span {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_vw(150, 0, 100, 0);
+    span {
+      @include font-size(45);
+    }
+  }
+}
+.m-side_list_item {
+  @include media(pc) {
+    height: 40px;
+    max-width: 100%;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_left(15);
+    @include margin_top(45);
+  }
+}
+.m-side_list_item_anchor {
+  @include media(pc) {
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition-duration: 0.3s;
+    &:hover {
+      transition-duration: 0.3s;
+      color: #fdf4d5;
+      background-color: rgb(150, 99, 90);
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(35);
+    &:hover {
+      transition-duration: 0.3s;
+      color: darkred;
+    }
+  }
+}
+
+.m-side_list_item_anchor_other {
+  @include media(pc) {
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition-duration: 0.3s;
+    justify-content: end;
+    &:hover {
+      transition-duration: 0.3s;
+      color: #fdf4d5;
+      background-color: rgb(200, 130, 60);
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(35);
+    &:hover {
+      transition-duration: 0.3s;
+      color: darkred;
+    }
+  }
+}
+
+.m-article {
+  @include media(pc) {
+    max-width: calc(1150 / 1440 * 100vw);
+    min-width: calc(810 / 1440 * 100vw);
+    width: 100%;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(680);
+  }
+}
+.m-title_flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include media(pc) {
+    margin-bottom: 60px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_vw(0, 0, 100, 0);
+    span {
+      @include font-size(24);
+    }
+  }
+}
+
+.m-title {
+  font-weight: bold;
+  @include media(pc) {
+    font-size: 40px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(60);
+  }
+}
+
+.m-title_section {
+  font-weight: bold;
+  @include media(pc) {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(50);
+    @include margin_vw(0, 0, 80, 0);
+  }
+}
+
+/*---------------------トップページ------------------------------*/
+.slick-slider{
+  position: absolute!important;
+}
+
+.top-visual {
+  @include media(pc) {
+    // background-image: url(../image/product-image-01_pc.png);
+    position: absolute;
+    background-color: #ffffffcc;
+    background-size: cover;
+    opacity: 0.5;
+    width: 100vw;
+    height: 100vh;
+    margin-top: calc(-#{$footer-height_pc} + -#{$header-height_pc} + -15px);
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    width: 100vw;
+    height: 100vh;
+    margin-top: calc(-#{$footer-height_sp}vw + -#{$header-height_sp}vw);
+  }
+}
+.top-visual_container {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+@mixin change-color_login {
+  background-color: rgb(150, 72, 133);
+}
+@mixin change-color_register {
+  background-color: rgb(155, 124, 56);
+}
+.top-visual_btn_login {
+  color: #fff;
+  @include change-color_login;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media(pc) {
+    width: 300px;
+    height: 300px;
+    font-size: 30px;
+    margin: 0 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(200);
+    @include height(200);
+    @include margin_vw(0, 20, 0, 20);
+  }
+}
+
+.top-visual_btn_register {
+  color: #fff;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include change-color_register;
+  &:hover {
+    color: rgb(255, 197, 242);
+  }
+  @include media(pc) {
+    width: 300px;
+    height: 300px;
+    font-size: 30px;
+    margin: 0 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(200);
+    @include height(200);
+    @include margin_vw(0, 20, 0, 20);
+  }
+}
+
+.top-btn_add {
+  z-index: 2;
+  transition: 0.3s;
+  position: absolute;
+  @include media(pc) {
+    width: 650px;
+    height: 300px;
+    font-size: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(500);
+    @include height(200);
+  }
+}
+
+.top-btn_remove {
+  transition: 0.3s;
+  display: none;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.top-change_bar_login {
+  @include change-color_login;
+  transition: 0.3s;
+}
+.top-change_bar_register {
+  @include change-color_register;
+  transition: 0.3s;
+}
+
+.top-visual_1 {
+  background-size: cover;
+  @include media(pc) {
+    background-position: center;
+    background-image: image-url("sarada_pc.jpg");
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    // background-position: bottom;
+    background-image: image-url("sarada_sp.jpg");
+  }
+}
+
+.top-visual_2 {
+  background-position: center;
+  background-size: cover;
+  @include media(pc) {
+    background-image: image-url("pasta_pc.jpg");
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    background-image: image-url("pasta_sp.jpg");
+  }
+}
+
+.top-visual_3 {
+  background-position: center;
+  background-size: cover;
+  @include media(pc) {
+    background-image: image-url("cup-cake_pc.jpg");
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    background-image: image-url("cup-cake_sp.jpg");
+  }
+}
+
+/*-------------------------------クッキングリスト---------------------------------------*/
+
+.cooking_title {
+  font-weight: bold;
+  @include media(pc) {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    display: inline-block;
+    @include font-size(60);
+    @include width(600);
+    @include margin_vw(auto, 20, 80, auto);
+  }
+}
+.cooking_list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  @include media(pc) {
+    position: relative;
+    right: 10px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(680);
+    margin: auto;
+  }
+}
+.cooking_list_item {
+  display: flex;
+  flex-direction: column;
+  @include media(pc) {
+    margin: 0 5px 40px 5px;
+    width: 205px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(300);
+    @include margin_vw(10, 20, 60, 20);
+  }
+}
+.cooking_list_item_image {
+  @include media(pc) {
+    img {
+      max-width: 205px;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    img {
+      @include width(300);
+    }
+  }
+}
+.cooking_list_item_title {
+  font-weight: bold;
+  @include media(pc) {
+    font-size: 17px;
+    margin-top: 15px;
+    line-height: 1.5;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(35);
+    @include line-heght(60);
+    @include margin_top(40);
+  }
+}
+.cooking-list_item_user {
+  @include media(pc) {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(25);
+    @include line-heght(40);
+    @include margin_top(10);
+  }
+}
+.cooking-list_item_time {
+  @include media(pc) {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(25);
+    @include line-heght(40);
+    @include margin_top(10);
+  }
+}
+.is-empty {
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  @include media(pc) {
+    width: 200px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(300);
+  }
+}
+
+/*--------------------料理詳細-----------------------*/
+
+.cooking-show_column {
+  @include media(pc) {
+    display: flex;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.cooking-show_column {
+  @include media(pc) {
+    display: flex;
+    img {
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(#{$sp-size});
+    @include margin_vw(auto, auto, auto, -45);
+    img {
+      @include width(#{$sp-size});
+    }
+  }
+}
+
+.cooking-show_column_contents {
+  @include media(pc) {
+    margin-left: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include padding_vw(0, 45, 0, 45);
+    @include margin_top(30);
+  }
+}
+.cooking-show_column_contents_explanation {
+  @include media(pc) {
+    line-height: 1.5;
+    max-width: 450px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include line-heght(50);
+    @include font-size(35);
+  }
+}
+.cooking-show_column_contents_spices {
+  @include media(pc) {
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #000;
+    margin-top: 20px;
+    line-height: 1.5;
+    tbody {
+      width: 100%;
+    }
+    tr {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      .cooking-show_column_contents_spices_name {
+        min-width: 100px;
+        font-size: 15px;
+      }
+      .cooking-show_column_contents_spices_quantity {
+        min-width: 80px;
+        font-size: 15px;
+        margin-left: 10px;
+      }
+    }
+    td {
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border: calc(1 / #{$sp-size} * 100vw) solid #000;
+    @include margin_top(50);
+    @include line-heght(50);
+    tbody {
+      width: 100%;
+    }
+    tr {
+      display: flex;
+      justify-content: space-between;
+      @include padding_vw(10, 20, 10, 20);
+      .cooking-show_column_contents_spices_name {
+        @include font-size(30);
+      }
+      .cooking-show_column_contents_spices_quantity {
+        @include font-size(30);
+        @include margin_left(10);
+        min-width: calc(200 / #{$sp-size} * 100vw);
+        text-align: center;
+      }
+    }
+    td {
+    }
+  }
+}
+.cooking-show_process {
+  @include media(pc) {
+    margin-top: 60px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_top(150);
+  }
+}
+.cooking-show_process_list {
+  @include media(pc) {
+    max-width: 800px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.cooking-show_process_list_item {
+  @include media(pc) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    display: flex;
+    flex-wrap: wrap;
+    @include margin_bottom(100);
+  }
+}
+
+.cooking-show_process_list_item_number {
+  font-weight: bold;
+  @include media(pc) {
+    font-size: 22px;
+    margin-right: 10px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(50);
+    @include font-size(30);
+    @include line-heght(50);
+  }
+}
+
+.cooking-show_process_list_item_text {
+  @include media(pc) {
+    line-height: 1.5;
+    margin-right: auto;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(630);
+    @include font-size(25);
+    @include line-heght(50);
+  }
+}
+
+.cooking-show_process_list_item_image {
+  @include media(pc) {
+    width: 150px;
+    margin-left: 20px;
+    img {
+      width: 150px;
+      max-width: 150px;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(500);
+    @include margin_vw(40, auto, 0, auto);
+  }
+}
+
+.cooking-show_comment {
+  @include media(pc) {
+    max-width: 800px;
+    input {
+      @include btn-small;
+      &:hover {
+        // background-color: #3654b8
+      }
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    textarea {
+      @include width(400);
+      @include height(200);
+      @include font-size(30);
+    }
+    input {
+      @include btn-small;
+    }
+  }
+}
+
+.cooking-show_comment_column {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  max-width: 500px;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.cooking-show_comment_list {
+  @include media(pc) {
+    margin-top: 70px;
+    line-height: 1.7;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_top(100);
+    @include line-heght(50);
+  }
+}
+.cooking-show_comment_list_item {
+  @include media(pc) {
+    margin-bottom: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_bottom(50);
+  }
+}
+.cooking-show_comment_list_item_text {
+  @include media(pc) {
+    display: inline;
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    display: inline;
+    @include margin_right(20);
+    @include font-size(28);
+  }
+}
+.cooking-show_comment_list_item_user {
+  @include media(pc) {
+    display: inline;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    display: inline;
+    @include font-size(22);
+  }
+}
+/*-------------------------------新規料理----------------------------------*/
+.cooking-new_table {
+  margin: 0 auto;
+  tr {
+    display: flex;
+  }
+  th {
+  }
+  td {
+  }
+  @include media(pc) {
+    tbody {
+    }
+    max-width: 800px;
+    width: 100%;
+    tr {
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 10px 15px 10px;
+      font-size: 20px;
+    }
+    th {
+    }
+    td {
+      input {
+        font-size: 16px;
+        width: 450px;
+        height: 30px;
+      }
+    }
+  }
+
+  @include media(tb) {
+    tr {
+    }
+    th {
+    }
+    td {
+    }
+  }
+
+  @include media(sp) {
+    tr {
+      @include font-size(40);
+      flex-direction: column;
+      @include padding_vw(40, 0, 40, 0);
+    }
+    th {
+      width: calc(600 / #{$sp-size} * 100vw);
+      text-align: left;
+      @include padding_vw(30, 10, 30, 10);
+    }
+    td {
+      input {
+        @include font-size(30);
+        @include width(660);
+        @include height(70);
+      }
+    }
+  }
+}
+
+.cooking-new_table_head {
+  @include media(sp) {
+    flex-direction: row !important;
+
+    @include font-size(30);
+  }
+}
+
+.cooking-new_table_ingredients {
+  @include media(pc) {
+    th {
+    }
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input {
+        width: 100%;
+      }
+    }
+    .cooking-new_table_ingredients_name {
+      width: 250px;
+      height: 30px;
+      font-size: 16px;
+    }
+    .cooking-new_table_ingredients_quantity {
+      width: 200px;
+      height: 30px;
+      font-size: 16px;
+    }
+    .cooking-new_table_ingredients_space {
+      @include media(pc) {
+        width: 100px;
+      }
+    }
+  }
+
+  @include media(tb) {
+    th {
+    }
+    td {
+    }
+  }
+
+  @include media(sp) {
+    flex-direction: row !important;
+    @include padding_vw(30, 10, 30, 10);
+    padding-top: calc(10 / #{$sp-size} * 100vw) !important;
+    padding-bottom: calc(10 / #{$sp-size} * 100vw) !important;
+    @include width(660);
+    justify-content: space-between;
+    th {
+      @include padding_vw(30, 10, 30, 10);
+    }
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include font-size(30);
+      input {
+        width: 100%;
+      }
+    }
+    .cooking-new_table_ingredients_name {
+      @include font-size(25);
+      @include width(250);
+      @include margin_vw(30, 0, 30, 0);
+    }
+    .cooking-new_table_ingredients_quantity {
+      @include width(180);
+      @include font-size(25);
+      @include height(70);
+    }
+    .cooking-new_table_ingredients_space {
+      @include width(150);
+    }
+  }
+}
+
+.cooking-new_table_ingredients_contents {
+  justify-content: space-between;
+  @include media(pc) {
+  }
+  @include media(tb) {
+  }
+  @include media(sp) {
+    @include width(660);
+  }
+}
+
+.cooking-new_table_ingredients_delete_btn {
+  @include btn-small;
+  background-color: #6b0202;
+}
+.cooking-new_table_ingredients_add_btn {
+  background-color: #c89650;
+  @include btn-small;
+  color: #ffffff;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.3s;
+    opacity: 0.7;
+  }
+  @include media(pc) {
+    margin-top: 30px;
+    margin-left: auto;
+    font-size: 14px !important;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    margin-left: auto;
+    width: calc(120 / #{$sp-size} * 100vw) !important;
+  }
+}
+
+.cooking-new_table_ingredients_inpput {
+  @include media(pc) {
+    th {
+    }
+    td {
+      width: 450px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .cooking-new_table_ingredients_name {
+        width: 220px;
+      }
+      .cooking-new_table_ingredients_quantity {
+        width: 150px;
+      }
+    }
+  }
+
+  @include media(tb) {
+    th {
+    }
+    td {
+    }
+  }
+
+  @include media(sp) {
+    padding-top: calc(10 / #{$sp-size} * 100vw) !important;
+    padding-bottom: calc(10 / #{$sp-size} * 100vw) !important;
+    th {
+      @include padding_vw(30, 10, 30, 10);
+    }
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include font-size(30);
+      .cooking-new_table_ingredients_name {
+        @include font-size(26);
+        @include width(250);
+        @include margin_vw(30, 0, 30, 0);
+      }
+      .cooking-new_table_ingredients_quantity {
+        @include width(150);
+      }
+    }
+  }
+}
+
+.cooking-new_table_process {
+  display: flex;
+  flex-direction: column;
+  @include media(pc) {
+    th {
+      margin-right: auto;
+      padding: 15px 0;
+    }
+    td {
+      width: 100%;
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  @include media(tb) {
+    th {
+    }
+    td {
+    }
+  }
+
+  @include media(sp) {
+    th {
+    }
+    td {
+    }
+  }
+}
+
+.cooking-new_table_add_btn {
+  td {
+    @include btn-small;
+    background-color: #c89650;
+    color: #ffffff;
+    transition: 0.3s;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      transition: 0.3s;
+      opacity: 0.7;
+    }
+    @include media(pc) {
+      margin-left: auto;
+      font-size: 14px !important;
+    }
+
+    @include media(tb) {
+    }
+
+    @include media(sp) {
+      margin-left: auto;
+      @include width(250);
+      @include margin_top(20);
+    }
+  }
+}
+
+.cooking-new_table_process_add_input {
+  display: block;
+  @include media(pc) {
+    margin: 30px auto;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    td {
+    }
+  }
+}
+/*------------------------新規登録・ログイン-----------------------------*/
+.login-table {
+  margin: 0 auto;
+  tr {
+    display: flex;
+  }
+  th {
+  }
+  td {
+  }
+  @include media(pc) {
+    tbody {
+    }
+    max-width: 700px;
+    width: 100%;
+    tr {
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 10px 15px 10px;
+      font-size: 20px;
+    }
+    th {
+    }
+    td {
+      input {
+        font-size: 16px;
+        height: 30px;
+        width: 400px;
+      }
+    }
+  }
+
+  @include media(tb) {
+    tr {
+    }
+    th {
+    }
+    td {
+    }
+  }
+
+  @include media(sp) {
+    tr {
+      @include font-size(40);
+      flex-direction: column;
+      @include padding_vw(40, 10, 40, 10);
+    }
+    th {
+      width: calc(600 / #{$sp-size} * 100vw);
+      text-align: left;
+      @include padding_vw(30, 10, 30, 10);
+    }
+    td {
+      input {
+        @include font-size(35);
+        @include width(660);
+        @include height(70);
+      }
+    }
+  }
+}
+.login-other{
+  @include media(pc) {
+    max-width: 700px;
+    text-align :right;
+    margin: 10px auto;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+
+  }
+}
+.btn-login {
+  @include btn-login;
+  input {
+  }
+}
+
+/*------------------------------ジャンル((追加・一覧)---------------------------*/
+.genre-index_add {
+  display: flex;
+  align-items: center;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    flex-direction: column;
+  }
+}
+.genre-index_add_input {
+  @include media(pc) {
+    height: 30px;
+    width: 300px;
+    margin-right: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(26);
+    @include height(50);
+    @include width(600);
+    @include margin_bottom(100);
+  }
+}
+
+.genre-index_add_button_flex {
+  display: flex;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(600);
+  }
+}
+
+.genre-index_add_button {
+  @include btn-genre;
+  background-color: rgb(200, 130, 60);
+  margin: 0;
+  @include media(pc) {
+    margin: 0;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.genre-index_add_button_delete {
+  @include btn-genre;
+  @include media(pc) {
+    margin-left: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_left(20);
+    margin: auto;
+  }
+}
+
+.genre-index_list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  @include media(pc) {
+    margin-top: 100px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_top(100);
+  }
+}
+.genre-index_list_item {
+  @include media(pc) {
+    width: 250px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(200);
+    @include line-heght(35);
+    @include margin_vw(0, 10, 50, 10);
+  }
+}
+.genre-index_list_item_anchor {
+  @include media(pc) {
+    margin-right: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(24);
+    @include margin_right(20);
+  }
+}
+
+.genre-index_list_item_anchor_edit {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(24);
+  }
+}
+
+.is-genre_empty {
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  @include media(pc) {
+    width: 250px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(200);
+  }
+}
