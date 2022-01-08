@@ -1,5 +1,13 @@
 <header class="l-header">
-  <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
+  <% if user_signed_in? %>
+    <%= link_to meals_path do %>
+      <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
+    <% end %>
+  <% else %>
+    <%= link_to root_path do %>
+      <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
+    <% end %>
+  <% end %>
   <nav>
     <span class="l-nav_btn">
       <span class="l-nav_btn_bar"></span>
@@ -10,7 +18,7 @@
       <ul class="l-navbarnav_list">
         <% if user_signed_in? %>
         <li class="l-nav_item">
-          <%= link_to 'マイページ', user_path(current_user.id), class: "l-nav_item_anchor"%>
+          <%= link_to 'マイページ', meals_path, class: "l-nav_item_anchor"%>
         </li>
        <li class="l-nav_item">
           <%= link_to 'レシピ作成',new_post_path, class: "l-nav_item_anchor"%>

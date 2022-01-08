@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_041320) do
+ActiveRecord::Schema.define(version: 2022_01_08_092242) do
+
+  create_table "cookings", force: :cascade do |t|
+    t.integer "meal_id"
+    t.string "cooking_name", null: false
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_cookings_on_meal_id"
+  end
 
   create_table "flavors", force: :cascade do |t|
     t.integer "post_id"
@@ -30,10 +39,33 @@ ActiveRecord::Schema.define(version: 2022_01_07_041320) do
     t.index ["post_id"], name: "index_foodstuffs_on_post_id"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cooking_id"
+    t.string "genre_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cooking_id"], name: "index_genres_on_cooking_id"
+    t.index ["user_id"], name: "index_genres_on_user_id"
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title", null: false
+    t.text "meal_description"
+    t.date "date", null: false
+    t.string "mealtime", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_meals_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "post_name", null: false
-    t.string "post_description"
+    t.text "post_description"
     t.string "post_image_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
@@ -43,11 +75,20 @@ ActiveRecord::Schema.define(version: 2022_01_07_041320) do
 
   create_table "recipes", force: :cascade do |t|
     t.integer "post_id"
-    t.string "recipe_description", null: false
+    t.text "recipe_description", null: false
     t.string "recipe_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_recipes_on_post_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer "genre_id"
+    t.integer "cooking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cooking_id"], name: "index_tags_on_cooking_id"
+    t.index ["genre_id"], name: "index_tags_on_genre_id"
   end
 
   create_table "users", force: :cascade do |t|

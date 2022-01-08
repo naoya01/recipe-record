@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  meal_description: MyText
+  date: 2022-01-07
+  mealtime: MyString
+
+two:
+  title: MyString
+  meal_description: MyText
+  date: 2022-01-07
+  mealtime: MyString
