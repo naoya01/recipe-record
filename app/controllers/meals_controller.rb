@@ -22,11 +22,13 @@ class MealsController < ApplicationController
   # POST /meals or /meals.json
   def create
     @meal = Meal.new(meal_params)
-
+    @meal.user_id = current_user.id
     respond_to do |format|
       if @meal.save
         format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
-        format.json { render :show, status: :created, location: @meal }
+        # format.json { render :json => @meal, :status => :created, :location => @meal }
+        # format.json { render :"meal/index", status: :created, location: @meal }
+        format.json { render :new, status: :created, location: @meal }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @meal.errors, status: :unprocessable_entity }
@@ -36,6 +38,7 @@ class MealsController < ApplicationController
 
   # PATCH/PUT /meals/1 or /meals/1.json
   def update
+    @meal.user_id = current_user.id
     respond_to do |format|
       if @meal.update(meal_params)
         format.html { redirect_to meal_url(@meal), notice: "Meal was successfully updated." }

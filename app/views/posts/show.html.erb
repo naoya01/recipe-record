@@ -1,4 +1,5 @@
 <div class="l-main_container flex">
+
   <aside class="m-side">
     <ul class="m-side_list">
       <span class="m-side_title">作った日</span>
@@ -17,81 +18,65 @@
         <a class="m-side_list_item_anchor_other" href="">もっと見る</a>
     </ul>
   </aside>
+
   <article class="m-article">
     <div class="m-title_flex">
-      <h2 class="m-title"></h2>
+      <h2 class="m-title"><%= @post.post_name %></h2>
+      <div class="m-title_other">
+        <%= link_to "編集" , edit_post_path(@post.id) %>
+        <%= link_to "削除" , post_path(@post.id),method: :delete, data: {confirm: '本当に消しますか？'} %>
+    </div>
     </div>
 
     <div class="cooking-show_column">
       <div class="cooking-show_column_image">
-
+        <%= attachment_image_tag(@post, :post_image, :fill, 400, 300) %>
 
       </div>
       <div class="cooking-show_column_contents">
         <p class="cooking-show_column_contents_explanation">
-          この料理はーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーな料理です
+          <%= @post.post_description %>
         </p>
         <table class="cooking-show_column_contents_spices">
-
+          <h3 class="cooking-show_column_contents_title">調味料</h3>
+          <% @post.flavors.each do |flavor| %>
             <tr>
-              <td class="cooking-show_column_contents_spices_name">醤油醤油醤油醤油醤油醤油醤油醤油醤油醤油醤油醤油</td>
-              <td class="cooking-show_column_contents_spices_quantity">小さじ１杯</td>
+              <td class="cooking-show_column_contents_spices_name"><%= flavor.flavor_name %></td>
+              <td class="cooking-show_column_contents_spices_quantity"><%= flavor.flavor_quantity %></td>
             </tr>
-            <tr>
-              <td class="cooking-show_column_contents_spices_name">醤油</td>
-              <td class="cooking-show_column_contents_spices_quantity">小さじ１杯</td>
-            </tr>
-
+          <% end %>
         </table>
+
+        <table class="cooking-show_column_contents_spices">
+          <h3 class="cooking-show_column_contents_title">材料</h3>
+          <% @post.foodstuffs.each do |foodstuff| %>
+            <tr>
+              <td class="cooking-show_column_contents_spices_name"><%= foodstuff.foodstuff_name %></td>
+              <td class="cooking-show_column_contents_spices_quantity"><%= foodstuff.foodstuff_quantity %></td>
+            </tr>
+          <% end %>
+        </table>
+
       </div>
     </div>
 
     <div class="cooking-show_process">
       <h3 class="m-title_section">手順</h3>
-      <ul class="cooking-show_process_list">
-        <li class="cooking-show_process_list_item">
-          <span class="cooking-show_process_list_item_number">1</span>
-          <p class="cooking-show_process_list_item_text">
-            玉ねぎをみじん切りに切る1玉ねぎをみじん切りに切る1玉ねぎをみじん切りに切る
-          </p>
-          <div class="cooking-show_process_list_item_image">
-          <img src="assets/image/product-image-01_pc.png" alt=""/>
-          </div>
-        </li>
-        <li class="cooking-show_process_list_item">
-          <span class="cooking-show_process_list_item_number">51</span>
-          <p class="cooking-show_process_list_item_text">
-            玉ねぎをみじん切りに切る1玉ねぎをみじん切りに切る
-          </p>
-          <div class="cooking-show_process_list_item_image">
-          <img src="assets/image/product-image-01_pc.png" alt=""/>
-          </div>
-        </li>
+      <ol class="cooking-show_process_list">
+        <% @post.recipes.each do |recipe| %>
+          <li class="cooking-show_process_list_item">
+            <span class="cooking-show_process_list_item_number"></span>
+            <p class="cooking-show_process_list_item_text">
+              <%= recipe.recipe_description %>
+            </p>
+            <div class="cooking-show_process_list_item_image">
+              <%= attachment_image_tag(recipe, :recipe_image, :fill, 300, 200) %>
 
-      </ul>
+            </div>
+          </li>
+        <% end %>
+      </ol>
     </div>
 
-    <div class="cooking-show_comment">
-      <h3 class="m-title_section">コメント</h3>
-      <div class="cooking-show_comment_column">
-        <textarea name="" id="" cols="40" rows="5"></textarea>
-        <input type="submit">
-      </div>
-
-      <ul class="cooking-show_comment_list">
-        <li class="cooking-show_comment_list_item">
-          <p class="cooking-show_comment_list_item_text">このレシピはこの上なく最高なできです。一生食べて生きていきたいと思えます。</p>
-          <span class="cooking-show_comment_list_item_user">田中たろう</span>
-        </li>
-        <li class="cooking-show_comment_list_item">
-          <p class="cooking-show_comment_list_item_text">このレシピはこの上なく最高なできです。一生食べて生きていきたいと思えます。あなたも食べてみてくださいさいああああ</p>
-          <span class="cooking-show_comment_list_item_user">田中たろう</span>
-        </li>
-        <li class="cooking-show_comment_list_item">
-          <p class="cooking-show_comment_list_item_text">このレシピはこの上なく最高なできです。一生食べて生きていきたいと思えます。あなたも食べてみてください</p>
-          <span class="cooking-show_comment_list_item_user">田中たろう</span>
-        </li>
-      </ul>
-    </div>
   </article>
 </div>

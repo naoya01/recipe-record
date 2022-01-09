@@ -82,3 +82,17 @@ div {
 label {
   display: block;
 }
+
+.fc-sun/* 日曜日 */ {
+  color: red;
+  background: rgb(255, 240, 240);;
+}
+
+.fc-sat  /* 土曜日 */{
+  color: blue;
+  background: rgb(240, 240, 255);
+}
+
+.fc-today  /* 今日 */{
+        background-color: rgb(230, 255, 230)!important;
+}

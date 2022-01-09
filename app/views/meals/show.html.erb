@@ -20,5 +20,15 @@
   <%= @meal.mealtime %>
 </p>
 
+<p>
+  <strong>start_date:</strong>
+  <%= @meal.start_date %>
+</p>
+
+<p>
+  <strong>end_date:</strong>
+  <%= @meal.end_date %>
+</p>
 <%= link_to 'Edit', edit_meal_path(@meal) %> |
 <%= link_to 'Back', meals_path %>
+

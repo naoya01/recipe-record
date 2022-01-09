@@ -20,6 +20,11 @@
         <li class="l-nav_item">
           <%= link_to 'マイページ', meals_path, class: "l-nav_item_anchor"%>
         </li>
+        <% if current_user == @user || current_user.admin? %><%# 管理者のみ表示  %>
+          <li class="l-nav_item">
+            <%= link_to 'ジャンル', genres_path, class: "l-nav_item_anchor"%>
+          </li>
+        <% end %>
        <li class="l-nav_item">
           <%= link_to 'レシピ作成',new_post_path, class: "l-nav_item_anchor"%>
         </li>

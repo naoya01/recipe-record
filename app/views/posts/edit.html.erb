@@ -1,2 +1,97 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="l-main_container">
+  <div class="m-title_flex">
+    <h2 class="m-title">料理登録</h2>
+  </div>
+  <%= form_with(model: @post, local: true) do |s| %>
+  <table class="cooking-new_table">
+
+    <tr>
+      <th>料理名</th>
+      <td><%= s.text_field :post_name %></td>
+    </tr>
+
+    <tr>
+      <th>画像</th>
+      <td><%= s.attachment_field :post_image %></td>
+    </tr>
+
+    <tr>
+      <th>説明</th>
+      <td><%= s.text_field :post_description %></td>
+    </tr>
+
+    <tr>
+      <th>何人分</th>
+      <td><%= s.select :quantity , options_for_select((1..50).to_a) %>人分</td>
+    </tr>
+
+    <tr>
+      <th>材料</th>
+    </tr>
+
+    <tr class="cooking-new_table_ingredients_title">
+      <td class="cooking-new_table_ingredients_name">材料名</td>
+      <td class="cooking-new_table_ingredients_quantity">量</td>
+      <td class="cooking-new_table_ingredients_space"></td>
+    </tr>
+
+
+    <%= s.fields_for :foodstuffs do |t| %>
+      <%= render "foodstuff_fields", f: t %>
+    <% end %>
+    <tr class="foodstuff-add"></tr>
+    <tr class="cooking-new_table_add_btn">
+      <td class="links">
+        <%= link_to_add_association "追加", s, :foodstuffs ,class: "cooking-new_table_ingredients_add_btn",
+          data: {
+        association_insertion_node: '.foodstuff-add',
+        association_insertion_method: 'before'
+        }
+       %>
+      </td>
+    </tr>
+
+     <tr class="cooking-new_table_ingredients_title">
+      <td class="cooking-new_table_ingredients_name">調味料</td>
+      <td class="cooking-new_table_ingredients_quantity">量</td>
+      <td class="cooking-new_table_ingredients_space"></td>
+    </tr>
+
+    <%= s.fields_for :flavors do |t| %>
+      <%= render "flavor_fields", f: t %>
+    <% end %>
+    <tr class="flavor-add"></tr>
+    <tr class="cooking-new_table_add_btn">
+      <td class="links">
+        <%= link_to_add_association "追加", s, :flavors ,class: "cooking-new_table_ingredients_add_btn",
+        data: {
+        association_insertion_node: '.flavor-add',
+        association_insertion_method: 'before'
+        }
+        %>
+      </td>
+    </tr>
+
+    <tr>
+      <th>作り方</th>
+    </tr>
+
+    <%= s.fields_for :recipes do |t| %>
+      <%= render "recipe_fields", f: t %>
+    <% end %>
+    <tr class="recipe-add"></tr>
+    <tr class="cooking-new_table_add_btn">
+      <td class="links">
+        <%= link_to_add_association "追加", s, :recipes ,class: "cooking-new_table_process_add_btn",
+        data: {
+        association_insertion_node: '.recipe-add',
+        association_insertion_method: 'before'
+        }
+       %>
+      </td>
+    </tr>
+
+  </table>
+  <%= s.submit '保存', class: "btn-login" %>
+  <% end %>
+</div>

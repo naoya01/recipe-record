@@ -11,16 +11,7 @@
     </div>
   <% end %>
 
-
-
-  <ul class="genre-index_list">
-    <% @genres.each do |genre| %>
-    <li class="genre-index_list_item">
-      <%= link_to genre.genre_name ,genre_path(genre.id), class: "genre-index_list_item_anchor" %>
-      <%= link_to edit_genre_path(genre.id) do %>
-      <i class="fas fa-cog"></i>
-      <% end %>
-    </li>
-    <% end %>
-  </ul>
+<ul class="genre-index_list">
+  <%= render 'index', genres: @genres %>
+</ul>
 </div>

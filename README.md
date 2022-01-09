@@ -1,4 +1,4 @@
-# recorded recipe
+# recipe record
 
 ## サイト概要
 このサイトは料理の参考のために閲覧したしたレシピサイトを記録＆閲覧でき<br>

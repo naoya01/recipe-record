@@ -102,7 +102,7 @@ $footer-height_sp: 100;
   }
 }
 @mixin main-color {
-  background-color: rgb(120, 0, 0);
+  background-color: rgb(190, 110, 105);
 }
 
 @mixin destroy-color {
@@ -426,7 +426,6 @@ button {
   justify-content: space-between;
   z-index: 100;
   transition: 0.3s;
-
   @include media(pc) {
     width: 100%;
     height: $header-height_pc;
@@ -454,7 +453,6 @@ button {
 
 .l-header_title {
   display: flex;
-
   @include media(pc) {
     height: $header-height_pc;
     width: 110px;
@@ -710,9 +708,9 @@ button {
     text-align: center;
     font-size: 20px;
     margin-right: 30px;
-      a{
-        color: #fff;
-      }
+    a {
+      color: #fff;
+    }
     &:last-child {
       a {
         background-color: rgb(200, 130, 60);
@@ -877,6 +875,7 @@ button {
   }
 }
 .top-btn {
+  z-index: 1;
   background-color: #c89650;
   color: beige;
   position: fixed;
@@ -906,7 +905,7 @@ button {
 
   @include media(sp) {
     @include width(100);
-    @include height(101);
+    @include height(100);
   }
 }
 
@@ -926,7 +925,7 @@ button {
 
 /*-----------------------------------main--------------------------------------------*/
 .l-main {
-  background-color: rgb(255, 247, 240);
+  background-color: rgb(255, 250, 240);
   @include media(pc) {
     padding-top: $header-height_pc; /**ヘッダーの高さ*/
     padding-bottom: $footer-height_pc; /*フッターの高さ*/
@@ -971,7 +970,9 @@ button {
 
   @include media(tb) {
   }
-
+  @media print, screen and (max-width: 1000px) and (min-width: 771px) {
+    flex-direction: column-reverse;
+}
   @include media(sp) {
     flex-direction: column-reverse;
   }
@@ -1079,7 +1080,10 @@ button {
   }
 
   @include media(sp) {
+    display: inline-block;
     @include font-size(35);
+    @include margin-top(30);
+    @include margin-left(15);
     &:hover {
       transition-duration: 0.3s;
       color: darkred;
@@ -1136,7 +1140,13 @@ button {
 
 .m-title_section {
   font-weight: bold;
+
   @include media(pc) {
+    padding: 0.4em 0.5em;
+    color: #494949;
+    background: #f8f4df;
+    border-left: solid 5px #e6b57d;
+    border-bottom: solid 3px #d7d7d7;
     font-size: 25px;
     margin-bottom: 30px;
   }
@@ -1145,23 +1155,27 @@ button {
   }
 
   @include media(sp) {
+    padding: 0.4em 0.5em;
+    color: #494949;
+    background: #f8f4df;
+    border-left: solid calc(10 /#{$sp-size} * 100vw) #e6b57d!important;
+    border-bottom: solid 3px #d7d7d7;
     @include font-size(50);
     @include margin_vw(0, 0, 80, 0);
   }
 }
 
 /*---------------------トップページ------------------------------*/
-.slick-slider{
-  position: absolute!important;
+.slick-slider {
+  position: absolute !important;
 }
 
 .top-visual {
+    opacity: 0.5;
   @include media(pc) {
     // background-image: url(../image/product-image-01_pc.png);
     position: absolute;
-    background-color: #ffffffcc;
     background-size: cover;
-    opacity: 0.5;
     width: 100vw;
     height: 100vh;
     margin-top: calc(-#{$footer-height_pc} + -#{$header-height_pc} + -15px);
@@ -1171,13 +1185,14 @@ button {
   }
 
   @include media(sp) {
+    top: 0;
     width: 100vw;
     height: 100vh;
-    margin-top: calc(-#{$footer-height_sp}vw + -#{$header-height_sp}vw);
+    @include margin-top(-100);
   }
 }
 .top-visual_container {
-  a{
+  a {
     color: #fff;
   }
   position: absolute;
@@ -1209,7 +1224,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  &:hover{
+  &:hover {
     background-color: rgb(150, 72, 133);
   }
   @include media(pc) {
@@ -1398,9 +1413,19 @@ button {
     @include margin_vw(10, 20, 60, 20);
   }
 }
+
+.cooking_list_item_link{
+        transition: .3s;
+          &:hover {
+      transform: scale(1.1);
+      transition: .3s;
+      }
+}
+
 .cooking_list_item_image {
   @include media(pc) {
     img {
+      transition: .3s;
       max-width: 205px;
     }
   }
@@ -1420,33 +1445,22 @@ button {
     font-size: 17px;
     margin-top: 15px;
     line-height: 1.5;
+    display: inline-block;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    display: flex;
     @include font-size(35);
     @include line-heght(60);
-    @include margin_top(40);
+    @include margin_top(20);
   }
 }
-.cooking-list_item_user {
-  @include media(pc) {
-    font-size: 13px;
-    margin-top: 5px;
-  }
 
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-    @include font-size(25);
-    @include line-heght(40);
-    @include margin_top(10);
-  }
-}
 .cooking-list_item_time {
+  display: flex;
   @include media(pc) {
     font-size: 13px;
     margin-top: 5px;
@@ -1468,7 +1482,7 @@ button {
   margin-top: 0;
   margin-bottom: 0;
   @include media(pc) {
-    width: 200px;
+    width: 205px;
   }
 
   @include media(tb) {
@@ -1481,20 +1495,12 @@ button {
 
 /*--------------------料理詳細-----------------------*/
 
+
 .cooking-show_column {
   @include media(pc) {
+    max-width: 800px;
     display: flex;
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-  }
-}
-.cooking-show_column {
-  @include media(pc) {
-    display: flex;
+    justify-content: space-around;
     img {
       max-width: 300px;
       width: 100%;
@@ -1515,7 +1521,7 @@ button {
 
 .cooking-show_column_contents {
   @include media(pc) {
-    margin-left: 30px;
+    margin-left: 100px;
   }
 
   @include media(tb) {
@@ -1540,12 +1546,37 @@ button {
     @include font-size(35);
   }
 }
+
+.cooking-show_column_contents_title{
+    @include media(pc) {
+    line-height: 1.5;
+    font-size: 14px;
+    margin-top: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include line-heght(50);
+    @include font-size(25);
+    @include margin-top(50);
+  }
+}
+
 .cooking-show_column_contents_spices {
+    tr:nth-child(odd){
+      background-color: rgb(220, 190, 175);
+      color: #fafafa;
+    }
+    tr:nth-child(even){
+      background-color: rgb(240, 230, 220);
+    }
   @include media(pc) {
     max-width: 400px;
     width: 100%;
-    border: 1px solid #000;
-    margin-top: 20px;
+    border: 1px solid #aaa;
+    margin-top: 10px;
     line-height: 1.5;
     tbody {
       width: 100%;
@@ -1573,7 +1604,7 @@ button {
 
   @include media(sp) {
     border: calc(1 / #{$sp-size} * 100vw) solid #000;
-    @include margin_top(50);
+    @include margin_top(30);
     @include line-heght(50);
     tbody {
       width: 100%;
@@ -1587,7 +1618,7 @@ button {
       }
       .cooking-show_column_contents_spices_quantity {
         @include font-size(30);
-        @include margin_left(10);
+        @include margin_left(100);
         min-width: calc(200 / #{$sp-size} * 100vw);
         text-align: center;
       }
@@ -1609,19 +1640,23 @@ button {
   }
 }
 .cooking-show_process_list {
+  list-style: auto;
   @include media(pc) {
     max-width: 800px;
+    margin-left: 30px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-left(30);
+    @include font-size(25);
+
   }
 }
 .cooking-show_process_list_item {
   @include media(pc) {
-    display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
   }
@@ -1630,28 +1665,10 @@ button {
   }
 
   @include media(sp) {
-    display: flex;
-    flex-wrap: wrap;
     @include margin_bottom(100);
   }
 }
 
-.cooking-show_process_list_item_number {
-  font-weight: bold;
-  @include media(pc) {
-    font-size: 22px;
-    margin-right: 10px;
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-    @include width(50);
-    @include font-size(30);
-    @include line-heght(50);
-  }
-}
 
 .cooking-show_process_list_item_text {
   @include media(pc) {
@@ -1672,10 +1689,9 @@ button {
 .cooking-show_process_list_item_image {
   @include media(pc) {
     width: 150px;
-    margin-left: 20px;
+    margin-top: 30px;
     img {
-      width: 150px;
-      max-width: 150px;
+      max-width: 500px;
     }
   }
 
@@ -1683,115 +1699,17 @@ button {
   }
 
   @include media(sp) {
-    @include width(500);
-    @include margin_vw(40, auto, 0, auto);
+    @include width(200);
+    @include margin-left(20);
   }
 }
 
-.cooking-show_comment {
-  @include media(pc) {
-    max-width: 800px;
-    input {
-      @include btn-small;
-      &:hover {
-        // background-color: #3654b8
-      }
-    }
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-    textarea {
-      @include width(400);
-      @include height(200);
-      @include font-size(30);
-    }
-    input {
-      @include btn-small;
-    }
-  }
-}
-
-.cooking-show_comment_column {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  max-width: 500px;
-  @include media(pc) {
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-  }
-}
-
-.cooking-show_comment_list {
-  @include media(pc) {
-    margin-top: 70px;
-    line-height: 1.7;
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-    @include margin_top(100);
-    @include line-heght(50);
-  }
-}
-.cooking-show_comment_list_item {
-  @include media(pc) {
-    margin-bottom: 20px;
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-    @include margin_bottom(50);
-  }
-}
-.cooking-show_comment_list_item_text {
-  @include media(pc) {
-    display: inline;
-    font-size: 16px;
-    margin-right: 20px;
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-    display: inline;
-    @include margin_right(20);
-    @include font-size(28);
-  }
-}
-.cooking-show_comment_list_item_user {
-  @include media(pc) {
-    display: inline;
-    font-weight: bold;
-    font-size: 12px;
-  }
-
-  @include media(tb) {
-  }
-
-  @include media(sp) {
-    display: inline;
-    @include font-size(22);
-  }
-}
 /*-------------------------------新規料理----------------------------------*/
 .cooking-new_table {
   margin: 0 auto;
-  a{
+  a {
     color: #fff;
-    &:hover{
+    &:hover {
       background-color: #eee;
       color: rgb(120, 0, 0);
       border: 1px solid #222;
@@ -1812,21 +1730,22 @@ button {
     tr {
       align-items: center;
       justify-content: space-between;
-      padding: 15px 10px 15px 10px;
+      padding: 15px 0px 15px 0px;
       font-size: 20px;
     }
     th {
     }
     td {
+      font-size: 16px;
       input {
         font-size: 16px;
         width: 350px;
         height: 30px;
       }
-      select{
+      select {
         height: 30px;
         width: 50px;
-        margin-left: 20px;
+        margin-right: 20px;
       }
     }
   }
@@ -1852,10 +1771,17 @@ button {
       @include padding_vw(30, 10, 30, 10);
     }
     td {
+      @include font-size(26);
       input {
         @include font-size(30);
         @include width(660);
         @include height(70);
+      }
+      select {
+        @include width(100);
+        @include height(60);
+        @include font-size(30);
+        @include margin_right(30);
       }
     }
   }
@@ -1871,7 +1797,7 @@ button {
 
 .cooking-new_table_ingredients_title {
   @include media(pc) {
-    padding: 20px 10px 0px 10px!important;
+    padding: 20px 10px 0px 10px !important;
     th {
     }
     td {
@@ -1943,7 +1869,7 @@ button {
 
 .cooking-new_table_ingredients {
   @include media(pc) {
-    padding: 0px 10px!important;
+    padding: 10px 0px !important;
     th {
     }
     td {
@@ -2114,10 +2040,9 @@ button {
       padding: 15px 0;
     }
     td {
-
       textarea {
         width: 200px;
-        height: 60px
+        height: 60px;
       }
     }
   }
@@ -2133,29 +2058,35 @@ button {
     th {
     }
     td {
+      textarea {
+        margin: auto;
+        @include width(660);
+        @include font-size(25);
+        @include margin_bottom(50);
+      }
     }
   }
 }
 
-.cooking-new_table_process_add_image{
-    @include media(pc) {
-      width: 300px;
+.cooking-new_table_process_add_image {
+  @include media(pc) {
+    width: 300px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin_bottom(40);
   }
 }
 
 .cooking-new_table_add_btn {
-  td{
-    margin-left: auto;
+  td {
   }
   a {
     @include btn-small;
-    background-color: #c89650;
+
     color: #ffffff;
     transition: 0.3s;
     cursor: pointer;
@@ -2193,6 +2124,43 @@ button {
     td {
     }
   }
+}
+
+.links {
+  width: 100%;
+}
+
+.foodstuff-add {
+  padding: 0px !important;
+}
+.flavor-add {
+  padding: 0px !important;
+}
+.recipe-add {
+  padding: 0px !important;
+}
+
+.form-inline {
+  @include media(pc) {
+    padding: 10px 0px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+
+  }
+}
+
+.cooking-new_table_process_add_btn {
+}
+.add_fields {
+  background-color: rgb(200, 130, 60);
+}
+
+.nested-fields {
+  padding: 10px 0px;
 }
 /*------------------------新規登録・ログイン-----------------------------*/
 .login-table {
@@ -2255,10 +2223,10 @@ button {
     }
   }
 }
-.login-other{
+.login-other {
   @include media(pc) {
     max-width: 700px;
-    text-align :right;
+    text-align: right;
     margin: 10px auto;
   }
 
@@ -2266,7 +2234,6 @@ button {
   }
 
   @include media(sp) {
-
   }
 }
 .btn-login {
@@ -2425,16 +2392,16 @@ button {
   }
 }
 
-#calendar{
+#calendar {
+  transition: 1s;
   @include media(pc) {
-    @include padding_vw(0,100,0,100);
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include padding_vw(0,20,0,20);
+    @include padding_vw(0, 20, 0, 20);
   }
-
 }
+

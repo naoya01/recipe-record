@@ -8,7 +8,7 @@ $(function() {
   }
 
   $('#calendar').fullCalendar({
-    meals: '/meals.json',
+    events: '/meals.json',
 
     titleFormat: 'YYYY年 M月',
     dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
@@ -33,5 +33,22 @@ $(function() {
     timeFormat: 'HH:mm',
     eventColor: '#63ceef',
     eventTextColor: '#000000',
+
+    eventClick: function(info) {
+      // alert('hoge');
+      console.log(info.id);
+      $.ajax('/meals/' + info.id + '.json')
+        .done(function(data){
+          console.log(data)
+          $('#event > #title').text(data.title);
+          $('#event > #date').text(data.date);
+          $('#event > #mealtime').text(data.mealtime);
+        })
+        .fail(function() {
+          alert('ERROR');
+        })
+    }
   });
+
+
 });

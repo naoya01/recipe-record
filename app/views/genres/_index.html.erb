@@ -1,0 +1,8 @@
+<% genres.each do |genre| %>
+<li class="genre-index_list_item">
+  <%= link_to edit_genre_path(genre.id) do %>
+  <%= genre.genre_name %>
+  <i class="fas fa-cog"></i>
+  <% end %>
+</li>
+<% end %>

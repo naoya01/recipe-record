@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  before_action :user_admin, only: [:index,:show,:edit,:destroy,:create,:update]
   def index
     @genres = Genre.all
     @genre = Genre.new
@@ -8,7 +9,8 @@ class GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     @genre.user_id = current_user.id
     if @genre.save
-      redirect_to genre_path(@genre.id)
+      @genres = Genre.all
+      render :index
     else
       redirect_to genres_path
     end
@@ -21,11 +23,15 @@ class GenresController < ApplicationController
   end
 
   def edit
-    @genre = Genre.find_by(params[:id])
-    if @genre.user == current_user
-      render "edit"
-    else
+    @genre = Genre.find(params[:id])
+  end
+
+  def update
+    @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
       redirect_to genres_path
+    else
+      render "edit"
     end
   end
 
@@ -33,4 +39,11 @@ class GenresController < ApplicationController
   def genre_params
     params.require(:genre).permit(:genre_name,:user_id,:cooking_id)
   end
+
+  def user_admin #% 管理者に権限を与えている
+     if  current_user.admin == false
+         redirect_to meals_path
+     end
+  end
+
 end
