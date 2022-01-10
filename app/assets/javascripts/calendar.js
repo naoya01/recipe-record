@@ -34,21 +34,32 @@ $(function() {
     eventColor: '#63ceef',
     eventTextColor: '#000000',
 
+    //eventClickとdayclickでは取得できるものに違いがあるため2つ記述してある。それぞれ別の方法で日付を取得している。
     eventClick: function(info) {
-      // alert('hoge');
-      console.log(info.id);
-      $.ajax('/meals/' + info.id + '.json')
-        .done(function(data){
-          console.log(data)
-          $('#event > #title').text(data.title);
-          $('#event > #date').text(data.date);
-          $('#event > #mealtime').text(data.mealtime);
-        })
-        .fail(function() {
-          alert('ERROR');
-        })
+      // console.log(info.start._i);
+      dayMealEvent(info.start._i);
+    },
+
+    dayClick: function dayEvent (date, jsEvent, view) {
+      // console.log(`${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`);  「``」で式を出力できる
+      var params = `${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`;
+      dayMealEvent(params);
     }
   });
 
-
 });
+
+function dayMealEvent(params) {
+  $.ajax('/meals/day?day=' + params)
+      .done(function(data){
+        // console.log(data);
+        $('#event').empty();
+        data.forEach((event) => {
+          // console.log(event);
+          $('#event').append(`<li>Titlt : ${event.title}<ul><li>URL : ${event.url}</li><li>Description : ${event.meal_description}</li></ul></li>`);
+        })
+      })
+      .fail(function() {
+        alert('ERROR');
+      })
+}

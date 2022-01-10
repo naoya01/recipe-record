@@ -1,73 +1,22 @@
-<%= form_with(model: meal, local: true) do |form| %>
-  <% if meal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
 
-      <ul>
-      <% meal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<%= form_with(model: meal, local: true) do |s| %>
+  <%= s.label :"タイトル" %>
+  <%= s.text_field :title %>
+  <%= s.label "説明" %>
+  <%= s.text_area :meal_description %>
+  <%= s.label "日にち" %>
+  <%= s.date_field :date %>
+  <%= s.label "食事時間" %>
+  <%= s.select :mealtime, [['朝', '朝'], ['昼', '昼'], ['夜','夜']], {class: "user_class" } %>
+  <div class="parents">
+      <%= s.fields_for :cookings do |t| %>
+          <%= render "cooking_fields", f: t %>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+      <div class="links">
+          <%= link_to_add_association "追加", s, :cookings %>
+      </div>
   </div>
-
-  <div class="field">
-    <%= form.label :meal_description %>
-    <%= form.text_area :meal_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_field :date %>
-
-  </div>
-
-  <div class="field">
-    <%= form.label :mealtime %>
-    <%= form.select :mealtime, [['朝', '朝'], ['昼', '昼'], ['夜','夜']], {class: "user_class" } %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+      <%= s.submit %>
   </div>
-
-
-
-  <table class="cooking-new_table">
-    <tr>
-      <th><%= form.label :メイン料理 %></th>
-      <td><%= form.text_field :title %></td>
-    </tr>
-    <tr>
-      <th><%= form.label :説明 %></th>
-      <td><%= form.text_area :meal_description %></td>
-    </tr>
-    <tr>
-      <th><%= form.label :日にち %></th>
-      <td><%= form.date_field :date %></td>
-    </tr>
-    <tr class="cooking-new_table_ingredients">
-      <td>料理</td>
-      <td>TIME</td>
-      <td>ジャンル</td>
-      <td>URL</td>
-       <td></td>
-    </tr>
-    <tr class="cooking-new_table_ingredients">
-      <td><%= form.text_field :title %></td>
-      <td class="cooking-new_table_ingredients_contents">
-        <%= form.select :mealtime, [['朝', '朝'], ['昼', '昼'], ['夜','夜']], {class: "user_class" } %>
-       </td>
-      <td><%= form.select :mealtime, [['ああああああああ', 'ああああああああ'], ['昼', '昼'], ['夜','夜']], {class: "user_class" } %>  </td>
-      <td><%= form.text_field :title %></td>
-      <td class="cooking-new_table_ingredients_delete_btn">削除</td>
-    </tr>
-    <tr><td class="cooking-new_table_ingredients_add_btn">材料追加</td></tr>
-  </table>
-  <input class="btn-login" type="submit">
-  <% end %>
+<% end %>

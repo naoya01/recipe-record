@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :users, only: %i[index show edit]
   resources :genres, only: %i[index show create update destroy edit]
+  get '/meals/day', to: 'meals#day'
   resources :meals
 end

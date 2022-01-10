@@ -1,0 +1,14 @@
+<div class="nested-fields">
+    <%= f.label "料理" %>
+    <%= f.text_field :cooking_name %>
+    <%= f.label "URL" %>
+    <%= f.text_field :url %>
+    <%= link_to_remove_association '削除', f, class: 'btn btn-danger' %>
+
+    <%= f.fields_for :genres do |u| %>
+        <%= render "genre_fields", f: u %>
+    <%end%>
+
+
+    <%= link_to_add_association "ジャンル追加", f, :genres %>
+</div>

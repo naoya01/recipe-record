@@ -3,7 +3,13 @@ class MealsController < ApplicationController
 
   # GET /meals or /meals.json
   def index
-    @meals = Meal.all
+    @meals = current_user.meals
+    @meals.each do |meal|
+      @cookings = meal.cookings
+    end
+      @cookings.each do |cooking|
+      @cooking = cooking.cooking_name
+    end
   end
 
   # GET /meals/1 or /meals/1.json
@@ -13,7 +19,9 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
-    @cooking = @meal.cookings.build
+    @cookings = @meal.cookings.build
+    @tags = @cookings.tags
+
   end
 
   # GET /meals/1/edit
@@ -27,8 +35,6 @@ class MealsController < ApplicationController
     respond_to do |format|
       if @meal.save
         format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
-        # format.json { render :json => @meal, :status => :created, :location => @meal }
-        # format.json { render :"meal/index", status: :created, location: @meal }
         format.json { render :new, status: :created, location: @meal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -61,6 +67,11 @@ class MealsController < ApplicationController
     end
   end
 
+  def day
+    meals = Meal.joins(:cookings).select("meals.id, title, meal_description, cookings.url").where(date: params[:day])
+    render json: meals
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
@@ -69,9 +80,10 @@ class MealsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meal_params
-      params.require(:meal).permit(:title, :meal_description, :date, :mealtime,:start_date,:end_date,
-        flavors_attributes: [:id, :flavor_name,:flavor_quantity, :_destroy,],
-      )
+      params.require(:meal).permit(:title, :meal_description, :date, :mealtime,:start_date,:end_date,:_destroy,
+        cookings_attributes: [:id, :cooking_name,:url, :_destroy,
+        genres_attributes: [:id, :genre_name, :_destroy]
+         ])
     end
 
 end

@@ -15,8 +15,6 @@
  *= require fullcalendar
  */
 
-
-
  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -140,7 +138,7 @@ $footer-height_sp: 100;
   }
 
   @include media(sp) {
-    border-radius: calc(10 / #{$sp-size} * 100vw);
+    border-radius: calc(10 / #{$sp-size} * 100vw) ;
     @include font-size(30);
     width: calc(150 / #{$sp-size} * 100vw) !important;
     height: calc(60 / #{$sp-size} * 100vw);
@@ -1219,6 +1217,7 @@ button {
 }
 .top-visual_btn_login {
   color: #fff;
+    border-radius :50%;
   @include change-color_login;
   transition: 0.3s;
   display: flex;
@@ -1245,6 +1244,7 @@ button {
 }
 
 .top-visual_btn_register {
+    border-radius :50%;
   color: #fff;
   transition: 0.3s;
   display: flex;
@@ -1565,12 +1565,13 @@ button {
 }
 
 .cooking-show_column_contents_spices {
+  font-weight: bold;
     tr:nth-child(odd){
-      background-color: rgb(220, 190, 175);
-      color: #fafafa;
+      background-color: antiquewhite;
+      color: #000;
     }
     tr:nth-child(even){
-      background-color: rgb(240, 230, 220);
+      background-color: beige;
     }
   @include media(pc) {
     max-width: 400px;

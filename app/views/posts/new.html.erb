@@ -39,9 +39,9 @@
     <%= s.fields_for :foodstuffs do |t| %>
       <%= render "foodstuff_fields", f: t %>
     <% end %>
-    
+
     <tr class="foodstuff-add"></tr>
-  
+
     <tr class="cooking-new_table_add_btn">
       <td class="links">
         <%= link_to_add_association "追加", s, :foodstuffs ,class: "cooking-new_table_ingredients_add_btn",
