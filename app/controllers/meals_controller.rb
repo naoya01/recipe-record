@@ -13,6 +13,7 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
+    @cooking = @meal.cookings.build
   end
 
   # GET /meals/1/edit
@@ -68,6 +69,9 @@ class MealsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meal_params
-      params.require(:meal).permit(:title, :meal_description, :date, :mealtime,:start_date,:end_date)
+      params.require(:meal).permit(:title, :meal_description, :date, :mealtime,:start_date,:end_date,
+        flavors_attributes: [:id, :flavor_name,:flavor_quantity, :_destroy,],
+      )
     end
+
 end

@@ -114,7 +114,7 @@ $footer-height_sp: 100;
 }
 
 @mixin next-color {
-  background-color: rgb(42, 36, 124);
+  background-color: rgb(119, 187, 145);
 }
 
 @mixin btn-small {
@@ -131,7 +131,7 @@ $footer-height_sp: 100;
   }
   @include media(pc) {
     height: 40px !important;
-    width: 100px !important;
+    width: 80px !important;
     border-radius: 5px;
     font-size: 14px;
   }
@@ -150,7 +150,7 @@ $footer-height_sp: 100;
 }
 
 @mixin btn-login {
-  @include main-color;
+  @include next-color;
   margin-left: auto;
   margin-right: auto;
   border: none;
@@ -189,7 +189,7 @@ $footer-height_sp: 100;
 }
 
 @mixin btn-genre {
-  @include main-color;
+  @include destroy-color;
   margin-right: auto;
   border: none;
   display: flex;
@@ -876,7 +876,7 @@ button {
 }
 .top-btn {
   z-index: 1;
-  background-color: #c89650;
+  background-color: rgb(200, 130, 60);
   color: beige;
   position: fixed;
   display: flex;
@@ -1787,97 +1787,39 @@ button {
   }
 }
 
-.cooking-new_table_head {
-  @include media(sp) {
-    flex-direction: row !important;
-
-    @include font-size(30);
-  }
-}
-
-.cooking-new_table_ingredients_title {
-  @include media(pc) {
-    padding: 20px 10px 0px 10px !important;
-    th {
-    }
-    td {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      input {
-        width: 100%;
-      }
-    }
-    .cooking-new_table_ingredients_name {
-      width: 250px;
-      height: 30px;
-      font-size: 16px;
-    }
-    .cooking-new_table_ingredients_quantity {
-      width: 200px;
-      height: 30px;
-      font-size: 16px;
-    }
-    .cooking-new_table_ingredients_space {
-      @include media(pc) {
-        width: 100px;
-      }
-    }
-  }
-
-  @include media(tb) {
-    th {
-    }
-    td {
-    }
-  }
-
-  @include media(sp) {
-    flex-direction: row !important;
-    @include padding_vw(30, 10, 30, 10);
-    padding-top: calc(10 / #{$sp-size} * 100vw) !important;
-    padding-bottom: calc(10 / #{$sp-size} * 100vw) !important;
-    @include width(660);
-    justify-content: space-between;
-    th {
-      @include padding_vw(30, 10, 30, 10);
-    }
-    td {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      @include font-size(30);
-      input {
-        width: 100%;
-      }
-    }
-    .cooking-new_table_ingredients_name {
-      @include font-size(25);
-      @include width(250);
-      @include margin_vw(30, 0, 30, 0);
-    }
-    .cooking-new_table_ingredients_quantity {
-      @include width(180);
-      @include font-size(25);
-      @include height(70);
-    }
-    .cooking-new_table_ingredients_space {
-      @include width(150);
-    }
-  }
-}
 
 .cooking-new_table_ingredients {
   @include media(pc) {
-    padding: 10px 0px !important;
-    th {
+    td:nth-child(1) {
+    width: 170px;
     }
+    td:nth-child(2) {
+    width: 40px;
+      select{
+      font-size: 12px;
+    }
+    }
+    td:nth-child(3) {
+    width: 80px;
+    select{
+      width: 80px;
+      font-size: 12px;
+    }
+    }
+    td:nth-child(4) {
+    width: 200px;
+    }
+    td:nth-child(5) {
+    width: 80px;
+    }
+    padding: 10px 0px !important;
     td {
       display: flex;
-      justify-content: space-between;
+      font-size: 15px;
       align-items: center;
       input {
         width: 100%;
+        font-size: 14px;
       }
     }
     .cooking-new_table_ingredients_name {
@@ -1956,7 +1898,7 @@ button {
   text-align: center;
 }
 .cooking-new_table_ingredients_add_btn {
-  background-color: #c89650;
+  background-color: rgb(200, 130, 60);
   @include btn-small;
   color: #ffffff;
   transition: 0.3s;

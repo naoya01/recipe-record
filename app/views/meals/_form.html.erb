@@ -23,17 +23,8 @@
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
+    <%= form.date_field :date %>
 
-  <div class="form-inline text-left">
-   <%= form.label :start_date,"開始時刻", {class:'control-label'}%>
-   <%= form.datetime_select :start_date, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
-  </div>
-  <br>
-  <div class="form-inline text-left">
-   <%= form.label :end_date,"終了時刻", {class:'control-label'}%>
-   <%= form.datetime_select :end_date, {default: Date.today + 0.hours + 00.minutes, minute_step: 60}, class: 'form-control' %>
   </div>
 
   <div class="field">
@@ -44,31 +35,39 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-<% end %>
+
 
 
   <table class="cooking-new_table">
     <tr>
-      <th>料理名</th>
-      <td><input type="text"></td>
+      <th><%= form.label :メイン料理 %></th>
+      <td><%= form.text_field :title %></td>
     </tr>
     <tr>
-      <th>日時</th>
-      <td><input type="text"></td>
+      <th><%= form.label :説明 %></th>
+      <td><%= form.text_area :meal_description %></td>
     </tr>
     <tr>
-      <th>ジャンル</th>
-      <td><input type="text"></td>
+      <th><%= form.label :日にち %></th>
+      <td><%= form.date_field :date %></td>
     </tr>
     <tr class="cooking-new_table_ingredients">
-      <th>材料</th>
-      <td class="cooking-new_table_ingredients_contents"><input type="date"></input>
-        <select name="choice" class="cooking-new_table_ingredients_quantity">
-          <option value="first">朝</option>
-          <option value="second" selected>昼</option>
-          <option value="third">夜</option>
-        </select></td>
+      <td>料理</td>
+      <td>TIME</td>
+      <td>ジャンル</td>
+      <td>URL</td>
+       <td></td>
     </tr>
-    <tr class="cooking-new_table_ingredients_add_btn"><td>材料追加</td></tr>
+    <tr class="cooking-new_table_ingredients">
+      <td><%= form.text_field :title %></td>
+      <td class="cooking-new_table_ingredients_contents">
+        <%= form.select :mealtime, [['朝', '朝'], ['昼', '昼'], ['夜','夜']], {class: "user_class" } %>
+       </td>
+      <td><%= form.select :mealtime, [['ああああああああ', 'ああああああああ'], ['昼', '昼'], ['夜','夜']], {class: "user_class" } %>  </td>
+      <td><%= form.text_field :title %></td>
+      <td class="cooking-new_table_ingredients_delete_btn">削除</td>
+    </tr>
+    <tr><td class="cooking-new_table_ingredients_add_btn">材料追加</td></tr>
   </table>
   <input class="btn-login" type="submit">
+  <% end %>
