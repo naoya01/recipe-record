@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :genres, only: %i[index show create update destroy edit]
   get '/meals/day', to: 'meals#day'
   resources :meals
+  resources :cookings do
+    resources :favorites, only: [:create, :destroy, :index ,:show]
+  end
 end

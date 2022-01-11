@@ -1,0 +1,13 @@
+<% if cooking.favorited_by?(current_user) %>
+  <p>
+  <%= link_to cooking_favorite_path(cooking.id), method: :delete,remote:true do %>
+    ♥<%= cooking.favorites.count %> いいね
+  <% end %>
+  </p>
+  <% else %>
+  <p>
+  <%= link_to cooking_favorites_path(cooking.id), method: :post do %>
+    ♡<%= cooking.favorites.count %> いいね
+  <% end %>
+  </p>
+<% end %>

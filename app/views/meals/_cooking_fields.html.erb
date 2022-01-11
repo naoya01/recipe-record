@@ -5,10 +5,10 @@
     <%= f.text_field :url %>
     <%= link_to_remove_association '削除', f, class: 'btn btn-danger' %>
 
-    <%= f.fields_for :genres do |u| %>
-        <%= render "genre_fields", f: u %>
+    <%= f.fields_for :tags do |u| %>
+        <%= render "tag_fields", f: u %>
     <%end%>
 
 
-    <%= link_to_add_association "ジャンル追加", f, :genres %>
+    <%= link_to_add_association "ジャンル追加", f, :tags %>
 </div>

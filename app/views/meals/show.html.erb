@@ -24,3 +24,10 @@
 <%= link_to 'Edit', edit_meal_path(@meal) %> |
 <%= link_to 'Back', meals_path %>
 
+
+<% @meal.cookings.each do |cooking| %>
+  <%= cooking.cooking_name %>
+  <div class="btn">
+  <%= render "favorites/index", cooking: cooking %>
+  </div>
+<% end %>

@@ -14,13 +14,14 @@ class MealsController < ApplicationController
 
   # GET /meals/1 or /meals/1.json
   def show
+    @meals = current_user.meals
   end
 
   # GET /meals/new
   def new
     @meal = Meal.new
     @cookings = @meal.cookings.build
-    @tags = @cookings.tags
+    @tags = @cookings.tags.build
 
   end
 
@@ -68,7 +69,7 @@ class MealsController < ApplicationController
   end
 
   def day
-    meals = Meal.joins(:cookings).select("meals.id, title, meal_description, cookings.url").where(date: params[:day])
+    meals = Meal.joins(:cookings).select("meals.id,mealtime, title, meal_description, cookings.cooking_name ,cookings.url").where(date: params[:day])
     render json: meals
   end
 
@@ -82,7 +83,7 @@ class MealsController < ApplicationController
     def meal_params
       params.require(:meal).permit(:title, :meal_description, :date, :mealtime,:start_date,:end_date,:_destroy,
         cookings_attributes: [:id, :cooking_name,:url, :_destroy,
-        genres_attributes: [:id, :genre_name, :_destroy]
+        tags_attributes: [:id, :genre_name, :_destroy]
          ])
     end
 

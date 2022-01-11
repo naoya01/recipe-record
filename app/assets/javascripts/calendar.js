@@ -31,7 +31,7 @@ $(function() {
       day: '日',
     },
     timeFormat: 'HH:mm',
-    eventColor: '#63ceef',
+    // eventColor: '#63ceef',
     eventTextColor: '#000000',
 
     //eventClickとdayclickでは取得できるものに違いがあるため2つ記述してある。それぞれ別の方法で日付を取得している。
@@ -46,20 +46,57 @@ $(function() {
       dayMealEvent(params);
     }
   });
-
 });
 
 function dayMealEvent(params) {
   $.ajax('/meals/day?day=' + params)
       .done(function(data){
         // console.log(data);
-        $('#event').empty();
+        $('.meals-index_event-container').css('display','block');
+        $('#meals-index_event_breakfast_content').empty();
+        $('#meals-index_event_lunch_content').empty();
+        $('#meals-index_event_dinner_content').empty();
+        
         data.forEach((event) => {
           // console.log(event);
-          $('#event').append(`<li>Titlt : ${event.title}<ul><li>URL : ${event.url}</li><li>Description : ${event.meal_description}</li></ul></li>`);
+          $('#meals-index_event_breakfast_content').append(
+            ` <div class="meals-index_ivents ${event.mealtime}">
+                <ul class="meals-index_ivents_container_list">
+                  <li class="meals-index_ivents_container_list_item"><a href="${event.url}">${event.cooking_name}</li>
+                </ul>
+             </div>`
+            );
+
+          $('#meals-index_event_lunch_content').append(
+            ` <div class="meals-index_ivents ${event.mealtime}">
+                <ul class="meals-index_ivents_container_list">
+                  <li class="meals-index_ivents_container_list_item"><a href="${event.url}">${event.cooking_name}</li>
+                </ul>
+             </div>`
+            );
+
+          $('#meals-index_event_dinner_content').append(
+            ` <div class="meals-index_ivents ${event.mealtime}">
+                <ul class="meals-index_ivents_container_list">
+                  <li class="meals-index_ivents_container_list_item"><a href="${event.url}">${event.cooking_name}</li>
+                </ul>
+             </div>`
+            );
+          if ($('.meals-index_ivents_container_title_breakfast_item').text() == "breakfast" ){
+
+             $('.meals-index_ivents_container_title_breakfast').text("朝")
+          }
+          else if ($('.meals-index_ivents_container_title_lunch_item').text() == "lunch" ){
+             $('.meals-index_ivents_container_title_lunch').text("昼")
+
+          }
+          else if ($('.meals-index_ivents_container_title_dinner_item').text() == "dinner" ){
+             $('.meals-index_ivents_container_title_dinner').text("夜")
+          }
         })
       })
       .fail(function() {
         alert('ERROR');
       })
 }
+

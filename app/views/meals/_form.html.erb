@@ -1,4 +1,3 @@
-
 <%= form_with(model: meal, local: true) do |s| %>
   <%= s.label :"タイトル" %>
   <%= s.text_field :title %>
@@ -7,7 +6,7 @@
   <%= s.label "日にち" %>
   <%= s.date_field :date %>
   <%= s.label "食事時間" %>
-  <%= s.select :mealtime, [['朝', '朝'], ['昼', '昼'], ['夜','夜']], {class: "user_class" } %>
+  <%= s.select :mealtime, [['朝', 'breakfast'], ['昼', 'lunch'], ['夜','dinner']], {class: "user_class" } %>
   <div class="parents">
       <%= s.fields_for :cookings do |t| %>
           <%= render "cooking_fields", f: t %>
