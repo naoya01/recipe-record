@@ -8,7 +8,6 @@
     <%= f.fields_for :tags do |u| %>
         <%= render "tag_fields", f: u %>
     <%end%>
-
-
+    
     <%= link_to_add_association "ジャンル追加", f, :tags %>
 </div>
