@@ -4,17 +4,12 @@ class MealsController < ApplicationController
   # GET /meals or /meals.json
   def index
     @meals = current_user.meals
-    @meals.each do |meal|
-      @cookings = meal.cookings
-    end
-      @cookings.each do |cooking|
-      @cooking = cooking.cooking_name
-    end
   end
 
   # GET /meals/1 or /meals/1.json
   def show
     @meals = current_user.meals
+    @genres = Genre.all
   end
 
   # GET /meals/new
@@ -27,35 +22,46 @@ class MealsController < ApplicationController
 
   # GET /meals/1/edit
   def edit
+
   end
 
   # POST /meals or /meals.json
   def create
     @meal = Meal.new(meal_params)
     @meal.user_id = current_user.id
-    respond_to do |format|
-      if @meal.save
-        format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
-        format.json { render :new, status: :created, location: @meal }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @meal.errors, status: :unprocessable_entity }
+    # at_dates = Meal.where(date: @meal.date).select("mealtime: @meal.mealtime")
+    at_dates = Meal.where(date: @meal.date).pluck(:mealtime)
+    # dateにデータが入っていないか、同じ日に３回以内投稿されている
+    unless at_dates.include?(@meal.mealtime)
+       respond_to do |format|
+        if @meal.save
+          format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
+          format.json { render :new, status: :created, location: @meal }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @meal.errors, status: :unprocessable_entity }
+        end
       end
+    else
+    flash[:notice] = "その日の時間はすでに登録済みです"
+    render :new
     end
   end
 
   # PATCH/PUT /meals/1 or /meals/1.json
   def update
     @meal.user_id = current_user.id
-    respond_to do |format|
-      if @meal.update(meal_params)
-        format.html { redirect_to meal_url(@meal), notice: "Meal was successfully updated." }
-        format.json { render :show, status: :ok, location: @meal }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @meal.errors, status: :unprocessable_entity }
+
+      respond_to do |format|
+        if @meal.update(meal_params)
+          format.html { redirect_to meal_url(@meal), notice: "Meal was successfully updated." }
+          format.json { render :show, status: :ok, location: @meal }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @meal.errors, status: :unprocessable_entity }
+        end
       end
-    end
+
   end
 
   # DELETE /meals/1 or /meals/1.json
@@ -69,7 +75,7 @@ class MealsController < ApplicationController
   end
 
   def day
-    meals = Meal.joins(:cookings).select("meals.id,mealtime, title, meal_description, cookings.cooking_name ,cookings.url").where(date: params[:day])
+    meals = Meal.joins(:cookings).select("meals.id,mealtime, title, meal_description, cookings.cooking_name ,cookings.url ,cookings.user_id").where(date: params[:day],user_id: current_user.id )
     render json: meals
   end
 
@@ -82,7 +88,7 @@ class MealsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def meal_params
       params.require(:meal).permit(:title, :meal_description, :date, :mealtime,:start_date,:end_date,:_destroy,
-        cookings_attributes: [:id, :cooking_name,:url, :_destroy,
+        cookings_attributes: [:id, :cooking_name,:url,:user_id, :_destroy,
         tags_attributes: [:id, :genre_id, :_destroy]
          ])
     end

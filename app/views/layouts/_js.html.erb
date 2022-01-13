@@ -1,5 +1,6 @@
 <script>
 $(function () {
+
   $(".l-nav_btn").on("click", function () {
     $(".l-nav_btn_bar").toggleClass("open");
   });
@@ -37,21 +38,6 @@ $(function () {
   }
   $grid.append(emptyCells);
 
-  ///ジャンル一覧の並び方
-  let $grids = $(".genre-index_list"),
-    emptyCell = [],
-    ii;
-  // 子パネル (li.cell) の数だけ空の子パネル (li.cell.is-empty) を追加する。
-  for (ii = 0; ii < $grids.find(".genre-index_list_item").length; ii++) {
-    emptyCell.push($("<li>", { class: "genre-index_list_item is-genre_empty" }));
-  }
-  $grids.append(emptyCell);
-
-
-  media();
-  $(window).on("resize", function () {
-    media();
-  });
 
   var url = location.href;
   // メディアクエリ
@@ -184,5 +170,14 @@ $(function () {
     }
   );
 });
-
+$(function(){
+  $('.mealtime_conversion').each(function(){
+    let text = $(this).html();
+    $(this).html(
+      text.replace(/breakfast/g,'朝')
+         .replace(/lunch/g,'昼')
+         .replace(/dinner/g,'夜')
+    );
+  });
+});
 </script>

@@ -1,33 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="l-main_container">
+  <div class="m-title_flex">
+    <h2 class="m-title"><%= @meal.date %>　<%= @meal.mealtime %>の食事</h2>
+ </div>
+ <% @meal.cookings.each do |cooking| %>
+    <div class="meals-show_container">
+      <div class="meals-show_container_row">
+        <span class="meals-show_container_row_title"><%= cooking.cooking_name %></span>
+        <span class="meals-show_container_row_favorite">
+          <div class="favorite-btn_<%= cooking.id %>">
+            <%= render "favorites/index", cooking: cooking %>
+          </div>
+        </span>
+      </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @meal.title %>
-</p>
-
-<p>
-  <strong>Meal description:</strong>
-  <%= @meal.meal_description %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @meal.date %>
-</p>
-
-<p>
-  <strong>Mealtime:</strong>
-  <%= @meal.mealtime %>
-</p>
-
-
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
+      <div class="meals-show_container_row">
+        <ul class="meals-show_container_row_content">
+          <% cooking.tags.each do |tag| %>
+          <li class="meals-show_container_row_content_list">
+            <%= link_to tag.genre.genre_name , genre_path(tag.genre.id),class: "meals-show_container_row_content_list_anchor" %>
+          </li>
+          <% end %>
+      </ul>
+      </div>
+      <div class="meals-show_container_row">
+        <a class="meals-show_container_row_url" href="">ページを見に行く</a>
+        </span>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'Edit', edit_meal_path(@meal) %>
 <%= link_to 'Back', meals_path %>
-
-
-<% @meal.cookings.each do |cooking| %>
-  <%= cooking.cooking_name %>
-  <div class="btn">
-  <%= render "favorites/index", cooking: cooking %>
-  </div>
-<% end %>
+</div>

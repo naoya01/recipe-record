@@ -1,4 +1,9 @@
 <div class="nested-fields">
-    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name ,:include_blank => "選択してください",class: "address-selec" %>
-    <%= link_to_remove_association '削除', f, class: 'btn btn-danger' %>
+  <div class="meals-new_table_row">
+    <span class="meals-new_table_row_title">ジャンル</span>
+    <div class="meals-new_table_genre_flex">
+        <span class="meals-new_table_row_content meals-new_table_genre"><%= f.collection_select :genre_id, Genre.all, :id, :genre_name ,:include_blank => "選択してください",class: "address-selec" %></span>
+        <%= link_to_remove_association 'ジャンル削除', f, class: 'meals-new_table_delete_btn_genre' %>
+     </div>
+  </div>
 </div>

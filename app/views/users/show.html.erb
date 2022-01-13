@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="l-main_container">
+  <div class="users-show_favorite_flex" >
+    <% @favorites.each do |cooking| %>
+      <span class="users-show_favorite_block" >
+        <a href=<%= cooking.url %>><%= cooking.cooking_name %></a>
+        <div class="users-show_favorite_block_btn favorite-btn_<%= cooking.id %>">
+          <%= render "favorites/index", cooking: cooking %>
+        </div>
+      </span>
+    <% end %>
+  </div>
+</div>

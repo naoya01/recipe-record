@@ -2,20 +2,13 @@
 
   <aside class="m-side">
     <ul class="m-side_list">
-      <span class="m-side_title">作った日</span>
-      <li class="m-side_list_item">
-        <a class="m-side_list_item_anchor" href="">2021/10/11</a>
-      </li>
-      <li class="m-side_list_item">
-        <a class="m-side_list_item_anchor" href="">2021/10/12</a>
-      </li>
-      <li class="m-side_list_item">
-        <a class="m-side_list_item_anchor" href="">2021/10/23</a>
-      </li>
-      <li class="m-side_list_item">
-        <a class="m-side_list_item_anchor" href="">2021/12/11</a>
-      </li>
-        <a class="m-side_list_item_anchor_other" href="">もっと見る</a>
+      <span class="m-side_title">自分の料理</span>
+      <% @posts.each do |post| %>
+        <li class="m-side_list_item">
+          <%= link_to post.post_name ,post_path(post.id),class: "m-side_list_item_anchor" %>
+        </li>
+      <% end %>
+      <%= link_to "もっと見る" ,posts_path ,class: "m-side_list_item_anchor_other" %>
     </ul>
   </aside>
 
@@ -23,8 +16,8 @@
     <div class="m-title_flex">
       <h2 class="m-title"><%= @post.post_name %></h2>
       <div class="m-title_other">
-        <%= link_to "編集" , edit_post_path(@post.id) %>
-        <%= link_to "削除" , post_path(@post.id),method: :delete, data: {confirm: '本当に消しますか？'} %>
+        <%= link_to "編集" , edit_post_path(@post.id), class: "m-title_other_button_edit" %>
+        <%= link_to "削除" , post_path(@post.id),method: :delete, data: {confirm: '本当に消しますか？'},class: "m-title_other_button_delete" %>
     </div>
     </div>
 

@@ -1,13 +1,17 @@
-<div class="nested-fields">
-    <%= f.label "料理" %>
-    <%= f.text_field :cooking_name %>
-    <%= f.label "URL" %>
-    <%= f.text_field :url %>
-    <%= link_to_remove_association '削除', f, class: 'btn btn-danger' %>
-
+<div class="nested-fields cooking_from">
+  <div class="meals-new_table_row">
+    <span class="meals-new_table_row_title"><%= f.label "料理" %></span>
+    <span class="meals-new_table_row_content"><%= f.text_field :cooking_name %></span>
+  </div>
+  <div class="meals-new_table_row">
+    <span class="meals-new_table_row_title"><%= f.label " URL" %></span>
+    <span class="meals-new_table_row_content"><%= f.text_field :url %></span>
+  </div>
+  <!--コクーンによる書き方-->
     <%= f.fields_for :tags do |u| %>
-        <%= render "tag_fields", f: u %>
+      <%= render "tag_fields", f: u %>
     <%end%>
-    
-    <%= link_to_add_association "ジャンル追加", f, :tags %>
+  <div><%= link_to_add_association "ジャンル追加", f, :tags ,class: "meals-new_table_add_btn" %></div>
+  <div><%= link_to_remove_association '料理削除', f, class: 'meals-new_table_delete_btn_cooking' %></div>
 </div>
+

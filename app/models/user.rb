@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :meals, dependent: :destroy
   has_many :genres, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :cookings, through: :favorites
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

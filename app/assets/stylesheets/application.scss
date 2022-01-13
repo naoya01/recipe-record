@@ -108,11 +108,19 @@ $footer-height_sp: 100;
 }
 
 @mixin edit-color {
-  background-color: #3654b8;
+  background-color: #8ad3df;
 }
 
 @mixin next-color {
   background-color: rgb(119, 187, 145);
+}
+
+@mixin show-color {
+  background-color: rgb(223, 203, 149);
+}
+
+@mixin add-color {
+  background-color: rgb(190, 110, 105);
 }
 
 @mixin btn-small {
@@ -129,7 +137,7 @@ $footer-height_sp: 100;
   }
   @include media(pc) {
     height: 40px !important;
-    width: 80px !important;
+    width: 100px !important;
     border-radius: 5px;
     font-size: 14px;
   }
@@ -139,8 +147,8 @@ $footer-height_sp: 100;
 
   @include media(sp) {
     border-radius: calc(10 / #{$sp-size} * 100vw);
-    @include font-size(30);
-    width: calc(150 / #{$sp-size} * 100vw) !important;
+    @include font-size(25);
+    width: calc(120 / #{$sp-size} * 100vw) !important;
     height: calc(60 / #{$sp-size} * 100vw);
     // @include padding_vw(30, 10, 30, 10);
     text-align: center;
@@ -213,7 +221,6 @@ $footer-height_sp: 100;
 
   @include media(sp) {
     border-radius: calc(10 / #{$sp-size} * 100vw);
-    display: block;
     @include font-size(30);
     @include width(180);
     @include height(80);
@@ -988,6 +995,20 @@ button {
   }
 }
 
+.m-side_title {
+  @include media(pc) {
+    background-color: #fdd;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
 .m-side_list {
   @include media(pc) {
     border-radius: 10px;
@@ -1066,7 +1087,7 @@ button {
     display: flex;
     align-items: center;
     transition-duration: 0.3s;
-    justify-content: end;
+    justify-content: center;
     &:hover {
       transition-duration: 0.3s;
       color: #fdf4d5;
@@ -1160,6 +1181,45 @@ button {
     border-bottom: solid 3px #d7d7d7;
     @include font-size(50);
     @include margin_vw(0, 0, 80, 0);
+  }
+}
+
+.m-title_other {
+  display: flex;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.m-title_other_button_edit {
+  @include btn-small;
+  @include edit-color;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.m-title_other_button_delete {
+  @include btn-small;
+  @include destroy-color;
+  @include media(pc) {
+    margin-left: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-left(50);
   }
 }
 
@@ -1528,7 +1588,7 @@ button {
 
   @include media(sp) {
     @include padding_vw(0, 45, 0, 45);
-    @include margin_top(30);
+    @include margin_top(100);
   }
 }
 .cooking-show_column_contents_explanation {
@@ -1679,7 +1739,7 @@ button {
 
   @include media(sp) {
     @include width(630);
-    @include font-size(25);
+    @include font-size(30);
     @include line-heght(50);
   }
 }
@@ -1698,7 +1758,7 @@ button {
 
   @include media(sp) {
     @include width(200);
-    @include margin-left(20);
+    @include margin-top(40);
   }
 }
 
@@ -1797,7 +1857,7 @@ button {
       }
     }
     td:nth-child(3) {
-      width: 80px;
+      width: 100px;
       select {
         width: 80px;
         font-size: 12px;
@@ -1874,6 +1934,20 @@ button {
     }
     .cooking-new_table_ingredients_space {
       @include width(150);
+    }
+  }
+}
+
+.cooking-new_table_ingredients_title {
+  @include media(pc) {
+  }
+  @include media(tb) {
+  }
+  @include media(sp) {
+    flex-direction: row !important;
+    justify-content: space-between;
+    .cooking-new_table_ingredients_space {
+      @include width(80);
     }
   }
 }
@@ -2094,12 +2168,9 @@ button {
 .cooking-new_table_process_add_btn {
 }
 .add_fields {
-  background-color: rgb(200, 130, 60);
+  @include add-color;
 }
 
-.nested-fields {
-  padding: 10px 0px;
-}
 /*------------------------新規登録・ログイン-----------------------------*/
 .login-table {
   margin: 0 auto;
@@ -2257,7 +2328,6 @@ button {
 
 .genre-index_list {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
   @include media(pc) {
     margin-top: 100px;
@@ -2267,7 +2337,8 @@ button {
   }
 
   @include media(sp) {
-    @include margin_top(100);
+    @include margin_top(150);
+    @include font-size(35);
   }
 }
 .genre-index_list_item {
@@ -2283,7 +2354,7 @@ button {
   @include media(sp) {
     @include width(200);
     @include line-heght(35);
-    @include margin_vw(0, 10, 50, 10);
+    @include margin_vw(0, 10, 100, 10);
   }
 }
 .genre-index_list_item_anchor {
@@ -2336,6 +2407,7 @@ button {
   transition: 1s;
 
   @include media(pc) {
+    margin-bottom: 50px;
   }
 
   @include media(tb) {
@@ -2343,96 +2415,169 @@ button {
 
   @include media(sp) {
     @include padding_vw(0, 20, 0, 20);
+    @include margin-bottom(100);
   }
 }
 
-.event{
-  display:flex;
+.event {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
   @include media(pc) {
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    flex-direction: column;
+  }
+}
+.meals-index_event-container {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  @include media(pc) {
+    margin-top: 100px;
+    max-width: 1100px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+#meals-index_event_breakfast {
+  background-color: #fee;
+  @include media(pc) {
+    padding: 20px 40px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include padding_vw(50, 10, 50, 10);
+  }
+}
+#meals-index_event_lunch {
+  background-color: #efe;
+  @include media(pc) {
+    padding: 20px 40px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include padding_vw(50, 10, 50, 10);
+  }
+}
+#meals-index_event_dinner {
+  background-color: #eef;
+  @include media(pc) {
+    padding: 20px 40px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include padding_vw(50, 10, 50, 10);
   }
 }
 
 .meals-index_mealtime {
+  display: flex;
+  align-items: center;
   @include media(pc) {
-    width: 300px;
-    padding: 40px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+  }
+}
+
+.meals-index_mealtime_title {
+  @include media(pc) {
+    margin-right: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(30);
   }
 }
 
 #meals-index_event_breakfast_content {
-  .lunch{
+  .lunch {
     display: none;
   }
-  .dinner{
+  .dinner {
     display: none;
   }
   @include media(pc) {
-    max-width: 1400px;
     width: 300px;
-    padding: 40px;
+    margin-left: 100px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-top(50);
   }
 }
 
 #meals-index_event_lunch_content {
-  .breakfast{
+  .breakfast {
     display: none;
   }
-  .dinner{
+  .dinner {
     display: none;
   }
   @include media(pc) {
     width: 300px;
-    padding: 40px;
+    margin-left: 100px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-top(50);
   }
 }
 
 #meals-index_event_dinner_content {
-  .breakfast{
+  .breakfast {
     display: none;
   }
-  .lunch{
+  .lunch {
     display: none;
   }
   @include media(pc) {
     width: 300px;
-    padding: 40px;
+    margin-left: 100px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-top(50);
   }
 }
 
-
-.meals-index_ivents_list {
+.meals-index_ivents_container_list {
   @include media(pc) {
   }
   @include media(tb) {
@@ -2441,7 +2586,355 @@ button {
   @include media(sp) {
   }
 }
-.meals-index_ivents_list_item {
+.meals-index_ivents_container_list_item {
+  @include media(pc) {
+    margin: 20px 0px;
+    display: flex;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(40);
+    @include margin-bottom(40);
+    @include font-size(25);
+  }
+}
+
+.meals-index_ivents_container_list_item_anchor {
+  color: #7b1;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(25);
+  }
+}
+
+//----------------------meals-show 食事の詳細---------------------
+.meals-show_container {
+  @include media(pc) {
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-show_container_row {
+  @include media(pc) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-show_container_row_title {
+  font-weight: bold;
+  @include media(pc) {
+    font-size: 24px;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-show_container_row_favorite {
+  @include media(pc) {
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-show_container_row_content {
+  @include media(pc) {
+    display: flex;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-show_container_row_content_list {
+  @include media(pc) {
+    margin: 0 20px;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-show_container_row_content_list_anchor {
+  @include media(pc) {
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-show_container_row_url {
+  @include media(pc) {
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+// カレンダーの下に表示される「show」の設定
+.meals-index_mealtime_breakfast_show .breakfast {
+  background-color: #ccf;
+}
+.meals-index_mealtime_breakfast_show .lunch {
+  display: none;
+}
+.meals-index_mealtime_breakfast_show .dinner {
+  display: none;
+}
+
+.meals-index_mealtime_lunch_show .breakfast {
+  display: none;
+}
+.meals-index_mealtime_lunch_show .lunch {
+  background-color: #faa;
+}
+.meals-index_mealtime_lunch_show .dinner {
+  display: none;
+}
+
+.meals-index_mealtime_dinner_show .breakfast {
+  display: none;
+}
+.meals-index_mealtime_dinner_show .lunch {
+  display: none;
+}
+.meals-index_mealtime_dinner_show .dinner {
+  background-color: #88a;
+}
+// カレンダーの下に表示される「show」の設定　⬆︎
+
+.breakfast_show {
+  @include btn-small;
+  @include show-color;
+  margin-left: 20px;
+  margin-right: 20px;
+  &:not(:nth-of-type(1)) {
+    display: none;
+  }
+}
+
+.lunch_show {
+  @include btn-small;
+  @include show-color;
+  margin-left: 20px;
+  margin-right: 20px;
+  &:not(:nth-of-type(1)) {
+    display: none;
+  }
+}
+
+.dinner_show {
+  @include btn-small;
+  @include show-color;
+  margin-left: 20px;
+  margin-right: 20px;
+  &:not(:nth-of-type(1)) {
+    display: none;
+  }
+}
+
+.breakfast_edit {
+  @include btn-small;
+  @include edit-color;
+  margin-left: 20px;
+  margin-right: 20px;
+  &:not(:nth-of-type(1)) {
+    display: none;
+  }
+}
+
+.lunch_edit {
+  @include btn-small;
+  @include edit-color;
+  margin-left: 20px;
+  margin-right: 20px;
+  &:not(:nth-of-type(1)) {
+    display: none;
+  }
+}
+
+.dinner_edit {
+  @include btn-small;
+  @include edit-color;
+  margin-left: 20px;
+  margin-right: 20px;
+  &:not(:nth-of-type(1)) {
+    display: none;
+  }
+}
+
+//-----------------------meal-new 食事追加ページ-----------------------//
+.meals-new_table {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  a {
+    color: #fff;
+    &:hover {
+      background-color: #eee;
+      color: rgb(120, 0, 0);
+      border: 1px solid #222;
+    }
+  }
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-new_table_row {
+  @include media(pc) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px 15px 0px;
+    font-size: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(40);
+    flex-direction: column;
+    @include padding_vw(40, 0, 40, 0);
+  }
+}
+.meals-new_table_row_title {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    display: flex;
+    @include width(600);
+    @include margin-bottom(40);
+    text-align: left;
+  }
+}
+.meals-new_table_row_content {
+  @include media(pc) {
+    font-size: 16px;
+    input {
+      font-size: 16px;
+      width: 350px;
+      height: 30px;
+    }
+    select {
+      height: 30px;
+      width: 50px;
+      margin-right: 20px;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(26);
+    input {
+      @include font-size(30);
+      @include width(660);
+      @include height(70);
+    }
+    select {
+      width: 100%;
+      @include height(60);
+      @include font-size(30);
+      @include margin_right(30);
+    }
+    textarea {
+      width: 100%;
+      @include height(120);
+    }
+  }
+}
+.meals-new_table_row_content_quantity {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.meals-new_table_add_btn {
+  @include btn-small;
+  @include add-color;
+  color: #ffffff;
+  transition: 0.3s;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    transition: 0.3s;
+    opacity: 0.7;
+  }
+  @include media(pc) {
+    margin-left: auto;
+    font-size: 14px !important;
+    margin-bottom: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    margin-left: auto;
+    @include width(250);
+    @include margin_top(20);
+  }
+}
+
+.meals-new_table_mealtime {
+  @include media(pc) {
+    border-bottom: 1px solid #000;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border-bottom: 1px solid #000;
+    @include padding-bottom(100);
+  }
+}
+
+.meals-new_table_genre_flex {
+  display: flex;
+  align-items: center;
   @include media(pc) {
   }
 
@@ -2452,7 +2945,132 @@ button {
   }
 }
 
-.meals-index_event-container{
-  display:none;
-  margin-top: 50px;
+.meals-new_table_genre {
+  @include media(pc) {
+    select {
+      width: 200px;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.meals-new_table_delete_btn_genre {
+  @include btn-small;
+  @include destroy-color;
+  @include media(pc) {
+    margin: auto;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    margin-left: auto;
+    font-size: calc(22 / #{$sp-size} * 100vw) !important;
+    height: calc(70 / #{$sp-size} * 100vw) !important;
+    width: calc(150 / #{$sp-size} * 100vw) !important;
+  }
+}
+
+.meals-new_table_delete_btn_cooking {
+  @include btn-small;
+  @include destroy-color;
+  @include media(pc) {
+    margin: auto;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    margin: auto;
+    font-size: calc(22 / #{$sp-size} * 100vw) !important;
+    height: calc(70 / #{$sp-size} * 100vw) !important;
+    width: calc(300 / #{$sp-size} * 100vw) !important;
+  }
+}
+
+.cooking_from {
+  @include media(pc) {
+    margin-top: 20px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border-bottom: 1px solid #000;
+    @include padding-top(50);
+    @include padding-bottom(100);
+  }
+}
+
+.meals-new_table_add_btn {
+  @include media(pc) {
+    margin-top: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(50);
+    @include margin-bottom(50);
+    font-size: calc(22 / #{$sp-size} * 100vw) !important;
+    height: calc(70 / #{$sp-size} * 100vw) !important;
+    width: calc(150 / #{$sp-size} * 100vw) !important;
+  }
+}
+
+.attention {
+  color: red !important ;
+}
+
+.meals-new_other {
+  text-align: center;
+  @include media(pc) {
+    margin-top: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(50);
+    @include font-size(24);
+  }
+}
+
+.users-show_favorite_flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.users-show_favorite_block {
+  display: flex;
+  max-width: 300px;
+  width: 100%;
+}
+
+.users-show_favorite_block_btn {
+  margin-left: 20px;
+}
+
+.fc-title {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(24);
+  }
 }

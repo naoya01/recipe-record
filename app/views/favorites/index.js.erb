@@ -1,1 +1,1 @@
-$(".btn").html("<%= j(render 'favorites/index', { cooking: cooking ) %>")
+$(".favorite-btn_<%= cooking.id %>").html("<%= j(render 'favorites/index', { cooking: cooking ) %>")

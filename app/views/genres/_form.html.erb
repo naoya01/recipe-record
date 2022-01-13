@@ -1,8 +1,12 @@
-<%= form_with model: @genre do |f| %>
-  <div class="genre-index_add">
-    <%= f.text_field :genre_name ,class: "genre-index_add_input" %>
-    <div class="genre-index_add_button_flex">
-    <%= f.submit  '保存' ,class: "genre-index_add_button" %>
-    </div>
-  </div>
-<% end %>
+<% if user_signed_in? %>
+  <% if current_user == @user || current_user.admin? %><%# 管理者のみ表示  %>
+    <%= form_with model: @genre do |f| %>
+      <div class="genre-index_add">
+        <%= f.text_field :genre_name ,class: "genre-index_add_input" %>
+        <div class="genre-index_add_button_flex">
+        <%= f.submit  '保存' ,class: "genre-index_add_button" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end%>

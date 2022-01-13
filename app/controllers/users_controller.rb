@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @favorites = current_user.cookings
   end
 
   def edit

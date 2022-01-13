@@ -1,51 +1,35 @@
 <div class="l-main_container">
 <%= link_to "投稿" , posts_path %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Meal description</th>
-        <th>Date</th>
-        <th>Mealtime</th>
-        <th>start_date</th>
-        <th>end_date</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @meals.each do |meal| %>
-        <tr>
-          <td><%= meal.title %></td>
-          <td><%= meal.meal_description %></td>
-          <td><%= meal.date %></td>
-          <td><%= meal.mealtime %></td>
-
-
-          <td><%= link_to 'Show', meal %></td>
-          <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-          <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<%= link_to "お気に入り" , user_path(current_user) %>
   <%= link_to 'New Meal', new_meal_path %>
   <br>
   <div id='calendar'></div>
 
   <div class="meals-index_event-container">
     <div id="meals-index_event_breakfast" class="event">
-      <span class="meals-index_mealtime">朝</span>
+      <div class="meals-index_mealtime">
+      <span class="meals-index_mealtime_title">朝</span>
+      <span class="meals-index_mealtime_breakfast_show"></span>
+      <span class="meals-index_mealtime_breakfast_edit"></span>
+      </div>
       <div id="meals-index_event_breakfast_content"></div>
     </div>
 
     <div id="meals-index_event_lunch" class="event">
-        <span class="meals-index_mealtime">昼</span>
+        <div class="meals-index_mealtime">
+          <span class="meals-index_mealtime_title">昼</span>
+          <span class="meals-index_mealtime_lunch_show"></span>
+          <span class="meals-index_mealtime_lunch_edit"></span>
+        </div>
         <div id="meals-index_event_lunch_content"></div>
     </div>
 
     <div id="meals-index_event_dinner" class="event">
-        <span class="meals-index_mealtime">夜</span>
+        <div class="meals-index_mealtime">
+          <span class="meals-index_mealtime_title">夜</span>
+          <span class="meals-index_mealtime_dinner_show"></span>
+          <span class="meals-index_mealtime_dinner_edit"></span>
+        </div>
         <div id="meals-index_event_dinner_content"></div>
     </div>
     <div class="meals-index_event-container_link"></div>

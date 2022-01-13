@@ -1,8 +1,13 @@
 class GenresController < ApplicationController
-  before_action :user_admin, only: [:index,:show,:edit,:destroy,:create,:update]
+  before_action :user_admin, only: [:edit,:destroy,:create,:update]
   def index
     @genres = Genre.all
     @genre = Genre.new
+  end
+
+  def show
+    @genre = Genre.find(params[:id])
+    @cookings = @genre.cookings.where(user_id: current_user.id)
   end
 
   def create
@@ -45,5 +50,4 @@ class GenresController < ApplicationController
          redirect_to meals_path
      end
   end
-
 end

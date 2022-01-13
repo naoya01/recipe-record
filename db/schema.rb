@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_084234) do
 
   create_table "cookings", force: :cascade do |t|
     t.integer "meal_id"
+    t.integer "user_id"
     t.string "cooking_name", null: false
     t.string "url"
     t.datetime "created_at", null: false

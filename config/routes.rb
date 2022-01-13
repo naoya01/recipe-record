@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get '/meals/day', to: 'meals#day'
   resources :meals
   resources :cookings do
-    resources :favorites, only: [:create, :destroy, :index ,:show]
+    resource :favorites, only: [:create, :destroy]
   end
 end
