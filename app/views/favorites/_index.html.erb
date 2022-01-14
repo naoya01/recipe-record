@@ -1,13 +1,13 @@
 <% if cooking.favorited_by?(current_user) %>
   <p>
-  <%= link_to cooking_favorites_path(cooking.id), method: :delete do %>
-    <i class="far fa-star"></i>外す
+  <%= link_to cooking_favorites_path(cooking.id), method: :delete ,remote: true do %>
+    <i class="fas fa-star favorite-icon"></i>
   <% end %>
   </p>
   <% else %>
   <p>
-  <%= link_to cooking_favorites_path(cooking.id), method: :post do %>
-    お気に入りに入れる
+  <%= link_to cooking_favorites_path(cooking.id), method: :post,remote: true do %>
+    <i class="far fa-star favorite-icon_not"></i>
   <% end %>
   </p>
 <% end %>

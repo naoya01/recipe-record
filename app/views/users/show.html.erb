@@ -1,11 +1,18 @@
 <div class="l-main_container">
+  <div class="m-title_flex">
+    <h2 class="m-title">お気に入り</h2>
+   </div>
   <div class="users-show_favorite_flex" >
-    <% @favorites.each do |cooking| %>
+    <% @cookings.each do |cooking| %>
+
       <span class="users-show_favorite_block" >
-        <a href=<%= cooking.url %>><%= cooking.cooking_name %></a>
-        <div class="users-show_favorite_block_btn favorite-btn_<%= cooking.id %>">
-          <%= render "favorites/index", cooking: cooking %>
-        </div>
+         <span class="users-show_favorite_block_date"><%= cooking.meal.date %></span>
+         <span class="users-show_favorite_block_content">
+          <a href=<%= cooking.url %>><%= cooking.cooking_name %></a>
+          <div class="users-show_favorite_block_btn favorite-btn">
+            <%= render "favorites/index", cooking: cooking %>
+          </div>
+        </span>
       </span>
     <% end %>
   </div>

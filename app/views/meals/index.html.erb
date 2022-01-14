@@ -1,7 +1,18 @@
 <div class="l-main_container">
-<%= link_to "投稿" , posts_path %>
-<%= link_to "お気に入り" , user_path(current_user) %>
-  <%= link_to 'New Meal', new_meal_path %>
+
+          <%= render 'searchs/form' %>
+
+  <div class="meals-index_top">
+    <div class="meals-index_top_left">
+    <%= link_to "自分のレシピ" , posts_path, class: "meals-index_top_left_post" %>
+    <%= link_to user_path(current_user), class: "meals-index_top_left_favorite" do %>
+    <i class="fas fa-star favorite-icon"></i>お気に入り
+    <% end %>
+    </div>
+    <div class="meals-index_top_right">
+    <%= link_to 'カレンダーに追加', new_meal_path, class: "meals-index_top_left_new" %>
+    </div>
+  </div>
   <br>
   <div id='calendar'></div>
 
@@ -34,4 +45,24 @@
     </div>
     <div class="meals-index_event-container_link"></div>
   </div>
+
+  <span>全体のランキング</span>
+  <ul class="rank-list">
+    <% @genres.each.with_index(1) do |genre, i| %>
+    <li class="rank-list_item">
+      <span class="rank-_list_item_head">第<%= i %>位</span>
+      <span class="rank-_list_item_genre"><%= genre.genre_name %></span>
+    </li>
+    <% end %>
+  </ul>
+
+  <span>今月のランキング</span>
+  <ul class="rank-list">
+    <%# @genres_month.each.with_index(1) do |genre, i| %>
+    <li class="rank-list_item">
+      <span class="rank-_list_item_head">第<%#= i %>位</span>
+      <span class="rank-_list_item_genre"><%#= genre.genre_name %></span>
+    </li>
+    <%# end %>
+  </ul>
 </div>

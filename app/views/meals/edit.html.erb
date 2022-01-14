@@ -1,5 +1,9 @@
 <div class="l-main_container">
-  <div><%= link_to 'Destroy', @meal, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-  <h1>Editing Meal</h1>
+  <div class="m-title_flex">
+    <h2 class="m-title">食事編集</h2>
+    <div class="m-title_other">
+    <div><%= link_to '削除', @meal, method: :delete, data: { confirm: 'Are you sure?' },class: "m-title_other_button_delete"  %></div>
+    </div>
+   </div>
   <%= render 'form', meal: @meal %>
 </div>

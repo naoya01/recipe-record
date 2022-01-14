@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = current_user.posts
+    @posts = current_user.posts.limit(5)
     @post = Post.find(params[:id])
   end
 

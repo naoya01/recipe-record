@@ -1,0 +1,24 @@
+<% cookings.each do |cooking| %>
+  <div class="meals-show_container">
+    <div class="meals-show_container_row meals-show_container_title">
+      <span class="meals-show_container_row_title"><%= cooking.cooking_name %></span>
+      <span class="meals-show_container_row_favorite">
+        <div class="favorite-btn">
+          <%= render "favorites/index", cooking: cooking %>
+        </div>
+      </span>
+    </div>
+    <div class="meals-show_container_row">
+      <ul class="meals-show_container_row_content">
+        <% cooking.tags.each do |tag| %>
+        <li class="meals-show_container_row_content_list">
+          <%= link_to tag.genre.genre_name , genre_path(tag.genre.id),class: "meals-show_container_row_content_list_anchor" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="meals-show_container_row">
+        <a class="meals-show_container_row_url" href="">ページを見に行く</a>
+    </div>
+  </div>
+<% end %>

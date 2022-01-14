@@ -7,6 +7,7 @@ $(function() {
     $('#calendar').html('');
   }
 
+
   $('#calendar').fullCalendar({
     events: '/meals.json',
 
@@ -105,8 +106,6 @@ function dayMealEvent(params) {
               $(e).css('color','#000');
             }
           });
-
-
 
           // カレンダーの日付をクリックした際に
       		$('.meals-index_mealtime_breakfast_show').children().remove('.lunch_show , .dinner_show');

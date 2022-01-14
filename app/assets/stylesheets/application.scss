@@ -241,7 +241,7 @@ $footer-height_sp: 100;
   font-size: calc(#{$value} / #{$sp-size} * 100vw);
 }
 
-@mixin line-heght($value) {
+@mixin line-height($value) {
   line-height: calc(#{$value} / #{$sp-size} * 100vw);
 }
 
@@ -421,7 +421,7 @@ button {
 }
 
 .slick-track {
-  height: 100vh;
+  // height: 100vh;
 }
 
 // ----------------------------------------------------------
@@ -933,7 +933,7 @@ button {
   background-color: rgb(255, 250, 240);
   @include media(pc) {
     padding-top: $header-height_pc; /**ヘッダーの高さ*/
-    padding-bottom: $footer-height_pc; /*フッターの高さ*/
+    padding-bottom: calc(#{$footer-height_pc} - 16px); /*フッターの高さ*/
     min-height: 100vh;
   }
 
@@ -990,7 +990,11 @@ button {
 
   @include media(tb) {
   }
-
+  @media print, screen and (max-width: 1000px) and (min-width: 771px) {
+    margin-top: 100px;
+    padding-top: 100px;
+    border-top: 1px dashed #111;
+  }
   @include media(sp) {
   }
 }
@@ -1130,6 +1134,7 @@ button {
   justify-content: space-between;
   @include media(pc) {
     margin-bottom: 60px;
+    line-height: 1.5;
   }
 
   @include media(tb) {
@@ -1143,18 +1148,61 @@ button {
   }
 }
 
-.m-title {
-  font-weight: bold;
-  @include media(pc) {
-    font-size: 40px;
-  }
+.m-title{
+	position: relative;
+	padding: 0 .5em .5em 2em;
+	border-bottom: 1px solid #ff5a5f;
+	font-weight: bold;
 
-  @include media(tb) {
+	  @include media(pc) {
+    font-size: 30px;
+    letter-spacing: 5px;
+  }
+    @include media(tb) {
   }
 
   @include media(sp) {
-    @include font-size(60);
+    @include font-size(50);
+    @include line-height(70);
   }
+}
+
+.m-title::before,
+.m-title::after {
+	position: absolute;
+	content: '';
+	border-radius: 100%
+}
+.m-title::before {
+	background-color: rgba(255,90,95,.5);
+	z-index: 0;
+		@include media(pc) {
+  top: -0.1em;
+	left: .2em;
+  width: 25px;
+	height: 25px;
+  }
+	 @include media(sp) {
+	   	top: calc(5 /#{$sp-size} * 100vw);
+	   left: calc(10 /#{$sp-size} * 100vw);;
+	   @include width(50);
+	   @include height(50);
+	 }
+}
+.m-title::after {
+	background-color: rgba(255,90,95,.2);
+			@include media(pc) {
+  top: .6em;
+	left: 1em;
+  width: 13px;
+	height: 13px;
+  }
+	 @include media(sp) {
+	   top: calc(40 /#{$sp-size} * 100vw);
+	   left: calc(60 /#{$sp-size} * 100vw);;
+	   @include width(30);
+	   @include height(30);
+	 }
 }
 
 .m-title_section {
@@ -1225,7 +1273,7 @@ button {
 
 /*---------------------トップページ------------------------------*/
 .slick-slider {
-  position: absolute !important;
+  // position: absolute !important;
 }
 
 .top-visual {
@@ -1375,6 +1423,7 @@ button {
 
 .top-visual_1 {
   background-size: cover;
+  height: 100vh!important;
   @include media(pc) {
     background-position: center;
     background-image: image-url("sarada_pc.jpg");
@@ -1390,6 +1439,7 @@ button {
 }
 
 .top-visual_2 {
+  height: 100vh!important;
   background-position: center;
   background-size: cover;
   @include media(pc) {
@@ -1405,6 +1455,7 @@ button {
 }
 
 .top-visual_3 {
+  height: 100vh!important;
   background-position: center;
   background-size: cover;
   @include media(pc) {
@@ -1514,7 +1565,7 @@ button {
   @include media(sp) {
     display: flex;
     @include font-size(35);
-    @include line-heght(60);
+    @include line-height(60);
     @include margin_top(20);
   }
 }
@@ -1531,7 +1582,7 @@ button {
 
   @include media(sp) {
     @include font-size(25);
-    @include line-heght(40);
+    @include line-height(40);
     @include margin_top(10);
   }
 }
@@ -1601,7 +1652,7 @@ button {
   }
 
   @include media(sp) {
-    @include line-heght(50);
+    @include line-height(50);
     @include font-size(35);
   }
 }
@@ -1617,7 +1668,7 @@ button {
   }
 
   @include media(sp) {
-    @include line-heght(50);
+    @include line-height(50);
     @include font-size(25);
     @include margin-top(50);
   }
@@ -1665,7 +1716,7 @@ button {
   @include media(sp) {
     border: calc(1 / #{$sp-size} * 100vw) solid #000;
     @include margin_top(30);
-    @include line-heght(50);
+    @include line-height(50);
     tbody {
       width: 100%;
     }
@@ -1740,7 +1791,7 @@ button {
   @include media(sp) {
     @include width(630);
     @include font-size(30);
-    @include line-heght(50);
+    @include line-height(50);
   }
 }
 
@@ -2353,7 +2404,7 @@ button {
 
   @include media(sp) {
     @include width(200);
-    @include line-heght(35);
+    @include line-height(35);
     @include margin_vw(0, 10, 100, 10);
   }
 }
@@ -2435,6 +2486,103 @@ button {
     flex-direction: column;
   }
 }
+
+.meals-index_top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include media(pc) {
+    margin-bottom: 50px
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-bottom(50);
+  }
+}
+
+.meals-index_top_left{
+  display: flex;
+  align-items: center;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.meals-index_top_right{
+  display: flex;
+  align-items: center;
+  @include media(pc) {
+
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.meals-index_top_left_post{
+  @include media(pc) {
+    font-size: 18px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(20);
+  }
+}
+
+.meals-index_top_left_favorite{
+  display: flex;
+  align-items: center;
+  @include media(pc) {
+    margin-left: 40px;
+    font-size: 18px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-left(30);
+    @include font-size(20);
+  }
+}
+
+.meals-index_top_left_new{
+  text-align: center;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 1px #96c2fe;
+  color: #454545;
+  @include media(pc) {
+    font-size: 16px;
+    padding: 10px 15px 10px 15px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(200);
+    @include font-size(20);
+    @include line-height(50);
+
+      border: dashed calc(1 /#{$sp-size} * 100vw)  #96c2fe;
+  }
+}
+
 .meals-index_event-container {
   display: none;
   margin-left: auto;
@@ -2618,18 +2766,18 @@ button {
 //----------------------meals-show 食事の詳細---------------------
 .meals-show_container {
   @include media(pc) {
+    margin-bottom: 80px;
   }
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-bottom(100);
   }
 }
 .meals-show_container_row {
+      display: flex;
   @include media(pc) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-top: 30px;
     margin-bottom: 30px;
   }
@@ -2637,8 +2785,45 @@ button {
   }
 
   @include media(sp) {
+    @include margin-top(40);
+    @include margin-bottom(40);
   }
 }
+.meals-genre_container_title{
+  color: #494949;
+  background: transparent;
+  border-left: solid 5px #e6d67d;
+  display: flex;
+  @include media(pc) {
+    line-height: 1.2;
+    padding: 0 0 0 15px;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include line-height(40);
+    @include padding_vw(0,0,0,20);
+  }
+}
+.meals-show_container_title{
+  color: #494949;
+  background: transparent;
+  border-left: solid 5px #7db4e6;
+  display: flex;
+  @include media(pc) {
+    line-height: 1.2;
+    padding: 0 0 0 15px;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include line-height(40);
+    @include padding_vw(0,0,0,20);
+  }
+}
+
 .meals-show_container_row_title {
   font-weight: bold;
   @include media(pc) {
@@ -2648,25 +2833,30 @@ button {
   }
 
   @include media(sp) {
+    @include font-size(35);
   }
 }
 .meals-show_container_row_favorite {
   @include media(pc) {
+    margin-left: 20px;
   }
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-left(20);
+    @include font-size(30);
   }
 }
 .meals-show_container_row_content {
-  @include media(pc) {
     display: flex;
+  @include media(pc) {
   }
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include font-size(22);
   }
 }
 .meals-show_container_row_content_list {
@@ -2677,17 +2867,48 @@ button {
   }
 
   @include media(sp) {
+    @include margin-left(20);
   }
 }
+
 .meals-show_container_row_content_list_anchor {
+  color: #505050;
+  display: inline-block;
+  background: #dbebf8;
+  vertical-align: middle;
+
   @include media(pc) {
+  padding: 5px;
+  border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
   }
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include padding_vw(10,5,5,10);
+      border-radius:  calc(25 /#{$sp-size} * 100vw) 0 0 calc(25 /#{$sp-size} * 100vw)  ;/*左側の角を丸く*/
   }
 }
+
+.meals-show_container_row_content_list_anchor:before {
+  content: '●';
+  color: white;
+
+    @include media(pc) {
+    padding: 5px;
+    margin-right: 8px;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(20);
+    @include margin-right(10);
+  }
+}
+
+
+
 .meals-show_container_row_url {
   @include media(pc) {
   }
@@ -2695,6 +2916,7 @@ button {
   }
 
   @include media(sp) {
+    @include font-size(20);
   }
 }
 
@@ -2921,6 +3143,7 @@ button {
 .meals-new_table_mealtime {
   @include media(pc) {
     border-bottom: 1px solid #000;
+    padding-bottom: 40px
   }
 
   @include media(tb) {
@@ -3051,16 +3274,77 @@ button {
 .users-show_favorite_flex {
   display: flex;
   flex-wrap: wrap;
+    @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
 }
 
 .users-show_favorite_block {
-  display: flex;
-  max-width: 300px;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  @include media(pc) {
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 40px
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(340);
+    @include margin-top(50);
+    @include font-size(24);
+  }
 }
 
+.users-show_favorite_block_date{
+    display: flex;
+  align-items: center;
+    @include media(pc) {
+      margin-bottom: 10px;
+      font-size: 14px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-bottom(15);
+    @include font-size(20);
+}
+}
+.users-show_favorite_block_content{
+  display: flex;
+  align-items: center;
+    @include media(pc) {
+      font-size: 22px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+   @include font-size(28);
+}
+}
 .users-show_favorite_block_btn {
-  margin-left: 20px;
+    @include media(pc) {
+    margin-left: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-left(20);
+}
 }
 
 .fc-title {
@@ -3071,6 +3355,127 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(24);
   }
 }
+
+.fc-center {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(30);
+  }
+}
+
+.fc-right {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(30);
+  }
+}
+
+.fc-view-container{
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(25);
+  }
+}
+
+
+.favorite-icon{
+  color: #db6;
+  @include media(pc) {
+    font-size: 25px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.favorite-icon_not{
+    color: #aaa;
+  @include media(pc) {
+    font-size: 25px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+
+.fc-holiday, .holiday-text {
+    color: #e74c3c;
+}
+
+//---------------------------rank ランキング-------------------//
+.rank-list{
+  display: flex;
+  margin: auto;
+    @include media(pc) {
+      height: 100px;
+      width: 100%;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.rank-list_item{
+  display: flex!important;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffe;
+    @include media(pc) {
+      width: 300px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.rank-_list_item_head{
+    @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.rank-_list_item_genre{
+  display: inline;
+    @include media(pc) {
+      margin-top: 10px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+

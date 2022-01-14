@@ -1,4 +1,8 @@
-<% @cookings.each do |cooking| %>
- <%= cooking.cooking_name %>
-<% end %>
-
+<div class="l-main_container">
+    <div class="m-title_flex">
+        <h2 class="m-title">ジャンル[<%= @genre.genre_name %>]</h2>
+    </div>
+    <div class="meals-show_container_flex">
+        <%= render 'genres/cookings',cookings: @cookings  %>
+    </div>
+</div>

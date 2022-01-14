@@ -19,6 +19,7 @@ class FavoritesController < ApplicationController
     cooking = Cooking.find(params[:cooking_id])
     favorite = current_user.favorites.find_by(cooking_id: cooking.id)
     favorite.destroy
+
     # redirect_to request.referer
 
   end
