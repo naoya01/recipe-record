@@ -136,8 +136,8 @@ $footer-height_sp: 100;
     opacity: 0.7;
   }
   @include media(pc) {
-    height: 40px !important;
-    width: 100px !important;
+    height: 45px !important;
+    width: 120px !important;
     border-radius: 5px;
     font-size: 14px;
   }
@@ -148,8 +148,8 @@ $footer-height_sp: 100;
   @include media(sp) {
     border-radius: calc(10 / #{$sp-size} * 100vw);
     @include font-size(25);
-    width: calc(120 / #{$sp-size} * 100vw) !important;
-    height: calc(60 / #{$sp-size} * 100vw);
+    width: calc(130 / #{$sp-size} * 100vw) !important;
+    height: calc(70 / #{$sp-size} * 100vw);
     // @include padding_vw(30, 10, 30, 10);
     text-align: center;
   }
@@ -196,7 +196,6 @@ $footer-height_sp: 100;
 
 @mixin btn-genre {
   @include destroy-color;
-  margin-right: auto;
   border: none;
   display: flex;
   align-items: center;
@@ -210,7 +209,7 @@ $footer-height_sp: 100;
   }
   @include media(pc) {
     height: 40px;
-    width: 100px;
+    width: 110px;
     border-radius: 5px;
     padding: 10px;
     font-size: 14px;
@@ -221,10 +220,9 @@ $footer-height_sp: 100;
 
   @include media(sp) {
     border-radius: calc(10 / #{$sp-size} * 100vw);
-    @include font-size(30);
-    @include width(180);
+    @include font-size(24);
+    width: calc(180 / #{$sp-size} * 100vw) !important;
     @include height(80);
-    // @include padding_vw(30, 10, 30, 10);
     text-align: center;
   }
 }
@@ -452,7 +450,7 @@ button {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1;
+    z-index: 5;
   }
 }
 
@@ -866,6 +864,57 @@ button {
   }
 }
 
+.l-footer_contact {
+  z-index: 1;
+  background-color: #dddddd55;
+  position: fixed;
+  color: rgb(255, 194, 153);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  bottom: 0px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #888;
+    background-color: rgb(255, 194, 153);
+    transform: scale(1.2);
+    color: #eee;
+  }
+  @include media(pc) {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    bottom: -80px;
+    left: -80px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(100);
+    @include height(100);
+  }
+}
+.fa-envelope {
+}
+.l-footer_contact_text {
+  @include media(pc) {
+    font-size: 30px;
+
+    transform: translate(25px, -35px);
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(35);
+  }
+}
+
 .l-footer_copy {
   font-family: "Sacramento", cursive;
   @include media(pc) {
@@ -876,7 +925,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(50);
+    @include font-size(40);
   }
 }
 .top-btn {
@@ -924,7 +973,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(22);
+    @include font-size(35);
   }
 }
 
@@ -1148,17 +1197,17 @@ button {
   }
 }
 
-.m-title{
-	position: relative;
-	padding: 0 .5em .5em 2em;
-	border-bottom: 1px solid #ff5a5f;
-	font-weight: bold;
+.m-title {
+  position: relative;
+  padding: 0 0.5em 0.5em 2em;
+  border-bottom: 1px solid #ff5a5f;
+  font-weight: bold;
 
-	  @include media(pc) {
+  @include media(pc) {
     font-size: 30px;
     letter-spacing: 5px;
   }
-    @include media(tb) {
+  @include media(tb) {
   }
 
   @include media(sp) {
@@ -1169,40 +1218,40 @@ button {
 
 .m-title::before,
 .m-title::after {
-	position: absolute;
-	content: '';
-	border-radius: 100%
+  position: absolute;
+  content: "";
+  border-radius: 100%;
 }
 .m-title::before {
-	background-color: rgba(255,90,95,.5);
-	z-index: 0;
-		@include media(pc) {
-  top: -0.1em;
-	left: .2em;
-  width: 25px;
-	height: 25px;
+  background-color: rgba(255, 90, 95, 0.5);
+  z-index: 0;
+  @include media(pc) {
+    top: -0.1em;
+    left: 0.2em;
+    width: 25px;
+    height: 25px;
   }
-	 @include media(sp) {
-	   	top: calc(5 /#{$sp-size} * 100vw);
-	   left: calc(10 /#{$sp-size} * 100vw);;
-	   @include width(50);
-	   @include height(50);
-	 }
+  @include media(sp) {
+    top: calc(5 /#{$sp-size} * 100vw);
+    left: calc(10 /#{$sp-size} * 100vw);
+    @include width(50);
+    @include height(50);
+  }
 }
 .m-title::after {
-	background-color: rgba(255,90,95,.2);
-			@include media(pc) {
-  top: .6em;
-	left: 1em;
-  width: 13px;
-	height: 13px;
+  background-color: rgba(255, 90, 95, 0.2);
+  @include media(pc) {
+    top: 0.6em;
+    left: 1em;
+    width: 13px;
+    height: 13px;
   }
-	 @include media(sp) {
-	   top: calc(40 /#{$sp-size} * 100vw);
-	   left: calc(60 /#{$sp-size} * 100vw);;
-	   @include width(30);
-	   @include height(30);
-	 }
+  @include media(sp) {
+    top: calc(40 /#{$sp-size} * 100vw);
+    left: calc(60 /#{$sp-size} * 100vw);
+    @include width(30);
+    @include height(30);
+  }
 }
 
 .m-title_section {
@@ -1423,7 +1472,7 @@ button {
 
 .top-visual_1 {
   background-size: cover;
-  height: 100vh!important;
+  height: 100vh !important;
   @include media(pc) {
     background-position: center;
     background-image: image-url("sarada_pc.jpg");
@@ -1439,7 +1488,7 @@ button {
 }
 
 .top-visual_2 {
-  height: 100vh!important;
+  height: 100vh !important;
   background-position: center;
   background-size: cover;
   @include media(pc) {
@@ -1455,7 +1504,7 @@ button {
 }
 
 .top-visual_3 {
-  height: 100vh!important;
+  height: 100vh !important;
   background-position: center;
   background-size: cover;
   @include media(pc) {
@@ -2016,7 +2065,7 @@ button {
 
 .cooking-new_table_ingredients_delete_btn {
   @include btn-small;
-  background-color: #6b0202;
+  @include destroy-color;
   text-align: center;
 }
 .cooking-new_table_ingredients_add_btn {
@@ -2487,12 +2536,12 @@ button {
   }
 }
 
-.meals-index_top{
+.meals-index_top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   @include media(pc) {
-    margin-bottom: 50px
+    margin-bottom: 50px;
   }
 
   @include media(tb) {
@@ -2503,7 +2552,7 @@ button {
   }
 }
 
-.meals-index_top_left{
+.meals-index_top_left {
   display: flex;
   align-items: center;
   @include media(pc) {
@@ -2516,11 +2565,10 @@ button {
   }
 }
 
-.meals-index_top_right{
+.meals-index_top_right {
   display: flex;
   align-items: center;
   @include media(pc) {
-
   }
 
   @include media(tb) {
@@ -2530,7 +2578,7 @@ button {
   }
 }
 
-.meals-index_top_left_post{
+.meals-index_top_left_post {
   @include media(pc) {
     font-size: 18px;
   }
@@ -2543,7 +2591,7 @@ button {
   }
 }
 
-.meals-index_top_left_favorite{
+.meals-index_top_left_favorite {
   display: flex;
   align-items: center;
   @include media(pc) {
@@ -2560,7 +2608,7 @@ button {
   }
 }
 
-.meals-index_top_left_new{
+.meals-index_top_left_new {
   text-align: center;
   background: #dfefff;
   box-shadow: 0px 0px 0px 5px #dfefff;
@@ -2579,7 +2627,7 @@ button {
     @include font-size(20);
     @include line-height(50);
 
-      border: dashed calc(1 /#{$sp-size} * 100vw)  #96c2fe;
+    border: dashed calc(1 /#{$sp-size} * 100vw) #96c2fe;
   }
 }
 
@@ -2596,6 +2644,7 @@ button {
   }
 
   @include media(sp) {
+    @include margin-bottom(100);
   }
 }
 
@@ -2776,7 +2825,7 @@ button {
   }
 }
 .meals-show_container_row {
-      display: flex;
+  display: flex;
   @include media(pc) {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -2789,7 +2838,7 @@ button {
     @include margin-bottom(40);
   }
 }
-.meals-genre_container_title{
+.meals-genre_container_title {
   color: #494949;
   background: transparent;
   border-left: solid 5px #e6d67d;
@@ -2803,10 +2852,10 @@ button {
 
   @include media(sp) {
     @include line-height(40);
-    @include padding_vw(0,0,0,20);
+    @include padding_vw(0, 0, 0, 20);
   }
 }
-.meals-show_container_title{
+.meals-show_container_title {
   color: #494949;
   background: transparent;
   border-left: solid 5px #7db4e6;
@@ -2820,7 +2869,7 @@ button {
 
   @include media(sp) {
     @include line-height(40);
-    @include padding_vw(0,0,0,20);
+    @include padding_vw(0, 0, 0, 20);
   }
 }
 
@@ -2849,7 +2898,7 @@ button {
   }
 }
 .meals-show_container_row_content {
-    display: flex;
+  display: flex;
   @include media(pc) {
   }
   @include media(tb) {
@@ -2878,23 +2927,24 @@ button {
   vertical-align: middle;
 
   @include media(pc) {
-  padding: 5px;
-  border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
+    padding: 5px;
+    border-radius: 25px 0px 0px 25px; /*左側の角を丸く*/
   }
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include padding_vw(10,5,5,10);
-      border-radius:  calc(25 /#{$sp-size} * 100vw) 0 0 calc(25 /#{$sp-size} * 100vw)  ;/*左側の角を丸く*/
+    @include padding_vw(10, 5, 5, 10);
+    border-radius: calc(25 /#{$sp-size} * 100vw) 0 0
+      calc(25 /#{$sp-size} * 100vw); /*左側の角を丸く*/
   }
 }
 
 .meals-show_container_row_content_list_anchor:before {
-  content: '●';
+  content: "●";
   color: white;
 
-    @include media(pc) {
+  @include media(pc) {
     padding: 5px;
     margin-right: 8px;
   }
@@ -2906,8 +2956,6 @@ button {
     @include margin-right(10);
   }
 }
-
-
 
 .meals-show_container_row_url {
   @include media(pc) {
@@ -3114,7 +3162,7 @@ button {
   }
 }
 .meals-new_table_add_btn {
-  @include btn-small;
+  @include btn-genre;
   @include add-color;
   color: #ffffff;
   transition: 0.3s;
@@ -3135,15 +3183,13 @@ button {
 
   @include media(sp) {
     margin-left: auto;
-    @include width(250);
-    @include margin_top(20);
   }
 }
 
 .meals-new_table_mealtime {
   @include media(pc) {
     border-bottom: 1px solid #000;
-    padding-bottom: 40px
+    padding-bottom: 40px;
   }
 
   @include media(tb) {
@@ -3183,7 +3229,7 @@ button {
 }
 
 .meals-new_table_delete_btn_genre {
-  @include btn-small;
+  @include btn-genre;
   @include destroy-color;
   @include media(pc) {
     margin: auto;
@@ -3194,9 +3240,6 @@ button {
 
   @include media(sp) {
     margin-left: auto;
-    font-size: calc(22 / #{$sp-size} * 100vw) !important;
-    height: calc(70 / #{$sp-size} * 100vw) !important;
-    width: calc(150 / #{$sp-size} * 100vw) !important;
   }
 }
 
@@ -3212,8 +3255,9 @@ button {
 
   @include media(sp) {
     margin: auto;
-    font-size: calc(22 / #{$sp-size} * 100vw) !important;
-    height: calc(70 / #{$sp-size} * 100vw) !important;
+    margin-top: calc(100 / #{$sp-size} * 100vw) !important;
+    font-size: calc(25 / #{$sp-size} * 100vw) !important;
+    height: calc(80 / #{$sp-size} * 100vw) !important;
     width: calc(300 / #{$sp-size} * 100vw) !important;
   }
 }
@@ -3246,9 +3290,6 @@ button {
   @include media(sp) {
     @include margin-top(50);
     @include margin-bottom(50);
-    font-size: calc(22 / #{$sp-size} * 100vw) !important;
-    height: calc(70 / #{$sp-size} * 100vw) !important;
-    width: calc(150 / #{$sp-size} * 100vw) !important;
   }
 }
 
@@ -3274,7 +3315,7 @@ button {
 .users-show_favorite_flex {
   display: flex;
   flex-wrap: wrap;
-    @include media(pc) {
+  @include media(pc) {
   }
 
   @include media(tb) {
@@ -3285,13 +3326,13 @@ button {
 }
 
 .users-show_favorite_block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   @include media(pc) {
     max-width: 300px;
     width: 100%;
-    margin-bottom: 40px
+    margin-bottom: 40px;
   }
 
   @include media(tb) {
@@ -3304,12 +3345,12 @@ button {
   }
 }
 
-.users-show_favorite_block_date{
-    display: flex;
+.users-show_favorite_block_date {
+  display: flex;
   align-items: center;
-    @include media(pc) {
-      margin-bottom: 10px;
-      font-size: 14px;
+  @include media(pc) {
+    margin-bottom: 10px;
+    font-size: 14px;
   }
 
   @include media(tb) {
@@ -3318,24 +3359,24 @@ button {
   @include media(sp) {
     @include margin-bottom(15);
     @include font-size(20);
+  }
 }
-}
-.users-show_favorite_block_content{
+.users-show_favorite_block_content {
   display: flex;
   align-items: center;
-    @include media(pc) {
-      font-size: 22px;
+  @include media(pc) {
+    font-size: 22px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-   @include font-size(28);
-}
+    @include font-size(28);
+  }
 }
 .users-show_favorite_block_btn {
-    @include media(pc) {
+  @include media(pc) {
     margin-left: 20px;
   }
 
@@ -3344,7 +3385,7 @@ button {
 
   @include media(sp) {
     @include margin-left(20);
-}
+  }
 }
 
 .fc-title {
@@ -3382,7 +3423,7 @@ button {
   }
 }
 
-.fc-view-container{
+.fc-view-container {
   @include media(pc) {
   }
 
@@ -3394,8 +3435,7 @@ button {
   }
 }
 
-
-.favorite-icon{
+.favorite-icon {
   color: #db6;
   @include media(pc) {
     font-size: 25px;
@@ -3407,8 +3447,8 @@ button {
   @include media(sp) {
   }
 }
-.favorite-icon_not{
-    color: #aaa;
+.favorite-icon_not {
+  color: #aaa;
   @include media(pc) {
     font-size: 25px;
   }
@@ -3420,62 +3460,105 @@ button {
   }
 }
 
-
-.fc-holiday, .holiday-text {
-    color: #e74c3c;
+.fc-holiday,
+.holiday-text {
+  color: #e74c3c;
 }
 
 //---------------------------rank ランキング-------------------//
-.rank-list{
-  display: flex;
-  margin: auto;
-    @include media(pc) {
-      height: 100px;
-      width: 100%;
+.rank-title {
+  @include media(pc) {
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include font-size(25);
   }
 }
-.rank-list_item{
-  display: flex!important;
+
+.rank-list {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  @include media(pc) {
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(20);
+    @include margin-bottom(40);
+  }
+}
+.rank-list_item {
+  display: flex !important;
   flex-direction: column;
   align-items: center;
   background-color: #ffe;
-    @include media(pc) {
-      width: 300px;
+  @include media(pc) {
+    width: 300px;
+    padding: 20px 0;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include padding_vw(40, 0, 40, 0);
   }
 }
-.rank-_list_item_head{
-    @include media(pc) {
+.rank-_list_item_head {
+  @include media(pc) {
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include font-size(25);
   }
 }
-.rank-_list_item_genre{
+.rank-_list_item_genre {
   display: inline;
-    @include media(pc) {
-      margin-top: 10px;
+  @include media(pc) {
+    margin-top: 10px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-top(20);
+    @include font-size(25);
   }
 }
 
+.fc-scroller {
+  @include media(pc) {
+  }
 
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    height: auto !important;
+  }
+}
+
+.fc-day-grid-event {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    font-size: calc(15 / #{$sp-size} * 100vw) !important;
+  }
+}
