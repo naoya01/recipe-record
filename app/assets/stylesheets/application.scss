@@ -1328,7 +1328,7 @@ button {
 .top-visual {
   opacity: 0.5;
   @include media(pc) {
-    position: absolute;
+    position: absolute!important;
     background-size: cover;
     width: 100vw;
     height: 100vh;
