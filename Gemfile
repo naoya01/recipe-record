@@ -75,3 +75,8 @@ gem 'cocoon'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.5'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
