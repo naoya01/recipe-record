@@ -1339,7 +1339,7 @@ button {
   }
 
   @include media(sp) {
-    position: absolute!important
+    position: absolute!important;
     top: 0;
     width: 100vw;
     height: 100vh;
