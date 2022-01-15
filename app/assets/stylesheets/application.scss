@@ -1397,6 +1397,7 @@ button {
     @include width(200);
     @include height(200);
     @include margin_vw(0, 20, 0, 20);
+    @include font-size(30);
   }
 }
 
@@ -1426,6 +1427,7 @@ button {
     @include width(200);
     @include height(200);
     @include margin_vw(0, 20, 0, 20);
+    @include font-size(30);
   }
 }
 

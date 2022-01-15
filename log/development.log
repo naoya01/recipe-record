@@ -2660,3 +2660,77 @@ Processing by HomesController#top as HTML
 Completed 200 OK in 1851ms (Views: 1849.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 126.141.237.230 at 2022-01-15 13:20:25 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Error: Invalid CSS after "    @include": expected identifier, was "(20);"
+        on line 1401:5 of app/assets/stylesheets/application.scss
+>>     @include (20);
+
+   ----^
+):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    11:     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  
+app/assets/stylesheets/application.scss:1401
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__1630350725755858572_47158280'
+Started GET "/" for 126.141.237.230 at 2022-01-15 13:20:36 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered layouts/_js.html.erb (0.4ms)
+Completed 200 OK in 1918ms (Views: 1916.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 126.141.237.230 at 2022-01-15 13:21:03 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Error: Invalid CSS after "...de font-size(30": expected expression (e.g. 1px, bold), was "}"
+        on line 1431:24 of app/assets/stylesheets/application.scss
+>>     @include font-size(30
+
+   -----------------------^
+):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    11:     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  
+app/assets/stylesheets/application.scss:1431
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__1630350725755858572_70242521677400'
+Started GET "/" for 126.141.237.230 at 2022-01-15 13:21:16 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered layouts/_js.html.erb (0.4ms)
+Completed 200 OK in 900ms (Views: 899.1ms | ActiveRecord: 0.0ms)
+
+
