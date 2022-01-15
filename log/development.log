@@ -2182,3 +2182,164 @@ DEPRECATION WARNING: Dangerous query method (method whose arguments are used as 
 Completed 200 OK in 30ms (Views: 20.2ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/meals.1" for 126.141.237.230 at 2022-01-15 07:16:41 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by MealsController#index as 
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT  "tags"."genre_id" FROM "tags" GROUP BY "tags"."genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["LIMIT", 9]]
+  ↳ app/controllers/meals_controller.rb:9
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" WHERE "genres"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 2], ["id", 5], ["id", 1], ["id", 3], ["id", 8]]
+  ↳ app/controllers/meals_controller.rb:9
+  Rendering meals/index.html.erb within layouts/application
+  Rendered searchs/_form.html.erb (0.8ms)
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" WHERE "cookings"."user_id" = ? GROUP BY "genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["user_id", 1], ["LIMIT", 5]]
+  ↳ app/views/meals/index.html.erb:51
+  Rendered meals/index.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+  Rendered layouts/_js.html.erb (0.5ms)
+Completed 200 OK in 2701ms (Views: 2631.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/meals.json?start=2021-12-26&end=2022-02-06&_=1642231004897" for 126.141.237.230 at 2022-01-15 07:16:45 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MealsController#index as JSON
+  Parameters: {"start"=>"2021-12-26", "end"=>"2022-02-06", "_"=>"1642231004897"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT  "tags"."genre_id" FROM "tags" GROUP BY "tags"."genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["LIMIT", 9]]
+  ↳ app/controllers/meals_controller.rb:9
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" WHERE "genres"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 2], ["id", 5], ["id", 1], ["id", 3], ["id", 8]]
+  ↳ app/controllers/meals_controller.rb:9
+  Rendering meals/index.json.jbuilder
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/meals/index.json.jbuilder:1
+  Rendered meals/index.json.jbuilder (20.5ms)
+Completed 200 OK in 36ms (Views: 25.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/meals" for 126.141.237.230 at 2022-01-15 07:16:53 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MealsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT  "tags"."genre_id" FROM "tags" GROUP BY "tags"."genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["LIMIT", 9]]
+  ↳ app/controllers/meals_controller.rb:9
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" WHERE "genres"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 2], ["id", 5], ["id", 1], ["id", 3], ["id", 8]]
+  ↳ app/controllers/meals_controller.rb:9
+  Rendering meals/index.html.erb within layouts/application
+  Rendered searchs/_form.html.erb (0.9ms)
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" WHERE "cookings"."user_id" = ? GROUP BY "genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["user_id", 1], ["LIMIT", 5]]
+  ↳ app/views/meals/index.html.erb:51
+  Rendered meals/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered layouts/_js.html.erb (0.4ms)
+Completed 200 OK in 107ms (Views: 96.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/meals.json?start=2021-12-26&end=2022-02-06&_=1642231013815" for 126.141.237.230 at 2022-01-15 07:16:53 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MealsController#index as JSON
+  Parameters: {"start"=>"2021-12-26", "end"=>"2022-02-06", "_"=>"1642231013815"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT  "tags"."genre_id" FROM "tags" GROUP BY "tags"."genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["LIMIT", 9]]
+  ↳ app/controllers/meals_controller.rb:9
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" WHERE "genres"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 2], ["id", 5], ["id", 1], ["id", 3], ["id", 8]]
+  ↳ app/controllers/meals_controller.rb:9
+  Rendering meals/index.json.jbuilder
+  [1m[36mMeal Load (0.1ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/meals/index.json.jbuilder:1
+  Rendered meals/index.json.jbuilder (4.7ms)
+Completed 200 OK in 17ms (Views: 7.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres" for 126.141.237.230 at 2022-01-15 07:16:54 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by GenresController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering genres/index.html.erb within layouts/application
+  Rendered genres/_form.html.erb (6.3ms)
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/genres/_index.html.erb:1
+  Rendered genres/_index.html.erb (4.0ms)
+  Rendered genres/index.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+  Rendered layouts/_js.html.erb (0.4ms)
+Completed 200 OK in 92ms (Views: 87.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 126.141.237.230 at 2022-01-15 07:16:56 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_foodstuff_fields.html.erb (0.6ms)
+  Rendered posts/_foodstuff_fields.html.erb (0.5ms)
+  Rendered posts/_flavor_fields.html.erb (0.6ms)
+  Rendered posts/_flavor_fields.html.erb (0.6ms)
+  Rendered posts/_recipe_fields.html.erb (1.6ms)
+  Rendered posts/_recipe_fields.html.erb (0.8ms)
+  Rendered posts/new.html.erb within layouts/application (22.3ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered layouts/_js.html.erb (0.5ms)
+Completed 200 OK in 170ms (Views: 129.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/meals" for 126.141.237.230 at 2022-01-15 07:16:57 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MealsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT  "tags"."genre_id" FROM "tags" GROUP BY "tags"."genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["LIMIT", 9]]
+  ↳ app/controllers/meals_controller.rb:9
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" WHERE "genres"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 2], ["id", 5], ["id", 1], ["id", 3], ["id", 8]]
+  ↳ app/controllers/meals_controller.rb:9
+  Rendering meals/index.html.erb within layouts/application
+  Rendered searchs/_form.html.erb (0.7ms)
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" WHERE "cookings"."user_id" = ? GROUP BY "genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["user_id", 1], ["LIMIT", 5]]
+  ↳ app/views/meals/index.html.erb:51
+  Rendered meals/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered layouts/_js.html.erb (0.5ms)
+Completed 200 OK in 98ms (Views: 87.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/meals.json?start=2021-12-26&end=2022-02-06&_=1642231017700" for 126.141.237.230 at 2022-01-15 07:16:57 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MealsController#index as JSON
+  Parameters: {"start"=>"2021-12-26", "end"=>"2022-02-06", "_"=>"1642231017700"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT  "tags"."genre_id" FROM "tags" GROUP BY "tags"."genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["LIMIT", 9]]
+  ↳ app/controllers/meals_controller.rb:9
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres" WHERE "genres"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 2], ["id", 5], ["id", 1], ["id", 3], ["id", 8]]
+  ↳ app/controllers/meals_controller.rb:9
+  Rendering meals/index.json.jbuilder
+  [1m[36mMeal Load (0.1ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/meals/index.json.jbuilder:1
+  Rendered meals/index.json.jbuilder (3.4ms)
+Completed 200 OK in 17ms (Views: 7.2ms | ActiveRecord: 0.5ms)
+
+
