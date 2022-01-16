@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require Chart.min
 //= require rails-ujs
 //= require cocoon
 //= require activestorage

@@ -75,6 +75,7 @@ gem 'cocoon'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.5'
+gem 'chart-js-rails', '~> 0.1.4'
 
 gem 'dotenv-rails'
 group :production do

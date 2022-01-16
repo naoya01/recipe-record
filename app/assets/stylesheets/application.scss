@@ -2815,6 +2815,21 @@ button {
 }
 
 //----------------------meals-show 食事の詳細---------------------
+
+.meals-show_description{
+  @include media(pc) {
+    margin-bottom: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(22);
+    @include margin-bottom(100);
+  }
+}
+
 .meals-show_container {
   @include media(pc) {
     margin-bottom: 80px;
@@ -2899,6 +2914,22 @@ button {
     @include font-size(30);
   }
 }
+
+.meals-show_container_row_date {
+    display: flex;
+    align-items: center;
+  @include media(pc) {
+    margin-left: 20px;
+  }
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-left(20);
+    @include font-size(20);
+  }
+}
+
 .meals-show_container_row_content {
   display: flex;
   @include media(pc) {

@@ -12,6 +12,9 @@ class MealsController < ApplicationController
     @genres_week = Genre.joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id).order('count(genre_id) desc').limit(5)
     # binding.pry
     @month = Genre.joins(:cookings).where(cookings: { user_id: current_user.id})
+
+    # @gen = Genre.joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc').limit(5).pluck(:genre_name)
+    @genres_pie = Genre.joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc')
   end
 
   # GET /meals/1 or /meals/1.json
