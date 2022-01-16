@@ -46,38 +46,39 @@
     <div class="meals-index_event-container_link"></div>
   </div>
 
-  <span>全体のランキング</span>
-  <ul class="rank-list">
-    <% @genres.each.with_index(1) do |genre, i| %>
-    <li class="rank-list_item">
-      <span class="rank-_list_item_head">第<%= i %>位</span>
-      <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
-    </li>
-    <% end %>
-  </ul>
-
-  <span>今月のランキング</span>
-  <ul class="rank-list">
-    <% @genres_month.each.with_index(1) do |genre, i| %>
-    <li class="rank-list_item">
-      <span class="rank-_list_item_head">第<%= i %>位</span>
-      <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
-    </li>
-    <% end %>
-  </ul>
-
-  <span>今週のランキング</span>
-  <ul class="rank-list">
-    <% @genres_week.each.with_index(1) do |genre, i| %>
-    <li class="rank-list_item">
-      <span class="rank-_list_item_head">第<%= i %>位</span>
-      <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
-    </li>
-    <% end %>
-  </ul>
   <% if  Meal.where(user_id: current_user.id).present? %>
-  <canvas id="myChart"></canvas>
-  <!--<canvas id="dayChart"></canvas>-->
+    <span>全体のランキング</span>
+    <ul class="rank-list">
+      <% @genres.each.with_index(1) do |genre, i| %>
+      <li class="rank-list_item">
+        <span class="rank-_list_item_head">第<%= i %>位</span>
+        <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+      </li>
+      <% end %>
+    </ul>
+
+    <span>今月のランキング</span>
+    <ul class="rank-list">
+      <% @genres_month.each.with_index(1) do |genre, i| %>
+      <li class="rank-list_item">
+        <span class="rank-_list_item_head">第<%= i %>位</span>
+        <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+      </li>
+      <% end %>
+    </ul>
+
+    <span>今週のランキング</span>
+    <ul class="rank-list">
+      <% @genres_week.each.with_index(1) do |genre, i| %>
+      <li class="rank-list_item">
+        <span class="rank-_list_item_head">第<%= i %>位</span>
+        <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+      </li>
+      <% end %>
+    </ul>
+
+    <canvas id="myChart"></canvas>
+    <!--<canvas id="dayChart"></canvas>-->
   <% end %>
   <script>
 var ctx = document.getElementById("myChart");
