@@ -3,6 +3,7 @@ class MealsController < ApplicationController
 
   # GET /meals or /meals.json
   def index
+    @a = Meal.where(user_id: current_user.id)
     @meals = current_user.meals
     # 全体ランキング
     @genres = Genre.joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc').limit(5)

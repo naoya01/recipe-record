@@ -75,9 +75,10 @@
     </li>
     <% end %>
   </ul>
-
+  <% if  Meal.where(user_id: current_user.id).present? %>
   <canvas id="myChart"></canvas>
   <!--<canvas id="dayChart"></canvas>-->
+  <% end %>
   <script>
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
