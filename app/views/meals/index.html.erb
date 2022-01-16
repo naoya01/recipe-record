@@ -16,37 +16,37 @@
   <br>
   <div id='calendar'></div>
 
-  <div class="meals-index_event-container">
-    <div id="meals-index_event_breakfast" class="event">
-      <div class="meals-index_mealtime">
-      <span class="meals-index_mealtime_title">朝</span>
-      <span class="meals-index_mealtime_breakfast_show"></span>
-      <span class="meals-index_mealtime_breakfast_edit"></span>
-      </div>
-      <div id="meals-index_event_breakfast_content"></div>
-    </div>
-
-    <div id="meals-index_event_lunch" class="event">
-        <div class="meals-index_mealtime">
-          <span class="meals-index_mealtime_title">昼</span>
-          <span class="meals-index_mealtime_lunch_show"></span>
-          <span class="meals-index_mealtime_lunch_edit"></span>
-        </div>
-        <div id="meals-index_event_lunch_content"></div>
-    </div>
-
-    <div id="meals-index_event_dinner" class="event">
-        <div class="meals-index_mealtime">
-          <span class="meals-index_mealtime_title">夜</span>
-          <span class="meals-index_mealtime_dinner_show"></span>
-          <span class="meals-index_mealtime_dinner_edit"></span>
-        </div>
-        <div id="meals-index_event_dinner_content"></div>
-    </div>
-    <div class="meals-index_event-container_link"></div>
-  </div>
-
   <% if  Meal.where(user_id: current_user.id).present? %>
+    <div class="meals-index_event-container">
+      <div id="meals-index_event_breakfast" class="event">
+        <div class="meals-index_mealtime">
+        <span class="meals-index_mealtime_title">朝</span>
+        <span class="meals-index_mealtime_breakfast_show"></span>
+        <span class="meals-index_mealtime_breakfast_edit"></span>
+        </div>
+        <div id="meals-index_event_breakfast_content"></div>
+      </div>
+
+      <div id="meals-index_event_lunch" class="event">
+          <div class="meals-index_mealtime">
+            <span class="meals-index_mealtime_title">昼</span>
+            <span class="meals-index_mealtime_lunch_show"></span>
+            <span class="meals-index_mealtime_lunch_edit"></span>
+          </div>
+          <div id="meals-index_event_lunch_content"></div>
+      </div>
+
+      <div id="meals-index_event_dinner" class="event">
+          <div class="meals-index_mealtime">
+            <span class="meals-index_mealtime_title">夜</span>
+            <span class="meals-index_mealtime_dinner_show"></span>
+            <span class="meals-index_mealtime_dinner_edit"></span>
+          </div>
+          <div id="meals-index_event_dinner_content"></div>
+      </div>
+      <div class="meals-index_event-container_link"></div>
+    </div>
+
     <span>全体のランキング</span>
     <ul class="rank-list">
       <% @genres.each.with_index(1) do |genre, i| %>
