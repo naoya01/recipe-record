@@ -47,41 +47,113 @@
       <div class="meals-index_event-container_link"></div>
     </div>
 
-    <span>全体のランキング</span>
-    <ul class="rank-list">
-      <% @genres.each.with_index(1) do |genre, i| %>
-      <li class="rank-list_item">
-        <span class="rank-_list_item_head">第<%= i %>位</span>
-        <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
-      </li>
-      <% end %>
-    </ul>
+    <div class="rank-container">
 
-    <span>今月のランキング</span>
-    <ul class="rank-list">
-      <% @genres_month.each.with_index(1) do |genre, i| %>
-      <li class="rank-list_item">
-        <span class="rank-_list_item_head">第<%= i %>位</span>
-        <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
-      </li>
-      <% end %>
-    </ul>
+      <div class="rank-container_block">
+        <span class="rank-title">全体のランキング</span>
+        <ul class="rank-list">
+          <% @genres.each.with_index(1) do |genre, i| %>
+          <li class="rank-list_item">
+            <span class="rank-_list_item_head">第<%= i %>位</span>
+            <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+          </li>
+          <% end %>
+        </ul>
+      </div>
 
-    <span>今週のランキング</span>
-    <ul class="rank-list">
-      <% @genres_week.each.with_index(1) do |genre, i| %>
-      <li class="rank-list_item">
-        <span class="rank-_list_item_head">第<%= i %>位</span>
-        <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
-      </li>
-      <% end %>
-    </ul>
+      <div class="rank-container_block">
+        <span class="rank-title">今月のランキング</span>
+          <ul class="rank-list">
+            <% @genres_month.each.with_index(1) do |genre, i| %>
+            <li class="rank-list_item">
+              <span class="rank-_list_item_head">第<%= i %>位</span>
+              <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+            </li>
+            <% end %>
+          </ul>
+      </div>
 
-    <canvas id="myChart"></canvas>
-    <!--<canvas id="dayChart"></canvas>-->
+      <div class="rank-container_block">
+        <span class="rank-title">今週のランキング</span>
+        <ul class="rank-list">
+          <% @genres_week.each.with_index(1) do |genre, i| %>
+          <li class="rank-list_item">
+            <span class="rank-_list_item_head">第<%= i %>位</span>
+            <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+  <div class="chart-container">
+    <div class="chart-container_box">
+      <span class="chart-title">月 ( 内:先月　外:今月 )</span>
+      <canvas id="monthChart"></canvas>
+    </div>
+    <div class="chart-container_box">
+      <span class="chart-title">週 ( 内:先週　外:今週 )</span>
+      <canvas id="weekChart"></canvas>
+    </div>
+  </div>
   <% end %>
   <script>
-var ctx = document.getElementById("myChart");
+var ctx = document.getElementById("monthChart");
+var myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: [
+      <% @genres_pie.each.with_index(1) do |genre| %>
+      "<%= genre.genre_name %>",
+      <% end %>
+      ],
+    datasets: [{
+      label: '全体の割合',
+       data: [<% @genres_pie_month.count.each.with_index(1) do |genre| %>
+
+        "<%= genre[1] %>",
+        <% end %>
+        ],
+        borderColor: "rgba(0,0,80,1)",
+        backgroundColor: [
+        "#e66363",
+        "#9dc7e2",
+        "#c8e29d",
+        "#d49de2",
+        "#e29db4",
+        "#e2c49d",
+        "#8c9dec",
+        "#8ceb7a",
+        "#d170a7",
+        "#FaFF87",
+        "#4d5a85",
+        "#3b00FF"
+      ],
+    },{
+      data: [<% @genres_pie_lastmonth.count.each.with_index(1) do |genre| %>
+        "<%= genre[1] %>",
+        <% end %>
+        ],
+        borderColor: "rgba(0,0,80,1)",
+        backgroundColor: [
+        "#e66363",
+        "#9dc7e2",
+        "#c8e29d",
+        "#d49de2",
+        "#e29db4",
+        "#e2c49d",
+        "#8c9dec",
+        "#8ceb7a",
+        "#d170a7",
+        "#FaFF87",
+        "#4d5a85",
+        "#3b00FF"
+      ],
+        }
+
+    ]}
+});
+
+var ctx = document.getElementById("weekChart");
 var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
@@ -107,32 +179,33 @@ var myChart = new Chart(ctx, {
         "#3b00FF"
       ],
       borderColor: "rgba(0,0,80,1)",
-      data: [<% @genres_pie.count.each.with_index(1) do |genre| %>
+       data: [<% @genres_pie_lastweek.count.each.with_index(1) do |genre| %>
+
         "<%= genre[1] %>",
         <% end %>
-        ]
-    }
+        ]},{
+      data: [<% @genres_pie_week.count.each.with_index(1) do |genre| %>
+        "<%= genre[1] %>",
+        <% end %>
+        ],
+        borderColor: "rgba(0,0,80,1)",
+        backgroundColor: [
+        "#e66363",
+        "#9dc7e2",
+        "#c8e29d",
+        "#d49de2",
+        "#e29db4",
+        "#e2c49d",
+        "#8c9dec",
+        "#8ceb7a",
+        "#d170a7",
+        "#FaFF87",
+        "#4d5a85",
+        "#3b00FF"
+      ],
+        }
 
-    ]
-  }
+    ]}
 });
-// var ctx = document.getElementById("dayChart");
-// var myChart = new Chart(ctx, {
-//   type: 'radar',
-//   data: {
-//     labels: ["Japanese", "Mathematics", "English", "Social studies", "Science"],
-//     datasets: [{
-//       label: 'A_kun',
-//       backgroundColor: "rgba(0,0,80,0.4)",
-//       borderColor: "rgba(0,0,80,1)",
-//       data: [80, 90, 60, 70, 100, 70]
-//     }, {
-//       label: 'B_kun',
-//       backgroundColor: "rgba(0,255,0,0.4)",
-//       borderColor: "rgba(0,255,0,1)",
-//       data: [90, 75, 80, 65, 80, 70]
-//     }]
-//   }
-// });
 </script>
 </div>

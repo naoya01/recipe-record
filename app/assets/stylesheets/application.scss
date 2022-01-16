@@ -413,6 +413,9 @@ button {
     background: red;
   }
 }
+.slick-prev {
+  display: none !important ;
+}
 
 .slick-next {
   display: none !important ;
@@ -1013,7 +1016,7 @@ button {
   }
 
   @include media(sp) {
-    @include padding_vw(100, 45, 100, 45);
+    @include padding_vw(100, 40, 100, 40);
   }
 }
 
@@ -3499,7 +3502,17 @@ button {
 }
 
 //---------------------------rank ランキング-------------------//
+.rank-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.rank-container_block{
+  width: 30%;
+}
 .rank-title {
+  display: block;
+  text-align: center;
   @include media(pc) {
   }
 
@@ -3507,9 +3520,11 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(25);
+    @include font-size(20);
   }
 }
+
+
 
 .rank-list {
   display: flex;
@@ -3571,7 +3586,48 @@ button {
     @include font-size(25);
   }
 }
+// ----------------------チャート-----------------------------
+.chart-container{
+    @include media(pc) {
+  }
 
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.chart-container_box{
+    @include media(pc) {
+    margin-top: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(100);
+  }
+}
+
+.chart-title{
+  display: block;
+    @include media(pc) {
+    margin-bottom: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(24);
+    @include margin-bottom(10);
+  }
+}
+
+
+// --------------------------------------------------------------
 .fc-scroller {
   @include media(pc) {
   }
