@@ -1,6 +1,6 @@
 <div class="l-main_container">
 
-          <%= render 'searchs/form' %>
+    <%= render 'searchs/form' %>
 
   <div class="meals-index_top">
     <div class="meals-index_top_left">
@@ -51,18 +51,28 @@
     <% @genres.each.with_index(1) do |genre, i| %>
     <li class="rank-list_item">
       <span class="rank-_list_item_head">第<%= i %>位</span>
-      <span class="rank-_list_item_genre"><%= genre.genre_name %></span>
+      <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
     </li>
     <% end %>
   </ul>
 
   <span>今月のランキング</span>
   <ul class="rank-list">
-    <%# @genres_month.each.with_index(1) do |genre, i| %>
+    <% @genres_month.each.with_index(1) do |genre, i| %>
     <li class="rank-list_item">
-      <span class="rank-_list_item_head">第<%#= i %>位</span>
-      <span class="rank-_list_item_genre"><%#= genre.genre_name %></span>
+      <span class="rank-_list_item_head">第<%= i %>位</span>
+      <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
     </li>
-    <%# end %>
+    <% end %>
+  </ul>
+
+  <span>今週のランキング</span>
+  <ul class="rank-list">
+    <% @genres_week.each.with_index(1) do |genre, i| %>
+    <li class="rank-list_item">
+      <span class="rank-_list_item_head">第<%= i %>位</span>
+      <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+    </li>
+    <% end %>
   </ul>
 </div>

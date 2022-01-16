@@ -4,11 +4,14 @@ class MealsController < ApplicationController
   # GET /meals or /meals.json
   def index
     @meals = current_user.meals
+    # 全体ランキング
     @genres = Genre.joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc').limit(5)
-    # @genres_month = Genre.joins(:cookings,:meals).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).group(:genre_id).order('count(genre_id) desc').limit(5)
-    @all_ranks = Genre.find(Tag.group(:genre_id).order('count(genre_id) desc').limit(9).pluck(:genre_id))
-    # @genre_ranks = Cooking.find(Tag.group(:genre_id).order('count(genre_id) desc').pluck(:genre_id))
+    # 今月のランキング
+    @genres_month = Genre.joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).group(:genre_id).order('count(genre_id) desc').limit(5)
+    # 今週のランキング
+    @genres_week = Genre.joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id).order('count(genre_id) desc').limit(5)
     # binding.pry
+    @month = Genre.joins(:cookings).where(cookings: { user_id: current_user.id})
   end
 
   # GET /meals/1 or /meals/1.json
@@ -83,6 +86,7 @@ class MealsController < ApplicationController
     end
   end
 
+  # カレンダーの下にクリックしたら表示させる機能のためにデータを取得
   def day
     meals = Meal.joins(:cookings).select("meals.id,mealtime, title, meal_description, cookings.cooking_name ,cookings.url ,cookings.user_id").where(date: params[:day],user_id: current_user.id )
     render json: meals
