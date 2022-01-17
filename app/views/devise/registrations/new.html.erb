@@ -5,25 +5,25 @@
 
   </div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-    <table class="login-table">
-      <tr>
-        <th>ユーザーネーム</th>
-        <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
-      </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-      </tr>
-      <tr>
-        <th>パスワード(6字以上)</th>
-        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-      </tr>
-      <tr>
-        <th>確認パスワード</th>
-        <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-      </tr>
-    </table>
+
+    <div class="login-table">
+      <div class="login-table_row">
+        <span class="login-table_row_title">ユーザーネーム</span>
+        <span class="login-table_row_content"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></span>
+      </div class="login-table_row">
+      <div class="login-table_row">
+        <span class="login-table_row_title">メールアドレス</span>
+        <span class="login-table_row_content"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></span>
+      </div>
+      <div class="login-table_row">
+        <span class="login-table_row_title">パスワード(6字以上)</span>
+        <span class="login-table_row_content"><%= f.password_field :password, autocomplete: "new-password" %></span>
+      </div>
+      <div class="login-table_row">
+        <span class="login-table_row_title">確認パスワード</span>
+        <span class="login-table_row_content"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></span>
+      </div>
+    </div>
     <%= f.submit "登録", class:"btn-login" %>
   <% end %>
 </div>

@@ -189,7 +189,7 @@ $footer-height_sp: 100;
     @include width(300);
     @include height(100);
     // @include padding_vw(30, 10, 30, 10);
-    @include margin_top(100);
+    @include margin_top(200);
     text-align: center;
   }
 }
@@ -391,7 +391,6 @@ button {
   }
 }
 
-
 /* ----------------------top-page(トップページ)--------------------*/
 .new-blink {
   animation: blinkAnimeS2 2s infinite alternate;
@@ -459,19 +458,18 @@ button {
   }
 }
 
-.l-header_flex{
+.l-header_flex {
   align-items: center;
   display: flex;
   justify-content: space-between;
   z-index: 100;
   transition: 0.3s;
-    @include media(pc) {
+  @include media(pc) {
     width: 100%;
     transition: 0.4s;
   }
 
   @include media(tb) {
-
   }
 
   @include media(sp) {
@@ -515,31 +513,29 @@ button {
 }
 
 /* ---------------------search(検索フォーム)-------------------*/
-.search_container{
+.search_container {
   display: flex;
   align-items: center;
-    @include media(pc) {
+  @include media(pc) {
     justify-content: end;
     width: 100%;
     height: 60px;
     padding: 15px 70px 15px 70px;
-    input[type="text"]{
-
+    input[type="text"] {
     }
-    button{
+    button {
       border-radius: 50%;
-      transition: .3s;
+      transition: 0.3s;
       background-color: #ffffff00;
       cursor: pointer;
       width: 30px;
       height: 30px;
-      &:hover{
-        transition: .3s;
-        background-color:#ccc;
+      &:hover {
+        transition: 0.3s;
+        background-color: #ccc;
       }
     }
-    select{
-
+    select {
     }
   }
 
@@ -553,13 +549,13 @@ button {
     @include padding-bottom(10);
     @include height(60);
     @include font-size(30);
-    input[type="text"]{
+    input[type="text"] {
       @include width(320);
       @include height(40);
       @include font-size(20);
     }
-    button{
-      transition: .3s;
+    button {
+      transition: 0.3s;
       background-color: #ffffff00;
       cursor: pointer;
       border-radius: 50%;
@@ -567,20 +563,18 @@ button {
       @include height(50);
       @include font-size(20);
       @include margin-left(20);
-      &:hover{
-        transition: .3s;
-        background-color:#ccc;
+      &:hover {
+        transition: 0.3s;
+        background-color: #ccc;
       }
     }
-    select{
+    select {
       @include width(180);
       @include height(40);
       @include font-size(20);
       @include margin-left(20);
     }
   }
-
-
 }
 
 /* ------------------------------------- スクロール時 -------------------------------------------------*/
@@ -605,7 +599,6 @@ button {
 .inv {
   background-color: rgba(0, 0, 0, 0) !important;
 }
-
 
 .l-header.UpMove {
   animation: UpAnime 0.5s forwards;
@@ -1441,7 +1434,7 @@ button {
   }
 
   @include media(sp) {
-    position: absolute!important;
+    position: absolute !important;
     top: 0;
     width: 100vw;
     height: 100vh;
@@ -1707,7 +1700,6 @@ button {
     img {
       @include width(300);
       border-radius: calc(20 / #{$sp-size} * 100vw);
-
     }
   }
 }
@@ -1973,8 +1965,8 @@ button {
   @include media(sp) {
     @include width(200);
     @include margin-top(40);
-    img{
-    border-radius: calc(20 / #{$sp-size} * 100vw);
+    img {
+      border-radius: calc(20 / #{$sp-size} * 100vw);
     }
   }
 }
@@ -2388,8 +2380,8 @@ button {
 }
 
 /*------------------------新規登録・ログイン-----------------------------*/
-.login-title{
-   @include media(pc) {
+.login-title {
+  @include media(pc) {
   }
 
   @include media(tb) {
@@ -2403,65 +2395,72 @@ button {
 
 .login-table {
   margin: 0 auto;
-  tr {
-    display: flex;
-  }
-  th {
-  }
-  td {
-  }
   @include media(pc) {
-    tbody {
-    }
     max-width: 700px;
     width: 100%;
-    tr {
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 10px 15px 10px;
-      font-size: 20px;
-    }
-    th {
-    }
-    td {
-      input {
-        font-size: 16px;
-        height: 30px;
-        width: 400px;
-      }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.login-table_row {
+  display: flex;
+  @include media(pc) {
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px 15px 10px;
+    font-size: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(40);
+    flex-direction: column;
+    @include padding_vw(40, 10, 40, 10);
+  }
+}
+.login-table_row_title {
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    width: calc(600 / #{$sp-size} * 100vw);
+    text-align: left;
+    @include padding_vw(30, 10, 30, 10);
+  }
+}
+.login-table_row_content {
+  @include media(pc) {
+    input {
+      font-size: 16px;
+      height: 30px;
+      width: 400px;
     }
   }
 
   @include media(tb) {
-    tr {
-    }
-    th {
-    }
-    td {
-    }
   }
 
   @include media(sp) {
-    tr {
-      @include font-size(40);
-      flex-direction: column;
-      @include padding_vw(40, 10, 40, 10);
-    }
-    th {
-      width: calc(600 / #{$sp-size} * 100vw);
-      text-align: left;
-      @include padding_vw(30, 10, 30, 10);
-    }
-    td {
-      input {
-        @include font-size(35);
-        @include width(660);
-        @include height(70);
-      }
+    input {
+      @include font-size(35);
+      @include width(660);
+      @include height(70);
     }
   }
 }
+
 .login-other {
+    display: flex;
+    justify-content: end;
   @include media(pc) {
     max-width: 700px;
     text-align: right;
@@ -2472,6 +2471,8 @@ button {
   }
 
   @include media(sp) {
+    @include font-size(25);
+    @include margin-bottom(50);
   }
 }
 .btn-login {
@@ -2943,7 +2944,7 @@ button {
 
 //----------------------meals-show 食事の詳細---------------------
 
-.meals-show_description{
+.meals-show_description {
   @include media(pc) {
     margin-bottom: 50px;
   }
@@ -3043,8 +3044,8 @@ button {
 }
 
 .meals-show_container_row_date {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
   @include media(pc) {
     margin-left: 20px;
   }
@@ -3626,12 +3627,12 @@ button {
 }
 
 //---------------------------rank ランキング-------------------//
-.rank-container{
+.rank-container {
   display: flex;
   justify-content: space-around;
 }
 
-.rank-container_block{
+.rank-container_block {
   width: 30%;
 }
 .rank-title {
@@ -3647,8 +3648,6 @@ button {
     @include font-size(20);
   }
 }
-
-
 
 .rank-list {
   display: flex;
@@ -3711,8 +3710,8 @@ button {
   }
 }
 // ----------------------チャート-----------------------------
-.chart-container{
-    @include media(pc) {
+.chart-container {
+  @include media(pc) {
   }
 
   @include media(tb) {
@@ -3722,8 +3721,8 @@ button {
   }
 }
 
-.chart-container_box{
-    @include media(pc) {
+.chart-container_box {
+  @include media(pc) {
     margin-top: 50px;
   }
 
@@ -3735,9 +3734,9 @@ button {
   }
 }
 
-.chart-title{
+.chart-title {
   display: block;
-    @include media(pc) {
+  @include media(pc) {
     margin-bottom: 20px;
   }
 
@@ -3749,7 +3748,6 @@ button {
     @include margin-bottom(10);
   }
 }
-
 
 // --------------------------------------------------------------
 .fc-scroller {

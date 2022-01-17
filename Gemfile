@@ -77,6 +77,8 @@ gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.5'
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'dotenv-rails'
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
 group :production do
   gem 'mysql2'
 end

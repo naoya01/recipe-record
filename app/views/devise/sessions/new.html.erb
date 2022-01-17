@@ -6,16 +6,16 @@
   </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-    <table class="login-table">
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-      </tr>
-      <tr>
-        <th>パスワード(6字以上)</th>
-        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-      </tr>  
-    </table>
+    <div class="login-table">
+      <div class="login-table_row">
+        <span class="login-table_row_title">メールアドレス</span>
+        <span class="login-table_row_content"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></span>
+      </div class="login-table_row">
+      <div class="login-table_row">
+        <span class="login-table_row_title">パスワード</span>
+        <span class="login-table_row_content"><%= f.password_field :password, autocomplete: "new-password" %></span>
+      </div>
+    </div>
     <div class="login-other">
       <% if devise_mapping.rememberable? %>
         <%= f.check_box :remember_me %>

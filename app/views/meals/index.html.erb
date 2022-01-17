@@ -1,5 +1,5 @@
 <div class="l-main_container">
-
+<p id="notice"><%= notice %></p>
   <div class="meals-index_top">
     <div class="meals-index_top_left">
     <%= link_to "自分のレシピ" , posts_path, class: "meals-index_top_left_post" %>
@@ -97,7 +97,7 @@
   <script>
 var ctx = document.getElementById("monthChart");
 var myChart = new Chart(ctx, {
-  type: 'pie',
+  type: 'bar',
   data: {
     labels: [
       <% @genres_pie.each.with_index(1) do |genre| %>
@@ -164,17 +164,17 @@ var myChart = new Chart(ctx, {
     datasets: [{
       label: '先週',
       backgroundColor: [
-        "#e66363",
-        "#9dc7e2",
-        "#c8e29d",
-        "#d49de2",
-        "#e29db4",
-        "#e2c49d",
-        "#8c9dec",
-        "#8ceb7a",
-        "#d170a7",
-        "#FaFF87",
-        "#4d5a85",
+        "#b63333",
+        "#6d97b2",
+        "#98b26d",
+        "#a46db2",
+        "#b26d94",
+        "#b2946d",
+        "#5c6dac",
+        "#5cbb4a",
+        "#a14087",
+        "#cacf57",
+        "#1d2a55",
         "#3b00FF"
       ],
       borderColor: "rgba(0,0,80,1)",
