@@ -97,7 +97,7 @@
   <script>
 var ctx = document.getElementById("monthChart");
 var myChart = new Chart(ctx, {
-  type: 'pie',
+  type: 'bar',
   data: {
     labels: [
       <% @genres_pie.each.with_index(1) do |genre| %>
@@ -105,7 +105,7 @@ var myChart = new Chart(ctx, {
       <% end %>
       ],
     datasets: [{
-      label: '全体の割合',
+      label: '先月',
        data: [<% @genres_pie_month.count.each.with_index(1) do |genre| %>
 
         "<%= genre[1] %>",
@@ -127,6 +127,7 @@ var myChart = new Chart(ctx, {
         "#3b00FF"
       ],
     },{
+      label: '今月',
       data: [<% @genres_pie_lastmonth.count.each.with_index(1) do |genre| %>
         "<%= genre[1] %>",
         <% end %>
@@ -153,7 +154,7 @@ var myChart = new Chart(ctx, {
 
 var ctx = document.getElementById("weekChart");
 var myChart = new Chart(ctx, {
-  type: 'pie',
+  type: 'bar',
   data: {
     labels: [
       <% @genres_pie.each.with_index(1) do |genre| %>
@@ -161,7 +162,7 @@ var myChart = new Chart(ctx, {
       <% end %>
       ],
     datasets: [{
-      label: '全体の割合',
+      label: '先週',
       backgroundColor: [
         "#e66363",
         "#9dc7e2",
@@ -182,6 +183,7 @@ var myChart = new Chart(ctx, {
         "<%= genre[1] %>",
         <% end %>
         ]},{
+      label: '今週',
       data: [<% @genres_pie_week.count.each.with_index(1) do |genre| %>
         "<%= genre[1] %>",
         <% end %>
