@@ -391,6 +391,44 @@ button {
   }
 }
 
+/* ---------------------search(検索フォーム)-------------------*/
+.search_container{
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    @include media(pc) {
+    width: 100%;
+    height: 50px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    width: 100%;
+    @include height(50);
+    @include font-size(30);
+    input[type="text"]{
+      @include width(320);
+      @include height(40);
+      @include font-size(20);
+    }
+    input[type="submit"]{
+      @include width(100);
+      @include height(40);
+      @include font-size(20);
+      @include margin-left(20);
+    }
+    select{
+      @include width(180);
+      @include height(40);
+      @include font-size(20);
+      @include margin-left(20);
+    }
+  }
+}
+
 /* ----------------------top-page(トップページ)--------------------*/
 .new-blink {
   animation: blinkAnimeS2 2s infinite alternate;
@@ -430,6 +468,7 @@ button {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   z-index: 100;
   transition: 0.3s;
   @include media(pc) {
@@ -449,8 +488,30 @@ button {
   }
 
   @include media(sp) {
-    @include height($header_height_sp);
     position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+  }
+}
+
+.l-header_flex{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  transition: 0.3s;
+    @include media(pc) {
+    width: 100%;
+    transition: 0.4s;
+  }
+
+  @include media(tb) {
+
+  }
+
+  @include media(sp) {
+    @include height($header_height_sp);
     width: 100%;
     top: 0;
     z-index: 5;
@@ -508,9 +569,10 @@ button {
 }
 
 /*　上に上がる動き　*/
-.t {
+.inv {
   background-color: rgba(0, 0, 0, 0) !important;
 }
+
 
 .l-header.UpMove {
   animation: UpAnime 0.5s forwards;

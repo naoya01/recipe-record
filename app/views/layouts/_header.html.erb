@@ -1,45 +1,48 @@
 <header class="l-header">
-  <% if user_signed_in? %>
-    <%= link_to meals_path do %>
-      <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
+  <div class="l-header_flex">
+    <% if user_signed_in? %>
+      <%= link_to meals_path do %>
+        <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= link_to root_path do %>
-      <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
-    <% end %>
-  <% end %>
-  <nav>
-    <span class="l-nav_btn">
-      <span class="l-nav_btn_bar"></span>
-      <span class="l-nav_btn_bar"></span>
-      <span class="l-nav_btn_bar"></span>
-    </span>
-    <div class="l-nav">
-      <ul class="l-navbarnav_list">
-        <% if user_signed_in? %>
-        <li class="l-nav_item">
-          <%= link_to 'マイページ', meals_path, class: "l-nav_item_anchor"%>
-        </li>
-        <% if current_user == @user || current_user.admin? %><%# 管理者のみ表示  %>
+    <nav>
+      <span class="l-nav_btn">
+        <span class="l-nav_btn_bar"></span>
+        <span class="l-nav_btn_bar"></span>
+        <span class="l-nav_btn_bar"></span>
+      </span>
+      <div class="l-nav">
+        <ul class="l-navbarnav_list">
+          <% if user_signed_in? %>
           <li class="l-nav_item">
-            <%= link_to 'ジャンル', genres_path, class: "l-nav_item_anchor"%>
+            <%= link_to 'マイページ', meals_path, class: "l-nav_item_anchor"%>
           </li>
-        <% end %>
-       <li class="l-nav_item">
-          <%= link_to 'レシピ作成',new_post_path, class: "l-nav_item_anchor"%>
-        </li>
-        <li class="l-nav_item">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class: "l-nav_item_anchor"%>
-        </li>
-        <% else %>
-        <li class="l-nav_item">
-          <%= link_to 'ログイン', new_user_session_path, class: "l-nav_item_anchor"%>
-        </li>
-        <li class="l-nav_item">
-          <%= link_to '新規登録', new_user_registration_path, class: "l-nav_item_anchor"%>
-        </li>
-        <% end%>
-      </ul>
-    </div>
-  </nav>
+          <% if current_user == @user || current_user.admin? %><%# 管理者のみ表示  %>
+            <li class="l-nav_item">
+              <%= link_to 'ジャンル', genres_path, class: "l-nav_item_anchor"%>
+            </li>
+          <% end %>
+         <li class="l-nav_item">
+            <%= link_to 'レシピ作成',new_post_path, class: "l-nav_item_anchor"%>
+          </li>
+          <li class="l-nav_item">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class: "l-nav_item_anchor"%>
+          </li>
+          <% else %>
+          <li class="l-nav_item">
+            <%= link_to 'ログイン', new_user_session_path, class: "l-nav_item_anchor"%>
+          </li>
+          <li class="l-nav_item">
+            <%= link_to '新規登録', new_user_registration_path, class: "l-nav_item_anchor"%>
+          </li>
+          <% end%>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <%= render 'searchs/form' %>
 </header>
