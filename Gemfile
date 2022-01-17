@@ -76,7 +76,8 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.5'
 gem 'chart-js-rails', '~> 0.1.4'
-
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

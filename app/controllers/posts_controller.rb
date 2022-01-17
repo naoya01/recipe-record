@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-      @post = Post.find_by(params[:id])
+      @post = Post.find(params[:id])
     if @post.user ==! current_user
       redirect_to posts_path
     end
