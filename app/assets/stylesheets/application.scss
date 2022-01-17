@@ -451,7 +451,6 @@ button {
   }
 
   @include media(sp) {
-    @include padding-bottom(15);
     background-color: lightyellow;
     position: fixed;
     width: 100%;
@@ -522,10 +521,8 @@ button {
     @include media(pc) {
     justify-content: end;
     width: 100%;
-    height: 50px;
-    margin-top: 30px;
-    padding-left: 70px;
-    padding-right: 70px;
+    height: 60px;
+    padding: 15px 70px 15px 70px;
     input[type="text"]{
 
     }
@@ -552,8 +549,9 @@ button {
   @include media(sp) {
     justify-content: center;
     width: 100%;
-    @include margin-top(15);
-    @include height(50);
+    @include padding-top(10);
+    @include padding-bottom(10);
+    @include height(60);
     @include font-size(30);
     input[type="text"]{
       @include width(320);
@@ -1424,7 +1422,6 @@ button {
     @include margin-left(50);
   }
 }
-
 /*---------------------トップページ------------------------------*/
 .slick-slider {
   // position: absolute !important;
@@ -2077,7 +2074,6 @@ button {
       }
     }
     td:nth-child(3) {
-      width: 100px;
       select {
         width: 80px;
         font-size: 12px;
@@ -2392,6 +2388,19 @@ button {
 }
 
 /*------------------------新規登録・ログイン-----------------------------*/
+.login-title{
+   @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    flex-direction: row;
+  }
+}
+
+
 .login-table {
   margin: 0 auto;
   tr {
