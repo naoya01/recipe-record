@@ -25518,3 +25518,54 @@ DEPRECATION WARNING: Dangerous query method (method whose arguments are used as 
 Completed 200 OK in 20ms (Views: 12.3ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/meals" for 126.141.237.230 at 2022-01-17 02:19:49 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MealsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:11)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:13)
+  Rendering meals/index.html.erb within layouts/application
+  [1m[36mMeal Load (0.1ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/meals/index.html.erb:17
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" WHERE "cookings"."user_id" = ? GROUP BY "genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["user_id", 1], ["LIMIT", 5]]
+  ↳ app/views/meals/index.html.erb:53
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" INNER JOIN "meals" ON "meals"."id" = "cookings"."meal_id" WHERE "cookings"."user_id" = ? AND "meals"."date" BETWEEN ? AND ? GROUP BY "genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["user_id", 1], ["date", "2022-01-01"], ["date", "2022-01-31"], ["LIMIT", 5]]
+  ↳ app/views/meals/index.html.erb:65
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" INNER JOIN "meals" ON "meals"."id" = "cookings"."meal_id" WHERE "cookings"."user_id" = ? AND "meals"."date" BETWEEN ? AND ? GROUP BY "genre_id" ORDER BY count(genre_id) desc LIMIT ?[0m  [["user_id", 1], ["date", "2022-01-17"], ["date", "2022-01-23"], ["LIMIT", 5]]
+  ↳ app/views/meals/index.html.erb:77
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" WHERE "cookings"."user_id" = ? GROUP BY "genre_id"[0m  [["user_id", 1]]
+  ↳ app/views/meals/index.html.erb:103
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "genre_id" AS genre_id FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" INNER JOIN "meals" ON "meals"."id" = "cookings"."meal_id" WHERE "cookings"."user_id" = ? AND "meals"."date" BETWEEN ? AND ? GROUP BY "genre_id"[0m  [["user_id", 1], ["date", "2022-01-01"], ["date", "2022-01-31"]]
+  ↳ app/views/meals/index.html.erb:109
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "genre_id" AS genre_id FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" INNER JOIN "meals" ON "meals"."id" = "cookings"."meal_id" WHERE "cookings"."user_id" = ? AND "meals"."date" BETWEEN ? AND ? GROUP BY "genre_id"[0m  [["user_id", 1], ["date", "2021-12-01"], ["date", "2021-12-31"]]
+  ↳ app/views/meals/index.html.erb:130
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "genre_id" AS genre_id FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" INNER JOIN "meals" ON "meals"."id" = "cookings"."meal_id" WHERE "cookings"."user_id" = ? AND "meals"."date" BETWEEN ? AND ? GROUP BY "genre_id"[0m  [["user_id", 1], ["date", "2022-01-10"], ["date", "2022-01-16"]]
+  ↳ app/views/meals/index.html.erb:180
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "genre_id" AS genre_id FROM "genres" INNER JOIN "tags" ON "tags"."genre_id" = "genres"."id" INNER JOIN "cookings" ON "cookings"."id" = "tags"."cooking_id" INNER JOIN "meals" ON "meals"."id" = "cookings"."meal_id" WHERE "cookings"."user_id" = ? AND "meals"."date" BETWEEN ? AND ? GROUP BY "genre_id"[0m  [["user_id", 1], ["date", "2022-01-17"], ["date", "2022-01-23"]]
+  ↳ app/views/meals/index.html.erb:185
+  Rendered meals/index.html.erb within layouts/application (27.2ms)
+  Rendered searchs/_form.html.erb (12.8ms)
+  Rendered layouts/_header.html.erb (14.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+  Rendered layouts/_js.html.erb (0.5ms)
+Completed 200 OK in 283ms (Views: 273.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/meals.json?start=2021-12-26&end=2022-02-06&_=1642385990109" for 126.141.237.230 at 2022-01-17 02:19:50 +0000
+Cannot render console from 126.141.237.230! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MealsController#index as JSON
+  Parameters: {"start"=>"2021-12-26", "end"=>"2022-02-06", "_"=>"1642385990109"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:9)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:11)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "count(genre_id) desc". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /home/ec2-user/environment/recipe-record/app/controllers/meals_controller.rb:13)
+  Rendering meals/index.json.jbuilder
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/meals/index.json.jbuilder:1
+  Rendered meals/index.json.jbuilder (4.4ms)
+Completed 200 OK in 18ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
