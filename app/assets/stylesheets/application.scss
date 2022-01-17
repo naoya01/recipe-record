@@ -1666,6 +1666,7 @@ button {
     img {
       transition: 0.3s;
       max-width: 205px;
+      border-radius: 10%;
     }
   }
 
@@ -1675,6 +1676,8 @@ button {
   @include media(sp) {
     img {
       @include width(300);
+      border-radius: calc(20 / #{$sp-size} * 100vw);
+
     }
   }
 }
@@ -1742,6 +1745,7 @@ button {
     img {
       max-width: 300px;
       width: 100%;
+      border-radius: 10px;
     }
   }
 
@@ -1750,7 +1754,7 @@ button {
 
   @include media(sp) {
     @include width(#{$sp-size});
-    @include margin_vw(auto, auto, auto, -45);
+    @include margin_vw(auto, auto, auto, -40);
     img {
       @include width(#{$sp-size});
     }
@@ -1929,6 +1933,7 @@ button {
     margin-top: 30px;
     img {
       max-width: 500px;
+      border-radius: 10px;
     }
   }
 
@@ -1938,6 +1943,9 @@ button {
   @include media(sp) {
     @include width(200);
     @include margin-top(40);
+    img{
+    border-radius: calc(20 / #{$sp-size} * 100vw);
+    }
   }
 }
 
