@@ -526,6 +526,24 @@ button {
     margin-top: 30px;
     padding-left: 70px;
     padding-right: 70px;
+    input[type="text"]{
+
+    }
+    button{
+      border-radius: 50%;
+      transition: .3s;
+      background-color: #ffffff00;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      &:hover{
+        transition: .3s;
+        background-color:#ccc;
+      }
+    }
+    select{
+
+    }
   }
 
   @include media(tb) {
@@ -542,11 +560,19 @@ button {
       @include height(40);
       @include font-size(20);
     }
-    input[type="submit"]{
-      @include width(100);
-      @include height(40);
+    button{
+      transition: .3s;
+      background-color: #ffffff00;
+      cursor: pointer;
+      border-radius: 50%;
+      @include width(50);
+      @include height(50);
       @include font-size(20);
       @include margin-left(20);
+      &:hover{
+        transition: .3s;
+        background-color:#ccc;
+      }
     }
     select{
       @include width(180);
@@ -555,6 +581,8 @@ button {
       @include margin-left(20);
     }
   }
+
+
 }
 
 /* ------------------------------------- スクロール時 -------------------------------------------------*/
@@ -1441,6 +1469,9 @@ button {
   }
 
   @include media(sp) {
+    flex-direction: column;
+    @include padding_top($header-height_sp);
+    @include padding_bottom($footer-height_sp);
   }
 }
 @mixin change-color_login {
@@ -1451,7 +1482,6 @@ button {
 }
 .top-visual_btn_login {
   color: #fff;
-  border-radius: 50%;
   @include change-color_login;
   transition: 0.3s;
   display: flex;
@@ -1461,6 +1491,7 @@ button {
     background-color: rgb(150, 72, 133);
   }
   @include media(pc) {
+    border-radius: 50%;
     width: 300px;
     height: 300px;
     font-size: 30px;
@@ -1471,15 +1502,15 @@ button {
   }
 
   @include media(sp) {
-    @include width(200);
+    @include width(500);
     @include height(200);
-    @include margin_vw(0, 20, 0, 20);
+    @include margin_vw(60, 0, 60, 0);
     @include font-size(30);
+    border-radius: calc(30 / #{$sp-size} * 100vw);
   }
 }
 
 .top-visual_btn_register {
-  border-radius: 50%;
   color: #fff;
   transition: 0.3s;
   display: flex;
@@ -1491,6 +1522,7 @@ button {
     background-color: rgb(155, 124, 56);
   }
   @include media(pc) {
+    border-radius: 50%;
     width: 300px;
     height: 300px;
     font-size: 30px;
@@ -1501,10 +1533,11 @@ button {
   }
 
   @include media(sp) {
-    @include width(200);
+    @include width(500);
     @include height(200);
-    @include margin_vw(0, 20, 0, 20);
+    @include margin_vw(60, 0, 60, 0);
     @include font-size(30);
+    border-radius: calc(30 / #{$sp-size} * 100vw);
   }
 }
 

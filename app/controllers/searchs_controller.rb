@@ -15,10 +15,10 @@ class SearchsController < ApplicationController
   def search_for(model, content)
     # 選択したモデルがcookingだったら
     if model == 'cooking'
-      Cooking.where('cooking_name LIKE ?', '%'+content+'%')
+      Cooking.where('cooking_name LIKE ?', '%'+content+'%').where(user_id: current_user.id)
     # 選択したモデルがpostだったら
     elsif model == 'post'
-      Post.where('post_name LIKE ?', '%'+content+'%')
+      Post.where('post_name LIKE ?', '%'+content+'%').where(user_id: current_user.id)
     end
   end
 end

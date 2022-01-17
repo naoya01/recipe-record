@@ -3,7 +3,9 @@
       <%= form_tag(search_path, method: :get) do %>
         <%= text_field_tag 'content' %>
         <%= select_tag 'model', options_for_select({ "料理" => "cooking", "自分のレシピ" => "post" }) %>
-        <%= submit_tag '検索' %>
+        <%= button_tag type: 'submit' do %>
+          <i class="fas fa-search"></i>
+        <% end %>
       <% end %>
   <% end %>
 </div>

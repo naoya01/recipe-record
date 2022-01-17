@@ -86,6 +86,41 @@
       // ページが読み込まれたらすぐに動かしたい場合の記述
       $(window).on("load", function () {
         ScrollAnime(); //スクロール途中でヘッダーが消え、上にスクロールすると復活する関数を呼ぶ
+
+            $(".top-visual_btn_login").hover(
+      function () {
+        $(".top-visual_btn_register").addClass("top-btn_remove");
+        $(".top-visual_btn_login").addClass("top-btn_add");
+        $(".l-header,.l-footer").addClass("top-change_bar_login");
+      },
+      function () {
+        setTimeout(function () {
+          if ($(".top-visual_btn_login").hasClass("top-btn_add") == false) {
+            $(".top-visual_btn_register").removeClass("top-btn_remove");
+          }
+        }, 400);
+        $(".top-visual_btn_login").removeClass("top-btn_add");
+        $(".l-header,.l-footer").removeClass("top-change_bar_login");
+      }
+    );
+
+    $(".top-visual_btn_register").hover(
+      function () {
+        $(".top-visual_btn_login").addClass("top-btn_remove");
+        $(".top-visual_btn_register").addClass("top-btn_add");
+        $(".l-header,.l-footer").addClass("top-change_bar_register");
+      },
+      function () {
+        setTimeout(function () {
+          if ($(".top-visual_btn_register").hasClass("top-btn_add") == false) {
+            $(".top-visual_btn_login").removeClass("top-btn_remove");
+          }
+        }, 400);
+        $(".top-visual_btn_register").removeClass("top-btn_add");
+        $(".l-header,.l-footer").removeClass("top-change_bar_register");
+      }
+    );
+
       });
     } else if (width <= 770) {
       $(".l-header").removeClass("inv");
@@ -145,39 +180,6 @@
       autoplay: true,
     });
 
-    $(".top-visual_btn_login").hover(
-      function () {
-        $(".top-visual_btn_register").addClass("top-btn_remove");
-        $(".top-visual_btn_login").addClass("top-btn_add");
-        $(".l-header,.l-footer").addClass("top-change_bar_login");
-      },
-      function () {
-        setTimeout(function () {
-          if ($(".top-visual_btn_login").hasClass("top-btn_add") == false) {
-            $(".top-visual_btn_register").removeClass("top-btn_remove");
-          }
-        }, 400);
-        $(".top-visual_btn_login").removeClass("top-btn_add");
-        $(".l-header,.l-footer").removeClass("top-change_bar_login");
-      }
-    );
-
-    $(".top-visual_btn_register").hover(
-      function () {
-        $(".top-visual_btn_login").addClass("top-btn_remove");
-        $(".top-visual_btn_register").addClass("top-btn_add");
-        $(".l-header,.l-footer").addClass("top-change_bar_register");
-      },
-      function () {
-        setTimeout(function () {
-          if ($(".top-visual_btn_register").hasClass("top-btn_add") == false) {
-            $(".top-visual_btn_login").removeClass("top-btn_remove");
-          }
-        }, 400);
-        $(".top-visual_btn_register").removeClass("top-btn_add");
-        $(".l-header,.l-footer").removeClass("top-change_bar_register");
-      }
-    );
 
     $(".mealtime_conversion").each(function () {
       let text = $(this).html();
