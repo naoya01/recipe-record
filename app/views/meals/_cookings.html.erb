@@ -3,7 +3,7 @@
     <div class="meals-show_container_row meals-show_container_title">
       <span class="meals-show_container_row_title"><%= cooking.cooking_name %></span>
       <span class="meals-show_container_row_favorite">
-        <div class="favorite-btn">
+        <div class="favorite-btn_<%= cooking.id %>">
           <%= render "favorites/index", cooking: cooking %>
         </div>
       </span>

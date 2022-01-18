@@ -75,7 +75,7 @@ height: auto;
 }
 
 
-$sp-size: 770;
+$sp-size: 767;
 // $tb-size: 1400;
 
 $header-height_pc: 80px;
@@ -86,15 +86,15 @@ $footer-height_sp: 100;
 
 @mixin media($device) {
   @if $device== "pc" {
-    @media print, screen and (min-width: 771px) {
+    @media print, screen and (min-width: 768px) {
       @content;
     }
     // } @else if $device== "tb" {
-    //   @media print, screen and (max-width: 1440px) and (min-width: 771px) {
+    //   @media print, screen and (max-width: 1440px) and (min-width: 768px) {
     //     @content;
     //   }
   } @else if $device== "sp" {
-    @media screen and (max-width: 770px) {
+    @media screen and (max-width: 767px) {
       @content;
     }
   }
@@ -425,6 +425,20 @@ button {
   // height: 100vh;
 }
 
+#notice{
+    @include media(pc) {
+      margin-bottom: 20px;
+  }
+
+  @include media(tb) {
+
+  }
+
+  @include media(sp) {
+    @include font-size(25);
+    @include margin-bottom(25);
+  }
+}
 // ----------------------------------------------------------
 .l-header {
   align-items: center;
@@ -1115,7 +1129,7 @@ button {
 
   @include media(tb) {
   }
-  @media print, screen and (max-width: 1000px) and (min-width: 771px) {
+  @media print, screen and (max-width: 1000px) and (min-width: 768px) {
     flex-direction: column-reverse;
   }
   @include media(sp) {
@@ -1130,7 +1144,7 @@ button {
 
   @include media(tb) {
   }
-  @media print, screen and (max-width: 1000px) and (min-width: 771px) {
+  @media print, screen and (max-width: 1000px) and (min-width: 768px) {
     margin-top: 100px;
     padding-top: 100px;
     border-top: 1px dashed #111;
@@ -3060,6 +3074,7 @@ button {
 
 .meals-show_container_row_content {
   display: flex;
+  flex-wrap: wrap;
   @include media(pc) {
   }
   @include media(tb) {
@@ -3088,6 +3103,7 @@ button {
   vertical-align: middle;
 
   @include media(pc) {
+    margin-bottom: 20px;
     padding: 5px;
     border-radius: 25px 0px 0px 25px; /*左側の角を丸く*/
   }
@@ -3095,6 +3111,7 @@ button {
   }
 
   @include media(sp) {
+    @include margin-bottom(30);
     @include padding_vw(10, 5, 5, 10);
     border-radius: calc(25 /#{$sp-size} * 100vw) 0 0
       calc(25 /#{$sp-size} * 100vw); /*左側の角を丸く*/
@@ -3597,7 +3614,9 @@ button {
 }
 
 .favorite-icon {
+  animation: starAnimation .2s;
   color: #db6;
+  transition:.3s;
   @include media(pc) {
     font-size: 25px;
   }
@@ -3610,6 +3629,7 @@ button {
 }
 .favorite-icon_not {
   color: #aaa;
+  transition:.3s;
   @include media(pc) {
     font-size: 25px;
   }
@@ -3618,6 +3638,32 @@ button {
   }
 
   @include media(sp) {
+  }
+}
+
+@keyframes starAnimation {
+  0% {
+    /* アイコンサイズをもとのより小さくする */
+    transform: scale(0.5);
+  }
+  10% {
+    transform: scale(0.7);
+  }
+  20% {
+    transform: scale(0.9);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(1.3);
+  }
+  80% {
+    transform: scale(.3);
+  }
+  100% {
+    /* もとのサイズに戻す */
+    transform: scale(1.0);
   }
 }
 

@@ -100,15 +100,18 @@ var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: [
-      <% @genres_pie.each.with_index(1) do |genre| %>
+      <% @genres_bar.each do |genre| %>
       "<%= genre.genre_name %>",
       <% end %>
       ],
     datasets: [{
       label: '先月',
-       data: [<% @genres_pie_month.count.each.with_index(1) do |genre| %>
-
-        "<%= genre[1] %>",
+       data: [<% @genres_bar_lastmonth.count.each do |genre| %>
+          <% if genre[1] == nil %>
+            "6",
+          <% else %>
+            "<%= genre[1] %>",
+          <% end %>
         <% end %>
         ],
         borderColor: "rgba(0,0,80,1)",
@@ -124,11 +127,15 @@ var myChart = new Chart(ctx, {
         "#a14087",
         "#cacf57",
         "#1d2a55",
-        "#3b00FF"
+        "#4b00bF",
+        "#bb682b",
+        "#9b3134",
+        "#208a5e"
+
       ],
     },{
       label: '今月',
-      data: [<% @genres_pie_lastmonth.count.each.with_index(1) do |genre| %>
+      data: [<% @genres_bar_month.count.each  do |genre| %>
         "<%= genre[1] %>",
         <% end %>
         ],
@@ -145,7 +152,10 @@ var myChart = new Chart(ctx, {
         "#d170a7",
         "#FaFF87",
         "#4d5a85",
-
+        "#7b70fF",
+        "#eb984b",
+        "#bb5154",
+        "#50ba8e"
       ],
         }
 
@@ -157,34 +167,37 @@ var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: [
-      <% @genres_pie.each.with_index(1) do |genre| %>
+      <% @genres_bar.each.with_index(1) do |genre| %>
       "<%= genre.genre_name %>",
       <% end %>
       ],
     datasets: [{
       label: '先週',
       backgroundColor: [
-        "#b63333",
-        "#6d97b2",
-        "#98b26d",
-        "#a46db2",
-        "#b26d94",
-        "#b2946d",
-        "#5c6dac",
-        "#5cbb4a",
-        "#a14087",
-        "#cacf57",
-        "#1d2a55",
-        "#3b00FF"
+        "#e66363",
+        "#9dc7e2",
+        "#c8e29d",
+        "#d49de2",
+        "#e29db4",
+        "#e2c49d",
+        "#8c9dec",
+        "#8ceb7a",
+        "#d170a7",
+        "#FaFF87",
+        "#4d5a85",
+        "#7b70fF",
+        "#eb984b",
+        "#bb5154",
+        "#50ba8e"
       ],
       borderColor: "rgba(0,0,80,1)",
-       data: [<% @genres_pie_lastweek.count.each.with_index(1) do |genre| %>
+       data: [<% @genres_bar_week.count.each.with_index(1) do |genre| %>
 
         "<%= genre[1] %>",
         <% end %>
         ]},{
       label: '今週',
-      data: [<% @genres_pie_week.count.each.with_index(1) do |genre| %>
+      data: [<% @genres_bar_lastweek.count.each.with_index(1) do |genre| %>
         "<%= genre[1] %>",
         <% end %>
         ],
@@ -201,7 +214,10 @@ var myChart = new Chart(ctx, {
         "#d170a7",
         "#FaFF87",
         "#4d5a85",
-        "#3b00FF"
+        "#7b70fF",
+        "#eb984b",
+        "#bb5154",
+        "#50ba8e"
       ],
         }
 

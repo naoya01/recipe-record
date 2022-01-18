@@ -4,7 +4,7 @@
     <i class="fas fa-star favorite-icon"></i>
   <% end %>
   </p>
-  <% else %>
+<% else %>
   <p>
   <%= link_to cooking_favorites_path(cooking.id), method: :post,remote: true do %>
     <i class="far fa-star favorite-icon_not"></i>
