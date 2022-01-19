@@ -11,9 +11,9 @@
     </div>
     <div class="meals-show_container_row">
         <ul class="meals-show_container_row_content">
-          <% cooking.tags.each do |tag| %>
+          <% cooking.genres.each do |genre| %>
           <li class="meals-show_container_row_content_list">
-            <%= link_to tag.genre.genre_name , genre_path(tag.genre.id),class: "meals-show_container_row_content_list_anchor" %>
+            <%= link_to genre.genre_name , genre_path(genre.id),class: "meals-show_container_row_content_list_anchor" %>
           </li>
           <% end %>
         </ul>

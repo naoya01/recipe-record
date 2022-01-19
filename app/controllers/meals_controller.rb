@@ -3,7 +3,6 @@ class MealsController < ApplicationController
 
   # GET /meals or /meals.json
   def index
-    @a = Meal.where(user_id: current_user.id)
     @meals = current_user.meals
     # 全体ランキング
     @genres = Genre.left_joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc').limit(5)
@@ -14,16 +13,11 @@ class MealsController < ApplicationController
     # binding.pry
     @month = Genre.left_joins(:cookings).where(cookings: { user_id: current_user.id})
 
-    # @gen = Genre.joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc').limit(5).pluck(:genre_name)
     # 全体の割合
-    @genres_bar = Genre.left_joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id)
+    @genres_bar = Genre.all
     # 今月の割合
     @genres_bar_month = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).includes(genre_name: nil).group(:genre_id)
     # 先月の割合
-
-    # @p ={1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0, 7=>0, 8=>0, 9=>0, 10=>0, 11=>0, 12=>0, 13=>0, 14=>0, 15=>0}
-    # @q = Genre.joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.last_month.all_month}).group(:genre_id).or(Genre.joins(cookings: :meal).where(cooking_id: nil).group(:genre_id)).count
-
     @genres_bar_lastmonth = Genre.joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.last_month.all_month}).group(:genre_id)
 
     # 今週の割合

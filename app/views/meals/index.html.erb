@@ -102,12 +102,14 @@ var last_month_genre = [[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[1
 <% @genres_bar_lastmonth.count.each_with_index do |count,i| %>
 var last_month_i = <%= i %>
 var last_month_count = <%= count %>
-last_month_genre[last_month_count[0]-1]=last_month_count;
+last_month_genre[last_month_count[0]-1] = last_month_count;
 <% end %>
 
 var last_month_data_count = [];
 last_month_genre.forEach(element=>{
   last_month_data_count.push(element[1])
+  // console.log(element)
+  // console.log(last_month_data_count)
 });
 
 // 今月
@@ -121,6 +123,8 @@ month_genre[month_count[0]-1]=month_count;
 var month_data_count = [];
 month_genre.forEach(element=>{
   month_data_count.push(element[1])
+  console.log(element)
+  // console.log(last_month_data_count)
 });
 
 
