@@ -116,7 +116,10 @@ $footer-height_sp: 100;
 }
 
 @mixin show-color {
-  background-color: rgb(223, 203, 149);
+  background-color: darksalmon;
+  &:hover{
+    color: #fff;
+  }
 }
 
 @mixin add-color {
@@ -604,7 +607,9 @@ button {
 
 .l-header_username {
   text-align: right;
+  a{
   color: sienna;
+  }
   @include media(pc) {
     margin-left: 20px;
   }
@@ -3232,7 +3237,7 @@ button {
 
 .breakfast_show {
   @include btn-small;
-  @include show-color;
+  background-color: lightsalmon;
   margin-left: 20px;
   margin-right: 20px;
   &:not(:nth-of-type(1)) {
@@ -3242,7 +3247,7 @@ button {
 
 .lunch_show {
   @include btn-small;
-  @include show-color;
+  background-color: darkseagreen;
   margin-left: 20px;
   margin-right: 20px;
   &:not(:nth-of-type(1)) {
@@ -3252,7 +3257,7 @@ button {
 
 .dinner_show {
   @include btn-small;
-  @include show-color;
+  background-color: mediumslateblue;
   margin-left: 20px;
   margin-right: 20px;
   &:not(:nth-of-type(1)) {
@@ -3260,7 +3265,7 @@ button {
   }
 }
 
-.breakfast_edit {
+.meal_edit_btn {
   @include btn-small;
   @include edit-color;
   margin-left: 20px;
@@ -3270,25 +3275,6 @@ button {
   }
 }
 
-.lunch_edit {
-  @include btn-small;
-  @include edit-color;
-  margin-left: 20px;
-  margin-right: 20px;
-  &:not(:nth-of-type(1)) {
-    display: none;
-  }
-}
-
-.dinner_edit {
-  @include btn-small;
-  @include edit-color;
-  margin-left: 20px;
-  margin-right: 20px;
-  &:not(:nth-of-type(1)) {
-    display: none;
-  }
-}
 
 //-----------------------meal-new 食事追加ページ-----------------------//
 .meals-new_table {
