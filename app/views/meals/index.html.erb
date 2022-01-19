@@ -96,19 +96,33 @@
   <% end %>
   <script>
 var ctx = document.getElementById("monthChart");
-var genre = [[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],];
+
+// 先月
+var last_month_genre = [[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],[20,0],];
 <% @genres_bar_lastmonth.count.each_with_index do |count,i| %>
-var i = <%= i %>
-var count = <%= count %>
-genre[count[0]-1]=count;
+var last_month_i = <%= i %>
+var last_month_count = <%= count %>
+last_month_genre[last_month_count[0]-1]=last_month_count;
 <% end %>
 
-var data_count = [];
-genre.forEach(element=>{
-  console.log(element)
-  data_count.push(element[1])
+var last_month_data_count = [];
+last_month_genre.forEach(element=>{
+  last_month_data_count.push(element[1])
 });
-console.log(data_count);
+
+// 今月
+var month_genre = [[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],[20,0],];
+<% @genres_bar_month.count.each_with_index do |count,i| %>
+var month_i = <%= i %>
+var month_count = <%= count %>
+month_genre[month_count[0]-1]=month_count;
+<% end %>
+
+var month_data_count = [];
+month_genre.forEach(element=>{
+  month_data_count.push(element[1])
+});
+
 
 
 var myChart = new Chart(ctx, {
@@ -121,7 +135,7 @@ var myChart = new Chart(ctx, {
       ],
     datasets: [{
       label: '先月',
-       data: data_count,
+       data: last_month_data_count,
         borderColor: "rgba(0,0,80,1)",
         backgroundColor: [
         "#b63333",
@@ -142,11 +156,9 @@ var myChart = new Chart(ctx, {
 
       ],
     },{
+
       label: '今月',
-      data: [<% @genres_bar_month.count.each  do |genre| %>
-        "<%= genre[1] %>",
-        <% end %>
-        ],
+      data: month_data_count,
         borderColor: "rgba(0,0,80,1)",
         backgroundColor: [
         "#e66363",
@@ -171,19 +183,31 @@ var myChart = new Chart(ctx, {
 });
 
 var ctx = document.getElementById("weekChart");
-var genre = [[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],];
-<% @genres_bar_week.count.each_with_index do |count,i| %>
-var i = <%= i %>
-var count = <%= count %>
-genre[count[0]-1]=count;
+// 先週
+var last_week_genre = [[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],[20,0],];
+<% @genres_bar_lastweek.count.each_with_index do |count,i| %>
+var last_week_i = <%= i %>
+var last_week_count = <%= count %>
+last_week_genre[last_week_count[0]-1]=last_week_count;
 <% end %>
 
-var data_count = [];
-genre.forEach(element=>{
-
-  data_count.push(element[1])
+var last_week_data_count = [];
+last_week_genre.forEach(element=>{
+  last_week_data_count.push(element[1])
 });
 
+// 今週
+var week_genre = [[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],[20,0],];
+<% @genres_bar_week.count.each_with_index do |count,i| %>
+var week_i = <%= i %>
+var week_count = <%= count %>
+week_genre[week_count[0]-1]=week_count;
+<% end %>
+
+var week_data_count = [];
+week_genre.forEach(element=>{
+  week_data_count.push(element[1])
+});
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -212,13 +236,10 @@ var myChart = new Chart(ctx, {
         "#50ba8e"
       ],
       borderColor: "rgba(0,0,80,1)",
-       data: data_count,
+       data: last_week_data_count,
         },{
       label: '今週',
-      data: [<% @genres_bar_lastweek.count.each.with_index(1) do |genre| %>
-        "<%= genre[1] %>",
-        <% end %>
-        ],
+      data: week_data_count,
         borderColor: "rgba(0,0,80,1)",
         backgroundColor: [
         "#e66363",
