@@ -9,6 +9,6 @@
       <% end %>
   <% end %>
   <div class="l-header_username">
-  <%= current_user.name %>
+  <%= link_to current_user.name, edit_user_registration_path  %>
   </div>
 </div>

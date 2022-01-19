@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @cookings = current_user.cookings
+    @cookings = current_user.cookings.page(params[:page]).per(30)
   end
 
   def edit

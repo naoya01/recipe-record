@@ -7,9 +7,7 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
-    # @genres = Genre.joins(:cookings).where(cookings: { user_id: current_user.id })
-    @cookings = Cooking.joins(:tags).where(tags: { genre_id: @genre.id }, user_id: current_user.id)
-    # @tags = Tag.joins(:genre,:cooking).where(genre: { id: @genre.id }, cooking: { user_id: current_user.id })
+    @cookings = Cooking.joins(:tags).where(tags: { genre_id: @genre.id }, user_id: current_user.id).page(params[:page]).per(1)
 
   end
 

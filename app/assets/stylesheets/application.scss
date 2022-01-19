@@ -108,7 +108,7 @@ $footer-height_sp: 100;
 }
 
 @mixin edit-color {
-  background-color: #8ad3df;
+  background-color: #8aa5df;
 }
 
 @mixin next-color {
@@ -123,6 +123,17 @@ $footer-height_sp: 100;
   background-color: rgb(190, 110, 105);
 }
 
+@mixin pager-color {
+  background-color: rgb(200, 130, 110);
+}
+
+@mixin pager-hover-color {
+  background-color: rgb(177, 96, 65);
+    @include destroy-color;
+}
+@mixin edit-update {
+  background-color: #b18552;
+}
 @mixin btn-small {
   border: none;
   display: flex;
@@ -425,13 +436,12 @@ button {
   // height: 100vh;
 }
 
-#notice{
-    @include media(pc) {
-      margin-bottom: 20px;
+#notice {
+  @include media(pc) {
+    margin-bottom: 20px;
   }
 
   @include media(tb) {
-
   }
 
   @include media(sp) {
@@ -530,7 +540,7 @@ button {
 .search_container {
   display: flex;
   align-items: center;
-  background-color:  #e7c9bc;
+  background-color: #e7c9bc;
   @include media(pc) {
     justify-content: space-between;
     width: 100%;
@@ -592,21 +602,22 @@ button {
   }
 }
 
-.l-header_username{
+.l-header_username {
   text-align: right;
-    @include media(pc) {
-      margin-left: 20px;
+  color: sienna;
+  @include media(pc) {
+    margin-left: 20px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-      @include width(160);
-      @include font-size(20);
-      @include line-height(20);
-      @include margin-left(20);
-      @include margin-right(20);
+    @include width(160);
+    @include font-size(20);
+    @include line-height(20);
+    @include margin-left(20);
+    @include margin-right(20);
   }
 }
 /* ------------------------------------- スクロール時 -------------------------------------------------*/
@@ -2424,7 +2435,6 @@ button {
   }
 }
 
-
 .login-table {
   margin: 0 auto;
   @include media(pc) {
@@ -2491,8 +2501,8 @@ button {
 }
 
 .login-other {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
   @include media(pc) {
     max-width: 700px;
     text-align: right;
@@ -2589,13 +2599,12 @@ button {
   }
 }
 
-.genre-index_add_button_attention{
+.genre-index_add_button_attention {
   align-items: center;
   display: flex;
   @include media(pc) {
     font-size: 14px;
     margin-left: 10px;
-
   }
 
   @include media(tb) {
@@ -2605,7 +2614,6 @@ button {
     @include margin-top(50);
     @include margin-left(30);
     @include font-size(16);
-
   }
 }
 
@@ -2716,6 +2724,8 @@ button {
 
   @include media(sp) {
     flex-direction: column;
+    @include margin_vw(50,0,50,0);
+    border-radius: calc(10 / #{$sp-size} * 100vw);
   }
 }
 
@@ -2832,8 +2842,9 @@ button {
 }
 
 #meals-index_event_breakfast {
-  background-color: #fee;
+              background-image: linear-gradient(150deg, rgba(255, 245, 245, 1), rgba(255, 223, 211, 1) 25%, rgba(255, 236, 236, 1) 50%, rgba(255, 223, 208, 1) 75%, rgba(255, 245, 245, 1));
   @include media(pc) {
+    border-radius: 15px;
     padding: 20px 40px;
   }
 
@@ -2845,9 +2856,10 @@ button {
   }
 }
 #meals-index_event_lunch {
-  background-color: #efe;
+                    background-image: linear-gradient(150deg, rgba(245, 255, 245, 1), rgba(236, 255, 211, 1) 25%, rgba(244, 255, 236, 1) 50%, rgba(235, 255, 208, 1) 75%, rgba(245, 255, 245, 1));
   @include media(pc) {
     padding: 20px 40px;
+    border-radius: 15px;
   }
 
   @include media(tb) {
@@ -2858,8 +2870,9 @@ button {
   }
 }
 #meals-index_event_dinner {
-  background-color: #eef;
+                  background-image: linear-gradient(150deg, rgba(245, 248, 255, 1), rgba(215, 212, 234, 1) 25%, rgba(233, 233, 255, 1) 50%, rgba(217, 212, 241, 1) 75%, rgba(246, 245, 255, 1));
   @include media(pc) {
+    border-radius: 15px;
     padding: 20px 40px;
   }
 
@@ -3653,9 +3666,9 @@ button {
 }
 
 .favorite-icon {
-  animation: starAnimation .2s;
+  animation: starAnimation 0.2s;
   color: #db6;
-  transition:.3s;
+  transition: 0.3s;
   @include media(pc) {
     font-size: 25px;
   }
@@ -3668,7 +3681,7 @@ button {
 }
 .favorite-icon_not {
   color: #aaa;
-  transition:.3s;
+  transition: 0.3s;
   @include media(pc) {
     font-size: 25px;
   }
@@ -3702,7 +3715,7 @@ button {
   }
   100% {
     /* もとのサイズに戻す */
-    transform: scale(1.0);
+    transform: scale(1);
   }
 }
 
@@ -3756,10 +3769,11 @@ button {
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  background-color: #ffe;
+  background-color: #ffffd0;
   @include media(pc) {
     width: 300px;
     padding: 20px 0;
+    border-radius: 15px;
   }
 
   @include media(tb) {
@@ -3767,6 +3781,7 @@ button {
 
   @include media(sp) {
     @include padding_vw(40, 0, 40, 0);
+    border-radius: calc(20 / #{$sp-size} * 100vw) ;
   }
 }
 .rank-_list_item_head {
@@ -3856,5 +3871,188 @@ button {
 
   @include media(sp) {
     font-size: calc(15 / #{$sp-size} * 100vw) !important;
+  }
+}
+
+// ------------------------ページャー-----------------------
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.page {
+  a {
+    @include pager-color;
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+      color: #fff;
+      @include pager-hover-color;
+    }
+  }
+  @include media(pc) {
+    margin-left: 10px;
+    margin-right: 10px;
+    a {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin_vw(0, 10, 0, 10);
+    a {
+      @include padding_vw(10, 10, 10, 10);
+    }
+  }
+}
+
+.first {
+  a {
+    @include pager-color;
+    color: #fff;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+      @include pager-hover-color;
+    }
+  }
+  @include media(pc) {
+    a {
+      border-radius: 10px;
+      padding: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    a {
+    }
+  }
+}
+
+.prev {
+  a {
+    @include pager-color;
+    color: #fff;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+      @include pager-hover-color;
+    }
+  }
+  @include media(pc) {
+    a {
+      border-radius: 10px;
+      padding: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    a {
+    }
+  }
+}
+
+.current {
+  background-color: #dca;
+  border-radius: 50%;
+  @include media(pc) {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include padding_vw(10, 10, 10, 10);
+  }
+}
+
+.next {
+  a {
+    @include pager-color;
+    color: #fff;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+      color: #fff;
+      @include pager-hover-color;
+    }
+  }
+  @include media(pc) {
+    a {
+      border-radius: 10px;
+      padding: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    a {
+    }
+  }
+}
+
+.last {
+  a {
+    @include pager-color;
+    color: #fff;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+      color: #fff;
+      @include pager-hover-color;
+    }
+  }
+  @include media(pc) {
+    a {
+      border-radius: 10px;
+      padding: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    a {
+    }
   }
 }
