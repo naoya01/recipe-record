@@ -1,7 +1,13 @@
 <footer class="l-footer">
-  <div class="l-footer_contact">
-    <span class="l-footer_contact_text"><i class="far fa-envelope"></i></span>
-  </div>
+  <% if user_signed_in? %>
+    <%= link_to new_contact_path  do %>
+      <div class="l-footer_contact">
+        <span class="l-footer_contact_text">
+        <i class="far fa-envelope"></i>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
   <small class="l-footer_copy">©record recipea</small>
 </footer>
 <div class="top-btn">

@@ -1,0 +1,18 @@
+<div class="l-main_container">
+  <div class="m-title_flex">
+    <h2 class="m-title">お問い合わせ</h2>
+  </div>
+
+<%= form_for(@contact, url: confirm_path) do |f| %>
+  <div class="contact-new_container">
+    <div class="contact-new_row"><%= f.label :name, 'お名前*' %></div>
+    <div class="contact-new_row_content"><%= f.text_field :name, autofocus: true, class: 'form-control' %></div>
+    <div class="contact-new_row"><%= f.label :message, 'お問い合わせ内容*' %></div>
+    <div class="contact-new_row_content">
+      <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+    </div>
+    <%= f.submit '入力内容確認',class: "contact-btn" %>
+  </div>
+<% end %>
+
+</div>

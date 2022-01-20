@@ -91,4 +91,22 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+    #SMTPの詳細設定
+  config.action_mailer.smtp_settings = {
+    #SMTPサーバのポート番号
+    port:                 587,
+    #SMTPサーバのホスト名
+    address:              'smtp.gmail.com',
+    #HELOドメイン
+    domain:               'gmail.com',
+    #メール送信に使用するgmailアカウント(環境変数で保護)
+    user_name:            ENV['SMTP_USERNAME'],
+    #メール送信に使用するgmailパスワード(環境変数で)
+    password:             ENV['SMTP_PASSWORD'],
+    #認証方法
+    authentication:       'plain',
+    #メール送信にTLS認証を使用するか
+    enable_starttls_auto: true
+  }
 end

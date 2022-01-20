@@ -1,0 +1,28 @@
+<div class="l-main_container">
+  <div class="m-title_flex">
+    <h2 class="m-title">お問い合わせ</h2>
+  </div>
+<div class="contact-new_container">
+    <div class="contact-new_row">お名前*</div>
+    <div class="contact-new_row_content"><%= @contact.name %></div>
+    <div class="contact-new_row">お問い合わせ内容*</div>
+    <div class="contact-new_row_content">
+      <%= @contact.message %>
+    </div>
+  </div>
+
+  <div class="contact-btn_flex">
+    <%= form_for @contact, url: back_path do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email , :value => current_user.email %>
+      <%= f.hidden_field :message %>
+      <div><%= f.submit '入力画面に戻る', class: "contact-btn back-btn"  %></div>
+    <% end %>
+    <%= form_for(@contact) do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email , :value => current_user.email %>
+      <%= f.hidden_field :message %>
+      <div><%= f.submit '送信', class: "contact-btn" %></div>
+    <% end %>
+  </div>
+</div>

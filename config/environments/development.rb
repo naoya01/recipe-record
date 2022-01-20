@@ -31,7 +31,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -58,4 +58,25 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  #メール送信方法　※SMTP(Simple Mail Transfer Protocol)がデフォルト
+  config.action_mailer.delivery_method = :smtp
+
+  #SMTPの詳細設定
+  config.action_mailer.smtp_settings = {
+    #SMTPサーバのポート番号
+    port:                 587,
+    #SMTPサーバのホスト名
+    address:              'smtp.gmail.com',
+    #HELOドメイン
+    domain:               'gmail.com',
+    #メール送信に使用するgmailアカウント(環境変数で保護)
+    user_name:            ENV['SMTP_USERNAME'],
+    #メール送信に使用するgmailパスワード(環境変数で)
+    password:             ENV['SMTP_PASSWORD'],
+    #認証方法
+    authentication:       'plain',
+    #メール送信にTLS認証を使用するか
+    enable_starttls_auto: true
+  }
 end
