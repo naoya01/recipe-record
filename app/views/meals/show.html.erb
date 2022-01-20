@@ -1,5 +1,5 @@
 <div class="l-main_container">
-  <div class="m-title_flex">
+  <div class="m-title_flex_show">
     <h2 class="m-title"><%= @meal.date.strftime('%Y/%m/%d') %><br class="u-sp">
     <% if @meal.mealtime  == "breakfast" %>
     [朝食]
@@ -9,7 +9,7 @@
     [夕食]
     <% end %>
     </h2>
-    <span><%= link_to '編集', edit_meal_path(@meal.id) ,class: "meal_edit_btn" %></span>
+    <%= link_to '編集', edit_meal_path(@meal.id) ,class: "meal_edit_btn" %>
  </div>
  <p class="meals-show_description"><%= @meal.meal_description %></p>
     <div class="meals-show_container_flex">

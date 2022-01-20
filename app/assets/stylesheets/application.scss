@@ -117,7 +117,7 @@ $footer-height_sp: 100;
 
 @mixin show-color {
   background-color: darksalmon;
-  &:hover{
+  &:hover {
     color: #fff;
   }
 }
@@ -132,7 +132,7 @@ $footer-height_sp: 100;
 
 @mixin pager-hover-color {
   background-color: rgb(177, 96, 65);
-    @include destroy-color;
+  @include destroy-color;
 }
 @mixin edit-update {
   background-color: #b18552;
@@ -168,6 +168,40 @@ $footer-height_sp: 100;
     text-align: center;
   }
 }
+
+@mixin btn-small_show {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transition: 0.3s;
+    opacity: 0.7;
+  }
+  @include media(pc) {
+    height: 30px !important;
+    width: 80px !important;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border-radius: calc(10 / #{$sp-size} * 100vw);
+    @include font-size(20);
+    width: calc(100 / #{$sp-size} * 100vw) !important;
+    height: calc(50 / #{$sp-size} * 100vw);
+    // @include padding_vw(30, 10, 30, 10);
+    text-align: center;
+  }
+}
+
+
 
 @mixin btn-login {
   @include next-color;
@@ -548,7 +582,7 @@ button {
     justify-content: space-between;
     width: 100%;
     height: 60px;
-    padding: 10px 70px 10px 70px;
+    padding: 5px 70px 5px 70px;
     input[type="text"] {
     }
     button {
@@ -607,8 +641,8 @@ button {
 
 .l-header_username {
   text-align: right;
-  a{
-  color: sienna;
+  a {
+    color: sienna;
   }
   @include media(pc) {
     margin-left: 20px;
@@ -838,6 +872,8 @@ button {
     justify-content: space-between;
     text-align: center;
     height: 100%;
+    @include padding-top($header-height_sp);
+    @include padding-bottom($footer-height_sp);
   }
 }
 
@@ -924,11 +960,9 @@ button {
     justify-content: center;
     color: #fff;
     @include font-size(40);
-    @include margin_left(28);
     @include padding_vw(10, 10, 10, 10);
     border-radius: calc(10 / #{$sp-size} * 100vw);
     &:hover {
-      transform: scale(1.2);
       transition-duration: 0.3s;
       color: #6b0202;
       background-color: rgb(255, 255, 255);
@@ -1330,6 +1364,26 @@ button {
 
   @include media(sp) {
     flex-direction: column-reverse;
+    @include margin_vw(0, 0, 50, 0);
+    span {
+      @include font-size(24);
+    }
+  }
+}
+
+.m-title_flex_show{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include media(pc) {
+    margin-bottom: 60px;
+    line-height: 1.5;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
     @include margin_vw(0, 0, 50, 0);
     span {
       @include font-size(24);
@@ -2729,7 +2783,7 @@ button {
 
   @include media(sp) {
     flex-direction: column;
-    @include margin_vw(50,0,50,0);
+    @include margin_vw(50, 0, 50, 0);
     border-radius: calc(10 / #{$sp-size} * 100vw);
   }
 }
@@ -2847,7 +2901,14 @@ button {
 }
 
 #meals-index_event_breakfast {
-              background-image: linear-gradient(150deg, rgba(255, 245, 245, 1), rgba(255, 223, 211, 1) 25%, rgba(255, 236, 236, 1) 50%, rgba(255, 223, 208, 1) 75%, rgba(255, 245, 245, 1));
+  background-image: linear-gradient(
+    150deg,
+    rgba(255, 245, 245, 1),
+    rgba(255, 223, 211, 1) 25%,
+    rgba(255, 236, 236, 1) 50%,
+    rgba(255, 223, 208, 1) 75%,
+    rgba(255, 245, 245, 1)
+  );
   @include media(pc) {
     border-radius: 15px;
     padding: 20px 40px;
@@ -2861,7 +2922,14 @@ button {
   }
 }
 #meals-index_event_lunch {
-                    background-image: linear-gradient(150deg, rgba(245, 255, 245, 1), rgba(236, 255, 211, 1) 25%, rgba(244, 255, 236, 1) 50%, rgba(235, 255, 208, 1) 75%, rgba(245, 255, 245, 1));
+  background-image: linear-gradient(
+    150deg,
+    rgba(245, 255, 245, 1),
+    rgba(236, 255, 211, 1) 25%,
+    rgba(244, 255, 236, 1) 50%,
+    rgba(235, 255, 208, 1) 75%,
+    rgba(245, 255, 245, 1)
+  );
   @include media(pc) {
     padding: 20px 40px;
     border-radius: 15px;
@@ -2875,7 +2943,14 @@ button {
   }
 }
 #meals-index_event_dinner {
-                  background-image: linear-gradient(150deg, rgba(245, 248, 255, 1), rgba(215, 212, 234, 1) 25%, rgba(233, 233, 255, 1) 50%, rgba(217, 212, 241, 1) 75%, rgba(246, 245, 255, 1));
+  background-image: linear-gradient(
+    150deg,
+    rgba(245, 248, 255, 1),
+    rgba(215, 212, 234, 1) 25%,
+    rgba(233, 233, 255, 1) 50%,
+    rgba(217, 212, 241, 1) 75%,
+    rgba(246, 245, 255, 1)
+  );
   @include media(pc) {
     border-radius: 15px;
     padding: 20px 40px;
@@ -2893,6 +2968,7 @@ button {
   display: flex;
   align-items: center;
   @include media(pc) {
+    flex-direction: column;
   }
 
   @include media(tb) {
@@ -2904,7 +2980,7 @@ button {
 
 .meals-index_mealtime_title {
   @include media(pc) {
-    margin-right: 30px;
+    margin-bottom: 20px;
   }
 
   @include media(tb) {
@@ -2912,7 +2988,8 @@ button {
 
   @include media(sp) {
     @include font-size(30);
-  }
+    @include margin-right(50);
+    }
 }
 
 #meals-index_event_breakfast_content {
@@ -3236,30 +3313,24 @@ button {
 // カレンダーの下に表示される「show」の設定　⬆︎
 
 .breakfast_show {
-  @include btn-small;
+  @include btn-small_show;
   background-color: lightsalmon;
-  margin-left: 20px;
-  margin-right: 20px;
   &:not(:nth-of-type(1)) {
     display: none;
   }
 }
 
 .lunch_show {
-  @include btn-small;
+  @include btn-small_show;
   background-color: darkseagreen;
-  margin-left: 20px;
-  margin-right: 20px;
   &:not(:nth-of-type(1)) {
     display: none;
   }
 }
 
 .dinner_show {
-  @include btn-small;
+  @include btn-small_show;
   background-color: mediumslateblue;
-  margin-left: 20px;
-  margin-right: 20px;
   &:not(:nth-of-type(1)) {
     display: none;
   }
@@ -3274,7 +3345,6 @@ button {
     display: none;
   }
 }
-
 
 //-----------------------meal-new 食事追加ページ-----------------------//
 .meals-new_table {
@@ -3755,7 +3825,14 @@ button {
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffd0;
+  background-image: linear-gradient(
+    150deg,
+    rgba(255, 253, 245, 1),
+    rgba(255, 250, 227, 1) 26%,
+    rgba(254, 255, 245, 1) 50%,
+    rgba(255, 252, 219, 1) 75%,
+    rgba(255, 253, 245, 1)
+  );
   @include media(pc) {
     width: 300px;
     padding: 20px 0;
@@ -3767,7 +3844,7 @@ button {
 
   @include media(sp) {
     @include padding_vw(40, 0, 40, 0);
-    border-radius: calc(20 / #{$sp-size} * 100vw) ;
+    border-radius: calc(20 / #{$sp-size} * 100vw);
   }
 }
 .rank-_list_item_head {
@@ -3798,6 +3875,29 @@ button {
 // ----------------------チャート-----------------------------
 .chart-container {
   @include media(pc) {
+    display: flex;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+#monthChart{
+  @include media(pc) {
+    width: 100%!important;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+#weekChart{
+    @include media(pc) {
+      width: 100%!important;
   }
 
   @include media(tb) {
@@ -3810,6 +3910,9 @@ button {
 .chart-container_box {
   @include media(pc) {
     margin-top: 50px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   @include media(tb) {
@@ -3925,7 +4028,6 @@ button {
       margin-left: 10px;
       margin-right: 10px;
       border: 1px solid #ccc;
-
     }
   }
 

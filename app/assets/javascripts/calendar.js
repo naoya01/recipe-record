@@ -63,9 +63,9 @@ function dayMealEvent(params) {
 
         data.forEach((event) => {
           console.log(event);
-          $('.meals-index_mealtime_breakfast_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">Show</a>`)
-          $('.meals-index_mealtime_lunch_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">Show</a>`)
-          $('.meals-index_mealtime_dinner_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">Show</a>`)
+          $('.meals-index_mealtime_breakfast_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">詳細</a>`)
+          $('.meals-index_mealtime_lunch_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">詳細</a>`)
+          $('.meals-index_mealtime_dinner_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">詳細</a>`)
 
 
           $('#meals-index_event_breakfast_content').append(
