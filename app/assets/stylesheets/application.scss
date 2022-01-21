@@ -1186,7 +1186,7 @@ button {
 
 .l-main_container {
   @include media(pc) {
-    justify-content: space-between;
+    justify-content: center;
     max-width: 1400px;
     width: 100%;
     margin-left: auto;
@@ -1780,7 +1780,7 @@ button {
   display: flex;
   flex-direction: column;
   @include media(pc) {
-    margin: 0 5px 40px 5px;
+    margin: 0 10px 40px 10px;
     width: 205px;
   }
 
