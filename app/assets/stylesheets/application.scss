@@ -2902,11 +2902,11 @@ transition: .3s;
   text-align: center;
   background: rgb(255, 213, 179);
   box-shadow: 0px 0px 0px 5px rgb(255, 213, 179);;
-  border: dashed 1px #96c2fe;
   color: #454545;
   @include media(pc) {
     font-size: 16px;
     padding: 10px 15px 10px 15px;
+    border: dashed 1px #96c2fe;
   }
 
   @include media(tb) {
@@ -2916,8 +2916,7 @@ transition: .3s;
     @include width(200);
     @include font-size(20);
     @include line-height(50);
-
-    border: dashed calc(1 /#{$sp-size} * 100vw) #96c2fe;
+    border: dashed calc(5 /#{$sp-size} * 100vw) #fa5;
   }
 }
 
