@@ -13,7 +13,12 @@
         <ul class="meals-show_container_row_content">
           <% cooking.genres.each do |genre| %>
           <li class="meals-show_container_row_content_list">
-            <%= link_to genre.genre_name , genre_path(genre.id),class: "meals-show_container_row_content_list_anchor" %>
+            <%= link_to genre_path(genre.id) do %>
+              <div class="meals-show_container_row_content_list_anchor">
+                <i class="fas fa-circle"></i>
+                <span><%= genre.genre_name %></span>
+              </div>
+            <% end %>
           </li>
           <% end %>
         </ul>

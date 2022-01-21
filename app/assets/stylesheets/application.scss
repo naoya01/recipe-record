@@ -3267,7 +3267,8 @@ transition: .3s;
 
 .meals-show_container_row_content_list_anchor {
   color: #505050;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background: #dbebf8;
   vertical-align: middle;
 
@@ -3281,29 +3282,24 @@ transition: .3s;
 
   @include media(sp) {
     @include font-size(25);
-    @include padding_vw(10, 20, 5, 10);
+    @include padding_vw(10, 20, 10, 10);
     border-radius: calc(25 /#{$sp-size} * 100vw) 0 0
       calc(25 /#{$sp-size} * 100vw); /*左側の角を丸く*/
   }
 }
 
-.meals-show_container_row_content_list_anchor:before {
-  content: "●";
-  color: white;
-
+.fa-circle:before{
+  color: #fff;
   @include media(pc) {
-    padding: 5px;
-    margin-right: 8px;
+    margin-right: 5px;
   }
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include font-size(25);
-    @include margin-right(10);
+    @include margin-right(15);
   }
 }
-
 .meals-show_container_row_url {
   @include media(pc) {
   }
