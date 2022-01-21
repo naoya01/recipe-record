@@ -1,8 +1,6 @@
 <% genres.each do |genre| %>
   <li class="genre-index_list_item">
-    <%= link_to genre_path(genre.id) do %>
-      <%= genre.genre_name %>
-    <% end %>
+    <%= link_to genre.genre_name , genre_path(genre.id) ,class: "meals-show_container_row_content_list_anchor"%>
     <% if user_signed_in? %>
       <% if current_user == @user || current_user.admin? %><%# 管理者のみ表示  %>
         <%= link_to edit_genre_path(genre.id) do %>

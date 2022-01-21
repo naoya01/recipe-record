@@ -9,6 +9,8 @@
       <% end %>
   <% end %>
   <div class="l-header_username">
-  <%= link_to current_user.name, edit_user_registration_path  %>
+  <%= link_to edit_user_registration_path do %>
+    <i class="fas fa-user-circle"></i><span class="l-header_username_text"><%= current_user.name %></span>
+  <% end %>
   </div>
 </div>

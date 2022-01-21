@@ -3,9 +3,7 @@
   <div class="meals-index_top">
     <div class="meals-index_top_left">
     <%= link_to "自分のレシピ" , posts_path, class: "meals-index_top_left_post" %>
-    <%= link_to user_path(current_user), class: "meals-index_top_left_favorite" do %>
-    <i class="fas fa-star favorite-icon"></i>お気に入り
-    <% end %>
+    <%= link_to 'レシピ作成',new_post_path, class: "meals-index_top_left_create" %>
     </div>
     <div class="meals-index_top_right">
     <%= link_to 'カレンダーに追加', new_meal_path, class: "meals-index_top_left_new" %>

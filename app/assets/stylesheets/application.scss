@@ -657,6 +657,19 @@ button {
     @include margin-right(20);
   }
 }
+
+.l-header_username_text{
+   @include media(pc) {
+    margin-left: 5px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-left(10);
+  }
+}
 /* ------------------------------------- スクロール時 -------------------------------------------------*/
 .UpMove {
   animation: UpAnime 0.5s forwards;
@@ -932,7 +945,7 @@ button {
     padding: 10px;
     border-radius: 10px;
     display: flex;
-    font-size: 16px;
+    font-size: 14px;
     height: 100%;
     align-items: center;
     margin: auto;
@@ -2845,7 +2858,7 @@ button {
   }
 }
 
-.meals-index_top_left_favorite {
+.meals-index_top_left_create {
   display: flex;
   align-items: center;
   @include media(pc) {
@@ -3239,8 +3252,9 @@ button {
   vertical-align: middle;
 
   @include media(pc) {
+    font-size: 14px;
     margin-bottom: 20px;
-    padding: 5px;
+    padding: 5px 15px 5px 5px;
     border-radius: 25px 0px 0px 25px; /*左側の角を丸く*/
   }
   @include media(tb) {
@@ -3248,7 +3262,8 @@ button {
 
   @include media(sp) {
     @include margin-bottom(30);
-    @include padding_vw(10, 5, 5, 10);
+    @include font-size(25);
+    @include padding_vw(10, 20, 5, 10);
     border-radius: calc(25 /#{$sp-size} * 100vw) 0 0
       calc(25 /#{$sp-size} * 100vw); /*左側の角を丸く*/
   }
@@ -3266,7 +3281,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(20);
+    @include font-size(25);
     @include margin-right(10);
   }
 }
