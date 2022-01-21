@@ -30,15 +30,6 @@
         <p class="cooking-show_column_contents_explanation">
           <%= @post.post_description %>
         </p>
-        <table class="cooking-show_column_contents_spices">
-          <h3 class="cooking-show_column_contents_title">調味料</h3>
-          <% @post.flavors.each do |flavor| %>
-            <tr>
-              <td class="cooking-show_column_contents_spices_name"><%= flavor.flavor_name %></td>
-              <td class="cooking-show_column_contents_spices_quantity"><%= flavor.flavor_quantity %></td>
-            </tr>
-          <% end %>
-        </table>
 
         <table class="cooking-show_column_contents_spices">
           <h3 class="cooking-show_column_contents_title">材料</h3>
@@ -50,6 +41,15 @@
           <% end %>
         </table>
 
+        <table class="cooking-show_column_contents_spices">
+          <h3 class="cooking-show_column_contents_title">調味料</h3>
+          <% @post.flavors.each do |flavor| %>
+            <tr>
+              <td class="cooking-show_column_contents_spices_name"><%= flavor.flavor_name %></td>
+              <td class="cooking-show_column_contents_spices_quantity"><%= flavor.flavor_quantity %></td>
+            </tr>
+          <% end %>
+        </table>
       </div>
     </div>
 
