@@ -2900,8 +2900,8 @@ transition: .3s;
 
 .meals-index_top_left_new {
   text-align: center;
-  background: #f1d7e4;
-  box-shadow: 0px 0px 0px 5px #e9cbda;
+  background: rgb(255, 213, 179);
+  box-shadow: 0px 0px 0px 5px rgb(255, 213, 179);;
   border: dashed 1px #96c2fe;
   color: #454545;
   @include media(pc) {
