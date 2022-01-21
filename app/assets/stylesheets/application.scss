@@ -4259,7 +4259,7 @@ transition: .3s;
 
 .back-btn {
   @include btn-login;
-  background-color: #bbb;
+  background-color: darkkhaki;
   @include media(pc) {
   }
 
@@ -4272,7 +4272,7 @@ transition: .3s;
 
 .back-btn_show {
   @include btn-small;
-  background-color: #bbb;
+  background-color: darkkhaki;
   @include media(pc) {
   }
 
