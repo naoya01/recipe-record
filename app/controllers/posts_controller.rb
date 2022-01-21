@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[ show edit update destroy ]
+
   def new
     @post = Post.new
     @flavors = @post.flavors.build
@@ -8,7 +10,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
     if @post.save
       redirect_to post_path(@post.id)
     else
@@ -21,25 +22,21 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = current_user.posts.limit(5)
-    @post = Post.find(params[:id])
-  end
-
-  def edit
-      @post = Post.find(params[:id])
-    if @post.user ==! current_user
-      redirect_to posts_path
+    @posts = Post.where(user_id: @post.user_id)
+    unless  @post.user_id == current_user.id || current_user.admin == true
+      redirect_to meals_path
     end
   end
 
+  def edit
+  end
+
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
@@ -54,5 +51,12 @@ class PostsController < ApplicationController
         foodstuffs_attributes: [:id, :foodstuff_name,:foodstuff_quantity, :_destroy,],
         recipes_attributes: [:id, :recipe_description,:recipe_image, :_destroy,],
         )
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
+    unless  @post.user_id == current_user.id || current_user.admin == true
+      redirect_to meals_path
+    end
   end
 end

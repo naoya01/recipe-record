@@ -123,7 +123,7 @@ $footer-height_sp: 100;
 }
 
 @mixin add-color {
-  background-color: rgb(190, 110, 105);
+   background-color: rgb(233, 149, 156);
 }
 
 @mixin pager-color {
@@ -2846,24 +2846,44 @@ button {
 }
 
 .meals-index_top_left_post {
+    color: #fff;
+transition: .3s;
+  background-color: #cf8db2;
+  &:hover{
+    color: #fff;
+  }
   @include media(pc) {
     font-size: 18px;
+        border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include padding_vw(15,15,15,15);
+    border-radius: calc(10 / #{$sp-size} * 100vw);
     @include font-size(20);
   }
 }
 
 .meals-index_top_left_create {
+  transition: .3s;
   display: flex;
   align-items: center;
+  color: #fff;
+  background-color: #cf8db2;
+  &:hover{
+    color: #fff;
+  }
   @include media(pc) {
     margin-left: 40px;
-    font-size: 18px;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
   }
 
   @include media(tb) {
@@ -2872,13 +2892,16 @@ button {
   @include media(sp) {
     @include margin-left(30);
     @include font-size(20);
+    @include padding_vw(15,15,15,15)
+    border-radius: calc(10 / #{$sp-size} * 100vw);
+
   }
 }
 
 .meals-index_top_left_new {
   text-align: center;
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
+  background: #f1d7e4;
+  box-shadow: 0px 0px 0px 5px #e9cbda;
   border: dashed 1px #96c2fe;
   color: #454545;
   @include media(pc) {
@@ -3235,13 +3258,13 @@ button {
 }
 .meals-show_container_row_content_list {
   @include media(pc) {
-    margin: 0 20px;
+    margin: 10px 20px;
   }
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include margin-left(20);
+    @include margin_vw(20,30,20,30);
   }
 }
 
@@ -3253,7 +3276,6 @@ button {
 
   @include media(pc) {
     font-size: 14px;
-    margin-bottom: 20px;
     padding: 5px 15px 5px 5px;
     border-radius: 25px 0px 0px 25px; /*左側の角を丸く*/
   }
@@ -3261,7 +3283,6 @@ button {
   }
 
   @include media(sp) {
-    @include margin-bottom(30);
     @include font-size(25);
     @include padding_vw(10, 20, 5, 10);
     border-radius: calc(25 /#{$sp-size} * 100vw) 0 0
@@ -4243,6 +4264,19 @@ button {
 
 .back-btn {
   @include btn-login;
+  background-color: #bbb;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.back-btn_show {
+  @include btn-small;
   background-color: #bbb;
   @include media(pc) {
   }

@@ -28,6 +28,7 @@ class MealsController < ApplicationController
 
   # GET /meals/1 or /meals/1.json
   def show
+    @meal = Meal.find(params[:id])
     @meals = current_user.meals
     @cookings = current_user.cookings
     @genres = Genre.all
@@ -108,6 +109,9 @@ class MealsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
       @meal = Meal.find(params[:id])
+      unless  @meal.user_id == current_user.id || current_user.admin == true
+        redirect_to meals_path
+      end
     end
 
     # Only allow a list of trusted parameters through.

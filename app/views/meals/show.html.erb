@@ -15,6 +15,5 @@
     <div class="meals-show_container_flex">
       <%= render 'meals/cookings', cookings: @meal.cookings %>
     </div>
-  <%= link_to 'Edit', edit_meal_path(@meal) %>
-<%= link_to 'Back', meals_path %>
+<%= link_to 'Back', meals_path ,class: "back-btn_show" %>
 </div>
