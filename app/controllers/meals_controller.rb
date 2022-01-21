@@ -10,8 +10,8 @@ class MealsController < ApplicationController
     @genres_month = Genre.left_joins(cookings: :meal).where(id: 1..13, cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).group(:genre_id).order('count(genre_id) desc').limit(5)
     # 今週のランキング
     @genres_week = Genre.left_joins(cookings: :meal).where(id: 1..13, cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id).order('count(genre_id) desc').limit(5)
-    # binding.pry
-    @month = Genre.left_joins(:cookings).where(cookings: { user_id: current_user.id})
+
+
 
     # 全体の割合
     @genres_bar = Genre.all.limit(13)

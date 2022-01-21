@@ -2679,6 +2679,7 @@ button {
   @include media(pc) {
     font-size: 14px;
     margin-left: 10px;
+    line-height: 1.5;
   }
 
   @include media(tb) {

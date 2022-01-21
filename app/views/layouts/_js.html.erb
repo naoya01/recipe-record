@@ -200,5 +200,14 @@
         $(e).html("URLがありません")
       }
     });
+        $(".users-show_favorite_block_content_title").each(function (i, e) {
+      if ($(e).attr("href")) {
+        $(e).css("color", "#0ac");
+      } else {
+        $(e).removeAttr("href");
+        $(e).css("color", "#000");
+      }
+    });
+
   });
 </script>
