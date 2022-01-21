@@ -8,8 +8,8 @@
     <% end %>
     <% if user_signed_in? %>
       <% if current_user == @user || current_user.admin? %><%# 管理者のみ表示  %>
-        <%= link_to edit_genre_path(genre.id) do %>
-          <i class="fas fa-cog"></i>
+        <%= link_to edit_genre_path(genre.id) ,class: "genre-index_list_item_anchor_edit" do %>
+          <i class="fas fa-cog "></i>
         <% end %>
       <% end %>
     <% end %>

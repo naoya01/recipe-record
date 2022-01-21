@@ -11,7 +11,9 @@
     </h2>
     <%= link_to '編集', edit_meal_path(@meal.id) ,class: "meal_edit_btn" %>
   </div>
-　<p class="meals-show_description"><%= @meal.meal_description %></p>
+  <% if @meal.meal_description.present? %>
+　  <p class="meals-show_description"><%= @meal.meal_description %></p>
+　<% end %>
   <div class="meals-show_container_flex">
     <%= render 'meals/cookings', cookings: @meal.cookings %>
   </div>

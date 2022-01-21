@@ -1379,7 +1379,7 @@ button {
 
   @include media(sp) {
     flex-direction: column-reverse;
-    @include margin_vw(0, 0, 50, 0);
+    @include margin_vw(0, 0, 100, 0);
     span {
       @include font-size(24);
     }
@@ -1399,7 +1399,7 @@ button {
   }
 
   @include media(sp) {
-    @include margin_vw(0, 0, 50, 0);
+    @include margin_vw(0, 0, 100, 0);
     span {
       @include font-size(24);
     }
@@ -2718,9 +2718,11 @@ button {
   }
 
   @include media(sp) {
+    display: inline-flex;
+    align-items: center;
     @include width(200);
     @include line-height(35);
-    @include margin_vw(0, 10, 100, 10);
+    @include margin_vw(0, 12, 100, 12);
   }
 }
 .genre-index_list_item_anchor {
@@ -2745,7 +2747,8 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(24);
+    @include margin-left(10);
+    @include font-size(20);
   }
 }
 
@@ -3137,7 +3140,7 @@ transition: .3s;
 
   @include media(sp) {
     @include font-size(22);
-    @include margin-bottom(100);
+    @include margin-bottom(50);
   }
 }
 
@@ -3222,7 +3225,7 @@ transition: .3s;
 
   @include media(sp) {
     @include margin-left(20);
-    @include font-size(30);
+    @include font-size(35);
   }
 }
 
@@ -3307,7 +3310,7 @@ transition: .3s;
   }
 
   @include media(sp) {
-    @include font-size(20);
+    @include font-size(25);
   }
 }
 
