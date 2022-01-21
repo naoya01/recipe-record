@@ -5,25 +5,25 @@ class MealsController < ApplicationController
   def index
     @meals = current_user.meals
     # 全体ランキング
-    @genres = Genre.left_joins(:cookings).where(cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc').limit(5)
+    @genres = Genre.left_joins(:cookings).where(id: 1..13, cookings: { user_id: current_user.id}).group(:genre_id).order('count(genre_id) desc').limit(5)
     # 今月のランキング
-    @genres_month = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).group(:genre_id).order('count(genre_id) desc').limit(5)
+    @genres_month = Genre.left_joins(cookings: :meal).where(id: 1..13, cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).group(:genre_id).order('count(genre_id) desc').limit(5)
     # 今週のランキング
-    @genres_week = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id).order('count(genre_id) desc').limit(5)
+    @genres_week = Genre.left_joins(cookings: :meal).where(id: 1..13, cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id).order('count(genre_id) desc').limit(5)
     # binding.pry
     @month = Genre.left_joins(:cookings).where(cookings: { user_id: current_user.id})
 
     # 全体の割合
-    @genres_bar = Genre.all
+    @genres_bar = Genre.all.limit(13)
     # 今月の割合
-    @genres_bar_month = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).includes(genre_name: nil).group(:genre_id)
+    @genres_bar_month = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).includes(genre_name: nil).group(:genre_id).limit(13)
     # 先月の割合
-    @genres_bar_lastmonth = Genre.joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.last_month.all_month}).group(:genre_id)
+    @genres_bar_lastmonth = Genre.joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.last_month.all_month}).group(:genre_id).limit(13)
 
     # 今週の割合
-     @genres_bar_week = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id)
+     @genres_bar_week = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id).limit(13)
     # 先週の割合
-    @genres_bar_lastweek = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.last_week.all_week}).group(:genre_id)
+    @genres_bar_lastweek = Genre.left_joins(cookings: :meal).where(cookings: { user_id: current_user.id} ,meals: {date: Date.current.last_week.all_week}).group(:genre_id).limit(13)
   end
 
   # GET /meals/1 or /meals/1.json
@@ -68,7 +68,7 @@ class MealsController < ApplicationController
         end
       end
     else
-    flash[:notice] = "その日の時間はすでに登録済みです"
+    flash[:failure] = "その日の時間はすでに登録済みです"
     render :new
     end
   end

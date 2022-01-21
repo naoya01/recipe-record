@@ -2846,12 +2846,10 @@ button {
 }
 
 .meals-index_top_left_post {
-    color: #fff;
+    color: #666;
 transition: .3s;
-  background-color: #cf8db2;
-  &:hover{
-    color: #fff;
-  }
+  background-color: mistyrose;
+
   @include media(pc) {
     font-size: 18px;
         border: 1px solid #ccc;
@@ -2873,11 +2871,9 @@ transition: .3s;
   transition: .3s;
   display: flex;
   align-items: center;
-  color: #fff;
-  background-color: #cf8db2;
-  &:hover{
-    color: #fff;
-  }
+  color: #666;
+  background-color: mistyrose;
+
   @include media(pc) {
     margin-left: 40px;
     font-size: 17px;

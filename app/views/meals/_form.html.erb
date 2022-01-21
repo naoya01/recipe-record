@@ -8,9 +8,9 @@
     <span class="meals-new_table_row_title"><%= s.label "説明" %></span>
     <span class="meals-new_table_row_content"><%= s.text_area :meal_description %></span>
   </div>
-
-      <p id="notice" class="attention" ><%= notice %></p>
-
+      <% if flash[:failure] %>
+          <p id="notice" class="attention" ><%= flash[:failure]  %></p>
+      <% end %>
   <div class="meals-new_table_row">
     <span class="meals-new_table_row_title"><%= s.label "日にち" %></span>
     <!--料理を登録する際は日付を記入し、編集時は変更できないようにしている-->
