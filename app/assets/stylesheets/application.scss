@@ -241,7 +241,6 @@ $footer-height_sp: 100;
 }
 
 @mixin btn-genre {
-  @include destroy-color;
   border: none;
   display: flex;
   align-items: center;
@@ -265,7 +264,7 @@ $footer-height_sp: 100;
   }
 
   @include media(sp) {
-    border-radius: calc(10 / #{$sp-size} * 100vw);
+    border-radius: calc(10 / #{$sp-size} * 100vw)!important;
     @include font-size(24);
     width: calc(180 / #{$sp-size} * 100vw) !important;
     @include height(80);
@@ -2660,6 +2659,7 @@ button {
 
 .genre-index_add_button_delete {
   @include btn-genre;
+  @include destroy-color;
   @include media(pc) {
     margin-left: 50px;
   }
