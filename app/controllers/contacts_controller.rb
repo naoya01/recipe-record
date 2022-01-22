@@ -6,7 +6,6 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    render :new
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       redirect_to meals_path
