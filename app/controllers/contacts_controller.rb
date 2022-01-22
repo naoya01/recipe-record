@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    render :new
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       redirect_to meals_path
@@ -17,8 +18,6 @@ class ContactsController < ApplicationController
   def confirm
     @contact = Contact.new(contact_params)
     if @contact.invalid?
-      render :creste
-    else
       render :new
     end
   end
