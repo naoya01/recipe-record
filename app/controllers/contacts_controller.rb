@@ -17,6 +17,8 @@ class ContactsController < ApplicationController
   def confirm
     @contact = Contact.new(contact_params)
     if @contact.invalid?
+      render :creste
+    else
       render :new
     end
   end
