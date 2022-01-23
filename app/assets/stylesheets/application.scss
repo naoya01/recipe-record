@@ -1330,6 +1330,7 @@ button {
     align-items: center;
     transition-duration: 0.3s;
     justify-content: center;
+    line-height: 1.5;
     &:hover {
       transition-duration: 0.3s;
       color: #fdf4d5;
@@ -1345,6 +1346,7 @@ button {
     @include font-size(30);
     @include margin-top(50);
     @include margin-left(15);
+    @include margin-left(50);
     &:hover {
       transition-duration: 0.3s;
       color: darkred;
