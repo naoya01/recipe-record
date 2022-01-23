@@ -1501,7 +1501,7 @@ button {
   }
 
   @include media(sp) {
-    @include margin-top(30);
+
     @include margin-bottom(80);
     margin-left: auto;
   }
