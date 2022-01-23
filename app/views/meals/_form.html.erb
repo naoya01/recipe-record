@@ -6,7 +6,7 @@
   </div>
   <div class="meals-new_table_row">
     <span class="meals-new_table_row_title"><%= s.label "説明" %></span>
-    <span class="meals-new_table_row_content"><%= s.text_area :meal_description %></span>
+    <span class="meals-new_table_row_content"><%= s.text_area :meal_description, placeholder: "任意" %></span>
   </div>
       <% if flash[:failure] %>
           <p id="notice" class="attention" ><%= flash[:failure]  %></p>
@@ -18,7 +18,7 @@
       <span class="meals-new_table_row_content"><%= s.date_field :date %></span>
     <% else %>
     <!--編集時は日付を変更しないようにしているためhidden_fieldで日付のデータを送っている-->
-      <span class="meals-new_table_row_content"><%= hidden_field_tag :date, @meal.date %><%= @meal.date %></span>
+      <span class="meals-new_table_row_content"><%= s.hidden_field :date,:value => @meal.date %><%= @meal.date %></span>
     <% end %>
   </div>
   <div class="meals-new_table_row meals-new_table_mealtime">
@@ -27,7 +27,7 @@
     <span class="meals-new_table_row_content"><%= s.select :mealtime, [['朝', 'breakfast'], ['昼', 'lunch'], ['夜','dinner']], {class: "user_class" } %></span>
     <% else %>
     <!--編集時は食事時間を変更しないようにしているためhidden_fieldで食事時間のデータを送っている-->
-      <span class="meals-new_table_row_content mealtime_conversion"><%= hidden_field_tag :mealtime, @meal.date %><%= @meal.mealtime %></span>
+      <span class="meals-new_table_row_content mealtime_conversion"><%= s.hidden_field :mealtime,:value => @meal.mealtime %><%= @meal.mealtime %>
     <% end %>
   </div>
     <%= s.fields_for :cookings do |t| %>

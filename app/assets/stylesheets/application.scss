@@ -2209,7 +2209,7 @@ button {
       font-size: 16px;
     }
     .cooking-new_table_ingredients_quantity {
-      width: 200px;
+      width: 170px;
       height: 30px;
       font-size: 16px;
     }
@@ -2399,7 +2399,6 @@ button {
         margin: auto;
         @include width(660);
         @include font-size(25);
-        @include margin_bottom(50);
       }
     }
   }
@@ -2414,6 +2413,7 @@ button {
   }
 
   @include media(sp) {
+    @include margin_top(50);
     @include margin_bottom(40);
   }
 }
@@ -3444,7 +3444,6 @@ transition: .3s;
     select {
       height: 30px;
       width: 50px;
-      margin-right: 20px;
     }
   }
 
@@ -3552,6 +3551,7 @@ transition: .3s;
   @include destroy-color;
   @include media(pc) {
     margin: auto;
+    margin-left: 20px;
   }
 
   @include media(tb) {
@@ -4280,5 +4280,40 @@ transition: .3s;
   }
 
   @include media(sp) {
+  }
+}
+
+// ---------------------------エラーメッセージ------------------------------------
+.errors{
+  color: red;
+  flex-direction: column-reverse;
+  align-items: start!important;
+    @include media(pc) {
+      margin-bottom: 10px;
+      td{
+        margin: 5px 0 5px 0;
+      }
+  }
+
+
+  @include media(tb) {
+
+  }
+
+  @include media(sp) {
+  }
+}
+
+.field_with_errors{
+background-color: inherit!important;
+  @include media(pc) {
+    border: red 2px solid;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    border: calc(3 / #{$sp-size} * 100vw) solid red ;
   }
 }

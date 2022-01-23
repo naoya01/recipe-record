@@ -4,4 +4,5 @@ class Meal < ApplicationRecord
   has_many :tags, through: :cookings
   has_many :genres, through: :tags
   accepts_nested_attributes_for :cookings, allow_destroy: true
+  validates :title, presence: true
 end

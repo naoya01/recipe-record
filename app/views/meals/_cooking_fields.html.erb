@@ -6,7 +6,7 @@
   </div>
   <div class="meals-new_table_row">
     <span class="meals-new_table_row_title"><%= f.label " URL" %></span>
-    <span class="meals-new_table_row_content"><%= f.text_field :url %></span>
+    <span class="meals-new_table_row_content"><%= f.text_field :url , placeholder: "任意"%></span>
   </div>
   <!--コクーンによる書き方-->
     <%= f.fields_for :tags do |u| %>

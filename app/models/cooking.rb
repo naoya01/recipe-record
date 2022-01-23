@@ -6,7 +6,7 @@ class Cooking < ApplicationRecord
   accepts_nested_attributes_for :tags, allow_destroy: true
   accepts_nested_attributes_for :genres, allow_destroy: true
   accepts_nested_attributes_for :meal, allow_destroy: true
-
+  validates :cooking_name, presence: true
   VALID_URL_REGEX = /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
   validates :url,
   format: { with: VALID_URL_REGEX, message: '正しいURLを入力してください' }

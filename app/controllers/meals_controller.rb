@@ -58,18 +58,29 @@ class MealsController < ApplicationController
     # dateにデータが入っていないか、同じ日に３回以内投稿されている
 
     unless at_dates.include?(@meal.mealtime)
-       respond_to do |format|
-        if @meal.save
+              respond_to do |format|
+      if @meal.save
+
           format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
           format.json { render :new, status: :created, location: @meal }
-        else
+
+      else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @meal.errors, status: :unprocessable_entity }
-        end
+
       end
+            end
     else
-    flash[:failure] = "その日の時間はすでに登録済みです"
-    render :new
+
+    #すでに登録している日付を登録しようとしたとき表示させる
+    if @meal.mealtime == "breakfast"
+      flash[:failure] = "#{@meal.date}の朝食はすでに登録済みです"
+    elsif @meal.mealtime == "lunch"
+      flash[:failure] = "#{@meal.date}の昼食はすでに登録済みです"
+    else
+      flash[:failure] = "#{@meal.date}の夕食はすでに登録済みです"
+    end
+    redirect_to new_meal_path
     end
   end
 

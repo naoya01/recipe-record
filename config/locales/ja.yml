@@ -1,7 +1,13 @@
 ja:
   activerecord:
     attributes:
-      customer:
+      post:
+        post_name: 料理名
+      post/recipes:
+        recipe_description: 作り方
+      meal:
+        title: タイトル
+      user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻

@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_020106) do
     t.integer "user_id"
     t.string "post_name", null: false
     t.text "post_description"
-    t.string "post_image_id", null: false
+    t.string "post_image_id"
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
