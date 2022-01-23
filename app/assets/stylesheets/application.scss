@@ -2700,13 +2700,15 @@ button {
   flex-wrap: wrap;
   @include media(pc) {
     margin-top: 100px;
+    margin-bottom: 50px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include margin_top(150);
+    @include margin-top(150);
+    @include margin-bottom(100);
     @include font-size(35);
   }
 }
@@ -3638,12 +3640,14 @@ transition: .3s;
   display: flex;
   flex-wrap: wrap;
   @include media(pc) {
+    margin-bottom: 50px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin-bottom(100);
   }
 }
 
