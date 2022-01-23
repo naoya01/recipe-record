@@ -1295,6 +1295,7 @@ button {
 .m-side_list_item_anchor {
   @include media(pc) {
     padding: 10px 20px 10px 20px;
+    line-height: 1.5;
     font-size: 15px;
     width: 100%;
     height: 100%;
@@ -1313,6 +1314,7 @@ button {
 
   @include media(sp) {
     @include font-size(35);
+    @include line-height(50);
     &:hover {
       transition-duration: 0.3s;
       color: darkred;
@@ -1330,7 +1332,6 @@ button {
     align-items: center;
     transition-duration: 0.3s;
     justify-content: center;
-    line-height: 1.5;
     &:hover {
       transition-duration: 0.3s;
       color: #fdf4d5;
@@ -1346,7 +1347,6 @@ button {
     @include font-size(30);
     @include margin-top(50);
     @include margin-left(15);
-    @include margin-left(50);
     &:hover {
       transition-duration: 0.3s;
       color: darkred;
