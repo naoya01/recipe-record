@@ -1342,8 +1342,8 @@ button {
 
   @include media(sp) {
     display: inline-block;
-    @include font-size(35);
-    @include margin-top(30);
+    @include font-size(30);
+    @include margin-top(50);
     @include margin-left(15);
     &:hover {
       transition-duration: 0.3s;
