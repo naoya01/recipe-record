@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: %i[ show edit update destroy ]
-
+  before_action :mealtime_judge, only: %i[ update edit ]
   # GET /meals or /meals.json
   def index
     @meals = current_user.meals
@@ -10,7 +10,6 @@ class MealsController < ApplicationController
     @genres_month = Genre.left_joins(cookings: :meal).where(id: 1..13, cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_month}).group(:genre_id).order('count(genre_id) desc').limit(5)
     # 今週のランキング
     @genres_week = Genre.left_joins(cookings: :meal).where(id: 1..13, cookings: { user_id: current_user.id} ,meals: {date: Date.current.all_week}).group(:genre_id).order('count(genre_id) desc').limit(5)
-
 
 
     # 全体の割合
@@ -44,7 +43,6 @@ class MealsController < ApplicationController
 
   # GET /meals/1/edit
   def edit
-
   end
 
 
@@ -52,6 +50,9 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.user_id = current_user.id
+    # 送信ミスした際にrenderでnewページに遷移さsれた時に日本語になってしまうため再定義(ストロングパラメーターに記載)
+    mealtime_judge
+
     # @meal.cookings.user_id = current_user.id
     # at_dates = Meal.where(date: @meal.date).select("mealtime: @meal.mealtime")
     at_dates = Meal.where(date: @meal.date, user_id: current_user.id).pluck(:mealtime)
@@ -87,9 +88,10 @@ class MealsController < ApplicationController
   # PATCH/PUT /meals/1 or /meals/1.json
   def update
     @meal.user_id = current_user.id
+    mealtime_judge
 
       respond_to do |format|
-        if @meal.update(meal_params)
+        if @meal.update(meal_edit_params)
           format.html { redirect_to meal_url(@meal), notice: "Meal was successfully updated." }
           format.json { render :show, status: :ok, location: @meal }
         else
@@ -120,6 +122,13 @@ class MealsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
       @meal = Meal.find(params[:id])
+      if @meal.mealtime == "朝"
+        @meal.mealtime = "breakfast"
+      elsif @meal.mealtime == "昼"
+        @meal.mealtime = "lunch"
+      elsif @meal.mealtime == "夜"
+        @meal.mealtime = "dinner"
+      end
       unless  @meal.user_id == current_user.id || current_user.admin == true
         redirect_to meals_path
       end
@@ -133,4 +142,21 @@ class MealsController < ApplicationController
          ])
     end
 
+    def meal_edit_params
+      params.require(:meal).permit(:title, :meal_description, :date,:_destroy,
+        cookings_attributes: [:id, :cooking_name,:url,:user_id, :_destroy,
+        tags_attributes: [:id, :genre_id, :_destroy]
+         ])
+    end
+
+    # 登録の際入力ミスしてしまった時にrenderで飛ばすため日本語で登録したものを英語に直して
+    def mealtime_judge
+      if @meal.mealtime == "朝"
+        @meal.mealtime = "breakfast"
+      elsif @meal.mealtime == "昼"
+        @meal.mealtime = "lunch"
+      elsif @meal.mealtime == "夜"
+        @meal.mealtime = "dinner"
+      end
+    end
 end

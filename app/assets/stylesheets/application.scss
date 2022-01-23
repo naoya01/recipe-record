@@ -2906,7 +2906,7 @@ transition: .3s;
   @include media(pc) {
     font-size: 16px;
     padding: 10px 15px 10px 15px;
-    border: dashed 1px #fb8;
+    border: dashed 3px #fb8;
   }
 
   @include media(tb) {

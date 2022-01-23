@@ -27,7 +27,8 @@
     <span class="meals-new_table_row_content"><%= s.select :mealtime, [['朝', 'breakfast'], ['昼', 'lunch'], ['夜','dinner']], {class: "user_class" } %></span>
     <% else %>
     <!--編集時は食事時間を変更しないようにしているためhidden_fieldで食事時間のデータを送っている-->
-      <span class="meals-new_table_row_content mealtime_conversion"><%= s.hidden_field :mealtime,:value => @meal.mealtime %><%= @meal.mealtime %>
+      <span class="meals-new_table_row_content mealtime_conversion">
+        <%= s.hidden_field :mealtime,:value => @meal.mealtime %><%= @meal.mealtime %>
     <% end %>
   </div>
     <%= s.fields_for :cookings do |t| %>
