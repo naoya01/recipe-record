@@ -1270,7 +1270,9 @@ button {
   }
 
   @include media(sp) {
-    @include margin_vw(150, 0, 100, 0);
+    @include margin_vw(100, 0, 100, 0);
+    @include padding-top(80);
+    border-top: dotted calc(10 /#{$sp-size} * 100vw) #e6b57d ;
     span {
       @include font-size(45);
     }
