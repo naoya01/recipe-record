@@ -1222,6 +1222,7 @@ button {
 /* -----------------------------------------l-main------------------------------------------------------*/
 .m-side {
   @include media(pc) {
+    margin-right: 80px;
   }
 
   @include media(tb) {
@@ -1252,9 +1253,8 @@ button {
 .m-side_list {
   @include media(pc) {
     border-radius: 10px;
-    max-width: calc(280 / 1440 * 100%);
+    max-width: 250px;
     min-width: 175px;
-    margin-right: 80px;
     border: 1px solid black;
     height: fit-content;
     margin-bottom: 50px;
@@ -1280,7 +1280,6 @@ button {
 }
 .m-side_list_item {
   @include media(pc) {
-    height: 40px;
     max-width: 100%;
   }
 
@@ -1411,12 +1410,12 @@ button {
 
 .m-title {
   position: relative;
-  padding: 0 0.5em 0.5em 2em;
+  padding: 0 0.1em 0.5em 1.8em;
   border-bottom: 1px solid #ff5a5f;
   font-weight: bold;
 
   @include media(pc) {
-    font-size: 30px;
+    font-size: 28px;
     letter-spacing: 5px;
   }
   @include media(tb) {
@@ -1497,6 +1496,7 @@ button {
 .m-title_other {
   display: flex;
   @include media(pc) {
+    margin-left: 30px;
   }
 
   @include media(tb) {
