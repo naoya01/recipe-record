@@ -1274,7 +1274,7 @@ button {
     @include padding-top(80);
     border-top: dotted calc(10 /#{$sp-size} * 100vw) #e6b57d ;
     span {
-      @include font-size(45);
+      @include font-size(40);
     }
   }
 }
