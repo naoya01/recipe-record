@@ -72,7 +72,7 @@ function dayMealEvent(params) {
             ` <div class="meals-index_ivents ${event.mealtime}">
                 <ul class="meals-index_ivents_container_list">
                   <li class="meals-index_ivents_container_list_item">
-                  <a class="meals-index_ivents_container_list_item_anchor" href="${event.url}">${event.cooking_name}</a>
+                    <a class="meals-index_ivents_container_list_item_anchor" href="${event.url}" target="_blank" rel="noopener noreferrer">${event.cooking_name}</a>
                   </li>
                 </ul>
              </div>`
@@ -81,7 +81,9 @@ function dayMealEvent(params) {
           $('#meals-index_event_lunch_content').append(
             ` <div class="meals-index_ivents ${event.mealtime}">
                 <ul class="meals-index_ivents_container_list">
-                  <li class="meals-index_ivents_container_list_item"><a class="meals-index_ivents_container_list_item_anchor" href="${event.url}">${event.cooking_name}</a></li>
+                  <li class="meals-index_ivents_container_list_item">
+                    <a class="meals-index_ivents_container_list_item_anchor" href="${event.url}" target="_blank" rel="noopener noreferrer">${event.cooking_name}</a>
+                  </li>
                 </ul>
              </div>`
             );
@@ -89,7 +91,9 @@ function dayMealEvent(params) {
           $('#meals-index_event_dinner_content').append(
             ` <div class="meals-index_ivents ${event.mealtime}">
                 <ul class="meals-index_ivents_container_list">
-                  <li class="meals-index_ivents_container_list_item"><a class="meals-index_ivents_container_list_item_anchor" href="${event.url}">${event.cooking_name}</a></li>
+                  <li class="meals-index_ivents_container_list_item">
+                    <a class="meals-index_ivents_container_list_item_anchor" href="${event.url}"  target="_blank" rel="noopener noreferrer">${event.cooking_name}</a>
+                  </li>
                 </ul>
              </div>`
             );

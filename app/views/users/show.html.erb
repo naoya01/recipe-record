@@ -8,7 +8,7 @@
       <span class="users-show_favorite_block" >
          <span class="users-show_favorite_block_date"><%= cooking.meal.date %></span>
          <span class="users-show_favorite_block_content">
-          <a class="users-show_favorite_block_content_title" href=<%= cooking.url %>><%= cooking.cooking_name %></a>
+          <a class="users-show_favorite_block_content_title" href=<%= cooking.url %>  target="_blank" rel="noopener noreferrer"><%= cooking.cooking_name %></a>
           <div class="users-show_favorite_block_btn favorite-btn_<%= cooking.id %>">
             <%= render "favorites/index", cooking: cooking %>
           </div>
