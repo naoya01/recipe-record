@@ -23,11 +23,8 @@
   $(function () {
     $(".l-nav_btn").on("click", function () {
       $(".l-nav_btn_bar").toggleClass("open");
-    });
-    $(".l-nav_btn").on("click", function () {
       $(".l-nav").toggleClass("show");
       $(".l-nav_btn").toggleClass("show_btn");
-
       $("#calendar").fadeToggle();
     });
 
@@ -38,7 +35,7 @@
     let topBtn = $(".top-btn");
     topBtn.hide();
     $(window).scroll(function () {
-      if ($(this).scrollTop() > 20) {
+      if ($(this).scrollTop() > 300) {
         topBtn.fadeIn();
       } else {
         topBtn.fadeOut();
