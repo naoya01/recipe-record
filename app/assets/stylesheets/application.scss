@@ -3377,10 +3377,18 @@ transition: .3s;
 .meal_edit_btn {
   @include btn-small;
   @include edit-color;
-  margin-left: 20px;
-  margin-right: 20px;
   &:not(:nth-of-type(1)) {
     display: none;
+  }
+  @include media(pc) {
+  margin-left: 20px;
+  margin-right: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
   }
 }
 
@@ -4287,6 +4295,7 @@ transition: .3s;
   }
 
   @include media(sp) {
+    margin-left: auto;
   }
 }
 
