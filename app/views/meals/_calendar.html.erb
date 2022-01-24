@@ -10,7 +10,7 @@
         $(".meals-index_mealtime_breakfast_show").empty();
         $(".meals-index_mealtime_lunch_show").empty();
         $(".meals-index_mealtime_dinner_show").empty();
-  
+
         data.forEach((event) => {
           console.log(event);
           $(".meals-index_mealtime_breakfast_show").append(
@@ -22,7 +22,7 @@
           $(".meals-index_mealtime_dinner_show").append(
             `<a class="${event.mealtime}_show" href="/meals/${event.id}">詳細</a>`
           );
-  
+
           $("#meals-index_event_breakfast_content").append(
             ` <div class="meals-index_ivents ${event.mealtime}">
                   <ul class="meals-index_ivents_container_list">
@@ -32,7 +32,7 @@
                   </ul>
                </div>`
           );
-  
+
           $("#meals-index_event_lunch_content").append(
             ` <div class="meals-index_ivents ${event.mealtime}">
                   <ul class="meals-index_ivents_container_list">
@@ -42,7 +42,7 @@
                   </ul>
                </div>`
           );
-  
+
           $("#meals-index_event_dinner_content").append(
             ` <div class="meals-index_ivents ${event.mealtime}">
                   <ul class="meals-index_ivents_container_list">
@@ -52,7 +52,7 @@
                   </ul>
                </div>`
           );
-  
+
           $(".meals-index_ivents_container_list_item_anchor").each(function (
             i,
             e
@@ -64,7 +64,7 @@
               $(e).css("color", "#000");
             }
           });
-  
+
           // カレンダーの日付をクリックした際に
           $(".meals-index_mealtime_breakfast_show")
             .children()
@@ -75,7 +75,7 @@
           $(".meals-index_mealtime_dinner_show")
             .children()
             .remove(".lunch_show,.breakfast_show");
-  
+
           if (
             $(".meals-index_ivents_container_title_breakfast_item").text() ==
             "breakfast"
@@ -93,7 +93,7 @@
           }
         });
       })
-  
+
       .fail(function () {
         alert("ERROR");
       });
