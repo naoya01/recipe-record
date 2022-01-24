@@ -125,7 +125,7 @@ function dayMealEvent(params) {
           }
         })
       })
-      
+
       .fail(function() {
         alert('ERROR');
       }
