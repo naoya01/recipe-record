@@ -63,7 +63,7 @@
             <% @genres_month.each.with_index(1) do |genre, i| %>
             <li class="rank-list_item">
               <span class="rank-_list_item_head">第<%= i %>位</span>
-              <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+              <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,month_genre_path(genre.id) %></span>
             </li>
             <% end %>
           </ul>
@@ -75,7 +75,7 @@
           <% @genres_week.each.with_index(1) do |genre, i| %>
           <li class="rank-list_item">
             <span class="rank-_list_item_head">第<%= i %>位</span>
-            <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,genre_path(genre.id) %></span>
+            <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,week_genre_path(genre.id) %></span>
           </li>
           <% end %>
         </ul>

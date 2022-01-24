@@ -7,8 +7,17 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
-    @cookings = Cooking.joins(:tags).where(tags: { genre_id: @genre.id }, user_id: current_user.id).page(params[:page]).per(1)
+    @cookings = Cooking.joins(:tags).where(tags: { genre_id: @genre.id }, user_id: current_user.id).page(params[:page]).per(10)
+  end
 
+  def month
+    @genre = Genre.find(params[:id])
+    @cookings = Cooking.joins(:tags,:meal).where(tags: { genre_id: @genre.id }, user_id: current_user.id ,meals: {date: Date.current.all_month}).page(params[:page]).per(10)
+  end
+
+  def week
+    @genre = Genre.find(params[:id])
+    @cookings = Cooking.joins(:tags,:meal).where(tags: { genre_id: @genre.id }, user_id: current_user.id ,meals: {date: Date.current.all_week}).page(params[:page]).per(10)
   end
 
   def create

@@ -1,0 +1,10 @@
+<div class="l-main_container">
+    <div class="m-title_flex">
+        <h2 class="m-title">今月の<br class="u-sp">[<%= @genre.genre_name %>]</h2>
+    </div>
+    <div class="meals-show_container_flex">
+        <%= render 'genres/cookings',cookings: @cookings  %>
+    </div>
+    <%= paginate @cookings %>
+    <%= link_to 'Back', meals_path ,class: "back-btn_show" %>
+</div>
