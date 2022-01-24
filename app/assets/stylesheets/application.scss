@@ -4052,14 +4052,15 @@ transition: .3s;
   }
 
   @include media(sp) {
-    @include margin_vw(0, 10, 0, 10);
+    @include margin_vw(0, 15, 0, 15);
     a {
-      @include padding_vw(10, 10, 10, 10);
+      @include padding_vw(10, 15, 10, 15);
     }
   }
 }
 
 .first {
+  display: none;
   a {
     @include pager-color;
     color: #fff;
@@ -4084,11 +4085,16 @@ transition: .3s;
 
   @include media(sp) {
     a {
+      border-radius: calc(15 / #{$sp-size} * 100vw);
+      @include padding_vw(10,10,10,10);
+      @include margin_vw(auto,10,auto,10);
+      border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
 }
 
 .prev {
+  display: none;
   a {
     @include pager-color;
     color: #fff;
@@ -4113,6 +4119,10 @@ transition: .3s;
 
   @include media(sp) {
     a {
+      border-radius: calc(15 / #{$sp-size} * 100vw);
+      @include padding_vw(10,10,10,10);
+      @include margin_vw(auto,10,auto,10);
+      border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
 }
@@ -4129,11 +4139,12 @@ transition: .3s;
   }
 
   @include media(sp) {
-    @include padding_vw(10, 10, 10, 10);
+    @include padding_vw(10, 15, 10, 15);
   }
 }
 
 .next {
+  display: none;
   a {
     @include pager-color;
     color: #fff;
@@ -4159,11 +4170,16 @@ transition: .3s;
 
   @include media(sp) {
     a {
+      border-radius: calc(15 / #{$sp-size} * 100vw);
+      @include padding_vw(10,10,10,10);
+      @include margin_vw(auto,10,auto,10);
+      border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
 }
 
 .last {
+  display: none;
   a {
     @include pager-color;
     color: #fff;
@@ -4189,6 +4205,10 @@ transition: .3s;
 
   @include media(sp) {
     a {
+      border-radius: calc(15 / #{$sp-size} * 100vw);
+      @include padding_vw(10,10,10,10);
+      @include margin_vw(auto,10,auto,10);
+      border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
 }
@@ -4289,6 +4309,7 @@ transition: .3s;
   @include btn-small;
   background-color: darkkhaki;
   @include media(pc) {
+    margin-top: 100px;
   }
 
   @include media(tb) {
@@ -4296,6 +4317,7 @@ transition: .3s;
 
   @include media(sp) {
     margin-left: auto;
+    @include margin-top(100);
   }
 }
 

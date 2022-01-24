@@ -6,4 +6,5 @@
         <%= render 'genres/cookings',cookings: @cookings  %>
     </div>
     <%= paginate @cookings %>
+    <%= link_to 'Back', meals_path ,class: "back-btn_show" %>
 </div>
