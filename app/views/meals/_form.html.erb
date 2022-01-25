@@ -37,7 +37,7 @@
       <div class="links">
         <span><%= link_to_add_association "料理追加", s, :cookings,class: "meals-new_table_add_btn" %></span>
       </div>
-  <input class="btn-login" type="submit">
+    <%= s.submit "カレンダーに追加", class:"btn-login" %>
 <% end %>
 <% if current_page?(new_meal_path) %>
   <p class="meals-new_other">※投稿後、日時は変更できません。ご注意ください</p>
