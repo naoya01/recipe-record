@@ -1942,7 +1942,7 @@ button {
 
   @include media(sp) {
     @include line-height(50);
-    @include font-size(25);
+    @include font-size(27);
     @include margin-top(50);
   }
 }
