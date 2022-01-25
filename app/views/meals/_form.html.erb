@@ -8,9 +8,9 @@
     <span class="meals-new_table_row_title"><%= s.label "説明" %></span>
     <span class="meals-new_table_row_content"><%= s.text_area :meal_description, placeholder: "任意" %></span>
   </div>
-      <% if flash[:failure] %>
-          <p id="notice" class="attention" ><%= flash[:failure]  %></p>
-      <% end %>
+    <% if flash[:failure] %>
+      <p id="notice" class="attention" ><%= flash[:failure]  %></p>
+    <% end %>
   <div class="meals-new_table_row">
     <span class="meals-new_table_row_title"><%= s.label "日にち" %></span>
     <!--料理を登録する際は日付を記入し、編集時は変更できないようにしている-->
@@ -29,6 +29,7 @@
     <!--編集時は食事時間を変更しないようにしているためhidden_fieldで食事時間のデータを送っている-->
       <span class="meals-new_table_row_content mealtime_conversion">
         <%= s.hidden_field :mealtime,:value => @meal.mealtime %><%= @meal.mealtime %>
+      </span>
     <% end %>
   </div>
     <%= s.fields_for :cookings do |t| %>

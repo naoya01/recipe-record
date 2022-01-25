@@ -1,13 +1,13 @@
 <% if cooking.favorited_by?(current_user) %>
-  <p>
+<p>
   <%= link_to cooking_favorites_path(cooking.id), method: :delete ,remote: true do %>
-    <i class="fas fa-star favorite-icon"></i>
+  <i class="fas fa-star favorite-icon"></i>
   <% end %>
-  </p>
+</p>
 <% else %>
-  <p>
+<p>
   <%= link_to cooking_favorites_path(cooking.id), method: :post,remote: true do %>
-    <i class="far fa-star favorite-icon_not"></i>
+  <i class="far fa-star favorite-icon_not"></i>
   <% end %>
-  </p>
+</p>
 <% end %>

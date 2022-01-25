@@ -1,15 +1,15 @@
 <div class="l-main_container">
   <% if @model == 'cooking' %>
-    <div class="m-title_flex">
-      <h2 class="m-title">【料理】検索<br class="u-sp">：<%= @content %></h2>
-    </div>
-    <%= render 'meals/cookings', cookings: @records %>
-    <% else @model == 'posts' %>
-    <div class="m-title_flex">
-      <h2 class="m-title">【自分のレシピ】検索<br class="u-sp">：<%= @content %></h2>
-    </div>
-    <%= render 'posts/index', posts: @records %>
-    <% end %>
-    <%= paginate @records %>
-    <%= link_to 'Back', meals_path ,class: "back-btn_show" %>
+  <div class="m-title_flex">
+    <h2 class="m-title">【料理】検索<br class="u-sp" />：<%= @content %></h2>
+  </div>
+  <%= render 'meals/cookings', cookings: @records %> <% else @model == 'posts'
+  %>
+  <div class="m-title_flex">
+    <h2 class="m-title">
+      【自分のレシピ】検索<br class="u-sp" />：<%= @content %>
+    </h2>
+  </div>
+  <%= render 'posts/index', posts: @records %> <% end %> <%= paginate @records
+  %> <%= link_to 'Back', meals_path ,class: "back-btn_show" %>
 </div>

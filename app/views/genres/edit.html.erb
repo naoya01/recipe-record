@@ -3,15 +3,15 @@
     <h2 class="m-title">ジャンル編集</h2>
   </div>
   <%= form_with model: @genre, local: true do |f| %>
-    <div class="genre-index_add">
-      <%= f.text_field :genre_name ,class: "genre-index_add_input" %>
-      <div class="genre-index_add_button_flex">
-      <%= f.submit  '保存' ,class: "genre-index_add_button" %>
+  <div class="genre-index_add">
+    <%= f.text_field :genre_name ,class: "genre-index_add_input" %>
+    <div class="genre-index_add_button_flex">
+      <%= f.submit '保存' ,class: "genre-index_add_button" %>
       <!--「その他」より前のものは削除できなようにする(削除するとグラフが崩れてしまうため)-->
-      <% if @genre.id > 13 %>
-      <%= link_to "削除", genre_path,method: :delete, data: {confirm: '本当に消しますか？'}, class: "genre-index_add_button_delete"  %>
-      <% end %>
-      </div>
+      <% if @genre.id > 13 %> <%= link_to "削除", genre_path,method: :delete,
+      data: {confirm: '本当に消しますか？'}, class:
+      "genre-index_add_button_delete" %> <% end %>
     </div>
+  </div>
   <% end %>
 </div>

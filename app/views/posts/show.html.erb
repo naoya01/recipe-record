@@ -1,12 +1,11 @@
 <div class="l-main_container flex">
-
   <aside class="m-side">
     <ul class="m-side_list">
       <span class="m-side_title">自分の料理</span>
       <% @posts.each do |post| %>
-        <li class="m-side_list_item">
-          <%= link_to post.post_name ,post_path(post.id),class: "m-side_list_item_anchor" %>
-        </li>
+      <li class="m-side_list_item">
+        <%= link_to post.post_name ,post_path(post.id),class: "m-side_list_item_anchor" %>
+      </li>
       <% end %>
       <%= link_to "もっと見る" ,posts_path ,class: "m-side_list_item_anchor_other" %>
     </ul>
@@ -17,14 +16,13 @@
       <h2 class="m-title"><%= @post.post_name %></h2>
       <div class="m-title_other">
         <%= link_to "編集" , edit_post_path(@post.id), class: "m-title_other_button_edit" %>
-        <%= link_to "削除" , post_path(@post.id),method: :delete, data: {confirm: '本当に消しますか？'},class: "m-title_other_button_delete" %>
-    </div>
+        <%= link_to "削除" ,post_path(@post.id),method: :delete, data: {confirm:'本当に消しますか？'},class: "m-title_other_button_delete" %>
+      </div>
     </div>
 
     <div class="cooking-show_column">
       <div class="cooking-show_column_image">
         <%= attachment_image_tag(@post, :post_image, :fill, 300, 300) %>
-
       </div>
       <div class="cooking-show_column_contents">
         <p class="cooking-show_column_contents_explanation">
@@ -34,20 +32,28 @@
         <table class="cooking-show_column_contents_spices">
           <h3 class="cooking-show_column_contents_title">材料</h3>
           <% @post.foodstuffs.each do |foodstuff| %>
-            <tr>
-              <td class="cooking-show_column_contents_spices_name"><%= foodstuff.foodstuff_name %></td>
-              <td class="cooking-show_column_contents_spices_quantity"><%= foodstuff.foodstuff_quantity %></td>
-            </tr>
+          <tr>
+            <td class="cooking-show_column_contents_spices_name">
+              <%= foodstuff.foodstuff_name %>
+            </td>
+            <td class="cooking-show_column_contents_spices_quantity">
+              <%= foodstuff.foodstuff_quantity %>
+            </td>
+          </tr>
           <% end %>
         </table>
 
         <table class="cooking-show_column_contents_spices">
           <h3 class="cooking-show_column_contents_title">調味料</h3>
           <% @post.flavors.each do |flavor| %>
-            <tr>
-              <td class="cooking-show_column_contents_spices_name"><%= flavor.flavor_name %></td>
-              <td class="cooking-show_column_contents_spices_quantity"><%= flavor.flavor_quantity %></td>
-            </tr>
+          <tr>
+            <td class="cooking-show_column_contents_spices_name">
+              <%= flavor.flavor_name %>
+            </td>
+            <td class="cooking-show_column_contents_spices_quantity">
+              <%= flavor.flavor_quantity %>
+            </td>
+          </tr>
           <% end %>
         </table>
       </div>
@@ -57,19 +63,17 @@
       <h3 class="m-title_section">手順</h3>
       <ol class="cooking-show_process_list">
         <% @post.recipes.each do |recipe| %>
-          <li class="cooking-show_process_list_item">
-            <span class="cooking-show_process_list_item_number"></span>
-            <p class="cooking-show_process_list_item_text">
-              <%= recipe.recipe_description %>
-            </p>
-            <div class="cooking-show_process_list_item_image">
-              <%= attachment_image_tag(recipe, :recipe_image, :fill, 200, 200) %>
-
-            </div>
-          </li>
+        <li class="cooking-show_process_list_item">
+          <span class="cooking-show_process_list_item_number"></span>
+          <p class="cooking-show_process_list_item_text">
+            <%= recipe.recipe_description %>
+          </p>
+          <div class="cooking-show_process_list_item_image">
+            <%= attachment_image_tag(recipe, :recipe_image, :fill, 200, 200) %>
+          </div>
+        </li>
         <% end %>
       </ol>
     </div>
-
   </article>
 </div>

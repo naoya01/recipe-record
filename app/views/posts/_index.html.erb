@@ -1,11 +1,11 @@
 <ul class="cooking_list">
   <% posts.each do |post| %>
-    <li class="cooking_list_item">
-      <%= link_to post_path(post.id),class: "cooking_list_item_link" do %>
-        <span class="cooking_list_item_image"><%= attachment_image_tag(post, :post_image, :fill, 300, 300) %></span>
-        <span class="cooking_list_item_title"><%= post.post_name %></span>
-      <span class="cooking-list_item_time"><%= post.created_at.strftime("%Y-%m-%d") %></span>
-      <% end %>
-    </li>
+  <li class="cooking_list_item">
+    <%= link_to post_path(post.id),class: "cooking_list_item_link" do %>
+    <span class="cooking_list_item_image"><%= attachment_image_tag(post, :post_image, :fill, 300, 300) %></span>
+    <span class="cooking_list_item_title"><%= post.post_name %></span>
+    <span class="cooking-list_item_time"><%= post.created_at.strftime("%Y-%m-%d") %></span>
+    <% end %>
+  </li>
   <% end %>
 </ul>
