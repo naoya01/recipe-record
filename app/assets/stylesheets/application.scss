@@ -2870,7 +2870,7 @@ transition: .3s;
   }
 
   @include media(sp) {
-    @include padding_vw(15,15,15,15);
+    @include padding_vw(20,20,20,20)
     border-radius: calc(10 / #{$sp-size} * 100vw);
     @include font-size(20);
   }
@@ -2897,7 +2897,7 @@ transition: .3s;
   @include media(sp) {
     @include margin-left(30);
     @include font-size(20);
-    @include padding_vw(15,15,15,15)
+    @include padding_vw(20,20,20,20)
     border-radius: calc(10 / #{$sp-size} * 100vw);
 
   }
