@@ -4323,6 +4323,52 @@ transition: .3s;
   }
 }
 
+
+// ---------------------contact-done お問い合わせ完了---------------------------
+.contact-done_container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-image: image-url("logo_back_1.png");
+  background-position: center;
+  background-size: cover;
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    flex-direction: column;
+    @include padding_top($header-height_sp);
+    @include padding_bottom($footer-height_sp);
+  }
+}
+
+
+.contact-done_container_text{
+  background-color: floralwhite;
+  @include media(pc) {
+    font-size: 35px;
+    padding: 10px 0;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(40);
+    @include padding_vw(10,0,10,0);
+  }
+}
+
+
+
 // ---------------------------エラーメッセージ------------------------------------
 .errors{
   color: red;

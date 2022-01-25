@@ -36,6 +36,7 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
+    # cocoonで料理とジャンルを同時保存のために記述
     @cookings = @meal.cookings.build
     @tags = @cookings.tags.build
 
@@ -50,27 +51,20 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.user_id = current_user.id
-    # 送信ミスした際にrenderでnewページに遷移さsれた時に日本語になってしまうため再定義(ストロングパラメーターに記載)
+    # 送信ミスした際にrenderでnewページに遷移さsれた時に日本語になってしまうため英語になるように再定義(ストロングパラメーターに記載)
     mealtime_judge
-
-    # @meal.cookings.user_id = current_user.id
-    # at_dates = Meal.where(date: @meal.date).select("mealtime: @meal.mealtime")
     at_dates = Meal.where(date: @meal.date, user_id: current_user.id).pluck(:mealtime)
     # dateにデータが入っていないか、同じ日に３回以内投稿されている
-
     unless at_dates.include?(@meal.mealtime)
-              respond_to do |format|
-      if @meal.save
-
-          format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
-          format.json { render :new, status: :created, location: @meal }
-
-      else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @meal.errors, status: :unprocessable_entity }
-
+      respond_to do |format|
+        if @meal.save
+            format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
+            format.json { render :new, status: :created, location: @meal }
+        else
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @meal.errors, status: :unprocessable_entity }
+        end
       end
-            end
     else
 
     #すでに登録している日付を登録しようとしたとき表示させる
@@ -88,8 +82,8 @@ class MealsController < ApplicationController
   # PATCH/PUT /meals/1 or /meals/1.json
   def update
     @meal.user_id = current_user.id
+    # 送信ミスした際にrenderでnewページに遷移さsれた時に日本語になってしまうため英語になるように再定義(ストロングパラメーターに記載)
     mealtime_judge
-
       respond_to do |format|
         if @meal.update(meal_edit_params)
           format.html { redirect_to meal_url(@meal), notice: "Meal was successfully updated." }
@@ -105,7 +99,6 @@ class MealsController < ApplicationController
   # DELETE /meals/1 or /meals/1.json
   def destroy
     @meal.destroy
-
     respond_to do |format|
       format.html { redirect_to meals_url, notice: "Meal was successfully destroyed." }
       format.json { head :no_content }
