@@ -127,10 +127,9 @@
         //スクロール途中でヘッダーが消え、上にスクロールすると復活する設定を関数にまとめる
         function ScrollAnime() {
           let scroll = $(window).scrollTop();
-          let a = $(".l-header").outerHeight();
           let nav_height = $(".l-header").outerHeight();
 
-          if (scroll < a) {
+          if (scroll < nav_height) {
             $(".l-header").removeClass("inv");
             $(".l-header").removeClass("DownMove"); //.l-headerにDownMoveというクラス名を除き
             $(".l-header").removeClass("DOWNMove"); //.l-headerにDownMoveというクラス名を除き
