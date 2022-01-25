@@ -4055,6 +4055,7 @@ transition: .3s;
   @include media(sp) {
     @include margin_vw(0, 15, 0, 15);
     a {
+      @include font-size(26);
       @include padding_vw(10, 15, 10, 15);
     }
   }
