@@ -4393,6 +4393,7 @@ transition: .3s;
 .field_with_errors{
 background-color: inherit!important;
   @include media(pc) {
+    width: 100%;
     border: red 2px solid;
   }
 

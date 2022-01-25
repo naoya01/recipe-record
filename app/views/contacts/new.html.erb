@@ -5,9 +5,9 @@
 
 <%= form_for(@contact, url: confirm_path) do |f| %>
   <div class="contact-new_container">
-    <div class="contact-new_row"><%= f.label :name, 'お名前*' %></div>
+    <div class="contact-new_row">お名前*</div>
     <div class="contact-new_row_content"><%= f.text_field :name, autofocus: true, class: 'form-control' %></div>
-    <div class="contact-new_row"><%= f.label :message, 'お問い合わせ内容*' %></div>
+    <div class="contact-new_row">お問い合わせ内容*</div>
     <div class="contact-new_row_content">
       <%= f.text_area :message, size: '10x10', class: 'form-control' %>
     </div>
