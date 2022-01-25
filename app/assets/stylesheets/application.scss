@@ -4045,7 +4045,7 @@ transition: .3s;
     margin-right: 10px;
     a {
       border: 1px solid #ccc;
-      padding: 10px;
+      padding: 10px 13px;
     }
   }
 
@@ -4056,7 +4056,7 @@ transition: .3s;
     @include margin_vw(0, 15, 0, 15);
     a {
       @include font-size(26);
-      @include padding_vw(10, 15, 10, 15);
+      @include padding_vw(10, 16, 10, 16);
     }
   }
 }
