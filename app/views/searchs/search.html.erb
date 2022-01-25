@@ -11,4 +11,5 @@
     <%= render 'posts/index', posts: @records %>
     <% end %>
     <%= paginate @records %>
+    <%= link_to 'Back', meals_path ,class: "back-btn_show" %>
 </div>
