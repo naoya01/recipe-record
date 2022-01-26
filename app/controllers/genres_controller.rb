@@ -1,5 +1,7 @@
 class GenresController < ApplicationController
+  # 管理者を判別し、管理者のみ実行できるアクション
   before_action :user_admin, only: [:edit,:destroy,:create,:update]
+
   def index
     @genres = Genre.all
     @genre = Genre.new
@@ -7,14 +9,17 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+    # あるジャンルの中で自分のものだけを抽出
     @cookings = Cooking.joins(:tags).where(tags: { genre_id: @genre.id }, user_id: current_user.id).page(params[:page]).per(10)
   end
 
+  # あるジャンルの今月の投稿を表示
   def month
     @genre = Genre.find(params[:id])
     @cookings = Cooking.joins(:tags,:meal).where(tags: { genre_id: @genre.id }, user_id: current_user.id ,meals: {date: Date.current.all_month}).page(params[:page]).per(10)
   end
 
+  # あるジャンルの今週の投稿を表示
   def week
     @genre = Genre.find(params[:id])
     @cookings = Cooking.joins(:tags,:meal).where(tags: { genre_id: @genre.id }, user_id: current_user.id ,meals: {date: Date.current.all_week}).page(params[:page]).per(10)

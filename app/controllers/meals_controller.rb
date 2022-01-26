@@ -46,7 +46,6 @@ class MealsController < ApplicationController
   def edit
   end
 
-
   # POST /meals or /meals.json
   def create
     @meal = Meal.new(meal_params)
@@ -113,6 +112,9 @@ class MealsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    
+    # 日本語を英語に変換
+    #　管理者とログインしたユーザのみ実行できるように設定、自分以外のユーザの作ったページに行こうとするとカレンダーページに遷移する
     def set_meal
       @meal = Meal.find(params[:id])
       if @meal.mealtime == "朝"
@@ -135,6 +137,7 @@ class MealsController < ApplicationController
          ])
     end
 
+    # 編集の際に日付と食事時間のデータを送らないことでバリデーとに引っ掛からないように設定
     def meal_edit_params
       params.require(:meal).permit(:title, :meal_description, :date,:_destroy,
         cookings_attributes: [:id, :cooking_name,:url,:user_id, :_destroy,

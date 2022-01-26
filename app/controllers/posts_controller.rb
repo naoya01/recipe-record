@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  #　管理者とログインしたユーザのみ実行できるアクション
   before_action :set_post, only: %i[ show edit update destroy  ]
 
   def new
@@ -54,7 +55,7 @@ class PostsController < ApplicationController
         )
   end
 
-  def set_post
+  def set_post　#　管理者とログインしたユーザのみ実行できるように設定、自分以外のユーザの作ったページに行こうとするとカレンダーページに遷移する
     @post = Post.find(params[:id])
     unless  @post.user_id == current_user.id || current_user.admin == true
       redirect_to meals_path
