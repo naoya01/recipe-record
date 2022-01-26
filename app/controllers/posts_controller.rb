@@ -55,7 +55,8 @@ class PostsController < ApplicationController
         )
   end
 
-  def set_post　#　管理者とログインしたユーザのみ実行できるように設定、自分以外のユーザの作ったページに行こうとするとカレンダーページに遷移する
+#　管理者とログインしたユーザのみ実行できるように設定、自分以外のユーザの作ったページに行こうとするとカレンダーページに遷移する
+  def set_post
     @post = Post.find(params[:id])
     unless  @post.user_id == current_user.id || current_user.admin == true
       redirect_to meals_path
