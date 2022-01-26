@@ -3734,14 +3734,16 @@ transition: .3s;
 }
 
 .fc-center {
+  font-weight: 500;
   @include media(pc) {
+    font-size: 25px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include font-size(30);
+    @include font-size(35);
   }
 }
 
@@ -4421,3 +4423,4 @@ width: 100%;
     border: calc(3 / #{$sp-size} * 100vw) solid red ;
   }
 }
+
