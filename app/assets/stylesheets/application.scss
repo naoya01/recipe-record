@@ -3973,6 +3973,7 @@ transition: .3s;
 
 .chart-title {
   display: block;
+  text-align: center;
   @include media(pc) {
     margin-bottom: 20px;
   }
