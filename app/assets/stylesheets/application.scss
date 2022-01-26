@@ -3841,6 +3841,7 @@ transition: .3s;
   display: block;
   text-align: center;
   @include media(pc) {
+    font-weight: bold;
   }
 
   @include media(tb) {
@@ -3973,8 +3974,9 @@ transition: .3s;
 
 .chart-title {
   display: block;
-  text-align: center;
   @include media(pc) {
+    font-weight: bold;
+    text-align: center;
     margin-bottom: 20px;
   }
 
