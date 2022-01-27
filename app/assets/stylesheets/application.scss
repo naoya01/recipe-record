@@ -3850,6 +3850,7 @@ transition: .3s;
   }
 
   @include media(sp) {
+    font-weight: 500;
     @include font-size(20);
   }
 }
@@ -3986,6 +3987,7 @@ transition: .3s;
   }
 
   @include media(sp) {
+    font-weight: 500;
     @include font-size(24);
     @include margin-bottom(10);
   }
