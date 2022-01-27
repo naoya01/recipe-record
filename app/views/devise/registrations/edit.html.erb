@@ -3,7 +3,7 @@
     <h2 class="m-title">登録情報編集</h2>
 
   </div>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="login-table">
         <div class="login-table_row">
           <span class="login-table_row_title">ユーザーネーム</span>
@@ -17,7 +17,11 @@
           <span class="login-table_row_content"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></span>
         </div>
         <div class="login-table_row">
-          <span class="login-table_row_title">パスワード(6字以上)</span>
+          <span class="login-table_row_title">変更前パスワード</span>
+          <span class="login-table_row_content"><%= f.password_field :current_password, autocomplete: "current-password"%></span>
+        </div>
+        <div class="login-table_row">
+          <span class="login-table_row_title">変更後パスワード(6字以上)</span>
           <span class="login-table_row_content"><%= f.password_field :password, autocomplete: "new-password" %></span>
         </div>
         <div class="login-table_row">
@@ -25,7 +29,7 @@
           <span class="login-table_row_content"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></span>
         </div>
       </div>
+
     <%= f.submit "更新", class:"btn-login" %>
   <% end %>
 </div>
-

@@ -2531,6 +2531,7 @@ button {
     justify-content: space-between;
     padding: 15px 10px 15px 10px;
     font-size: 20px;
+    line-height: 1.5;
   }
 
   @include media(tb) {

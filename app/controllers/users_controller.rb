@@ -7,6 +7,6 @@ class UsersController < ApplicationController
     @cookings = current_user.cookings.page(params[:page]).per(30)
   end
 
-  def edit
-  end
+
+
 end
