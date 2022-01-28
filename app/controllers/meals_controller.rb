@@ -104,7 +104,7 @@ class MealsController < ApplicationController
     end
   end
 
-  # カレンダーの下にクリックしたら表示させる機能のためにデータを取得
+  # カレンダーの下にクリックしたら表示させる機能のために日付のデータを取得
   def day
     meals = Meal.joins(:cookings).select("meals.id,mealtime, title, meal_description, cookings.cooking_name ,cookings.url ,cookings.user_id").where(date: params[:day],user_id: current_user.id )
     render json: meals

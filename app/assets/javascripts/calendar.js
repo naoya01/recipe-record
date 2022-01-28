@@ -37,11 +37,13 @@ $(function() {
 
     //eventClickとdayclickでは取得できるものに違いがあるため2つ記述してある。それぞれ別の方法で日付を取得している。
     eventClick: function(info) {
+      // クリックしたイベントの日付を取得(例：2020-1-1)
       // console.log(info.start._i);
       dayMealEvent(info.start._i);
     },
 
     dayClick: function dayEvent (date, jsEvent, view) {
+      // クリックした日のデータを取得(例：2020-1-1)
       // console.log(`${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`);  「``」で式を出力できる
       var params = `${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`;
       dayMealEvent(params);
