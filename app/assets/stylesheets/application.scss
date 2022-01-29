@@ -1403,7 +1403,7 @@ button {
   @include media(sp) {
     @include margin_vw(0, 0, 100, 0);
     span {
-      @include font-size(24);
+      @include font-size(40);
     }
   }
 }
@@ -3136,12 +3136,36 @@ transition: .3s;
 //----------------------meals-show 食事の詳細---------------------
 .m-title_flex_show_breakfast{
   color: lightsalmon;
+    @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
 }
 .m-title_flex_show_lunch{
   color: darkseagreen;
+    @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
 }
 .m-title_flex_show_dinner{
   color: mediumslateblue;
+    @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
 }
 
 .meals-show_description {
