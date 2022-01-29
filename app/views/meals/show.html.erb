@@ -2,7 +2,13 @@
   <div class="m-title_flex_show">
     <h2 class="m-title">
       <%= @meal.date.strftime('%Y/%m/%d') %><br class="u-sp"/>
-      <% if @meal.mealtime == "breakfast" %> [朝食] <% elsif @meal.mealtime =="lunch" %> [昼食] <% else %> [夕食] <% end %>
+      <% if @meal.mealtime == "breakfast" %>
+        <span class="m-title_flex_show_breakfast">[朝食]</span>
+      <% elsif @meal.mealtime =="lunch" %>
+        <span class="m-title_flex_show_lunch">[昼食]</span>
+      <% else %>
+        <span class="m-title_flex_show_dinner">[夕食]</span>
+      <% end %>
     </h2>
     <%= link_to '編集', edit_meal_path(@meal.id) ,class: "meal_edit_btn" %>
   </div>
