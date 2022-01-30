@@ -33,7 +33,8 @@
 
 ## 設計書
 ### ER図
-![pf_ER]![pf_ER](https://user-images.githubusercontent.com/93042220/151698459-5e779b7c-07e3-467d-a28d-8c649bf48709.jpg)
+![ER図](https://user-images.githubusercontent.com/93042220/151698518-4153ff66-0324-4bb9-a26a-051a6fb86369.jpg)
+
 
 
 ### チャレンジ要素一覧
