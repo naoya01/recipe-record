@@ -27,7 +27,8 @@
 -  料理時に作り方を見たいとき
 
 ## 設計書
-![pf_ER](https://user-images.githubusercontent.com/93042220/151695372-1de3b343-488b-4475-8a8e-129fee800936.png)
+![pf_ER](https://user-images.githubusercontent.com/93042220/151696499-eda130d7-5356-4f5e-883e-b1dab0cbd482.jpg)
+
 
 ## チャレンジ要素一覧
 [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1JOr0skKkhRxZkdFON3QVWHU0aYcqBlxOa2OuriFrG-Q/edit?usp=sharing)
