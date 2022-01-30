@@ -32,12 +32,14 @@
 -  料理時に作り方を見たいとき
 
 ## 設計書
+### ER図
 ![pf_ER](https://user-images.githubusercontent.com/93042220/151696499-eda130d7-5356-4f5e-883e-b1dab0cbd482.jpg)
 
-
-## チャレンジ要素一覧
+### チャレンジ要素一覧
 [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1JOr0skKkhRxZkdFON3QVWHU0aYcqBlxOa2OuriFrG-Q/edit?usp=sharing)
 
+### テーブル定義書
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1A1S4GDBMeafqzThQcjk956ajttIBXT2iVHn6TSL2w9Y/edit?usp=sharing)
 
 ## 開発環境
 - OS：Linux(CentOS)
