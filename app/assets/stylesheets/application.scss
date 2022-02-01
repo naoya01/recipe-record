@@ -4475,7 +4475,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(27);
+    @include font-size(26);
     @include margin_top(50);
     @include margin_bottom(50);
     @include padding_vw(0, 40, 0, 40);
