@@ -4475,11 +4475,11 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(24);
+    @include font-size(27);
     @include margin_top(50);
     @include margin_bottom(50);
     @include padding_vw(0, 30, 0, 30);
-    @include line-height(40);
+    @include line-height(45);
   }
 }
 
@@ -4533,7 +4533,7 @@ button {
 }
 
 .usage-container_row_text_list {
-  list-style: auto;
+  list-style: decimal;
   @include media(pc) {
   }
 
