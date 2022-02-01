@@ -609,7 +609,7 @@ button {
     @include height(60);
     @include font-size(30);
     input[type="text"] {
-      @include width(280);
+      @include width(210);
       @include height(40);
       @include font-size(20);
     }
@@ -621,14 +621,14 @@ button {
       @include width(50);
       @include height(50);
       @include font-size(20);
-      @include margin-left(10);
+      @include margin-left(5);
       &:hover {
         transition: 0.3s;
         background-color: #ccc;
       }
     }
     select {
-      @include width(170);
+      @include width(165);
       @include height(40);
       @include font-size(18);
       @include margin-left(20);
@@ -636,7 +636,24 @@ button {
   }
 }
 
-.l-header_username {
+.l-header_other {
+  display: flex;
+  align-items: center;
+  @include media(pc) {
+
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-left(10);
+    @include margin-right(10);
+
+  }
+}
+
+.l-header_other_username {
   text-align: right;
   a {
     color: sienna;
@@ -649,15 +666,13 @@ button {
   }
 
   @include media(sp) {
-    @include width(160);
-    @include font-size(20);
+    @include width(190);
+    @include font-size(15);
     @include line-height(20);
-    @include margin-left(20);
-    @include margin-right(20);
   }
 }
 
-.l-header_username_text {
+.l-header_ohter_username_text {
   @include media(pc) {
     margin-left: 5px;
   }
@@ -666,7 +681,49 @@ button {
   }
 
   @include media(sp) {
-    @include margin-left(10);
+    @include margin-left(5);
+  }
+}
+
+.l-header_other_usage{
+  a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #777;
+  }
+  @include media(pc) {
+    margin-left: 20px;
+    a{
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-left(15);
+    a{
+    @include margin-top(5);
+    @include font-size(15);
+    @include line-height(20);
+    }
+  }
+}
+
+.l-header_other_usage_text{
+  @include media(pc) {
+    margin-top: 3px;
+    font-size: 10px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(1);
+    @include font-size(10);
+
   }
 }
 /* ------------------------------------- スクロール時 -------------------------------------------------*/
