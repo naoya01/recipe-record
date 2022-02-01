@@ -4558,7 +4558,7 @@ button {
 
   @include media(sp) {
     @include font-size(35);
-    @include padding_vw(15, 15, 15, 15);
+    @include padding_vw(30, 15, 30, 15);
     border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
   }
 }
