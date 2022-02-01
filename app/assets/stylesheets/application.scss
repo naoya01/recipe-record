@@ -4462,31 +4462,36 @@ button {
   }
 }
 
-
-// ------------------------usage --------------------------
+// ------------------------ usage --------------------------
 .usage-container {
-  display:none;
+  display: none;
   @include media(pc) {
-    margin-bottom: 50px;
     margin-top: 30px;
+    margin-bottom: 50px;
+    line-height: 1.8;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include font-size(24);
+    @include margin_top(50);
+    @include margin_bottom(50);
+    @include padding_vw(0, 30, 0, 30);
+    @include line-height(40);
   }
 }
 
-.usage-container_title{
+.usage-container_title {
   background-color: #eeb;
-  transition: .3s;
-  &:hover{
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
     background-color: #e0e0bb;
   }
   @include media(pc) {
     padding: 20px;
-    cursor: pointer;
     font-size: 22px;
     border: 1px solid #ccc;
   }
@@ -4495,15 +4500,18 @@ button {
   }
 
   @include media(sp) {
+    @include font-size(35);
+    @include padding_vw(15, 15, 15, 15);
+    border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
   }
 }
 
 .usage-container_row {
-  display: flex;
-  justify-content: space-between;
   margin: auto;
   @include media(pc) {
     max-width: 900px;
+    display: flex;
+    justify-content: space-between;
   }
 
   @include media(tb) {
@@ -4514,8 +4522,6 @@ button {
 }
 .usage-container_row_text {
   @include media(pc) {
-    max-width: 50%;
-    line-height: 1.8;
     margin: 10px;
   }
 
@@ -4526,9 +4532,9 @@ button {
   }
 }
 
-.usage-container_row_text_list{
-    list-style: auto;
-    @include media(pc) {
+.usage-container_row_text_list {
+  list-style: auto;
+  @include media(pc) {
   }
 
   @include media(tb) {
@@ -4538,33 +4544,37 @@ button {
   }
 }
 
-.usage-container_row_text_important{
-    @include media(pc) {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #fee;
+.usage-container_row_text_important {
+  background-color: #fee;
+  display: inline-block;
+  @include media(pc) {
+    margin-top: 10px;
+    padding: 10px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin_top(20);
+    @include padding_vw(15, 15, 15, 15);
   }
 }
 
-.usage-container_row_text_list_item{
-    @include media(pc) {
-      margin-top: 30px;
+.usage-container_row_text_list_item {
+  @include media(pc) {
+    margin-top: 30px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include font-size(30);
+    @include margin-top(20);
+    @include margin-bottom(20);
   }
 }
-
 
 .usage-container_row_image {
   text-align: center;
@@ -4572,10 +4582,10 @@ button {
   @include media(pc) {
     margin-top: 30px;
     margin-left: 50px;
-      img {
-        max-width: 100%;
-        border: 1px solid #ccc;
-        margin: 10px;
+    img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      margin: 10px;
     }
   }
 
@@ -4583,34 +4593,41 @@ button {
   }
 
   @include media(sp) {
+    margin: auto;
+    img {
+      @include margin_vw(40,auto,40,auto);
+      border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
+    }
   }
 }
 
-.usage-container_row_other{
+.usage-container_row_other {
+  background-color: #fee;
   @include media(pc) {
     margin-top: 30px;
     padding: 10px;
-    background-color: #fee;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
+    @include margin_top(20);
+    @include padding_vw(15, 15, 15, 15);
   }
 }
 
-.usage-container_row_image_other{
+.usage-container_row_image_other {
   @include media(pc) {
     justify-content: center;
     margin: 20px auto;
-    span{
+    span {
       display: flex;
       font-size: 15px;
       align-items: center;
       margin: 10px;
     }
-    img{
+    img {
       border: 1px solid #ccc;
       width: 40%;
     }
@@ -4620,9 +4637,21 @@ button {
   }
 
   @include media(sp) {
+    display: flex;
+     span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    flex-direction: column;
+    img {
+      @include margin_vw(40,auto,40,auto);
+      border: 1px solid #ccc;
+      width: 70%;
+    }
   }
 }
 
-.accordion_open{
+.accordion_open {
   display: none;
 }
