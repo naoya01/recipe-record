@@ -667,7 +667,7 @@ button {
 
   @include media(sp) {
     @include width(190);
-    @include font-size(15);
+    @include font-size(20);
     @include line-height(20);
   }
 }
@@ -705,7 +705,7 @@ button {
     @include margin-left(15);
     a{
     @include margin-top(5);
-    @include font-size(15);
+    @include font-size(20);
     @include line-height(20);
     }
   }
@@ -722,7 +722,7 @@ button {
 
   @include media(sp) {
     @include margin-top(1);
-    @include font-size(10);
+    @include font-size(15);
 
   }
 }
