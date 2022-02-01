@@ -667,7 +667,7 @@ button {
 
   @include media(sp) {
     @include width(190);
-    @include font-size(20);
+    @include font-size(25);
     @include line-height(20);
   }
 }
@@ -3987,6 +3987,9 @@ button {
   @include media(sp) {
     @include padding_vw(40, 0, 40, 0);
     border-radius: calc(20 / #{$sp-size} * 100vw);
+    span{
+      @include font-size(20);
+    }
   }
 }
 .rank-_list_item_head {
