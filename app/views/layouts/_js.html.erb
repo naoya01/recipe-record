@@ -22,6 +22,10 @@
       return false;
     });
 
+    $(".usage-container_title").on("click",function(){
+      $(this).next().slideToggle();
+    });
+
     //一覧の並び方
     let $grid = $(".cooking_list"),
       emptyCells = [],

@@ -60,25 +60,38 @@
       <div class="rank-container_block">
         <span class="rank-title">今月のランキング</span>
           <ul class="rank-list">
-            <% @genres_month.each.with_index(1) do |genre, i| %>
-            <li class="rank-list_item">
-              <span class="rank-_list_item_head">第<%= i %>位</span>
-              <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,month_genre_path(genre.id) %></span>
+            <% if @genres_month.present? %>
+              <% @genres_month.each.with_index(1) do |genre, i| %>
+              <li class="rank-list_item">
+                <span class="rank-_list_item_head">第<%= i %>位</span>
+                <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,month_genre_path(genre.id) %></span>
+              </li>
+              <% end %>
+            <% else %>
+              <li class="rank-list_item">
+              <span>今週の投稿なし</span>
             </li>
-            <% end %>
+          <% end %>
           </ul>
       </div>
 
       <div class="rank-container_block">
         <span class="rank-title">今週のランキング</span>
         <ul class="rank-list">
-          <% @genres_week.each.with_index(1) do |genre, i| %>
-          <li class="rank-list_item">
-            <span class="rank-_list_item_head">第<%= i %>位</span>
-            <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,week_genre_path(genre.id) %></span>
+          <% if @genres_week.present? %>
+            <% @genres_week.each.with_index(1) do |genre, i| %>
+            <li class="rank-list_item">
+              <span class="rank-_list_item_head">第<%= i %>位</span>
+              <span class="rank-_list_item_genre"><%= link_to genre.genre_name ,week_genre_path(genre.id) %></span>
+            </li>
+            <% end %>
+          <% else %>
+            <li class="rank-list_item">
+            <span>今週の投稿なし</span>
           </li>
-          <% end %>
+        <% end %>
         </ul>
+
       </div>
   </div>
   <div class="chart-container">

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'usage/index'
   devise_for :users
   root "homes#top"
   get '/search', to: 'searchs#search'
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'
+  get 'usage', to: 'usage#index'
 end

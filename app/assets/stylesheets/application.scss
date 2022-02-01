@@ -123,7 +123,7 @@ $footer-height_sp: 100;
 }
 
 @mixin add-color {
-   background-color: rgb(233, 149, 156);
+  background-color: rgb(233, 149, 156);
 }
 
 @mixin pager-color {
@@ -264,7 +264,7 @@ $footer-height_sp: 100;
   }
 
   @include media(sp) {
-    border-radius: calc(10 / #{$sp-size} * 100vw)!important;
+    border-radius: calc(10 / #{$sp-size} * 100vw) !important;
     @include font-size(24);
     width: calc(180 / #{$sp-size} * 100vw) !important;
     @include height(80);
@@ -657,8 +657,8 @@ button {
   }
 }
 
-.l-header_username_text{
-   @include media(pc) {
+.l-header_username_text {
+  @include media(pc) {
     margin-left: 5px;
   }
 
@@ -1272,7 +1272,7 @@ button {
   @include media(sp) {
     @include margin_vw(100, 0, 100, 0);
     @include padding-top(80);
-    border-top: dotted calc(10 /#{$sp-size} * 100vw) #e6b57d ;
+    border-top: dotted calc(10 /#{$sp-size} * 100vw) #e6b57d;
     span {
       @include font-size(40);
     }
@@ -2856,13 +2856,13 @@ button {
 }
 
 .meals-index_top_left_post {
-    color: #666;
-transition: .3s;
+  color: #666;
+  transition: 0.3s;
   background-color: mistyrose;
 
   @include media(pc) {
     font-size: 18px;
-        border: 1px solid #ccc;
+    border: 1px solid #ccc;
     padding: 10px;
     border-radius: 10px;
   }
@@ -2871,14 +2871,14 @@ transition: .3s;
   }
 
   @include media(sp) {
-    @include padding_vw(20,20,20,20);
+    @include padding_vw(20, 20, 20, 20);
     border-radius: calc(10 / #{$sp-size} * 100vw);
     @include font-size(20);
   }
 }
 
 .meals-index_top_left_create {
-  transition: .3s;
+  transition: 0.3s;
   display: flex;
   align-items: center;
   color: #666;
@@ -2898,16 +2898,15 @@ transition: .3s;
   @include media(sp) {
     @include margin-left(30);
     @include font-size(20);
-    @include padding_vw(20,20,20,20);
+    @include padding_vw(20, 20, 20, 20);
     border-radius: calc(10 / #{$sp-size} * 100vw);
-
   }
 }
 
 .meals-index_top_left_new {
   text-align: center;
   background: rgb(255, 213, 179);
-  box-shadow: 0px 0px 0px 5px rgb(255, 213, 179);;
+  box-shadow: 0px 0px 0px 5px rgb(255, 213, 179);
   color: #454545;
   @include media(pc) {
     font-size: 16px;
@@ -3134,9 +3133,9 @@ transition: .3s;
 }
 
 //----------------------meals-show 食事の詳細---------------------
-.m-title_flex_show_breakfast{
+.m-title_flex_show_breakfast {
   color: lightsalmon;
-    @include media(pc) {
+  @include media(pc) {
   }
 
   @include media(tb) {
@@ -3145,9 +3144,9 @@ transition: .3s;
   @include media(sp) {
   }
 }
-.m-title_flex_show_lunch{
+.m-title_flex_show_lunch {
   color: darkseagreen;
-    @include media(pc) {
+  @include media(pc) {
   }
 
   @include media(tb) {
@@ -3156,9 +3155,9 @@ transition: .3s;
   @include media(sp) {
   }
 }
-.m-title_flex_show_dinner{
+.m-title_flex_show_dinner {
   color: mediumslateblue;
-    @include media(pc) {
+  @include media(pc) {
   }
 
   @include media(tb) {
@@ -3302,7 +3301,7 @@ transition: .3s;
   }
 
   @include media(sp) {
-    @include margin_vw(20,30,20,30);
+    @include margin_vw(20, 30, 20, 30);
   }
 }
 
@@ -3329,7 +3328,7 @@ transition: .3s;
   }
 }
 
-.fa-circle:before{
+.fa-circle:before {
   color: #fff;
   @include media(pc) {
     margin-right: 5px;
@@ -3415,8 +3414,8 @@ transition: .3s;
     display: none;
   }
   @include media(pc) {
-  margin-left: 20px;
-  margin-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   @include media(tb) {
@@ -4129,8 +4128,8 @@ transition: .3s;
   @include media(sp) {
     a {
       border-radius: calc(15 / #{$sp-size} * 100vw);
-      @include padding_vw(10,10,10,10);
-      @include margin_vw(auto,10,auto,10);
+      @include padding_vw(10, 10, 10, 10);
+      @include margin_vw(auto, 10, auto, 10);
       border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
@@ -4163,8 +4162,8 @@ transition: .3s;
   @include media(sp) {
     a {
       border-radius: calc(15 / #{$sp-size} * 100vw);
-      @include padding_vw(10,10,10,10);
-      @include margin_vw(auto,10,auto,10);
+      @include padding_vw(10, 10, 10, 10);
+      @include margin_vw(auto, 10, auto, 10);
       border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
@@ -4214,8 +4213,8 @@ transition: .3s;
   @include media(sp) {
     a {
       border-radius: calc(15 / #{$sp-size} * 100vw);
-      @include padding_vw(10,10,10,10);
-      @include margin_vw(auto,10,auto,10);
+      @include padding_vw(10, 10, 10, 10);
+      @include margin_vw(auto, 10, auto, 10);
       border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
@@ -4249,8 +4248,8 @@ transition: .3s;
   @include media(sp) {
     a {
       border-radius: calc(15 / #{$sp-size} * 100vw);
-      @include padding_vw(10,10,10,10);
-      @include margin_vw(auto,10,auto,10);
+      @include padding_vw(10, 10, 10, 10);
+      @include margin_vw(auto, 10, auto, 10);
       border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
@@ -4308,10 +4307,10 @@ transition: .3s;
   }
 }
 
-.contact_name{
+.contact_name {
   @include media(pc) {
-      width: 30%;
-      padding: 5px;
+    width: 30%;
+    padding: 5px;
   }
 
   @include media(tb) {
@@ -4322,7 +4321,7 @@ transition: .3s;
   }
 }
 
-.contact-btn_flex{
+.contact-btn_flex {
   @include media(pc) {
     display: flex;
     justify-content: space-around;
@@ -4378,9 +4377,8 @@ transition: .3s;
   }
 }
 
-
 // ---------------------contact-done お問い合わせ完了---------------------------
-.contact-done_container{
+.contact-done_container {
   position: absolute;
   top: 0;
   left: 0;
@@ -4405,8 +4403,7 @@ transition: .3s;
   }
 }
 
-
-.contact-done_container_text{
+.contact-done_container_text {
   background-color: floralwhite;
   @include media(pc) {
     font-size: 35px;
@@ -4418,36 +4415,32 @@ transition: .3s;
 
   @include media(sp) {
     @include font-size(40);
-    @include padding_vw(10,0,10,0);
+    @include padding_vw(10, 0, 10, 0);
   }
 }
 
-
-
 // ---------------------------エラーメッセージ------------------------------------
-.errors{
+.errors {
   color: red;
   flex-direction: column-reverse;
-  align-items: start!important;
-    @include media(pc) {
-      margin-bottom: 10px;
-      td{
-        margin: 5px 0 5px 0;
-      }
+  align-items: start !important;
+  @include media(pc) {
+    margin-bottom: 10px;
+    td {
+      margin: 5px 0 5px 0;
+    }
   }
 
-
   @include media(tb) {
-
   }
 
   @include media(sp) {
   }
 }
 
-.field_with_errors{
-background-color: inherit!important;
-width: 100%;
+.field_with_errors {
+  background-color: inherit !important;
+  width: 100%;
   @include media(pc) {
     border: red 2px solid;
   }
@@ -4456,7 +4449,180 @@ width: 100%;
   }
 
   @include media(sp) {
-    border: calc(3 / #{$sp-size} * 100vw) solid red ;
+    border: calc(3 / #{$sp-size} * 100vw) solid red;
   }
 }
 
+.cooking-new_table {
+  input[type="hidden"] {
+    content: "";
+  }
+  input[type="file"] {
+    content: "";
+  }
+}
+
+
+// ------------------------usage --------------------------
+.usage-container {
+  display:none;
+  @include media(pc) {
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.usage-container_title{
+  background-color: #eeb;
+  transition: .3s;
+  &:hover{
+    background-color: #e0e0bb;
+  }
+  @include media(pc) {
+    padding: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    border: 1px solid #ccc;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.usage-container_row {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  @include media(pc) {
+    max-width: 900px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+.usage-container_row_text {
+  @include media(pc) {
+    max-width: 50%;
+    line-height: 1.8;
+    margin: 10px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.usage-container_row_text_list{
+    list-style: auto;
+    @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.usage-container_row_text_important{
+    @include media(pc) {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #fee;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.usage-container_row_text_list_item{
+    @include media(pc) {
+      margin-top: 30px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+
+.usage-container_row_image {
+  text-align: center;
+  max-width: 300px;
+  @include media(pc) {
+    margin-top: 30px;
+    margin-left: 50px;
+      img {
+        max-width: 100%;
+        border: 1px solid #ccc;
+        margin: 10px;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.usage-container_row_other{
+  @include media(pc) {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #fee;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.usage-container_row_image_other{
+  @include media(pc) {
+    justify-content: center;
+    margin: 20px auto;
+    span{
+      display: flex;
+      font-size: 15px;
+      align-items: center;
+      margin: 10px;
+    }
+    img{
+      border: 1px solid #ccc;
+      width: 40%;
+    }
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
+}
+
+.accordion_open{
+  display: none;
+}

@@ -1,0 +1,166 @@
+      <div class="l-main_container">
+        <div class="m-title_flex">
+          <h2 class="m-title">使い方</h2>
+        </div>
+
+        <h3 class="usage-container_title">レシピ投稿</h3>
+        <div class="usage-container">
+          <ul class="usage-container_row_text_list">
+            <div class="usage-container_row">
+              <div class="usage-container_row_text">
+                <li class="usage-container_row_text_list_item">記入していく</li>
+                ・料理名<br>
+                ・画像<br>
+                ・説明<br>
+                ・何人分<br>
+                ・材料<br>
+                ・調味料<br>
+                ・作り方<br>
+                それぞれ記入する（「説明」以外は必須です）
+
+              </div>
+              <div class="usage-container_row_image">
+                <%= image_tag ('post_1.jpg')%>
+              </div>
+            </div>
+
+            <div class="usage-container_row usage-container_row_other">
+              <div class="usage-container_row_text">※ 「追加」をクリックすると記入欄が増えます</div>
+            </div>
+            <div class="usage-container_row usage-container_row_image_other">
+                <%= image_tag ('post_2.jpg')%>
+                <span>「追加」をクリック →</span>
+                <%= image_tag ('post_3.jpg') %>
+            </div>
+
+            <div class="usage-container_row">
+              <div class="usage-container_row_text">
+                <li class="usage-container_row_text_list_item">保存する</li>
+                「保存」ボタンをクリックすることでレシピの登録ができます
+              </div>
+                <div class="usage-container_row_image">
+                  <%= image_tag ('post_4.jpg')%>
+                </div>
+            </div>
+          </ul>
+        </div>
+
+        <h3 class="usage-container_title">カレンダーに追加</h3>
+        <div class="usage-container">
+          <ul class="usage-container_row_text_list">
+            <div class="usage-container_row">
+              <div class="usage-container_row_text">
+                  <li class="usage-container_row_text_list_item">記入していく</li>
+                ・タイトル<br>
+                ・説明<br>
+                ・日にち<br>
+                ・食事時間<br>
+                ・材料<br>
+                ・料理名<br>
+                ・URL<br>
+                ・ジャンル<br><br>
+                それぞれ記入する（「説明」と「URL」以外は必須です）<br>
+                <span class="usage-container_row_text_important">URLを記入しておくことを推奨します</span>
+              </div>
+              <div class="usage-container_row_image">
+                <%= image_tag ('meals_1.jpg')%>
+              </div>
+            </div>
+
+            <div class="usage-container_row usage-container_row_other">
+              <div class="usage-container_row_text">※ 「追加」をクリックすると記入欄が増えます</div>
+            </div>
+            <div class="usage-container_row usage-container_row_image_other">
+                <%= image_tag ('meals_2.jpg')%>
+                <span>「追加」をクリック →</span>
+                <%= image_tag ('meals_3.jpg') %>
+            </div>
+
+            <div class="usage-container_row">
+              <div class="usage-container_row_text">
+                  <li class="usage-container_row_text_list_item">保存する</li>
+                      「保存」ボタンをクリックすることでカレンダーに料理を追加することができます
+              </div>
+                  <div class="usage-container_row_image">
+                    <%= image_tag ('post_4.jpg')%>
+                  </div>
+            </div>
+          </ul>
+        </div>
+
+        <h3 class="usage-container_title">過去の食事・レシピを見る</h3>
+        <div class="usage-container">
+          <ul class="usage-container_row_text_list">
+            <div class="usage-container_row">
+              <div class="usage-container_row_text">
+                <li class="usage-container_row_text_list_item">カレンダーの日付をクリック</li>
+                カレンダーの下にその日の食事が表示されます
+              </div>
+              <div class="usage-container_row_image">
+                <%= image_tag ('calendar_1.jpg')%>
+              </div>
+            </div>
+            <div class="usage-container_row">
+              <div class="usage-container_row_text">
+                <li class="usage-container_row_text_list_item">色付きの料理名をクリックすると</li>
+                カレンダーに追加するときに記入したURLのページに移動できます
+              </div>
+              <div class="usage-container_row_image">
+                <%= image_tag ('calendar_02.jpg')%>
+              </div>
+            </div>
+          </ul>
+        </div>
+
+        <h3 class="usage-container_title">お気に入り</h3>
+        <div class="usage-container">
+          <div class="usage-container_row">
+            <div class="usage-container_row_text">
+              食べてよかった料理をお気に入りしておき<br>
+              すぐに見れるようにできます<br><br>
+              お気に入りしたものはヘッダーの「お気に入り」から見れます
+            </div>
+            <div class="usage-container_row_image">
+              <%= image_tag ('favorite_1.jpg')%>
+              <%= image_tag ('favorite_2.jpg')%>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="usage-container_title">ランキング</h3>
+        <div class="usage-container">
+          <div class="usage-container_row">
+            <div class="usage-container_row_text">
+              ジャンル別にランキングを表示してます<br>
+              「全体」「先月」「今月」の３つ<br>
+              それぞれ５位まで表示します<br>
+            </div>
+            <div class="usage-container_row_image">
+              <%= image_tag ('ranking_1.jpg')%>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="usage-container_title">グラフ</h3>
+        <div class="usage-container">
+          <div class="usage-container_row">
+            <div class="usage-container_row_text">
+              何を食べたかをジャンル別に表示しています<br>
+              １つ目のグラフは「先月」と「今月」を比較しています<br><br>
+            </div>
+            <div class="usage-container_row_image">
+              <%= image_tag ('chart_1.jpg')%>
+            </div>
+          </div>
+          <div class="usage-container_row">
+            <div class="usage-container_row_text">
+              ２つ目のグラフは「先週」と「今週」を比較しています<br><br>
+            </div>
+            <div class="usage-container_row_image">
+              <%= image_tag ('chart_2.jpg')%>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
