@@ -1,5 +1,5 @@
 class UsageController < ApplicationController
-  def index
-    
+  def usage
+
   end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'usage/index'
   devise_for :users
   root "homes#top"
+  get 'usage', to: 'usage#usage'
   get '/search', to: 'searchs#search'
   resources :posts
   resources :users, only: %i[index show edit]
@@ -16,10 +17,8 @@ Rails.application.routes.draw do
   resources :cookings do
     resource :favorites, only: [:create, :destroy]
   end
-
   resources :contacts, only: [:new, :create]
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'
-  get 'usage', to: 'usage#index'
 end

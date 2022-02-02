@@ -32,6 +32,9 @@
           </li>
           <% else %>
           <li class="l-nav_item">
+            <%= link_to '使い方', usage_path, class: "l-nav_item_anchor"%>
+          </li>
+          <li class="l-nav_item">
             <%= link_to 'ログイン', new_user_session_path, class: "l-nav_item_anchor"%>
           </li>
           <li class="l-nav_item">
