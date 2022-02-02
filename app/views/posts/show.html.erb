@@ -22,7 +22,11 @@
 
     <div class="cooking-show_column">
       <div class="cooking-show_column_image">
-        <%= attachment_image_tag(@post, :post_image, :fill, 300, 300) %>
+        <% if @post.post_image.present? %>
+          <%= attachment_image_tag(@post, :post_image, :fill, 300, 300) %>
+        <% else %>
+          <%= image_tag ('no_image_1.jpg')%>
+        <% end %>
       </div>
       <div class="cooking-show_column_contents">
         <p class="cooking-show_column_contents_explanation">
