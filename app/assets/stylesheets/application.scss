@@ -618,8 +618,8 @@ button {
       background-color: #ffffff00;
       cursor: pointer;
       border-radius: 50%;
-      @include width(50);
-      @include height(50);
+      @include width(40);
+      @include height(40);
       @include font-size(20);
       @include margin-left(5);
       &:hover {
@@ -1952,7 +1952,7 @@ button {
 
   @include media(sp) {
     @include width(#{$sp-size});
-    @include margin_vw(-40, auto, auto, -40);
+    @include margin_vw(auto, auto, auto, -40);
     img {
       @include width(#{$sp-size});
     }
