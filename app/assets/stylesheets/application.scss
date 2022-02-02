@@ -1952,7 +1952,7 @@ button {
 
   @include media(sp) {
     @include width(#{$sp-size});
-    @include margin_vw(auto, auto, auto, -40);
+    @include margin_vw(-40, auto, auto, -40);
     img {
       @include width(#{$sp-size});
     }
