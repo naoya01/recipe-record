@@ -4526,8 +4526,8 @@ button {
 .usage-container {
   display: none;
   @include media(pc) {
-    margin-top: 30px;
-    margin-bottom: 50px;
+    font-size: 18px;
+    padding: 30px 30px 50px 30px;
     line-height: 1.8;
   }
 
@@ -4536,9 +4536,7 @@ button {
 
   @include media(sp) {
     @include font-size(26);
-    @include margin_top(50);
-    @include margin_bottom(50);
-    @include padding_vw(0, 40, 0, 40);
+    @include padding_vw(30, 40, 50, 40);
     @include line-height(60);
   }
 }
@@ -4569,7 +4567,7 @@ button {
 .usage-container_row {
   margin: auto;
   @include media(pc) {
-    max-width: 900px;
+    max-width: 1100px;
     display: flex;
     justify-content: space-between;
   }
