@@ -2699,6 +2699,7 @@ button {
 
   @include media(sp) {
     flex-wrap: wrap;
+    justify-content: space-between;
     @include width(600);
   }
 }
@@ -2729,8 +2730,6 @@ button {
   }
 
   @include media(sp) {
-    @include margin_left(20);
-    margin: auto;
   }
 }
 
@@ -2916,7 +2915,9 @@ button {
   color: #666;
   transition: 0.3s;
   background-color: mistyrose;
-
+  &:hover{
+    transform: scale(1.2);
+  }
   @include media(pc) {
     font-size: 18px;
     border: 1px solid #ccc;
@@ -2940,7 +2941,9 @@ button {
   align-items: center;
   color: #666;
   background-color: mistyrose;
-
+  &:hover{
+    transform: scale(1.2);
+  }
   @include media(pc) {
     margin-left: 40px;
     font-size: 17px;
@@ -2965,6 +2968,10 @@ button {
   background: rgb(255, 213, 179);
   box-shadow: 0px 0px 0px 5px rgb(255, 213, 179);
   color: #454545;
+  transition: .3s;
+  &:hover{
+    transform: scale(1.2);
+  }
   @include media(pc) {
     font-size: 16px;
     padding: 10px 15px 10px 15px;

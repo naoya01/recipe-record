@@ -16,7 +16,7 @@
       <h2 class="m-title"><%= @post.post_name %></h2>
       <div class="m-title_other">
         <%= link_to "編集" , edit_post_path(@post.id), class: "m-title_other_button_edit" %>
-        <%= link_to "削除" ,post_path(@post.id),method: :delete, data: {confirm:'本当に消しますか？'},class: "m-title_other_button_delete" %>
+        <%= link_to "削除" ,post_path(@post.id),method: :delete, data: {confirm:'本当に削除しますか？'},class: "m-title_other_button_delete" %>
       </div>
     </div>
 

@@ -39,7 +39,6 @@ class MealsController < ApplicationController
     # cocoonで料理とジャンルを同時保存のために記述
     @cookings = @meal.cookings.build
     @tags = @cookings.tags.build
-
   end
 
   # GET /meals/1/edit
