@@ -1294,7 +1294,7 @@ button {
   }
 
   @include media(sp) {
-    @include padding_vw(50, 40, 190, 40);
+    @include padding_vw(50, 40, 100, 40);
   }
 }
 
