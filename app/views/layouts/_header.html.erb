@@ -19,19 +19,19 @@
         <ul class="l-navbarnav_list">
           <% if user_signed_in? %>
           <li class="l-nav_item">
-            <%= link_to meals_path, class: "l-nav_item_anchor" do %>
+          <%= link_to meals_path, class: "l-nav_item_anchor" do %>
             <i class="fas fa-calendar-alt u-sp l-nav_item_anchor_mark"></i>
-              <span class="l-nav_item_anchor_text">カレンダー</span>
-            <% end %>
+            <span class="l-nav_item_anchor_text">カレンダー</span>
+          <% end %>
           </li>
-            <li class="l-nav_item">
-              <%= link_to genres_path, class: "l-nav_item_anchor" do %>
-              <i class="fas fa-tags u-sp l-nav_item_anchor_mark"></i>
-              <span class="l-nav_item_anchor_text">ジャンル</span>
-              <% end %>
-            </li>
+          <li class="l-nav_item">
+          <%= link_to genres_path, class: "l-nav_item_anchor" do %>
+            <i class="fas fa-tags u-sp l-nav_item_anchor_mark"></i>
+            <span class="l-nav_item_anchor_text">ジャンル</span>
+          <% end %>
+          </li>
          <li class="l-nav_item">
-            <%= link_to user_path(current_user), class: "l-nav_item_anchor" do %>
+          <%= link_to user_path(current_user), class: "l-nav_item_anchor" do %>
             <i class="fas fa-star u-sp l-nav_item_anchor_mark"></i>
             <span class="l-nav_item_anchor_text">お気に入り</span>
             <% end %>
@@ -44,19 +44,22 @@
           </li>
           <% else %>
           <li class="l-nav_item">
-            <%= link_to  usage_path, class: "l-nav_item_anchor" do %>
-              <span class="l-nav_item_anchor_text">使い方</span>
+          <%= link_to  usage_path, class: "l-nav_item_anchor" do %>
+            <i class="fas fa-question-circle u-sp l-nav_item_anchor_mark"></i>
+            <span class="l-nav_item_anchor_text">使い方</span>
+          <% end %>
+          </li>
+          <li class="l-nav_item">
+          <%= link_to new_user_session_path, class: "l-nav_item_anchor" do %>
+            <i class="fas fa-sign-in-alt u-sp l-nav_item_anchor_mark"></i>
+            <span class="l-nav_item_anchor_text">ログイン</span>
             <% end %>
           </li>
           <li class="l-nav_item">
-            <%= link_to new_user_session_path, class: "l-nav_item_anchor" do %>
-              <span class="l-nav_item_anchor_text">ログイン</span>
-            <% end %>
-          </li>
-          <li class="l-nav_item">
-            <%= link_to  new_user_registration_path, class: "l-nav_item_anchor" do %>
+          <%= link_to  new_user_registration_path, class: "l-nav_item_anchor" do %>
+            <i class="fas fa-user-plus u-sp l-nav_item_anchor_mark"></i>
             <span class="l-nav_item_anchor_text">新規登録</span>
-            <% end %>
+          <% end %>
           </li>
           <% end%>
         </ul>
