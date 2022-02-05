@@ -1137,6 +1137,7 @@ button {
   }
 
   @include media(sp) {
+    display: none;
     @include height($footer-height_sp);
     @include margin_top(-$footer-height_sp);
   }
@@ -1292,7 +1293,7 @@ button {
   }
 
   @include media(sp) {
-    @include padding_vw(70, 40, 200, 40);
+    @include padding_vw(70, 40, 190, 40);
   }
 }
 
