@@ -1,5 +1,6 @@
 $(function() {
   function eventCalendar() {
+
     return $('#calendar').fullCalendar({});
   }
 
