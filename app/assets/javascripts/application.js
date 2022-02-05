@@ -158,21 +158,14 @@
           if (scroll < nav_height) {
             $(".l-header").removeClass("inv");
             $(".l-header").removeClass("DownMove"); //.l-headerにDownMoveというクラス名を除き
-            $(".l-header").removeClass("DOWNMove"); //.l-headerにDownMoveというクラス名を除き
+            $(".l-header").removeClass("UpMove"); //.l-headerにUpMoveというクラス名を除き
             //IE11対策で処理を入れない
           } else if (0 < scroll - beforePos) {
             //下にスクロールした時ヘッダーが上に消える
-            if ($(".l-nav").hasClass("show") == false) {
+
               $(".l-header").removeClass("DownMove"); //.l-headerにDownMoveというクラス名を除き
-              $(".l-header").addClass("UpMove"); //.l-headerにUpMoveのクラス名を追加
-            }
-          } else {
-            if ($(".l-nav").hasClass("show") == false) {
-              // 上にスクロールした時ヘッダーが上から出現
               $(".l-header").removeClass("UpMove"); //.l-headerにUpMoveというクラス名を除き
-              $(".l-header").addClass("DownMove"); //.l-headerにDownMoveのクラス名を追加
-              $(".l-header").removeClass("inv");
-            }
+
           }
 
           beforePos = scroll; //現在のスクロール値を比較用のbeforePosに格納

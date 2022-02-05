@@ -9,40 +9,58 @@
         <h1 class="l-header_title"><%= image_tag ('logo.png')%></h1>
       <% end %>
     <% end %>
-    <nav>
-      <span class="l-nav_btn">
-        <span class="l-nav_btn_bar"></span>
-        <span class="l-nav_btn_bar"></span>
-        <span class="l-nav_btn_bar"></span>
-      </span>
-      <div class="l-nav">
+    <nav class="l-nav">
+      <!--<span class="l-nav_btn">-->
+      <!--  <span class="l-nav_btn_bar"></span>-->
+      <!--  <span class="l-nav_btn_bar"></span>-->
+      <!--  <span class="l-nav_btn_bar"></span>-->
+      <!--</span>-->
+      <!--<div class="l-nav">-->
         <ul class="l-navbarnav_list">
           <% if user_signed_in? %>
           <li class="l-nav_item">
-            <%= link_to 'カレンダー', meals_path, class: "l-nav_item_anchor"%>
+            <%= link_to meals_path, class: "l-nav_item_anchor" do %>
+            <i class="fas fa-calendar-alt u-sp l-nav_item_anchor_mark"></i>
+              <span class="l-nav_item_anchor_text">カレンダー</span>
+            <% end %>
           </li>
             <li class="l-nav_item">
-              <%= link_to 'ジャンル', genres_path, class: "l-nav_item_anchor"%>
+              <%= link_to genres_path, class: "l-nav_item_anchor" do %>
+              <i class="fas fa-tags u-sp l-nav_item_anchor_mark"></i>
+              <span class="l-nav_item_anchor_text">ジャンル</span>
+              <% end %>
             </li>
          <li class="l-nav_item">
-            <%= link_to "お気に入り" , user_path(current_user), class: "l-nav_item_anchor"%>
+            <%= link_to user_path(current_user), class: "l-nav_item_anchor" do %>
+            <i class="fas fa-star u-sp l-nav_item_anchor_mark"></i>
+            <span class="l-nav_item_anchor_text">お気に入り</span>
+            <% end %>
           </li>
           <li class="l-nav_item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class: "l-nav_item_anchor"%>
+          <%= link_to destroy_user_session_path, method: :delete , class: "l-nav_item_anchor" do %>
+            <i class="fas fa-sign-out-alt u-sp l-nav_item_anchor_mark"></i>
+            <span class="l-nav_item_anchor_text">ログアウト</span>
+          <% end %>
           </li>
           <% else %>
           <li class="l-nav_item">
-            <%= link_to '使い方', usage_path, class: "l-nav_item_anchor"%>
+            <%= link_to  usage_path, class: "l-nav_item_anchor" do %>
+              <span class="l-nav_item_anchor_text">使い方</span>
+            <% end %>
           </li>
           <li class="l-nav_item">
-            <%= link_to 'ログイン', new_user_session_path, class: "l-nav_item_anchor"%>
+            <%= link_to new_user_session_path, class: "l-nav_item_anchor" do %>
+              <span class="l-nav_item_anchor_text">ログイン</span>
+            <% end %>
           </li>
           <li class="l-nav_item">
-            <%= link_to '新規登録', new_user_registration_path, class: "l-nav_item_anchor"%>
+            <%= link_to  new_user_registration_path, class: "l-nav_item_anchor" do %>
+            <span class="l-nav_item_anchor_text">新規登録</span>
+            <% end %>
           </li>
           <% end%>
         </ul>
-      </div>
+      <!--</div>-->
     </nav>
   </div>
   <% if user_signed_in? %>

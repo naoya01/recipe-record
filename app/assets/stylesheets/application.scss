@@ -80,6 +80,9 @@ $sp-size: 767;
 
 $header-height_pc: 80px;
 $header-height_sp: 120;
+$search-height_sp: 60;
+
+$header-total_height_sp: $header-height_sp+$search-height_sp;
 
 $footer-height_pc: 80px;
 $footer-height_sp: 100;
@@ -488,10 +491,10 @@ button {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
   z-index: 100;
   transition: 0.3s;
   @include media(pc) {
+    flex-direction: column;
     width: 100%;
     height: $header-height_pc;
     position: fixed;
@@ -499,19 +502,20 @@ button {
     @include main-color;
   }
 
-  @include media(tb) {
-    width: 100%;
-    height: 110px;
-    padding-right: 30px;
-    position: fixed;
-    transition: 0.4s;
-  }
+  //   @media print, screen and (max-width: 1000px) and (min-width: 768px) {
+  //   width: 100%;
+  //   height: $header-height_pc;
+  //   position: fixed;
+  //   transition: 0.4s;
+  //   @include main-color;
+  // }
 
   @include media(sp) {
+    flex-direction: column-reverse;
     background-color: lightyellow;
     position: fixed;
     width: 100%;
-    top: 0;
+    bottom: 0;
     z-index: 5;
   }
 }
@@ -539,8 +543,8 @@ button {
 }
 
 .l-header_title {
-  display: flex;
   @include media(pc) {
+    display: flex;
     height: $header-height_pc;
     width: 110px;
     align-items: center;
@@ -552,6 +556,7 @@ button {
   }
 
   @include media(sp) {
+    display: none;
     background-color: #ffffffaa;
   }
   img {
@@ -606,7 +611,7 @@ button {
     width: 100%;
     @include padding-top(10);
     @include padding-bottom(10);
-    @include height(60);
+    @include height($search-height_sp);
     @include font-size(30);
     input[type="text"] {
       @include width(210);
@@ -770,9 +775,11 @@ button {
 /*　下に下がる動き　*/
 
 .l-header.DownMove {
-  animation: DownAnime 0.5s forwards;
+    @include media(pc) {
+    animation: DownAnime 0.5s forwards;
   // background-color: #fff;
   transition: 0.2s;
+  }
 }
 
 @keyframes DownAnime {
@@ -796,19 +803,19 @@ button {
   }
 
   @include media(sp) {
-    cursor: pointer;
-    z-index: 5;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0);
-    @include width($header-height_sp);
-    @include height($header-height_sp);
-    @include padding_vw(45, 35, 45, 35);
-    &:hover {
-      transition: 0.3s;
-      opacity: 0.7;
-    }
+    // cursor: pointer;
+    // z-index: 5;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // background-color: rgba(0, 0, 0, 0);
+    // @include width($header-height_sp);
+    // @include height($header-height_sp);
+    // @include padding_vw(45, 35, 45, 35);
+    // &:hover {
+    //   transition: 0.3s;
+    //   opacity: 0.7;
+    // }
   }
 }
 
@@ -820,7 +827,7 @@ button {
   }
 
   @include media(sp) {
-    background-color: #ddd;
+    // background-color: #ddd;
   }
 }
 
@@ -832,25 +839,25 @@ button {
   }
 
   @include media(sp) {
-    @include width(50);
-    @include height(4);
-    background-color: darkred;
-    display: block;
-    display: flex;
-    justify-content: center;
-    transition: 0.3s;
-    position: absolute;
+    // @include width(50);
+    // @include height(4);
+    // background-color: darkred;
+    // display: block;
+    // display: flex;
+    // justify-content: center;
+    // transition: 0.3s;
+    // position: absolute;
 
     &:nth-child(1) {
-      top: calc(46 / #{$sp-size} * 100vw);
+      // top: calc(46 / #{$sp-size} * 100vw);
     }
 
     &:nth-child(2) {
-      top: calc(58 / #{$sp-size} * 100vw);
+      // top: calc(58 / #{$sp-size} * 100vw);
     }
 
     &:nth-child(3) {
-      top: calc(70 / #{$sp-size} * 100vw);
+      // top: calc(70 / #{$sp-size} * 100vw);
     }
   }
 }
@@ -888,29 +895,31 @@ button {
   }
 
   @include media(sp) {
-    @include main-color;
-    opacity: 0.1;
-    position: absolute;
-    top: 0;
-    // margin-top: calc(120 / #{$sp-size} * 100vw);
-    left: 100%;
-    height: 100vh;
-    width: 100vw;
-    transition: 0.4s;
+    width: 100%;
+    height: 100%;
+    // @include main-color;
+    // opacity: 0.1;
+    // position: absolute;
+    // top: 0;
+    // // margin-top: calc(120 / #{$sp-size} * 100vw);
+    // left: 100%;
+    // height: 100vh;
+    // width: 100vw;
+    // transition: 0.4s;
   }
 }
 
 .show {
-  position: absolute;
-  position: fixed;
-  overflow: scroll;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100vw;
-  height: 100vh;
-  transition: 0.4s;
-  opacity: 1;
+  // position: absolute;
+  // position: fixed;
+  // overflow: scroll;
+  // top: 0;
+  // left: 0;
+  // z-index: 1;
+  // width: 100vw;
+  // height: 100vh;
+  // transition: 0.4s;
+  // opacity: 1;
 }
 
 .l-navbar {
@@ -935,12 +944,13 @@ button {
   }
 
   @include media(sp) {
-    flex-direction: column;
-    justify-content: space-between;
+    // flex-direction: column;
+    justify-content: space-around;
     text-align: center;
     height: 100%;
-    @include padding-top($header-height_sp);
-    @include padding-bottom($footer-height_sp);
+    width: 100%;
+    // @include padding-top($header-height_sp);
+    // @include padding-bottom($footer-height_sp);
   }
 }
 
@@ -975,6 +985,7 @@ button {
 
   @include media(sp) {
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1023,11 +1034,12 @@ button {
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    @include font-size(40);
-    @include padding_vw(10, 10, 10, 10);
+    color: rgb(190, 110, 105);
+    @include font-size(15);
+    // @include padding_vw(10, 10, 10, 10);
     border-radius: calc(10 / #{$sp-size} * 100vw);
     &:hover {
       transition-duration: 0.3s;
@@ -1035,6 +1047,29 @@ button {
       background-color: rgb(255, 255, 255);
       opacity: 1;
     }
+  }
+}
+.l-nav_item_anchor_mark{
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include font-size(40);
+  }
+}
+
+.l-nav_item_anchor_text{
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(15);
   }
 }
 
@@ -1116,7 +1151,6 @@ button {
   align-items: center;
   justify-content: center;
   left: 0;
-  bottom: 0px;
   transition-duration: 0.3s;
   cursor: pointer;
   &:hover {
@@ -1138,6 +1172,7 @@ button {
   }
 
   @include media(sp) {
+    bottom: calc(#{$header-total_height_sp} / 767 * 100vw);
     @include width(100);
     @include height(100);
   }
@@ -1181,7 +1216,6 @@ button {
   align-items: center;
   justify-content: center;
   right: 0;
-  bottom: 0px;
   transition-duration: 0.3s;
   cursor: pointer;
   &:hover {
@@ -1191,6 +1225,7 @@ button {
     color: rgb(168, 99, 99);
   }
   @include media(pc) {
+    bottom: 0px;
     width: 160px;
     height: 160px;
     border-radius: 50%;
@@ -1202,6 +1237,7 @@ button {
   }
 
   @include media(sp) {
+    bottom: calc(#{$header-total_height_sp} / 767 * 100vw);
     @include width(100);
     @include height(100);
   }
@@ -1234,8 +1270,7 @@ button {
   }
 
   @include media(sp) {
-    @include padding_top($header-height_sp);
-    @include padding_bottom($footer-height_sp);
+    @include padding_bottom($footer-height_sp+$header-height_sp);
     min-height: 100vh;
   }
 }
@@ -1257,7 +1292,7 @@ button {
   }
 
   @include media(sp) {
-    @include padding_vw(100, 40, 100, 40);
+    @include padding_vw(70, 40, 200, 40);
   }
 }
 
