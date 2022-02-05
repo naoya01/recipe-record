@@ -1,14 +1,11 @@
 $(document).on('turbolinks:load', function () {
-  
   function eventCalendar() {
-
     return $('#calendar').fullCalendar({});
   }
 
   function clearCalendar() {
     $('#calendar').html('');
   }
-
 
   $('#calendar').fullCalendar({
     events: '/meals.json',
