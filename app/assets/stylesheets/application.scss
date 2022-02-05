@@ -2883,7 +2883,6 @@ button {
 
   @include media(sp) {
     @include padding_vw(0, 0, 0, 0);
-    @include margin-bottom(100);
   }
 }
 
@@ -3039,7 +3038,7 @@ button {
   }
 
   @include media(sp) {
-    @include margin-bottom(100);
+    @include margin-top(100);
   }
 }
 
@@ -3968,6 +3967,16 @@ button {
 .rank-container {
   display: flex;
   justify-content: space-around;
+  @include media(pc) {
+
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(100);
+  }
 }
 
 .rank-container_block {
