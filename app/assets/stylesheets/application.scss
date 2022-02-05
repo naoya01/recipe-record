@@ -989,6 +989,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: calc(1 / #{$sp-size} * 100vw) solid #e7c9bc;
   }
 }
 .l-nav_item + .l-nav_item {
