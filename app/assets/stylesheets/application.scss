@@ -3422,7 +3422,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(25);
+    @include font-size(24);
     @include padding_vw(10, 20, 10, 10);
     border-radius: calc(25 /#{$sp-size} * 100vw) 0 0
       calc(25 /#{$sp-size} * 100vw); /*左側の角を丸く*/
