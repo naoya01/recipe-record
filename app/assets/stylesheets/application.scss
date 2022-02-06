@@ -79,7 +79,7 @@ $sp-size: 767;
 // $tb-size: 1400;
 
 $header-height_pc: 80px;
-$header-height_sp: 120;
+$header-height_sp: 100;
 $search-height_sp: 60;
 
 $header-total_height_sp: $header-height_sp+$search-height_sp;
@@ -1058,7 +1058,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(40);
+    @include font-size(35);
   }
 }
 
@@ -1070,7 +1070,7 @@ button {
   }
 
   @include media(sp) {
-    @include margin-top(15);
+    @include margin-top(10);
   }
 }
 
