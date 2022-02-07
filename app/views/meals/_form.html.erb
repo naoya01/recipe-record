@@ -15,7 +15,7 @@
     <span class="meals-new_table_row_title"><%= s.label "日にち" %></span>
     <!--料理を登録する際は日付を記入し、編集時は変更できないようにしている-->
     <% if current_page?(new_meal_path) %>
-      <span class="meals-new_table_row_content"><%= s.date_field :date %></span>
+      <span class="meals-new_table_row_content"><%= s.date_field :date ,value: Time.now.strftime("%Y-%m-%d") %></span>
     <% else %>
     <!--編集時は日付を変更しないようにしているためhidden_fieldで日付のデータを送っている-->
       <span class="meals-new_table_row_content"><%= s.hidden_field :date,:value => @meal.date %><%= @meal.date %></span>
