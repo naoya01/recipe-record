@@ -4757,6 +4757,22 @@ button {
   display: none;
 }
 
+#calendarModal_date{
+  display: block;
+  text-align: center;
+  @include media(pc) {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include margin-top(20);
+    @include font-size(25);
+}
+}
 .modal{
     overflow: scroll;
     border-radius: 10px;

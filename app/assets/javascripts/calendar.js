@@ -50,14 +50,16 @@ $(document).on('turbolinks:load', function () {
       dayMealEvent(info.start._i);
         $(".modal-bg").addClass("modal-bg_open")
         $('.modal').fadeIn();
+
         return false;
     },
 
     dayClick: function dayEvent (date, jsEvent, view) {
       // クリックした日のデータを取得(例：2020-1-1)
-      // console.log(`${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`);  「``」で式を出力できる
+      console.log(`${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`);  //「``」で式を出力できる
       var params = `${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`;
       dayMealEvent(params);
+
         $(".modal-bg").addClass("modal-bg_open")
         $('.modal').fadeIn();
         return false;
@@ -69,6 +71,8 @@ function dayMealEvent(params) {
   $.ajax('/meals/day?day=' + params)
       .done(function(data){
         console.log(data);
+        $('#calendarModal_date').empty();
+        $('#calendarModal_date').html(params)
         $('.meals-index_event-container').css('display','block');
         $('#meals-index_event_breakfast_content').empty();
         $('#meals-index_event_lunch_content').empty();

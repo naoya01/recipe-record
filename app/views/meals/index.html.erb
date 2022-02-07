@@ -14,6 +14,7 @@
   <span class="modal-bg"></span>
   <% if  Meal.where(user_id: current_user.id).present? %>
     <div id="calendarModal" class="meals-index_event-container modal fade">
+      <span id="calendarModal_date"></span>
       <div id="meals-index_event_breakfast" class="event">
         <div class="meals-index_mealtime">
         <span class="meals-index_mealtime_title">朝</span>
