@@ -4799,15 +4799,22 @@ button {
 
 .modal-bg{
   transition: .3s;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+
 }
 
 .modal-bg_open{
-    transition: .3s;
-    background: rgba(0, 0, 0, 0.4);
-    height: 100vh;
-    position: fixed;
-    width: 100%;
-    z-index: 15;
-    top: 0;
-    left: 0;
+  transition: .3s;
+  background: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  z-index: 15;
+  top: 0;
+  left: 0;
 }
