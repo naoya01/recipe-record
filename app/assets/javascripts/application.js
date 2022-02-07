@@ -207,7 +207,7 @@
 
     $(".meals-show_container_row_url").each(function (i, e) {
       if ($(e).attr("href")) {
-        $(e).css("color", "#0ac");
+        $(e).css("color", "crimson");
       } else {
         $(e).removeAttr("href");
         $(e).css("color", "#000");
@@ -217,7 +217,7 @@
 
     $(".users-show_favorite_block_content_title").each(function (i, e) {
       if ($(e).attr("target")) {
-        $(e).css("color", "#0ac");
+        $(e).css("color", "crimson");
       } else {
         $(e).removeAttr("href");
         $(e).css("color", "#000");

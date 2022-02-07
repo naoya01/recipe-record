@@ -116,7 +116,7 @@ function dayMealEvent(params) {
 
           $('.meals-index_ivents_container_list_item_anchor').each(function(i,e){
             if ($(e).attr('href')){
-              $(e).css('color','#0ac');
+              $(e).css('color','crimson');
             } else {
               $(e).removeAttr("href");
               $(e).css('color','#000');

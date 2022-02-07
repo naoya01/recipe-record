@@ -734,7 +734,9 @@ button {
 }
 /* ------------------------------------- スクロール時 -------------------------------------------------*/
 .UpMove {
+  @include media(pc) {
   animation: UpAnime 0.5s forwards;
+  }
   // position: fixed;
 }
 
@@ -757,7 +759,6 @@ button {
 
 .l-header.UpMove {
   animation: UpAnime 0.5s forwards;
-  background-color: rgba(0, 0, 0, 0);
   // position: fixed;
 }
 
@@ -776,7 +777,7 @@ button {
 /*　下に下がる動き　*/
 
 .l-header.DownMove {
-    @include media(pc) {
+  @include media(pc) {
     animation: DownAnime 0.5s forwards;
   // background-color: #fff;
   transition: 0.2s;
@@ -3211,7 +3212,6 @@ button {
 }
 
 .meals-index_ivents_container_list_item_anchor {
-  color: #7b1;
   @include media(pc) {
   }
 
