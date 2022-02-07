@@ -9,8 +9,8 @@
       <%= image_tag ('no_image_1.jpg')%>
       <% end %>
     </span>
-    <span class="cooking_list_item_title"><%= post.post_name %></span>
-    <span class="cooking-list_item_time"><%= post.created_at.strftime("%Y-%m-%d") %></span>
+    <div class="cooking_list_item_title"><%= post.post_name %></div>
+    <div class="cooking-list_item_time"><%= post.created_at.strftime("%Y-%m-%d") %></div>
     <% end %>
   </li>
   <% end %>

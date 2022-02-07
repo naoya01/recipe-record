@@ -22,6 +22,7 @@
 
 
   $(document).on('turbolinks:load', function () {
+
     $(".l-nav_btn").on("click", function () {
       $(".l-nav_btn_bar").toggleClass("open");
       $(".l-nav").toggleClass("show");

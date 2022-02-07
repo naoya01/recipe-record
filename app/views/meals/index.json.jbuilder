@@ -4,3 +4,4 @@ json.array!(@meals) do |meal|
   json.start meal.date
   json.end meal.date
 end
+

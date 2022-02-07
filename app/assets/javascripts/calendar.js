@@ -1,4 +1,13 @@
 $(document).on('turbolinks:load', function () {
+    $('.l-main').on('click',function(e){
+        if(!$(e.target).is('.fc-content ,.fc-title ,.fc-day-number, .fc-day , td ,.meals_show_btn , .meals-index_ivents_container_list_item_anchor ,a ,input ,i ,img,div')) {
+          $('.l-main').removeClass("mpdal-bg")
+          $(".modal-bg").removeClass("modal-bg_open")
+          $('.modal').fadeOut();
+          return false;
+        }
+    });
+
   function eventCalendar() {
     return $('#calendar').fullCalendar({});
   }
@@ -39,6 +48,9 @@ $(document).on('turbolinks:load', function () {
       // クリックしたイベントの日付を取得(例：2020-1-1)
       // console.log(info.start._i);
       dayMealEvent(info.start._i);
+        $(".modal-bg").addClass("modal-bg_open")
+        $('.modal').fadeIn();
+        return false;
     },
 
     dayClick: function dayEvent (date, jsEvent, view) {
@@ -46,6 +58,9 @@ $(document).on('turbolinks:load', function () {
       // console.log(`${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`);  「``」で式を出力できる
       var params = `${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`;
       dayMealEvent(params);
+        $(".modal-bg").addClass("modal-bg_open")
+        $('.modal').fadeIn();
+        return false;
     }
   });
 });
@@ -64,9 +79,9 @@ function dayMealEvent(params) {
 
         data.forEach((event) => {
           console.log(event);
-          $('.meals-index_mealtime_breakfast_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">詳細</a>`)
-          $('.meals-index_mealtime_lunch_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">詳細</a>`)
-          $('.meals-index_mealtime_dinner_show').append(`<a class="${event.mealtime}_show" href="/meals/${event.id}">詳細</a>`)
+          $('.meals-index_mealtime_breakfast_show').append(`<a class="${event.mealtime}_show meals_show_btn" href="/meals/${event.id}">詳細</a>`)
+          $('.meals-index_mealtime_lunch_show').append(`<a class="${event.mealtime}_show meals_show_btn" href="/meals/${event.id}">詳細</a>`)
+          $('.meals-index_mealtime_dinner_show').append(`<a class="${event.mealtime}_show meals_show_btn" href="/meals/${event.id}">詳細</a>`)
 
 
           $('#meals-index_event_breakfast_content').append(

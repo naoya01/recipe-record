@@ -198,7 +198,8 @@ $footer-height_sp: 100;
     border-radius: calc(10 / #{$sp-size} * 100vw);
     @include font-size(20);
     width: calc(100 / #{$sp-size} * 100vw) !important;
-    height: calc(50 / #{$sp-size} * 100vw);
+    height: calc(40 / #{$sp-size} * 100vw);
+    @include margin-left(50);
     // @include padding_vw(30, 10, 30, 10);
     text-align: center;
   }
@@ -1156,7 +1157,7 @@ button {
   transition-duration: 0.3s;
   cursor: pointer;
   &:hover {
-    z-index: 10;
+    z-index: 20;
     border: 1px solid #888;
     background-color: rgb(255, 194, 153);
     transform: scale(1.2);
@@ -2891,8 +2892,8 @@ button {
   align-items: center;
   @include media(pc) {
     justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 30px 50px 30px 50px;
+    padding: 20px 40px;
   }
 
   @include media(tb) {
@@ -2900,7 +2901,8 @@ button {
 
   @include media(sp) {
     flex-direction: column;
-    @include margin_vw(50, 0, 50, 0);
+    @include margin_vw(20, 20, 20, 20);
+    @include padding_vw(20, 10, 20, 10);
     border-radius: calc(10 / #{$sp-size} * 100vw);
   }
 }
@@ -3030,7 +3032,6 @@ button {
   margin-left: auto;
   margin-right: auto;
   @include media(pc) {
-    margin-top: 100px;
     max-width: 1100px;
   }
 
@@ -3038,7 +3039,6 @@ button {
   }
 
   @include media(sp) {
-    @include margin-top(100);
   }
 }
 
@@ -3052,15 +3052,12 @@ button {
     rgba(255, 245, 245, 1)
   );
   @include media(pc) {
-    border-radius: 15px;
-    padding: 20px 40px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include padding_vw(50, 10, 50, 10);
   }
 }
 #meals-index_event_lunch {
@@ -3073,15 +3070,12 @@ button {
     rgba(245, 255, 245, 1)
   );
   @include media(pc) {
-    padding: 20px 40px;
-    border-radius: 15px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include padding_vw(50, 10, 50, 10);
   }
 }
 #meals-index_event_dinner {
@@ -3094,15 +3088,12 @@ button {
     rgba(246, 245, 255, 1)
   );
   @include media(pc) {
-    border-radius: 15px;
-    padding: 20px 40px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include padding_vw(50, 10, 50, 10);
   }
 }
 
@@ -3129,8 +3120,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(30);
-    @include margin-right(50);
+    @include font-size(25);
   }
 }
 
@@ -3142,15 +3132,16 @@ button {
     display: none;
   }
   @include media(pc) {
-    width: 300px;
-    margin-left: 100px;
+    border-radius: 15px;
+    margin-left: 10px;
+    font-size: 14px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include margin-top(50);
+    @include margin-top(10);
   }
 }
 
@@ -3162,15 +3153,15 @@ button {
     display: none;
   }
   @include media(pc) {
-    width: 300px;
-    margin-left: 100px;
+    margin-left: 10px;
+    font-size: 14px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include margin-top(50);
+    @include margin-top(10);
   }
 }
 
@@ -3182,15 +3173,15 @@ button {
     display: none;
   }
   @include media(pc) {
-    width: 300px;
-    margin-left: 100px;
+    margin-left: 10px;
+    font-size: 14px;
   }
 
   @include media(tb) {
   }
 
   @include media(sp) {
-    @include margin-top(50);
+    @include margin-top(10);
   }
 }
 
@@ -3213,9 +3204,9 @@ button {
   }
 
   @include media(sp) {
-    @include margin-top(40);
-    @include margin-bottom(40);
-    @include font-size(25);
+    @include margin-top(20);
+    @include margin-bottom(20);
+    @include font-size(22);
   }
 }
 
@@ -3228,7 +3219,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(25);
+    @include font-size(22);
   }
 }
 
@@ -4765,4 +4756,43 @@ button {
 
 .accordion_open {
   display: none;
+}
+
+.modal{
+    overflow: scroll;
+    border-radius: 10px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background-color: #eee;
+  @include media(pc) {
+    width: 50%;
+    max-height: 65vh;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    width: 60%;
+    max-height: 80vh;
+  }
+}
+
+.modal-bg{
+  transition: .3s;
+}
+
+.modal-bg_open{
+    transition: .3s;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: 15;
+    top: 0;
+    left: 0;
 }
