@@ -1,3 +1,19 @@
+$sp-size: 767;
+@mixin media($device) {
+  @if $device== "pc" {
+    @media print, screen and (min-width: 768px) {
+      @content;
+    }
+    // } @else if $device== "tb" {
+    //   @media print, screen and (max-width: 1440px) and (min-width: 768px) {
+    //     @content;
+    //   }
+  } @else if $device== "sp" {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  }
+}
 body {
   background-color: #fff;
   color: #333;
@@ -103,3 +119,18 @@ label {
   border-color: yellow;
 }
 
+.fc-body{
+ cursor: pointer;
+}
+.fc-day-header{
+  @include media(pc) {
+    padding: 5px 0!important;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    padding: calc(5 / #{$sp-size} * 100vw)!important;
+  }
+}
