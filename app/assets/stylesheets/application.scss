@@ -2902,7 +2902,7 @@ button {
   @include media(sp) {
     flex-direction: column;
     @include margin_vw(20, 20, 20, 20);
-    @include padding_vw(20, 10, 20, 10);
+    @include padding_vw(30, 10, 20, 10);
     border-radius: calc(10 / #{$sp-size} * 100vw);
   }
 }
@@ -3120,7 +3120,7 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(25);
+    @include font-size(30);
   }
 }
 
@@ -3206,7 +3206,7 @@ button {
   @include media(sp) {
     @include margin-top(20);
     @include margin-bottom(20);
-    @include font-size(22);
+    @include font-size(25);
   }
 }
 
@@ -3219,7 +3219,6 @@ button {
   }
 
   @include media(sp) {
-    @include font-size(22);
   }
 }
 
