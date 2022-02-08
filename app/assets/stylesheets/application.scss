@@ -3155,7 +3155,7 @@ button {
     display: none;
   }
   @include media(pc) {
-    margin-left: 10px;
+    margin-left: 30px;
     font-size: 14px;
   }
 
@@ -4794,7 +4794,7 @@ button {
 
   @include media(sp) {
     width: 60%;
-    max-height: 80vh;
+    max-height: 100vw;
   }
 }
 
