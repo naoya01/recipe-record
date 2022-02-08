@@ -4800,7 +4800,7 @@ button {
 
 .modal-bg{
   transition: .3s;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   width: 100%;
   z-index: -1;
@@ -4812,7 +4812,7 @@ button {
 .modal-bg_open{
   transition: .3s;
   background: rgba(0, 0, 0, 0.4);
-  height: 100vh;
+  height: 100%;
   position: fixed;
   width: 100%;
   z-index: 15;
