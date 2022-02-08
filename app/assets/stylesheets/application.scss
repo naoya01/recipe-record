@@ -4775,6 +4775,7 @@ button {
 }
 }
 .modal{
+    transition: .3s;
     overflow: scroll;
     border-radius: 10px;
     display: none;
