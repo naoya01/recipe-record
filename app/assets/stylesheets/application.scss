@@ -2895,6 +2895,7 @@ button {
     justify-content: space-between;
     margin: 30px 50px 30px 50px;
     padding: 20px 40px;
+    border-radius: 10px;
   }
 
   @include media(tb) {

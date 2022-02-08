@@ -124,7 +124,7 @@ label {
 }
 .fc-day-header{
   @include media(pc) {
-    padding: 5px 0!important;
+    padding: 10px 0!important;
   }
 
   @include media(tb) {
