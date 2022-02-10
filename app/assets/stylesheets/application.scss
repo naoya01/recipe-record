@@ -3656,6 +3656,10 @@ button {
   }
 }
 
+.meals-new_table_row_genre{
+  @include margin-top(40);
+}
+
 .meals-new_table_genre_flex {
   display: flex;
   align-items: center;

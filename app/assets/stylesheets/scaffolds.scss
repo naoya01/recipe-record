@@ -48,6 +48,8 @@ a {
   }
 }
 
+
+
 th {
   padding-bottom: 5px;
 }
@@ -133,4 +135,8 @@ label {
   @include media(sp) {
     padding: calc(5 / #{$sp-size} * 100vw)!important;
   }
+}
+
+.fc-view, .fc-view > table{
+  z-index: 0!important;
 }
