@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'usage/index'
   devise_for :users
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
   root "homes#top"
   get 'usage', to: 'usage#usage'
   get '/search', to: 'searchs#search'

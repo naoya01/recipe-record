@@ -82,7 +82,7 @@ $header-height_pc: 80px;
 $header-height_sp: 100;
 $search-height_sp: 60;
 
-$header-total_height_sp: $header-height_sp + $search-height_sp;
+$header-total_height_sp: $header-height_sp+$search-height_sp;
 
 $footer-height_pc: 80px;
 $footer-height_sp: 100;
@@ -646,6 +646,7 @@ button {
   display: flex;
   align-items: center;
   @include media(pc) {
+
   }
 
   @include media(tb) {
@@ -654,6 +655,7 @@ button {
   @include media(sp) {
     @include margin-left(10);
     @include margin-right(10);
+
   }
 }
 
@@ -689,8 +691,8 @@ button {
   }
 }
 
-.l-header_other_usage {
-  a {
+.l-header_other_usage{
+  a{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -698,7 +700,7 @@ button {
   }
   @include media(pc) {
     margin-left: 20px;
-    a {
+    a{
     }
   }
 
@@ -707,15 +709,15 @@ button {
 
   @include media(sp) {
     @include margin-left(15);
-    a {
-      @include margin-top(5);
-      @include font-size(20);
-      @include line-height(20);
+    a{
+    @include margin-top(5);
+    @include font-size(20);
+    @include line-height(20);
     }
   }
 }
 
-.l-header_other_usage_text {
+.l-header_other_usage_text{
   @include media(pc) {
     margin-top: 3px;
     font-size: 10px;
@@ -727,12 +729,13 @@ button {
   @include media(sp) {
     @include margin-top(1);
     @include font-size(15);
+
   }
 }
 /* ------------------------------------- スクロール時 -------------------------------------------------*/
 .UpMove {
   @include media(pc) {
-    animation: UpAnime 0.5s forwards;
+  animation: UpAnime 0.5s forwards;
   }
   // position: fixed;
 }
@@ -776,8 +779,8 @@ button {
 .l-header.DownMove {
   @include media(pc) {
     animation: DownAnime 0.5s forwards;
-    // background-color: #fff;
-    transition: 0.2s;
+  // background-color: #fff;
+  transition: 0.2s;
   }
 }
 
@@ -957,7 +960,7 @@ button {
   @include media(pc) {
     height: 40px;
     justify-content: flex-end;
-    width: 110px;
+    width: 120px;
     line-height: 1.7;
     text-align: center;
     font-size: 20px;
@@ -991,6 +994,11 @@ button {
     border: calc(1 / #{$sp-size} * 100vw) solid #e7c9bc;
   }
 }
+
+.guest_login{
+  background-color: darkseagreen;
+}
+
 .l-nav_item + .l-nav_item {
   @include media(pc) {
   }
@@ -1049,7 +1057,7 @@ button {
     }
   }
 }
-.l-nav_item_anchor_mark {
+.l-nav_item_anchor_mark{
   @include media(pc) {
   }
 
@@ -1061,7 +1069,7 @@ button {
   }
 }
 
-.l-nav_item_anchor_text {
+.l-nav_item_anchor_text{
   @include media(pc) {
   }
 
@@ -1271,7 +1279,7 @@ button {
   }
 
   @include media(sp) {
-    @include padding_bottom($footer-height_sp + $header-height_sp);
+    @include padding_bottom($footer-height_sp+$header-height_sp);
     min-height: 100vh;
   }
 }
@@ -2952,7 +2960,7 @@ button {
   color: #666;
   transition: 0.3s;
   background-color: mistyrose;
-  &:hover {
+  &:hover{
     transform: scale(1.2);
   }
   @include media(pc) {
@@ -2978,7 +2986,7 @@ button {
   align-items: center;
   color: #666;
   background-color: mistyrose;
-  &:hover {
+  &:hover{
     transform: scale(1.2);
   }
   @include media(pc) {
@@ -3005,8 +3013,8 @@ button {
   background: rgb(255, 213, 179);
   box-shadow: 0px 0px 0px 5px rgb(255, 213, 179);
   color: #454545;
-  transition: 0.3s;
-  &:hover {
+  transition: .3s;
+  &:hover{
     transform: scale(1.2);
   }
   @include media(pc) {
@@ -3653,7 +3661,7 @@ button {
   }
 }
 
-.meals-new_table_row_genre {
+.meals-new_table_row_genre{
   @include media(pc) {
   }
 
@@ -3661,8 +3669,8 @@ button {
   }
 
   @include media(sp) {
-    @include margin-top(40);
-    @include font-size(40);
+  @include margin-top(40);
+  @include font-size(40);
   }
 }
 
@@ -3969,6 +3977,7 @@ button {
   display: flex;
   justify-content: space-around;
   @include media(pc) {
+
   }
 
   @include media(tb) {
@@ -4040,7 +4049,7 @@ button {
   @include media(sp) {
     @include padding_vw(40, 0, 40, 0);
     border-radius: calc(20 / #{$sp-size} * 100vw);
-    span {
+    span{
       @include font-size(20);
     }
   }
@@ -4706,7 +4715,7 @@ button {
   @include media(sp) {
     margin: auto;
     img {
-      @include margin_vw(40, auto, 40, auto);
+      @include margin_vw(40,auto,40,auto);
       border: calc(3 / #{$sp-size} * 100vw) solid #ccc;
     }
   }
@@ -4749,14 +4758,14 @@ button {
 
   @include media(sp) {
     display: flex;
-    span {
+     span {
       display: flex;
       justify-content: center;
       align-items: center;
     }
     flex-direction: column;
     img {
-      @include margin_vw(40, auto, 40, auto);
+      @include margin_vw(40,auto,40,auto);
       border: 1px solid #ccc;
       width: 70%;
     }
@@ -4767,7 +4776,7 @@ button {
   display: none;
 }
 
-#calendarModal_date {
+#calendarModal_date{
   display: block;
   text-align: center;
   @include media(pc) {
@@ -4781,18 +4790,18 @@ button {
   @include media(sp) {
     @include margin-top(20);
     @include font-size(25);
-  }
 }
-.modal {
-  overflow: scroll;
-  border-radius: 10px;
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 20;
-  background-color: #eee;
+}
+.modal{
+    overflow: scroll;
+    border-radius: 10px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background-color: #eee;
   @include media(pc) {
     width: 50%;
     max-height: 65vh;
@@ -4807,18 +4816,19 @@ button {
   }
 }
 
-.modal-bg {
-  transition: 0.3s;
+.modal-bg{
+  transition: .3s;
   height: 100vh;
   position: fixed;
   width: 100%;
   z-index: -1;
   top: 0;
   left: 0;
+
 }
 
-.modal-bg_open {
-  transition: 0.3s;
+.modal-bg_open{
+  transition: .3s;
   background: rgba(0, 0, 0, 0.4);
   height: 100vh;
   position: fixed;
@@ -4827,3 +4837,4 @@ button {
   top: 0;
   left: 0;
 }
+

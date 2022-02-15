@@ -44,6 +44,12 @@
           </li>
           <% else %>
           <li class="l-nav_item">
+          <%= link_to  users_guest_sign_in_path, class: "l-nav_item_anchor guest_login", method: :post  do %>
+            <i class="fas fa-question-circle u-sp l-nav_item_anchor_mark"></i>
+            <span class="l-nav_item_anchor_text">ゲストログイン</span>
+          <% end %>
+          </li>
+          <li class="l-nav_item">
           <%= link_to  usage_path, class: "l-nav_item_anchor" do %>
             <i class="fas fa-question-circle u-sp l-nav_item_anchor_mark"></i>
             <span class="l-nav_item_anchor_text">使い方</span>
