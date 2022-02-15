@@ -996,7 +996,15 @@ button {
 }
 
 .guest_login{
-  background-color: darkseagreen;
+  @include media(pc) {
+    background-color: darkseagreen;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+  }
 }
 
 .l-nav_item + .l-nav_item {
@@ -1714,7 +1722,7 @@ button {
   @include media(sp) {
     @include width(500);
     @include height(200);
-    @include margin_vw(60, 0, 60, 0);
+    @include margin_vw(50, 0, 50, 0);
     @include font-size(30);
     border-radius: calc(30 / #{$sp-size} * 100vw);
   }
@@ -1745,17 +1753,41 @@ button {
   @include media(sp) {
     @include width(500);
     @include height(200);
-    @include margin_vw(60, 0, 60, 0);
+    @include margin_vw(50, 0, 50, 0);
     @include font-size(30);
     border-radius: calc(30 / #{$sp-size} * 100vw);
   }
 }
 
+.guest_login{
+  @include media(pc) {
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    background-color: darkseagreen;
+    text-align: center;
+    width: calc(300 / 767 * 100vw);
+    height: calc(60 / 767 * 100vw);
+    margin-top: calc(50 / 767 * 100vw);
+    margin-right: calc(0 / 767 * 100vw);
+    margin-bottom: calc(50 / 767 * 100vw);
+    margin-left: calc(0 / 767 * 100vw);
+    font-size: calc(20 / 767 * 100vw);
+    border-radius: calc(30 / 767 * 100vw);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .top-btn_add {
+    @include media(pc) {
   z-index: 2;
   transition: 0.3s;
   position: absolute;
-  @include media(pc) {
     width: 650px;
     height: 300px;
     font-size: 30px;
@@ -1772,8 +1804,8 @@ button {
 
 .top-btn_remove {
   transition: 0.3s;
-  display: none;
   @include media(pc) {
+  display: none;
   }
 
   @include media(tb) {
