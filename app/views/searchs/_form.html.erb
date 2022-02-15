@@ -10,8 +10,14 @@
   <% end %>
   <div class="l-header_other">
     <div class="l-header_other_username">
-      <%= link_to edit_user_registration_path do %>
-        <i class="fas fa-user-circle"></i><span class="l-header_ohter_username_text"><%= current_user.name %></span>
+      <% if !(current_user.name == "guestuser") %>
+        <%= link_to edit_user_registration_path do %>
+          <i class="fas fa-user-circle"></i><span class="l-header_ohter_username_text"><%= current_user.name %></span>
+        <% end %>
+        <% else %>
+        <%= link_to meals_path do %>
+          <i class="fas fa-user-circle"></i><span class="l-header_ohter_username_text"><%= current_user.name %></span>
+        <% end %>
       <% end %>
     </div>
     <div class="l-header_other_usage">
@@ -21,3 +27,8 @@
     </div>
   </div>
 </div>
+
+
+
+  
+
