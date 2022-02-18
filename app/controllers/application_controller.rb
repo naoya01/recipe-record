@@ -22,7 +22,9 @@ class ApplicationController < ActionController::Base
 
   def ensure_guest_user
     if current_user.name == "guestuser"
+      if (controller_path == 'devise/registrations' && action_name == 'edit')
       redirect_to meals_path
+      end
     end
   end
 end
