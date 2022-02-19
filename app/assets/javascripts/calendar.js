@@ -1,11 +1,11 @@
 $(document).on('turbolinks:load', function () {
     $('.l-main').on('click',function(e){
-        if(!$(e.target).is('.fc-content ,.fc-title ,.fc-day-number, .fc-day , td ,.meals_show_btn , .meals-index_ivents_container_list_item_anchor ,a ,input ,i ,img,div')) {
-          $('.l-main').removeClass("mpdal-bg")
-          $(".modal-bg").removeClass("modal-bg_open")
-          $('.modal').fadeOut();
-          return false;
-        }
+      if(!$(e.target).is('.fc-content ,.fc-title ,.fc-day-number, .fc-day , td ,.meals_show_btn , .meals-index_ivents_container_list_item_anchor ,a ,input ,i ,img,div')) {
+        $('.l-main').removeClass("mpdal-bg")
+        $(".modal-bg").removeClass("modal-bg_open")
+        $('.modal').fadeOut();
+        return false;
+      }
     });
 
   function eventCalendar() {
@@ -47,22 +47,22 @@ $(document).on('turbolinks:load', function () {
     eventClick: function(info) {
       // クリックしたイベントの日付を取得(例：2020-1-1)
       // console.log(info.start._i);
+      // function dayMealEvent(params)が発火する
       dayMealEvent(info.start._i);
         $(".modal-bg").addClass("modal-bg_open")
         $('.modal').fadeIn();
-
         return false;
     },
 
     dayClick: function dayEvent (date, jsEvent, view) {
       // クリックした日のデータを取得(例：2020-1-1)
-      console.log(`${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`);  //「``」で式を出力できる
+      // console.log(`${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`);  //「``」で式を出力できる
       var params = `${date._d.getFullYear()}-${date._d.getMonth() + 1}-${date._d.getDate()}`;
+      // function dayMealEvent(params)が発火する
       dayMealEvent(params);
-
-        $(".modal-bg").addClass("modal-bg_open")
-        $('.modal').fadeIn();
-        return false;
+      $(".modal-bg").addClass("modal-bg_open")
+      $('.modal').fadeIn();
+      return false;
     }
   });
 });

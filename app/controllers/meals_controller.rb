@@ -54,14 +54,10 @@ class MealsController < ApplicationController
     at_dates = Meal.where(date: @meal.date, user_id: current_user.id).pluck(:mealtime)
     # dateにデータが入っていないか、同じ日に３回以内投稿されている
     unless at_dates.include?(@meal.mealtime)
-      respond_to do |format|
-        if @meal.save
-            format.html { redirect_to meal_url(@meal), notice: "Meal was successfully created." }
-            format.json { render :new, status: :created, location: @meal }
-        else
-            format.html { render :new, status: :unprocessable_entity }
-            format.json { render json: @meal.errors, status: :unprocessable_entity }
-        end
+      if @meal.save
+          redirect_to meals_path
+      else
+          render :new
       end
     else
 
@@ -73,34 +69,26 @@ class MealsController < ApplicationController
     else
       flash[:failure] = "#{@meal.date}の夕食はすでに登録済みです"
     end
-    redirect_to new_meal_path
+     redirect_to new_meal_path
     end
   end
 
   # PATCH/PUT /meals/1 or /meals/1.json
   def update
-    @meal.user_id = current_user.id
+    @meal = Meal.find(params[:id])
     # 送信ミスした際にrenderでnewページに遷移さsれた時に日本語になってしまうため英語になるように再定義(ストロングパラメーターに記載)
     mealtime_judge
-      respond_to do |format|
-        if @meal.update(meal_edit_params)
-          format.html { redirect_to meal_url(@meal), notice: "Meal was successfully updated." }
-          format.json { render :show, status: :ok, location: @meal }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @meal.errors, status: :unprocessable_entity }
-        end
+      if @meal.update(meal_edit_params)
+        redirect_to meal_path(@meal)
+      else
+        render :edit
       end
-
   end
 
   # DELETE /meals/1 or /meals/1.json
   def destroy
     @meal.destroy
-    respond_to do |format|
-      format.html { redirect_to meals_url, notice: "Meal was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to meals_path
   end
 
   # カレンダーの下にクリックしたら表示させる機能のために日付のデータを取得
