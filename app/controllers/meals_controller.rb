@@ -91,9 +91,9 @@ class MealsController < ApplicationController
     redirect_to meals_path
   end
 
-  # カレンダーの下にクリックしたら表示させる機能のために日付のデータを取得
+  # カレンダーをクリックしたらモーダルウィンドウで表示させる機能のために日付のデータを取得
   def day
-    meals = Meal.joins(:cookings).select("meals.id,mealtime, date, title, meal_description, cookings.cooking_name ,cookings.url ,cookings.user_id").where(date: params[:day],user_id: current_user.id )
+    meals = Meal.joins(:cookings).select("meals.id, mealtime, date, cookings.cooking_name ,cookings.url").where(date: params[:day],user_id: current_user.id )
     render json: meals
   end
 
