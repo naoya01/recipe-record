@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get '/meals/day', to: 'meals#day'
   resources :meals
   resources :cookings do
-    resource :favorites, only: [:create, :destroy]
+    resource :favorites, only: %i[create destroy]
   end
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: %i[new create]
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'
