@@ -4808,6 +4808,56 @@ button {
   display: none;
 }
 
+.calendarModal_close{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 0px;
+  top: 0px;
+  &:hover{
+    cursor: pointer;
+  }
+  @include media(pc) {
+    width: 30px;
+    height: 30px;
+
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(40);
+    @include height(40);
+  }
+}
+
+.calendarModal_close_bar{
+  background-color: #000;
+  display: block;
+  position: absolute;
+    &:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    &:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+   @include media(pc) {
+    width: 15px;
+    height: 2px;
+  }
+
+  @include media(tb) {
+  }
+
+  @include media(sp) {
+    @include width(20);
+    @include height(3);
+  }
+}
+
 #calendarModal_date{
   display: block;
   text-align: center;
