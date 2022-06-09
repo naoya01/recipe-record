@@ -14,10 +14,10 @@
   <span class="modal-bg"></span>
   <% if  Meal.where(user_id: current_user.id).present? %>
     <div id="calendarModal" class="meals-index_event-container modal fade">
-      <div class="calendarModal_close">
+      <span class="calendarModal_close">
         <span class="calendarModal_close_bar"></span>
         <span class="calendarModal_close_bar"></span>
-      </div>
+      </span>
       <span id="calendarModal_date"></span>
       <div id="meals-index_event_breakfast" class="event">
         <div class="meals-index_mealtime">

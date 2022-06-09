@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function () {
     $('.l-main').on('click',function(e){
-      if(!$(e.target).is('.fc-content ,.fc-title ,.fc-day-number, .fc-day , td ,.meals_show_btn , .meals-index_ivents_container_list_item_anchor ,a ,input ,i ,img,div,.calendarModal_close')) {
+      if(!$(e.target).is('.fc-content ,.fc-title ,.fc-day-number, .fc-day , td ,.meals_show_btn , .meals-index_ivents_container_list_item_anchor ,a ,input ,i ,img,div')) {
         $('.l-main').removeClass("mpdal-bg")
         $(".modal-bg").removeClass("modal-bg_open")
         $('.modal').fadeOut();
